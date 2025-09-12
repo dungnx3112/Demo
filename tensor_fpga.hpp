@@ -50,7 +50,8 @@ void RoPEFPGA(float* q_out, float* k_out, const float* q_in,
 // Activation functions
 void SiLUFPGA(float* out, const float* in, int size);
 
-// Vocabulary projection for final output
+
+
 void VocabProjectionFPGA(float* logits, const float* hidden, 
                         const float* embedding_weights, 
                         int vocab_size, int hidden_dim);
