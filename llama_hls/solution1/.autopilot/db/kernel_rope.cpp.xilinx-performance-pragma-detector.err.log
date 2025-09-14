@@ -1,0 +1,3 @@
+C:\Academic_Sem5\DA1\Demo\kernel_rope.cpp:4:10: fatal error: 'cmath' file not found
+#include <cmath>
+         ^~~~~~~

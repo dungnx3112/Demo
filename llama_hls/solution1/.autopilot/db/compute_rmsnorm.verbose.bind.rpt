@@ -1,0 +1,1229 @@
+
+
+================================================================
+== Vitis HLS Report for 'compute_rmsnorm'
+================================================================
+* Date:           Mon Sep 15 01:27:51 2025
+
+* Version:        2025.1 (Build 6135595 on May 21 2025)
+* Project:        llama_hls
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: versalhbm
+* Target device:  xcv80-lsva4737-2MHP-e-S
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  4.00 ns|  2.907 ns|     1.08 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+------+------+---------+
+    |  Latency (cycles) |  Latency (absolute) |   Interval  | Pipeline|
+    |   min   |   max   |    min   |    max   |  min |  max |   Type  |
+    +---------+---------+----------+----------+------+------+---------+
+    |     2357|     2357|  9.428 us|  9.428 us|  2357|  2357|       no|
+    +---------+---------+----------+----------+------+------+---------+
+
+    + Detail: 
+        * Instance: 
+        +-------------------------------------------------+---------------------------------------+---------+---------+----------+----------+-----+-----+------------------------------------------------+
+        |                                                 |                                       |  Latency (cycles) |  Latency (absolute) |  Interval |                    Pipeline                    |
+        |                     Instance                    |                 Module                |   min   |   max   |    min   |    max   | min | max |                      Type                      |
+        +-------------------------------------------------+---------------------------------------+---------+---------+----------+----------+-----+-----+------------------------------------------------+
+        |grp_compute_rmsnorm_Pipeline_load_input_fu_56    |compute_rmsnorm_Pipeline_load_input    |      770|      770|  3.080 us|  3.080 us|  769|  769|  loop auto-rewind stp (delay=0 clock cycles(s))|
+        |grp_compute_rmsnorm_Pipeline_load_weights_fu_70  |compute_rmsnorm_Pipeline_load_weights  |      770|      770|  3.080 us|  3.080 us|  769|  769|  loop auto-rewind stp (delay=0 clock cycles(s))|
+        |grp_compute_rmsnorm_Pipeline_compute_sum_fu_84   |compute_rmsnorm_Pipeline_compute_sum   |      772|      772|  3.088 us|  3.088 us|  769|  769|  loop auto-rewind stp (delay=0 clock cycles(s))|
+        |grp_compute_rmsnorm_Pipeline_normalize_fu_97     |compute_rmsnorm_Pipeline_normalize     |      773|      773|  3.092 us|  3.092 us|  769|  769|  loop auto-rewind stp (delay=0 clock cycles(s))|
+        +-------------------------------------------------+---------------------------------------+---------+---------+----------+----------+-----+-----+------------------------------------------------+
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 43
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 16 
+16 --> 17 
+17 --> 18 
+18 --> 19 
+19 --> 20 
+20 --> 21 
+21 --> 22 
+22 --> 23 
+23 --> 24 
+24 --> 25 
+25 --> 26 
+26 --> 27 
+27 --> 28 
+28 --> 29 
+29 --> 30 
+30 --> 31 
+31 --> 32 
+32 --> 33 
+33 --> 34 
+34 --> 35 
+35 --> 36 
+36 --> 37 
+37 --> 38 
+38 --> 39 
+39 --> 40 
+40 --> 41 
+41 --> 42 
+42 --> 43 
+43 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.00>
+ST_1 : Operation 44 [1/1] (0.00ns)   --->   "%sum_local_loc = alloca i64 1"   --->   Operation 44 'alloca' 'sum_local_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 45 [2/2] (0.00ns)   --->   "%call_ln0 = call void @compute_rmsnorm_Pipeline_load_input, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3, i32 %input1_stream, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1"   --->   Operation 45 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+
+State 2 <SV = 1> <Delay = 1.28>
+ST_2 : Operation 46 [1/2] (1.28ns)   --->   "%call_ln0 = call void @compute_rmsnorm_Pipeline_load_input, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3, i32 %input1_stream, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1"   --->   Operation 46 'call' 'call_ln0' <Predicate = true> <Delay = 1.28> <CoreType = "Generic">   --->   Generic Core
+
+State 3 <SV = 2> <Delay = 0.00>
+ST_3 : Operation 47 [1/1] (0.00ns)   --->   "%fence_ln37 = fence void @_ssdm_op_Fence, i32 %input1_stream, i32 4294967295, i32 %input2_stream, i32 %output_stream_3, i32 0" [kernel_rmsnorm.cpp:37]   --->   Operation 47 'fence' 'fence_ln37' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 48 [1/1] (0.00ns)   --->   "%fence_ln37 = fence void @_ssdm_op_Fence, i32 %input1_stream, i32 4294967295, i32 %input2_stream, i32 0" [kernel_rmsnorm.cpp:37]   --->   Operation 48 'fence' 'fence_ln37' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 49 [2/2] (0.00ns)   --->   "%call_ln0 = call void @compute_rmsnorm_Pipeline_load_weights, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3, i32 %input2_stream, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2"   --->   Operation 49 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+ST_3 : Operation 50 [2/2] (0.00ns)   --->   "%call_ln0 = call void @compute_rmsnorm_Pipeline_compute_sum, i32 %sum_local_loc, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1"   --->   Operation 50 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+
+State 4 <SV = 3> <Delay = 1.28>
+ST_4 : Operation 51 [1/2] (1.28ns)   --->   "%call_ln0 = call void @compute_rmsnorm_Pipeline_load_weights, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3, i32 %input2_stream, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2"   --->   Operation 51 'call' 'call_ln0' <Predicate = true> <Delay = 1.28> <CoreType = "Generic">   --->   Generic Core
+ST_4 : Operation 52 [1/2] (0.00ns)   --->   "%call_ln0 = call void @compute_rmsnorm_Pipeline_compute_sum, i32 %sum_local_loc, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1"   --->   Operation 52 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+
+State 5 <SV = 4> <Delay = 0.42>
+ST_5 : Operation 53 [1/1] (0.00ns)   --->   "%fence_ln43 = fence void @_ssdm_op_Fence, i32 %input2_stream, i32 4294967295, i32 %output_stream_3, i32 0" [kernel_rmsnorm.cpp:43]   --->   Operation 53 'fence' 'fence_ln43' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 54 [1/1] (0.00ns)   --->   "%fence_ln43 = fence void @_ssdm_op_Fence, i32 %input1_stream, i32 %input2_stream, i32 4294967295, i32 %output_stream_3, i32 0" [kernel_rmsnorm.cpp:43]   --->   Operation 54 'fence' 'fence_ln43' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 55 [1/1] (0.00ns)   --->   "%sum_local_loc_load = load i32 %sum_local_loc"   --->   Operation 55 'load' 'sum_local_loc_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 56 [1/1] (0.42ns) (share mux size 2)   --->   "%muxLogicI0_to_div_i = muxlogic i32 %sum_local_loc_load"   --->   Operation 56 'muxlogic' 'muxLogicI0_to_div_i' <Predicate = true> <Delay = 0.42>
+ST_5 : Operation 57 [1/1] (0.42ns) (share mux size 2)   --->   "%muxLogicI1_to_div_i = muxlogic i32 768"   --->   Operation 57 'muxlogic' 'muxLogicI1_to_div_i' <Predicate = true> <Delay = 0.42>
+ST_5 : Operation 58 [1/1] (0.00ns)   --->   "%fence_ln52 = fence void @_ssdm_op_Fence, i32 %input1_stream, i32 %input2_stream, i32 4294967295, i32 %output_stream_3, i32 0" [kernel_rmsnorm.cpp:52]   --->   Operation 58 'fence' 'fence_ln52' <Predicate = true> <Delay = 0.00>
+
+State 6 <SV = 5> <Delay = 2.58>
+ST_6 : Operation 59 [11/11] (2.58ns) (share mux size 2)   --->   "%div_i = fdiv i32 %sum_local_loc_load, i32 768" [kernel_rmsnorm.cpp:50]   --->   Operation 59 'fdiv' 'div_i' <Predicate = true> <Delay = 2.58> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 7 <SV = 6> <Delay = 2.79>
+ST_7 : Operation 60 [10/11] (2.79ns) (share mux size 2)   --->   "%div_i = fdiv i32 %sum_local_loc_load, i32 768" [kernel_rmsnorm.cpp:50]   --->   Operation 60 'fdiv' 'div_i' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 8 <SV = 7> <Delay = 2.79>
+ST_8 : Operation 61 [9/11] (2.79ns) (share mux size 2)   --->   "%div_i = fdiv i32 %sum_local_loc_load, i32 768" [kernel_rmsnorm.cpp:50]   --->   Operation 61 'fdiv' 'div_i' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 9 <SV = 8> <Delay = 2.79>
+ST_9 : Operation 62 [8/11] (2.79ns) (share mux size 2)   --->   "%div_i = fdiv i32 %sum_local_loc_load, i32 768" [kernel_rmsnorm.cpp:50]   --->   Operation 62 'fdiv' 'div_i' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 10 <SV = 9> <Delay = 2.79>
+ST_10 : Operation 63 [7/11] (2.79ns) (share mux size 2)   --->   "%div_i = fdiv i32 %sum_local_loc_load, i32 768" [kernel_rmsnorm.cpp:50]   --->   Operation 63 'fdiv' 'div_i' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 11 <SV = 10> <Delay = 2.79>
+ST_11 : Operation 64 [6/11] (2.79ns) (share mux size 2)   --->   "%div_i = fdiv i32 %sum_local_loc_load, i32 768" [kernel_rmsnorm.cpp:50]   --->   Operation 64 'fdiv' 'div_i' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 12 <SV = 11> <Delay = 2.79>
+ST_12 : Operation 65 [5/11] (2.79ns) (share mux size 2)   --->   "%div_i = fdiv i32 %sum_local_loc_load, i32 768" [kernel_rmsnorm.cpp:50]   --->   Operation 65 'fdiv' 'div_i' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 13 <SV = 12> <Delay = 2.79>
+ST_13 : Operation 66 [4/11] (2.79ns) (share mux size 2)   --->   "%div_i = fdiv i32 %sum_local_loc_load, i32 768" [kernel_rmsnorm.cpp:50]   --->   Operation 66 'fdiv' 'div_i' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 14 <SV = 13> <Delay = 2.79>
+ST_14 : Operation 67 [3/11] (2.79ns) (share mux size 2)   --->   "%div_i = fdiv i32 %sum_local_loc_load, i32 768" [kernel_rmsnorm.cpp:50]   --->   Operation 67 'fdiv' 'div_i' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 15 <SV = 14> <Delay = 2.79>
+ST_15 : Operation 68 [2/11] (2.79ns) (share mux size 2)   --->   "%div_i = fdiv i32 %sum_local_loc_load, i32 768" [kernel_rmsnorm.cpp:50]   --->   Operation 68 'fdiv' 'div_i' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 16 <SV = 15> <Delay = 2.01>
+ST_16 : Operation 69 [1/11] (0.09ns) (share mux size 2)   --->   "%div_i = fdiv i32 %sum_local_loc_load, i32 768" [kernel_rmsnorm.cpp:50]   --->   Operation 69 'fdiv' 'div_i' <Predicate = true> <Delay = 0.09> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 70 [1/1] (0.00ns)   --->   "%muxLogicI0_to_add4_i = muxlogic i32 %div_i"   --->   Operation 70 'muxlogic' 'muxLogicI0_to_add4_i' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 71 [1/1] (0.00ns)   --->   "%muxLogicI1_to_add4_i = muxlogic i32 1e-06"   --->   Operation 71 'muxlogic' 'muxLogicI1_to_add4_i' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 72 [1/1] (1.92ns)   --->   "%add4_i = fadd i32 %div_i, i32 1e-06" [kernel_rmsnorm.cpp:50]   --->   Operation 72 'fadd' 'add4_i' <Predicate = true> <Delay = 1.92> <CoreInst = "FAddSub_primitivedsp">   --->   Core 13 'FAddSub_primitivedsp' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 17 <SV = 16> <Delay = 1.38>
+ST_17 : Operation 73 [1/1] (0.00ns)   --->   "%muxLogicI0_to_tmp_i = muxlogic i32 %add4_i"   --->   Operation 73 'muxlogic' 'muxLogicI0_to_tmp_i' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 74 [15/15] (1.38ns)   --->   "%tmp_i = fsqrt i32 @llvm.sqrt.f32, i32 %add4_i" [kernel_rmsnorm.cpp:50]   --->   Operation 74 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 1.38> <CoreInst = "FSqrt">   --->   Core 39 'FSqrt' <Latency = 14> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 18 <SV = 17> <Delay = 2.09>
+ST_18 : Operation 75 [14/15] (2.09ns)   --->   "%tmp_i = fsqrt i32 @llvm.sqrt.f32, i32 %add4_i" [kernel_rmsnorm.cpp:50]   --->   Operation 75 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 2.09> <CoreInst = "FSqrt">   --->   Core 39 'FSqrt' <Latency = 14> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 19 <SV = 18> <Delay = 2.09>
+ST_19 : Operation 76 [13/15] (2.09ns)   --->   "%tmp_i = fsqrt i32 @llvm.sqrt.f32, i32 %add4_i" [kernel_rmsnorm.cpp:50]   --->   Operation 76 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 2.09> <CoreInst = "FSqrt">   --->   Core 39 'FSqrt' <Latency = 14> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 20 <SV = 19> <Delay = 2.09>
+ST_20 : Operation 77 [12/15] (2.09ns)   --->   "%tmp_i = fsqrt i32 @llvm.sqrt.f32, i32 %add4_i" [kernel_rmsnorm.cpp:50]   --->   Operation 77 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 2.09> <CoreInst = "FSqrt">   --->   Core 39 'FSqrt' <Latency = 14> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 21 <SV = 20> <Delay = 2.09>
+ST_21 : Operation 78 [11/15] (2.09ns)   --->   "%tmp_i = fsqrt i32 @llvm.sqrt.f32, i32 %add4_i" [kernel_rmsnorm.cpp:50]   --->   Operation 78 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 2.09> <CoreInst = "FSqrt">   --->   Core 39 'FSqrt' <Latency = 14> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 22 <SV = 21> <Delay = 2.09>
+ST_22 : Operation 79 [10/15] (2.09ns)   --->   "%tmp_i = fsqrt i32 @llvm.sqrt.f32, i32 %add4_i" [kernel_rmsnorm.cpp:50]   --->   Operation 79 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 2.09> <CoreInst = "FSqrt">   --->   Core 39 'FSqrt' <Latency = 14> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 23 <SV = 22> <Delay = 2.09>
+ST_23 : Operation 80 [9/15] (2.09ns)   --->   "%tmp_i = fsqrt i32 @llvm.sqrt.f32, i32 %add4_i" [kernel_rmsnorm.cpp:50]   --->   Operation 80 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 2.09> <CoreInst = "FSqrt">   --->   Core 39 'FSqrt' <Latency = 14> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 24 <SV = 23> <Delay = 2.09>
+ST_24 : Operation 81 [8/15] (2.09ns)   --->   "%tmp_i = fsqrt i32 @llvm.sqrt.f32, i32 %add4_i" [kernel_rmsnorm.cpp:50]   --->   Operation 81 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 2.09> <CoreInst = "FSqrt">   --->   Core 39 'FSqrt' <Latency = 14> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 25 <SV = 24> <Delay = 2.09>
+ST_25 : Operation 82 [7/15] (2.09ns)   --->   "%tmp_i = fsqrt i32 @llvm.sqrt.f32, i32 %add4_i" [kernel_rmsnorm.cpp:50]   --->   Operation 82 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 2.09> <CoreInst = "FSqrt">   --->   Core 39 'FSqrt' <Latency = 14> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 26 <SV = 25> <Delay = 2.09>
+ST_26 : Operation 83 [6/15] (2.09ns)   --->   "%tmp_i = fsqrt i32 @llvm.sqrt.f32, i32 %add4_i" [kernel_rmsnorm.cpp:50]   --->   Operation 83 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 2.09> <CoreInst = "FSqrt">   --->   Core 39 'FSqrt' <Latency = 14> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 27 <SV = 26> <Delay = 2.09>
+ST_27 : Operation 84 [5/15] (2.09ns)   --->   "%tmp_i = fsqrt i32 @llvm.sqrt.f32, i32 %add4_i" [kernel_rmsnorm.cpp:50]   --->   Operation 84 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 2.09> <CoreInst = "FSqrt">   --->   Core 39 'FSqrt' <Latency = 14> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 28 <SV = 27> <Delay = 2.09>
+ST_28 : Operation 85 [4/15] (2.09ns)   --->   "%tmp_i = fsqrt i32 @llvm.sqrt.f32, i32 %add4_i" [kernel_rmsnorm.cpp:50]   --->   Operation 85 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 2.09> <CoreInst = "FSqrt">   --->   Core 39 'FSqrt' <Latency = 14> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 29 <SV = 28> <Delay = 2.09>
+ST_29 : Operation 86 [3/15] (2.09ns)   --->   "%tmp_i = fsqrt i32 @llvm.sqrt.f32, i32 %add4_i" [kernel_rmsnorm.cpp:50]   --->   Operation 86 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 2.09> <CoreInst = "FSqrt">   --->   Core 39 'FSqrt' <Latency = 14> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 30 <SV = 29> <Delay = 2.09>
+ST_30 : Operation 87 [2/15] (2.09ns)   --->   "%tmp_i = fsqrt i32 @llvm.sqrt.f32, i32 %add4_i" [kernel_rmsnorm.cpp:50]   --->   Operation 87 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 2.09> <CoreInst = "FSqrt">   --->   Core 39 'FSqrt' <Latency = 14> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 31 <SV = 30> <Delay = 0.51>
+ST_31 : Operation 88 [1/15] (0.09ns)   --->   "%tmp_i = fsqrt i32 @llvm.sqrt.f32, i32 %add4_i" [kernel_rmsnorm.cpp:50]   --->   Operation 88 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 0.09> <CoreInst = "FSqrt">   --->   Core 39 'FSqrt' <Latency = 14> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+ST_31 : Operation 89 [1/1] (0.42ns) (share mux size 2)   --->   "%muxLogicI0_to_norm = muxlogic i32 1"   --->   Operation 89 'muxlogic' 'muxLogicI0_to_norm' <Predicate = true> <Delay = 0.42>
+ST_31 : Operation 90 [1/1] (0.42ns) (share mux size 2)   --->   "%muxLogicI1_to_norm = muxlogic i32 %tmp_i"   --->   Operation 90 'muxlogic' 'muxLogicI1_to_norm' <Predicate = true> <Delay = 0.42>
+
+State 32 <SV = 31> <Delay = 2.58>
+ST_32 : Operation 91 [11/11] (2.58ns) (share mux size 2)   --->   "%norm = fdiv i32 1, i32 %tmp_i" [kernel_rmsnorm.cpp:50]   --->   Operation 91 'fdiv' 'norm' <Predicate = true> <Delay = 2.58> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 33 <SV = 32> <Delay = 2.79>
+ST_33 : Operation 92 [10/11] (2.79ns) (share mux size 2)   --->   "%norm = fdiv i32 1, i32 %tmp_i" [kernel_rmsnorm.cpp:50]   --->   Operation 92 'fdiv' 'norm' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 34 <SV = 33> <Delay = 2.79>
+ST_34 : Operation 93 [9/11] (2.79ns) (share mux size 2)   --->   "%norm = fdiv i32 1, i32 %tmp_i" [kernel_rmsnorm.cpp:50]   --->   Operation 93 'fdiv' 'norm' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 35 <SV = 34> <Delay = 2.79>
+ST_35 : Operation 94 [8/11] (2.79ns) (share mux size 2)   --->   "%norm = fdiv i32 1, i32 %tmp_i" [kernel_rmsnorm.cpp:50]   --->   Operation 94 'fdiv' 'norm' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 36 <SV = 35> <Delay = 2.79>
+ST_36 : Operation 95 [7/11] (2.79ns) (share mux size 2)   --->   "%norm = fdiv i32 1, i32 %tmp_i" [kernel_rmsnorm.cpp:50]   --->   Operation 95 'fdiv' 'norm' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 37 <SV = 36> <Delay = 2.79>
+ST_37 : Operation 96 [6/11] (2.79ns) (share mux size 2)   --->   "%norm = fdiv i32 1, i32 %tmp_i" [kernel_rmsnorm.cpp:50]   --->   Operation 96 'fdiv' 'norm' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 38 <SV = 37> <Delay = 2.79>
+ST_38 : Operation 97 [5/11] (2.79ns) (share mux size 2)   --->   "%norm = fdiv i32 1, i32 %tmp_i" [kernel_rmsnorm.cpp:50]   --->   Operation 97 'fdiv' 'norm' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 39 <SV = 38> <Delay = 2.79>
+ST_39 : Operation 98 [4/11] (2.79ns) (share mux size 2)   --->   "%norm = fdiv i32 1, i32 %tmp_i" [kernel_rmsnorm.cpp:50]   --->   Operation 98 'fdiv' 'norm' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 40 <SV = 39> <Delay = 2.79>
+ST_40 : Operation 99 [3/11] (2.79ns) (share mux size 2)   --->   "%norm = fdiv i32 1, i32 %tmp_i" [kernel_rmsnorm.cpp:50]   --->   Operation 99 'fdiv' 'norm' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 41 <SV = 40> <Delay = 2.79>
+ST_41 : Operation 100 [2/11] (2.79ns) (share mux size 2)   --->   "%norm = fdiv i32 1, i32 %tmp_i" [kernel_rmsnorm.cpp:50]   --->   Operation 100 'fdiv' 'norm' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 42 <SV = 41> <Delay = 0.09>
+ST_42 : Operation 101 [1/11] (0.09ns) (share mux size 2)   --->   "%norm = fdiv i32 1, i32 %tmp_i" [kernel_rmsnorm.cpp:50]   --->   Operation 101 'fdiv' 'norm' <Predicate = true> <Delay = 0.09> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_42 : Operation 102 [2/2] (0.00ns)   --->   "%call_ln50 = call void @compute_rmsnorm_Pipeline_normalize, i32 %norm, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2, i32 %output_stream_3" [kernel_rmsnorm.cpp:50]   --->   Operation 102 'call' 'call_ln50' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+
+State 43 <SV = 42> <Delay = 0.00>
+ST_43 : Operation 103 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %input1_stream, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 103 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 104 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %input1_stream, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 104 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 105 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %input1_stream, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 105 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 106 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %input2_stream, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 106 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 107 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %input2_stream, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 107 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 108 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %input2_stream, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 108 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 109 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %output_stream_3, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 109 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 110 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %output_stream_3, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 110 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 111 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %output_stream_3, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 111 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 112 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %output_stream_3, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 112 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 113 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %input2_stream, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 113 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 114 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %input1_stream, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 114 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 115 [1/2] (0.00ns)   --->   "%call_ln50 = call void @compute_rmsnorm_Pipeline_normalize, i32 %norm, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2, i32 %output_stream_3" [kernel_rmsnorm.cpp:50]   --->   Operation 115 'call' 'call_ln50' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+ST_43 : Operation 116 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 116 'ret' 'ret_ln0' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+STG Binding: 
+---------------- STG Properties BEGIN ----------------
+- Is combinational: 0
+- Is one-state seq: 0
+- Is datapath-only: 0
+- Is pipelined: 0
+- Is top level: 0
+Port [ Return ] is wired: 1; IO mode=ap_ctrl_hs:ce=0
+Port [ compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3]:  wired=1; compound=1; hidden=0; nouse=0; global=1; static=1; extern=0; dir=2; type=1; pingpong=0; private_global=0; MemPort=[23]; IO mode=ap_memory:ce=0
+Port [ input1_stream]:  wired=1; compound=1; hidden=0; nouse=0; global=1; static=1; extern=0; dir=0; type=3; pingpong=0; private_global=0; IO mode=ap_fifo:ce=0
+Port [ compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2]:  wired=1; compound=1; hidden=0; nouse=0; global=1; static=1; extern=0; dir=2; type=1; pingpong=0; private_global=0; MemPort=[23]; IO mode=ap_memory:ce=0
+Port [ compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1]:  wired=1; compound=1; hidden=0; nouse=0; global=1; static=1; extern=0; dir=2; type=1; pingpong=0; private_global=0; MemPort=[23]; IO mode=ap_memory:ce=0
+Port [ compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1]:  wired=1; compound=1; hidden=0; nouse=0; global=1; static=1; extern=0; dir=2; type=1; pingpong=0; private_global=0; MemPort=[23]; IO mode=ap_memory:ce=0
+Port [ compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3]:  wired=1; compound=1; hidden=0; nouse=0; global=1; static=1; extern=0; dir=2; type=1; pingpong=0; private_global=0; MemPort=[23]; IO mode=ap_memory:ce=0
+Port [ input2_stream]:  wired=1; compound=1; hidden=0; nouse=0; global=1; static=1; extern=0; dir=0; type=3; pingpong=0; private_global=0; IO mode=ap_fifo:ce=0
+Port [ compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2]:  wired=1; compound=1; hidden=0; nouse=0; global=1; static=1; extern=0; dir=2; type=1; pingpong=0; private_global=0; MemPort=[23]; IO mode=ap_memory:ce=0
+Port [ compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1]:  wired=1; compound=1; hidden=0; nouse=0; global=1; static=1; extern=0; dir=2; type=1; pingpong=0; private_global=0; MemPort=[23]; IO mode=ap_memory:ce=0
+Port [ compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2]:  wired=1; compound=1; hidden=0; nouse=0; global=1; static=1; extern=0; dir=2; type=1; pingpong=0; private_global=0; MemPort=[23]; IO mode=ap_memory:ce=0
+Port [ output_stream_3]:  wired=1; compound=1; hidden=0; nouse=0; global=1; static=1; extern=0; dir=1; type=3; pingpong=0; private_global=0; IO mode=ap_fifo:ce=0
+---------------- STG Properties END ------------------
+
+---------------- Datapath Model BEGIN ----------------
+
+<LifeTime>
+<method=bitvector/>
+sum_local_loc        (alloca       ) [ 00111100000000000000000000000000000000000000]
+call_ln0             (call         ) [ 00000000000000000000000000000000000000000000]
+fence_ln37           (fence        ) [ 00000000000000000000000000000000000000000000]
+fence_ln37           (fence        ) [ 00000000000000000000000000000000000000000000]
+call_ln0             (call         ) [ 00000000000000000000000000000000000000000000]
+call_ln0             (call         ) [ 00000000000000000000000000000000000000000000]
+fence_ln43           (fence        ) [ 00000000000000000000000000000000000000000000]
+fence_ln43           (fence        ) [ 00000000000000000000000000000000000000000000]
+sum_local_loc_load   (load         ) [ 00000011111111111000000000000000000000000000]
+muxLogicI0_to_div_i  (muxlogic     ) [ 00000000000000000000000000000000000000000000]
+muxLogicI1_to_div_i  (muxlogic     ) [ 00000000000000000000000000000000000000000000]
+fence_ln52           (fence        ) [ 00000000000000000000000000000000000000000000]
+div_i                (fdiv         ) [ 00000000000000000000000000000000000000000000]
+muxLogicI0_to_add4_i (muxlogic     ) [ 00000000000000000000000000000000000000000000]
+muxLogicI1_to_add4_i (muxlogic     ) [ 00000000000000000000000000000000000000000000]
+add4_i               (fadd         ) [ 00000000000000000111111111111111000000000000]
+muxLogicI0_to_tmp_i  (muxlogic     ) [ 00000000000000000000000000000000000000000000]
+tmp_i                (fsqrt        ) [ 00000000000000000000000000000000111111111110]
+muxLogicI0_to_norm   (muxlogic     ) [ 00000000000000000000000000000000000000000000]
+muxLogicI1_to_norm   (muxlogic     ) [ 00000000000000000000000000000000000000000000]
+norm                 (fdiv         ) [ 00000000000000000000000000000000000000000001]
+specinterface_ln0    (specinterface) [ 00000000000000000000000000000000000000000000]
+specinterface_ln0    (specinterface) [ 00000000000000000000000000000000000000000000]
+specinterface_ln0    (specinterface) [ 00000000000000000000000000000000000000000000]
+specinterface_ln0    (specinterface) [ 00000000000000000000000000000000000000000000]
+specinterface_ln0    (specinterface) [ 00000000000000000000000000000000000000000000]
+specinterface_ln0    (specinterface) [ 00000000000000000000000000000000000000000000]
+specinterface_ln0    (specinterface) [ 00000000000000000000000000000000000000000000]
+specinterface_ln0    (specinterface) [ 00000000000000000000000000000000000000000000]
+specinterface_ln0    (specinterface) [ 00000000000000000000000000000000000000000000]
+specinterface_ln0    (specinterface) [ 00000000000000000000000000000000000000000000]
+specinterface_ln0    (specinterface) [ 00000000000000000000000000000000000000000000]
+specinterface_ln0    (specinterface) [ 00000000000000000000000000000000000000000000]
+call_ln50            (call         ) [ 00000000000000000000000000000000000000000000]
+ret_ln0              (ret          ) [ 00000000000000000000000000000000000000000000]
+</LifeTime>
+
+<model>
+
+<comp_list>
+<comp id="0" class="1000" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3">
+<pin_list>
+<pin id="1" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3"/><MemPortTyVec>2 3 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="2" class="1000" name="input1_stream">
+<pin_list>
+<pin id="3" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="input1_stream"/></StgValue>
+</bind>
+</comp>
+
+<comp id="4" class="1000" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2">
+<pin_list>
+<pin id="5" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2"/><MemPortTyVec>2 3 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="6" class="1000" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1">
+<pin_list>
+<pin id="7" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1"/><MemPortTyVec>2 3 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="8" class="1000" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1">
+<pin_list>
+<pin id="9" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1"/><MemPortTyVec>2 3 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="10" class="1000" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3">
+<pin_list>
+<pin id="11" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3"/><MemPortTyVec>2 3 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="12" class="1000" name="input2_stream">
+<pin_list>
+<pin id="13" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="input2_stream"/></StgValue>
+</bind>
+</comp>
+
+<comp id="14" class="1000" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2">
+<pin_list>
+<pin id="15" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2"/><MemPortTyVec>2 3 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="16" class="1000" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1">
+<pin_list>
+<pin id="17" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1"/><MemPortTyVec>2 3 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="18" class="1000" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2">
+<pin_list>
+<pin id="19" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2"/><MemPortTyVec>2 3 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="20" class="1000" name="output_stream_3">
+<pin_list>
+<pin id="21" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="output_stream_3"/></StgValue>
+</bind>
+</comp>
+
+<comp id="22" class="1001" name="const_22">
+<pin_list>
+<pin id="23" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="24" class="1001" name="const_24">
+<pin_list>
+<pin id="25" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="compute_rmsnorm_Pipeline_load_input"/></StgValue>
+</bind>
+</comp>
+
+<comp id="26" class="1001" name="const_26">
+<pin_list>
+<pin id="27" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Fence"/></StgValue>
+</bind>
+</comp>
+
+<comp id="28" class="1001" name="const_28">
+<pin_list>
+<pin id="29" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="30" class="1001" name="const_30">
+<pin_list>
+<pin id="31" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="32" class="1001" name="const_32">
+<pin_list>
+<pin id="33" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="compute_rmsnorm_Pipeline_load_weights"/></StgValue>
+</bind>
+</comp>
+
+<comp id="34" class="1001" name="const_34">
+<pin_list>
+<pin id="35" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="compute_rmsnorm_Pipeline_compute_sum"/></StgValue>
+</bind>
+</comp>
+
+<comp id="36" class="1001" name="const_36">
+<pin_list>
+<pin id="37" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="38" class="1001" name="const_38">
+<pin_list>
+<pin id="39" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="40" class="1001" name="const_40">
+<pin_list>
+<pin id="41" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="llvm.sqrt.f32"/></StgValue>
+</bind>
+</comp>
+
+<comp id="42" class="1001" name="const_42">
+<pin_list>
+<pin id="43" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="44" class="1001" name="const_44">
+<pin_list>
+<pin id="45" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="compute_rmsnorm_Pipeline_normalize"/></StgValue>
+</bind>
+</comp>
+
+<comp id="46" class="1001" name="const_46">
+<pin_list>
+<pin id="47" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecInterface"/></StgValue>
+</bind>
+</comp>
+
+<comp id="48" class="1001" name="const_48">
+<pin_list>
+<pin id="49" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_39"/></StgValue>
+</bind>
+</comp>
+
+<comp id="50" class="1001" name="const_50">
+<pin_list>
+<pin id="51" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_48"/></StgValue>
+</bind>
+</comp>
+
+<comp id="52" class="1004" name="sum_local_loc_fu_52">
+<pin_list>
+<pin id="53" dir="0" index="0" bw="1" slack="0"/>
+<pin id="54" dir="1" index="1" bw="32" slack="2"/>
+</pin_list>
+<bind>
+<opcode="alloca(26) " fcode="alloca"/>
+<opset="sum_local_loc/1 "/>
+</bind>
+</comp>
+
+<comp id="56" class="1004" name="grp_compute_rmsnorm_Pipeline_load_input_fu_56">
+<pin_list>
+<pin id="57" dir="0" index="0" bw="0" slack="0"/>
+<pin id="58" dir="0" index="1" bw="32" slack="0"/>
+<pin id="59" dir="0" index="2" bw="32" slack="0"/>
+<pin id="60" dir="0" index="3" bw="32" slack="0"/>
+<pin id="61" dir="0" index="4" bw="32" slack="0"/>
+<pin id="62" dir="0" index="5" bw="32" slack="0"/>
+<pin id="63" dir="1" index="6" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="call_ln0/1 "/>
+</bind>
+</comp>
+
+<comp id="70" class="1004" name="grp_compute_rmsnorm_Pipeline_load_weights_fu_70">
+<pin_list>
+<pin id="71" dir="0" index="0" bw="0" slack="0"/>
+<pin id="72" dir="0" index="1" bw="32" slack="0"/>
+<pin id="73" dir="0" index="2" bw="32" slack="0"/>
+<pin id="74" dir="0" index="3" bw="32" slack="0"/>
+<pin id="75" dir="0" index="4" bw="32" slack="0"/>
+<pin id="76" dir="0" index="5" bw="32" slack="0"/>
+<pin id="77" dir="1" index="6" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="call_ln0/3 "/>
+</bind>
+</comp>
+
+<comp id="84" class="1004" name="grp_compute_rmsnorm_Pipeline_compute_sum_fu_84">
+<pin_list>
+<pin id="85" dir="0" index="0" bw="0" slack="0"/>
+<pin id="86" dir="0" index="1" bw="32" slack="2"/>
+<pin id="87" dir="0" index="2" bw="32" slack="0"/>
+<pin id="88" dir="0" index="3" bw="32" slack="0"/>
+<pin id="89" dir="0" index="4" bw="32" slack="0"/>
+<pin id="90" dir="0" index="5" bw="32" slack="0"/>
+<pin id="91" dir="1" index="6" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="call_ln0/3 "/>
+</bind>
+</comp>
+
+<comp id="97" class="1004" name="grp_compute_rmsnorm_Pipeline_normalize_fu_97">
+<pin_list>
+<pin id="98" dir="0" index="0" bw="0" slack="0"/>
+<pin id="99" dir="0" index="1" bw="32" slack="0"/>
+<pin id="100" dir="0" index="2" bw="32" slack="0"/>
+<pin id="101" dir="0" index="3" bw="32" slack="0"/>
+<pin id="102" dir="0" index="4" bw="32" slack="0"/>
+<pin id="103" dir="0" index="5" bw="32" slack="0"/>
+<pin id="104" dir="0" index="6" bw="32" slack="0"/>
+<pin id="105" dir="0" index="7" bw="32" slack="0"/>
+<pin id="106" dir="0" index="8" bw="32" slack="0"/>
+<pin id="107" dir="0" index="9" bw="32" slack="0"/>
+<pin id="108" dir="0" index="10" bw="32" slack="0"/>
+<pin id="109" dir="1" index="11" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="call_ln50/42 "/>
+</bind>
+</comp>
+
+<comp id="120" class="1004" name="add4_i_fu_120">
+<pin_list>
+<pin id="121" dir="0" index="0" bw="32" slack="0"/>
+<pin id="122" dir="0" index="1" bw="32" slack="0"/>
+<pin id="123" dir="1" index="2" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opcode="fadd(9) " fcode="fadd"/>
+<opset="add4_i/16 "/>
+</bind>
+</comp>
+
+<comp id="125" class="1004" name="grp_fu_125">
+<pin_list>
+<pin id="126" dir="0" index="0" bw="32" slack="0"/>
+<pin id="127" dir="0" index="1" bw="32" slack="0"/>
+<pin id="128" dir="1" index="2" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="fdiv(16) " fcode="fdiv"/>
+<opset="div_i/6 norm/32 "/>
+</bind>
+</comp>
+
+<comp id="133" class="1004" name="grp_fu_133">
+<pin_list>
+<pin id="134" dir="0" index="0" bw="32" slack="0"/>
+<pin id="135" dir="0" index="1" bw="32" slack="1"/>
+<pin id="136" dir="1" index="2" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="fsqrt(503) " fcode="fsqrt"/>
+<opset="tmp_i/17 "/>
+</bind>
+</comp>
+
+<comp id="138" class="1004" name="fence_ln37_fu_138">
+<pin_list>
+<pin id="139" dir="0" index="0" bw="0" slack="0"/>
+<pin id="140" dir="0" index="1" bw="32" slack="0"/>
+<pin id="141" dir="0" index="2" bw="1" slack="0"/>
+<pin id="142" dir="0" index="3" bw="32" slack="0"/>
+<pin id="143" dir="0" index="4" bw="32" slack="0"/>
+<pin id="144" dir="0" index="5" bw="1" slack="0"/>
+<pin id="145" dir="1" index="6" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="fence(30) " fcode="fence"/>
+<opset="fence_ln37/3 "/>
+</bind>
+</comp>
+
+<comp id="152" class="1004" name="fence_ln37_fu_152">
+<pin_list>
+<pin id="153" dir="0" index="0" bw="0" slack="0"/>
+<pin id="154" dir="0" index="1" bw="32" slack="0"/>
+<pin id="155" dir="0" index="2" bw="1" slack="0"/>
+<pin id="156" dir="0" index="3" bw="32" slack="0"/>
+<pin id="157" dir="0" index="4" bw="1" slack="0"/>
+<pin id="158" dir="1" index="5" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="fence(30) " fcode="fence"/>
+<opset="fence_ln37/3 "/>
+</bind>
+</comp>
+
+<comp id="164" class="1004" name="fence_ln43_fu_164">
+<pin_list>
+<pin id="165" dir="0" index="0" bw="0" slack="0"/>
+<pin id="166" dir="0" index="1" bw="32" slack="0"/>
+<pin id="167" dir="0" index="2" bw="1" slack="0"/>
+<pin id="168" dir="0" index="3" bw="32" slack="0"/>
+<pin id="169" dir="0" index="4" bw="1" slack="0"/>
+<pin id="170" dir="1" index="5" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="fence(30) " fcode="fence"/>
+<opset="fence_ln43/5 "/>
+</bind>
+</comp>
+
+<comp id="176" class="1004" name="fence_ln43_fu_176">
+<pin_list>
+<pin id="177" dir="0" index="0" bw="0" slack="0"/>
+<pin id="178" dir="0" index="1" bw="32" slack="0"/>
+<pin id="179" dir="0" index="2" bw="32" slack="0"/>
+<pin id="180" dir="0" index="3" bw="1" slack="0"/>
+<pin id="181" dir="0" index="4" bw="32" slack="0"/>
+<pin id="182" dir="0" index="5" bw="1" slack="0"/>
+<pin id="183" dir="1" index="6" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="fence(30) " fcode="fence"/>
+<opset="fence_ln43/5 "/>
+</bind>
+</comp>
+
+<comp id="190" class="1004" name="sum_local_loc_load_load_fu_190">
+<pin_list>
+<pin id="191" dir="0" index="0" bw="32" slack="4"/>
+<pin id="192" dir="1" index="1" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="load(27) " fcode="load"/>
+<opset="sum_local_loc_load/5 "/>
+</bind>
+</comp>
+
+<comp id="193" class="1004" name="muxLogicI0_to_div_i_fu_193">
+<pin_list>
+<pin id="194" dir="0" index="0" bw="32" slack="0"/>
+<pin id="195" dir="1" index="1" bw="32" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="muxlogic(592) " fcode="muxlogic"/>
+<opset="muxLogicI0_to_div_i/5 "/>
+</bind>
+</comp>
+
+<comp id="197" class="1004" name="muxLogicI1_to_div_i_fu_197">
+<pin_list>
+<pin id="198" dir="0" index="0" bw="32" slack="0"/>
+<pin id="199" dir="1" index="1" bw="32" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="muxlogic(592) " fcode="muxlogic"/>
+<opset="muxLogicI1_to_div_i/5 "/>
+</bind>
+</comp>
+
+<comp id="201" class="1004" name="fence_ln52_fu_201">
+<pin_list>
+<pin id="202" dir="0" index="0" bw="0" slack="0"/>
+<pin id="203" dir="0" index="1" bw="32" slack="0"/>
+<pin id="204" dir="0" index="2" bw="32" slack="0"/>
+<pin id="205" dir="0" index="3" bw="1" slack="0"/>
+<pin id="206" dir="0" index="4" bw="32" slack="0"/>
+<pin id="207" dir="0" index="5" bw="1" slack="0"/>
+<pin id="208" dir="1" index="6" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="fence(30) " fcode="fence"/>
+<opset="fence_ln52/5 "/>
+</bind>
+</comp>
+
+<comp id="215" class="1004" name="muxLogicI0_to_add4_i_fu_215">
+<pin_list>
+<pin id="216" dir="0" index="0" bw="32" slack="0"/>
+<pin id="217" dir="1" index="1" bw="32" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="muxlogic(592) " fcode="muxlogic"/>
+<opset="muxLogicI0_to_add4_i/16 "/>
+</bind>
+</comp>
+
+<comp id="219" class="1004" name="muxLogicI1_to_add4_i_fu_219">
+<pin_list>
+<pin id="220" dir="0" index="0" bw="32" slack="0"/>
+<pin id="221" dir="1" index="1" bw="32" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="muxlogic(592) " fcode="muxlogic"/>
+<opset="muxLogicI1_to_add4_i/16 "/>
+</bind>
+</comp>
+
+<comp id="223" class="1004" name="muxLogicI0_to_tmp_i_fu_223">
+<pin_list>
+<pin id="224" dir="0" index="0" bw="32" slack="1"/>
+<pin id="225" dir="1" index="1" bw="32" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="muxlogic(592) " fcode="muxlogic"/>
+<opset="muxLogicI0_to_tmp_i/17 "/>
+</bind>
+</comp>
+
+<comp id="226" class="1004" name="muxLogicI0_to_norm_fu_226">
+<pin_list>
+<pin id="227" dir="0" index="0" bw="32" slack="0"/>
+<pin id="228" dir="1" index="1" bw="32" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="muxlogic(592) " fcode="muxlogic"/>
+<opset="muxLogicI0_to_norm/31 "/>
+</bind>
+</comp>
+
+<comp id="230" class="1004" name="muxLogicI1_to_norm_fu_230">
+<pin_list>
+<pin id="231" dir="0" index="0" bw="32" slack="0"/>
+<pin id="232" dir="1" index="1" bw="32" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="muxlogic(592) " fcode="muxlogic"/>
+<opset="muxLogicI1_to_norm/31 "/>
+</bind>
+</comp>
+
+<comp id="234" class="1005" name="sum_local_loc_reg_234">
+<pin_list>
+<pin id="235" dir="0" index="0" bw="32" slack="2"/>
+<pin id="236" dir="1" index="1" bw="32" slack="2"/>
+</pin_list>
+<bind>
+<opset="sum_local_loc "/>
+</bind>
+</comp>
+
+<comp id="243" class="1005" name="add4_i_reg_243">
+<pin_list>
+<pin id="244" dir="0" index="0" bw="32" slack="1"/>
+<pin id="245" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opset="add4_i "/>
+</bind>
+</comp>
+
+<comp id="249" class="1005" name="tmp_i_reg_249">
+<pin_list>
+<pin id="250" dir="0" index="0" bw="32" slack="1"/>
+<pin id="251" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opset="tmp_i "/>
+</bind>
+</comp>
+
+<comp id="254" class="1005" name="norm_reg_254">
+<pin_list>
+<pin id="255" dir="0" index="0" bw="32" slack="1"/>
+<pin id="256" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opset="norm "/>
+</bind>
+</comp>
+
+</comp_list>
+
+<net_list>
+<net id="55"><net_src comp="22" pin="0"/><net_sink comp="52" pin=0"/></net>
+
+<net id="64"><net_src comp="24" pin="0"/><net_sink comp="56" pin=0"/></net>
+
+<net id="65"><net_src comp="0" pin="0"/><net_sink comp="56" pin=1"/></net>
+
+<net id="66"><net_src comp="2" pin="0"/><net_sink comp="56" pin=2"/></net>
+
+<net id="67"><net_src comp="4" pin="0"/><net_sink comp="56" pin=3"/></net>
+
+<net id="68"><net_src comp="6" pin="0"/><net_sink comp="56" pin=4"/></net>
+
+<net id="69"><net_src comp="8" pin="0"/><net_sink comp="56" pin=5"/></net>
+
+<net id="78"><net_src comp="32" pin="0"/><net_sink comp="70" pin=0"/></net>
+
+<net id="79"><net_src comp="10" pin="0"/><net_sink comp="70" pin=1"/></net>
+
+<net id="80"><net_src comp="12" pin="0"/><net_sink comp="70" pin=2"/></net>
+
+<net id="81"><net_src comp="14" pin="0"/><net_sink comp="70" pin=3"/></net>
+
+<net id="82"><net_src comp="16" pin="0"/><net_sink comp="70" pin=4"/></net>
+
+<net id="83"><net_src comp="18" pin="0"/><net_sink comp="70" pin=5"/></net>
+
+<net id="92"><net_src comp="34" pin="0"/><net_sink comp="84" pin=0"/></net>
+
+<net id="93"><net_src comp="0" pin="0"/><net_sink comp="84" pin=2"/></net>
+
+<net id="94"><net_src comp="4" pin="0"/><net_sink comp="84" pin=3"/></net>
+
+<net id="95"><net_src comp="6" pin="0"/><net_sink comp="84" pin=4"/></net>
+
+<net id="96"><net_src comp="8" pin="0"/><net_sink comp="84" pin=5"/></net>
+
+<net id="110"><net_src comp="44" pin="0"/><net_sink comp="97" pin=0"/></net>
+
+<net id="111"><net_src comp="0" pin="0"/><net_sink comp="97" pin=2"/></net>
+
+<net id="112"><net_src comp="4" pin="0"/><net_sink comp="97" pin=3"/></net>
+
+<net id="113"><net_src comp="6" pin="0"/><net_sink comp="97" pin=4"/></net>
+
+<net id="114"><net_src comp="8" pin="0"/><net_sink comp="97" pin=5"/></net>
+
+<net id="115"><net_src comp="10" pin="0"/><net_sink comp="97" pin=6"/></net>
+
+<net id="116"><net_src comp="14" pin="0"/><net_sink comp="97" pin=7"/></net>
+
+<net id="117"><net_src comp="16" pin="0"/><net_sink comp="97" pin=8"/></net>
+
+<net id="118"><net_src comp="18" pin="0"/><net_sink comp="97" pin=9"/></net>
+
+<net id="119"><net_src comp="20" pin="0"/><net_sink comp="97" pin=10"/></net>
+
+<net id="124"><net_src comp="38" pin="0"/><net_sink comp="120" pin=1"/></net>
+
+<net id="129"><net_src comp="125" pin="2"/><net_sink comp="120" pin=0"/></net>
+
+<net id="130"><net_src comp="36" pin="0"/><net_sink comp="125" pin=1"/></net>
+
+<net id="131"><net_src comp="125" pin="2"/><net_sink comp="97" pin=1"/></net>
+
+<net id="132"><net_src comp="42" pin="0"/><net_sink comp="125" pin=0"/></net>
+
+<net id="137"><net_src comp="40" pin="0"/><net_sink comp="133" pin=0"/></net>
+
+<net id="146"><net_src comp="26" pin="0"/><net_sink comp="138" pin=0"/></net>
+
+<net id="147"><net_src comp="2" pin="0"/><net_sink comp="138" pin=1"/></net>
+
+<net id="148"><net_src comp="28" pin="0"/><net_sink comp="138" pin=2"/></net>
+
+<net id="149"><net_src comp="12" pin="0"/><net_sink comp="138" pin=3"/></net>
+
+<net id="150"><net_src comp="20" pin="0"/><net_sink comp="138" pin=4"/></net>
+
+<net id="151"><net_src comp="30" pin="0"/><net_sink comp="138" pin=5"/></net>
+
+<net id="159"><net_src comp="26" pin="0"/><net_sink comp="152" pin=0"/></net>
+
+<net id="160"><net_src comp="2" pin="0"/><net_sink comp="152" pin=1"/></net>
+
+<net id="161"><net_src comp="28" pin="0"/><net_sink comp="152" pin=2"/></net>
+
+<net id="162"><net_src comp="12" pin="0"/><net_sink comp="152" pin=3"/></net>
+
+<net id="163"><net_src comp="30" pin="0"/><net_sink comp="152" pin=4"/></net>
+
+<net id="171"><net_src comp="26" pin="0"/><net_sink comp="164" pin=0"/></net>
+
+<net id="172"><net_src comp="12" pin="0"/><net_sink comp="164" pin=1"/></net>
+
+<net id="173"><net_src comp="28" pin="0"/><net_sink comp="164" pin=2"/></net>
+
+<net id="174"><net_src comp="20" pin="0"/><net_sink comp="164" pin=3"/></net>
+
+<net id="175"><net_src comp="30" pin="0"/><net_sink comp="164" pin=4"/></net>
+
+<net id="184"><net_src comp="26" pin="0"/><net_sink comp="176" pin=0"/></net>
+
+<net id="185"><net_src comp="2" pin="0"/><net_sink comp="176" pin=1"/></net>
+
+<net id="186"><net_src comp="12" pin="0"/><net_sink comp="176" pin=2"/></net>
+
+<net id="187"><net_src comp="28" pin="0"/><net_sink comp="176" pin=3"/></net>
+
+<net id="188"><net_src comp="20" pin="0"/><net_sink comp="176" pin=4"/></net>
+
+<net id="189"><net_src comp="30" pin="0"/><net_sink comp="176" pin=5"/></net>
+
+<net id="196"><net_src comp="190" pin="1"/><net_sink comp="193" pin=0"/></net>
+
+<net id="200"><net_src comp="36" pin="0"/><net_sink comp="197" pin=0"/></net>
+
+<net id="209"><net_src comp="26" pin="0"/><net_sink comp="201" pin=0"/></net>
+
+<net id="210"><net_src comp="2" pin="0"/><net_sink comp="201" pin=1"/></net>
+
+<net id="211"><net_src comp="12" pin="0"/><net_sink comp="201" pin=2"/></net>
+
+<net id="212"><net_src comp="28" pin="0"/><net_sink comp="201" pin=3"/></net>
+
+<net id="213"><net_src comp="20" pin="0"/><net_sink comp="201" pin=4"/></net>
+
+<net id="214"><net_src comp="30" pin="0"/><net_sink comp="201" pin=5"/></net>
+
+<net id="218"><net_src comp="125" pin="2"/><net_sink comp="215" pin=0"/></net>
+
+<net id="222"><net_src comp="38" pin="0"/><net_sink comp="219" pin=0"/></net>
+
+<net id="229"><net_src comp="42" pin="0"/><net_sink comp="226" pin=0"/></net>
+
+<net id="233"><net_src comp="133" pin="2"/><net_sink comp="230" pin=0"/></net>
+
+<net id="237"><net_src comp="52" pin="1"/><net_sink comp="234" pin=0"/></net>
+
+<net id="238"><net_src comp="234" pin="1"/><net_sink comp="84" pin=1"/></net>
+
+<net id="239"><net_src comp="234" pin="1"/><net_sink comp="190" pin=0"/></net>
+
+<net id="246"><net_src comp="120" pin="2"/><net_sink comp="243" pin=0"/></net>
+
+<net id="247"><net_src comp="243" pin="1"/><net_sink comp="223" pin=0"/></net>
+
+<net id="248"><net_src comp="243" pin="1"/><net_sink comp="133" pin=1"/></net>
+
+<net id="252"><net_src comp="133" pin="2"/><net_sink comp="249" pin=0"/></net>
+
+<net id="253"><net_src comp="249" pin="1"/><net_sink comp="125" pin=1"/></net>
+
+<net id="257"><net_src comp="125" pin="2"/><net_sink comp="254" pin=0"/></net>
+
+<net id="258"><net_src comp="254" pin="1"/><net_sink comp="97" pin=1"/></net>
+
+</net_list>
+
+</model> 
+---------------- Datapath Model END ------------------
+
+* FSMD analyzer results:
+  - Output states:
+	Port: compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3 | {1 2 }
+	Port: compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2 | {1 2 }
+	Port: compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1 | {1 2 }
+	Port: compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1 | {1 2 }
+	Port: compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3 | {3 4 }
+	Port: compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2 | {3 4 }
+	Port: compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1 | {3 4 }
+	Port: compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2 | {3 4 }
+	Port: output_stream_3 | {42 43 }
+ - Input state : 
+	Port: compute_rmsnorm : compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3 | {3 4 42 43 }
+	Port: compute_rmsnorm : input1_stream | {1 2 }
+	Port: compute_rmsnorm : compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2 | {3 4 42 43 }
+	Port: compute_rmsnorm : compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1 | {3 4 42 43 }
+	Port: compute_rmsnorm : compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1 | {3 4 42 43 }
+	Port: compute_rmsnorm : compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3 | {42 43 }
+	Port: compute_rmsnorm : input2_stream | {3 4 }
+	Port: compute_rmsnorm : compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2 | {42 43 }
+	Port: compute_rmsnorm : compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1 | {42 43 }
+	Port: compute_rmsnorm : compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2 | {42 43 }
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+		muxLogicI0_to_div_i : 1
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+		muxLogicI0_to_add4_i : 1
+		add4_i : 1
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+		muxLogicI1_to_norm : 1
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+		call_ln50 : 1
+	State 43
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+
+* Functional unit list:
+|----------|-------------------------------------------------|---------|---------|---------|---------|
+| Operation|                 Functional Unit                 |   DSP   |  Delay  |    FF   |   LUT   |
+|----------|-------------------------------------------------|---------|---------|---------|---------|
+|          |  grp_compute_rmsnorm_Pipeline_load_input_fu_56  |    0    |    0    |    20   |    14   |
+|   call   | grp_compute_rmsnorm_Pipeline_load_weights_fu_70 |    0    |    0    |    20   |    14   |
+|          |  grp_compute_rmsnorm_Pipeline_compute_sum_fu_84 |    1    |   1.44  |   114   |    86   |
+|          |   grp_compute_rmsnorm_Pipeline_normalize_fu_97  |    2    |   2.88  |   301   |   142   |
+|----------|-------------------------------------------------|---------|---------|---------|---------|
+|   fadd   |                  add4_i_fu_120                  |    1    |    0    |    0    |    0    |
+|----------|-------------------------------------------------|---------|---------|---------|---------|
+|   fdiv   |                    grp_fu_125                   |    0    |    0    |    0    |    0    |
+|----------|-------------------------------------------------|---------|---------|---------|---------|
+|   fsqrt  |                    grp_fu_133                   |    0    |    0    |    0    |    0    |
+|----------|-------------------------------------------------|---------|---------|---------|---------|
+|          |                fence_ln37_fu_138                |    0    |    0    |    0    |    0    |
+|          |                fence_ln37_fu_152                |    0    |    0    |    0    |    0    |
+|   fence  |                fence_ln43_fu_164                |    0    |    0    |    0    |    0    |
+|          |                fence_ln43_fu_176                |    0    |    0    |    0    |    0    |
+|          |                fence_ln52_fu_201                |    0    |    0    |    0    |    0    |
+|----------|-------------------------------------------------|---------|---------|---------|---------|
+|          |            muxLogicI0_to_div_i_fu_193           |    0    |    0    |    0    |    0    |
+|          |            muxLogicI1_to_div_i_fu_197           |    0    |    0    |    0    |    0    |
+|          |           muxLogicI0_to_add4_i_fu_215           |    0    |    0    |    0    |    0    |
+| muxlogic |           muxLogicI1_to_add4_i_fu_219           |    0    |    0    |    0    |    0    |
+|          |            muxLogicI0_to_tmp_i_fu_223           |    0    |    0    |    0    |    0    |
+|          |            muxLogicI0_to_norm_fu_226            |    0    |    0    |    0    |    0    |
+|          |            muxLogicI1_to_norm_fu_230            |    0    |    0    |    0    |    0    |
+|----------|-------------------------------------------------|---------|---------|---------|---------|
+|   Total  |                                                 |    4    |   4.32  |   455   |   256   |
+|----------|-------------------------------------------------|---------|---------|---------|---------|
+
+Memories:
+N/A
+
+* Register list:
++---------------------+--------+
+|                     |   FF   |
++---------------------+--------+
+|    add4_i_reg_243   |   32   |
+|     norm_reg_254    |   32   |
+|sum_local_loc_reg_234|   32   |
+|    tmp_i_reg_249    |   32   |
++---------------------+--------+
+|        Total        |   128  |
++---------------------+--------+
+
+* Multiplexer (MUX) list: 
+|----------------------------------------------|------|------|------|--------||---------||---------||---------|
+|                     Comp                     |  Pin | Size |  BW  | S x BW ||  Delay  ||    FF   ||   LUT   |
+|----------------------------------------------|------|------|------|--------||---------||---------||---------|
+| grp_compute_rmsnorm_Pipeline_normalize_fu_97 |  p1  |   2  |  32  |   64   ||    0    ||    32   |
+|                  grp_fu_125                  |  p1  |   2  |  32  |   64   ||    0    ||    32   |
+|----------------------------------------------|------|------|------|--------||---------||---------||---------|
+|                     Total                    |      |      |      |   128  ||  0.842  ||    0    ||    64   |
+|----------------------------------------------|------|------|------|--------||---------||---------||---------|
+
+
+
+* Summary:
++-----------+--------+--------+--------+--------+
+|           |   DSP  |  Delay |   FF   |   LUT  |
++-----------+--------+--------+--------+--------+
+|  Function |    4   |    4   |   455  |   256  |
+|   Memory  |    -   |    -   |    -   |    -   |
+|Multiplexer|    -   |    0   |    0   |   64   |
+|  Register |    -   |    -   |   128  |    -   |
++-----------+--------+--------+--------+--------+
+|   Total   |    4   |    5   |   583  |   320  |
++-----------+--------+--------+--------+--------+

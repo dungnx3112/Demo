@@ -1,0 +1,515 @@
+
+
+================================================================
+== Vitis HLS Report for 'compute_rmsnorm'
+================================================================
+* Date:           Mon Sep 15 01:27:51 2025
+
+* Version:        2025.1 (Build 6135595 on May 21 2025)
+* Project:        llama_hls
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: versalhbm
+* Target device:  xcv80-lsva4737-2MHP-e-S
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  4.00 ns|  2.907 ns|     1.08 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+------+------+---------+
+    |  Latency (cycles) |  Latency (absolute) |   Interval  | Pipeline|
+    |   min   |   max   |    min   |    max   |  min |  max |   Type  |
+    +---------+---------+----------+----------+------+------+---------+
+    |     2357|     2357|  9.428 us|  9.428 us|  2357|  2357|       no|
+    +---------+---------+----------+----------+------+------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 43
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 16 
+16 --> 17 
+17 --> 18 
+18 --> 19 
+19 --> 20 
+20 --> 21 
+21 --> 22 
+22 --> 23 
+23 --> 24 
+24 --> 25 
+25 --> 26 
+26 --> 27 
+27 --> 28 
+28 --> 29 
+29 --> 30 
+30 --> 31 
+31 --> 32 
+32 --> 33 
+33 --> 34 
+34 --> 35 
+35 --> 36 
+36 --> 37 
+37 --> 38 
+38 --> 39 
+39 --> 40 
+40 --> 41 
+41 --> 42 
+42 --> 43 
+43 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.00>
+ST_1 : Operation 44 [1/1] (0.00ns)   --->   "%sum_local_loc = alloca i64 1"   --->   Operation 44 'alloca' 'sum_local_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 45 [2/2] (0.00ns)   --->   "%call_ln0 = call void @compute_rmsnorm_Pipeline_load_input, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3, i32 %input1_stream, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1"   --->   Operation 45 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+
+State 2 <SV = 1> <Delay = 1.28>
+ST_2 : Operation 46 [1/2] (1.28ns)   --->   "%call_ln0 = call void @compute_rmsnorm_Pipeline_load_input, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3, i32 %input1_stream, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1"   --->   Operation 46 'call' 'call_ln0' <Predicate = true> <Delay = 1.28> <CoreType = "Generic">   --->   Generic Core
+
+State 3 <SV = 2> <Delay = 0.00>
+ST_3 : Operation 47 [1/1] (0.00ns)   --->   "%fence_ln37 = fence void @_ssdm_op_Fence, i32 %input1_stream, i32 4294967295, i32 %input2_stream, i32 %output_stream_3, i32 0" [kernel_rmsnorm.cpp:37]   --->   Operation 47 'fence' 'fence_ln37' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 48 [1/1] (0.00ns)   --->   "%fence_ln37 = fence void @_ssdm_op_Fence, i32 %input1_stream, i32 4294967295, i32 %input2_stream, i32 0" [kernel_rmsnorm.cpp:37]   --->   Operation 48 'fence' 'fence_ln37' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 49 [2/2] (0.00ns)   --->   "%call_ln0 = call void @compute_rmsnorm_Pipeline_load_weights, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3, i32 %input2_stream, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2"   --->   Operation 49 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+ST_3 : Operation 50 [2/2] (0.00ns)   --->   "%call_ln0 = call void @compute_rmsnorm_Pipeline_compute_sum, i32 %sum_local_loc, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1"   --->   Operation 50 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+
+State 4 <SV = 3> <Delay = 1.28>
+ST_4 : Operation 51 [1/2] (1.28ns)   --->   "%call_ln0 = call void @compute_rmsnorm_Pipeline_load_weights, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3, i32 %input2_stream, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2"   --->   Operation 51 'call' 'call_ln0' <Predicate = true> <Delay = 1.28> <CoreType = "Generic">   --->   Generic Core
+ST_4 : Operation 52 [1/2] (0.00ns)   --->   "%call_ln0 = call void @compute_rmsnorm_Pipeline_compute_sum, i32 %sum_local_loc, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1"   --->   Operation 52 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+
+State 5 <SV = 4> <Delay = 0.42>
+ST_5 : Operation 53 [1/1] (0.00ns)   --->   "%fence_ln43 = fence void @_ssdm_op_Fence, i32 %input2_stream, i32 4294967295, i32 %output_stream_3, i32 0" [kernel_rmsnorm.cpp:43]   --->   Operation 53 'fence' 'fence_ln43' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 54 [1/1] (0.00ns)   --->   "%fence_ln43 = fence void @_ssdm_op_Fence, i32 %input1_stream, i32 %input2_stream, i32 4294967295, i32 %output_stream_3, i32 0" [kernel_rmsnorm.cpp:43]   --->   Operation 54 'fence' 'fence_ln43' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 55 [1/1] (0.00ns)   --->   "%sum_local_loc_load = load i32 %sum_local_loc"   --->   Operation 55 'load' 'sum_local_loc_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 56 [1/1] (0.42ns) (share mux size 2)   --->   "%muxLogicI0_to_div_i = muxlogic i32 %sum_local_loc_load"   --->   Operation 56 'muxlogic' 'muxLogicI0_to_div_i' <Predicate = true> <Delay = 0.42>
+ST_5 : Operation 57 [1/1] (0.42ns) (share mux size 2)   --->   "%muxLogicI1_to_div_i = muxlogic i32 768"   --->   Operation 57 'muxlogic' 'muxLogicI1_to_div_i' <Predicate = true> <Delay = 0.42>
+ST_5 : Operation 58 [1/1] (0.00ns)   --->   "%fence_ln52 = fence void @_ssdm_op_Fence, i32 %input1_stream, i32 %input2_stream, i32 4294967295, i32 %output_stream_3, i32 0" [kernel_rmsnorm.cpp:52]   --->   Operation 58 'fence' 'fence_ln52' <Predicate = true> <Delay = 0.00>
+
+State 6 <SV = 5> <Delay = 2.58>
+ST_6 : Operation 59 [11/11] (2.58ns) (share mux size 2)   --->   "%div_i = fdiv i32 %sum_local_loc_load, i32 768" [kernel_rmsnorm.cpp:50]   --->   Operation 59 'fdiv' 'div_i' <Predicate = true> <Delay = 2.58> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 7 <SV = 6> <Delay = 2.79>
+ST_7 : Operation 60 [10/11] (2.79ns) (share mux size 2)   --->   "%div_i = fdiv i32 %sum_local_loc_load, i32 768" [kernel_rmsnorm.cpp:50]   --->   Operation 60 'fdiv' 'div_i' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 8 <SV = 7> <Delay = 2.79>
+ST_8 : Operation 61 [9/11] (2.79ns) (share mux size 2)   --->   "%div_i = fdiv i32 %sum_local_loc_load, i32 768" [kernel_rmsnorm.cpp:50]   --->   Operation 61 'fdiv' 'div_i' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 9 <SV = 8> <Delay = 2.79>
+ST_9 : Operation 62 [8/11] (2.79ns) (share mux size 2)   --->   "%div_i = fdiv i32 %sum_local_loc_load, i32 768" [kernel_rmsnorm.cpp:50]   --->   Operation 62 'fdiv' 'div_i' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 10 <SV = 9> <Delay = 2.79>
+ST_10 : Operation 63 [7/11] (2.79ns) (share mux size 2)   --->   "%div_i = fdiv i32 %sum_local_loc_load, i32 768" [kernel_rmsnorm.cpp:50]   --->   Operation 63 'fdiv' 'div_i' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 11 <SV = 10> <Delay = 2.79>
+ST_11 : Operation 64 [6/11] (2.79ns) (share mux size 2)   --->   "%div_i = fdiv i32 %sum_local_loc_load, i32 768" [kernel_rmsnorm.cpp:50]   --->   Operation 64 'fdiv' 'div_i' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 12 <SV = 11> <Delay = 2.79>
+ST_12 : Operation 65 [5/11] (2.79ns) (share mux size 2)   --->   "%div_i = fdiv i32 %sum_local_loc_load, i32 768" [kernel_rmsnorm.cpp:50]   --->   Operation 65 'fdiv' 'div_i' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 13 <SV = 12> <Delay = 2.79>
+ST_13 : Operation 66 [4/11] (2.79ns) (share mux size 2)   --->   "%div_i = fdiv i32 %sum_local_loc_load, i32 768" [kernel_rmsnorm.cpp:50]   --->   Operation 66 'fdiv' 'div_i' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 14 <SV = 13> <Delay = 2.79>
+ST_14 : Operation 67 [3/11] (2.79ns) (share mux size 2)   --->   "%div_i = fdiv i32 %sum_local_loc_load, i32 768" [kernel_rmsnorm.cpp:50]   --->   Operation 67 'fdiv' 'div_i' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 15 <SV = 14> <Delay = 2.79>
+ST_15 : Operation 68 [2/11] (2.79ns) (share mux size 2)   --->   "%div_i = fdiv i32 %sum_local_loc_load, i32 768" [kernel_rmsnorm.cpp:50]   --->   Operation 68 'fdiv' 'div_i' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 16 <SV = 15> <Delay = 2.01>
+ST_16 : Operation 69 [1/11] (0.09ns) (share mux size 2)   --->   "%div_i = fdiv i32 %sum_local_loc_load, i32 768" [kernel_rmsnorm.cpp:50]   --->   Operation 69 'fdiv' 'div_i' <Predicate = true> <Delay = 0.09> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 70 [1/1] (0.00ns)   --->   "%muxLogicI0_to_add4_i = muxlogic i32 %div_i"   --->   Operation 70 'muxlogic' 'muxLogicI0_to_add4_i' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 71 [1/1] (0.00ns)   --->   "%muxLogicI1_to_add4_i = muxlogic i32 1e-06"   --->   Operation 71 'muxlogic' 'muxLogicI1_to_add4_i' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 72 [1/1] (1.92ns)   --->   "%add4_i = fadd i32 %div_i, i32 1e-06" [kernel_rmsnorm.cpp:50]   --->   Operation 72 'fadd' 'add4_i' <Predicate = true> <Delay = 1.92> <CoreInst = "FAddSub_primitivedsp">   --->   Core 13 'FAddSub_primitivedsp' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 17 <SV = 16> <Delay = 1.38>
+ST_17 : Operation 73 [1/1] (0.00ns)   --->   "%muxLogicI0_to_tmp_i = muxlogic i32 %add4_i"   --->   Operation 73 'muxlogic' 'muxLogicI0_to_tmp_i' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 74 [15/15] (1.38ns)   --->   "%tmp_i = fsqrt i32 @llvm.sqrt.f32, i32 %add4_i" [kernel_rmsnorm.cpp:50]   --->   Operation 74 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 1.38> <CoreInst = "FSqrt">   --->   Core 39 'FSqrt' <Latency = 14> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 18 <SV = 17> <Delay = 2.09>
+ST_18 : Operation 75 [14/15] (2.09ns)   --->   "%tmp_i = fsqrt i32 @llvm.sqrt.f32, i32 %add4_i" [kernel_rmsnorm.cpp:50]   --->   Operation 75 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 2.09> <CoreInst = "FSqrt">   --->   Core 39 'FSqrt' <Latency = 14> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 19 <SV = 18> <Delay = 2.09>
+ST_19 : Operation 76 [13/15] (2.09ns)   --->   "%tmp_i = fsqrt i32 @llvm.sqrt.f32, i32 %add4_i" [kernel_rmsnorm.cpp:50]   --->   Operation 76 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 2.09> <CoreInst = "FSqrt">   --->   Core 39 'FSqrt' <Latency = 14> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 20 <SV = 19> <Delay = 2.09>
+ST_20 : Operation 77 [12/15] (2.09ns)   --->   "%tmp_i = fsqrt i32 @llvm.sqrt.f32, i32 %add4_i" [kernel_rmsnorm.cpp:50]   --->   Operation 77 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 2.09> <CoreInst = "FSqrt">   --->   Core 39 'FSqrt' <Latency = 14> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 21 <SV = 20> <Delay = 2.09>
+ST_21 : Operation 78 [11/15] (2.09ns)   --->   "%tmp_i = fsqrt i32 @llvm.sqrt.f32, i32 %add4_i" [kernel_rmsnorm.cpp:50]   --->   Operation 78 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 2.09> <CoreInst = "FSqrt">   --->   Core 39 'FSqrt' <Latency = 14> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 22 <SV = 21> <Delay = 2.09>
+ST_22 : Operation 79 [10/15] (2.09ns)   --->   "%tmp_i = fsqrt i32 @llvm.sqrt.f32, i32 %add4_i" [kernel_rmsnorm.cpp:50]   --->   Operation 79 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 2.09> <CoreInst = "FSqrt">   --->   Core 39 'FSqrt' <Latency = 14> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 23 <SV = 22> <Delay = 2.09>
+ST_23 : Operation 80 [9/15] (2.09ns)   --->   "%tmp_i = fsqrt i32 @llvm.sqrt.f32, i32 %add4_i" [kernel_rmsnorm.cpp:50]   --->   Operation 80 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 2.09> <CoreInst = "FSqrt">   --->   Core 39 'FSqrt' <Latency = 14> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 24 <SV = 23> <Delay = 2.09>
+ST_24 : Operation 81 [8/15] (2.09ns)   --->   "%tmp_i = fsqrt i32 @llvm.sqrt.f32, i32 %add4_i" [kernel_rmsnorm.cpp:50]   --->   Operation 81 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 2.09> <CoreInst = "FSqrt">   --->   Core 39 'FSqrt' <Latency = 14> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 25 <SV = 24> <Delay = 2.09>
+ST_25 : Operation 82 [7/15] (2.09ns)   --->   "%tmp_i = fsqrt i32 @llvm.sqrt.f32, i32 %add4_i" [kernel_rmsnorm.cpp:50]   --->   Operation 82 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 2.09> <CoreInst = "FSqrt">   --->   Core 39 'FSqrt' <Latency = 14> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 26 <SV = 25> <Delay = 2.09>
+ST_26 : Operation 83 [6/15] (2.09ns)   --->   "%tmp_i = fsqrt i32 @llvm.sqrt.f32, i32 %add4_i" [kernel_rmsnorm.cpp:50]   --->   Operation 83 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 2.09> <CoreInst = "FSqrt">   --->   Core 39 'FSqrt' <Latency = 14> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 27 <SV = 26> <Delay = 2.09>
+ST_27 : Operation 84 [5/15] (2.09ns)   --->   "%tmp_i = fsqrt i32 @llvm.sqrt.f32, i32 %add4_i" [kernel_rmsnorm.cpp:50]   --->   Operation 84 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 2.09> <CoreInst = "FSqrt">   --->   Core 39 'FSqrt' <Latency = 14> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 28 <SV = 27> <Delay = 2.09>
+ST_28 : Operation 85 [4/15] (2.09ns)   --->   "%tmp_i = fsqrt i32 @llvm.sqrt.f32, i32 %add4_i" [kernel_rmsnorm.cpp:50]   --->   Operation 85 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 2.09> <CoreInst = "FSqrt">   --->   Core 39 'FSqrt' <Latency = 14> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 29 <SV = 28> <Delay = 2.09>
+ST_29 : Operation 86 [3/15] (2.09ns)   --->   "%tmp_i = fsqrt i32 @llvm.sqrt.f32, i32 %add4_i" [kernel_rmsnorm.cpp:50]   --->   Operation 86 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 2.09> <CoreInst = "FSqrt">   --->   Core 39 'FSqrt' <Latency = 14> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 30 <SV = 29> <Delay = 2.09>
+ST_30 : Operation 87 [2/15] (2.09ns)   --->   "%tmp_i = fsqrt i32 @llvm.sqrt.f32, i32 %add4_i" [kernel_rmsnorm.cpp:50]   --->   Operation 87 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 2.09> <CoreInst = "FSqrt">   --->   Core 39 'FSqrt' <Latency = 14> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 31 <SV = 30> <Delay = 0.51>
+ST_31 : Operation 88 [1/15] (0.09ns)   --->   "%tmp_i = fsqrt i32 @llvm.sqrt.f32, i32 %add4_i" [kernel_rmsnorm.cpp:50]   --->   Operation 88 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 0.09> <CoreInst = "FSqrt">   --->   Core 39 'FSqrt' <Latency = 14> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+ST_31 : Operation 89 [1/1] (0.42ns) (share mux size 2)   --->   "%muxLogicI0_to_norm = muxlogic i32 1"   --->   Operation 89 'muxlogic' 'muxLogicI0_to_norm' <Predicate = true> <Delay = 0.42>
+ST_31 : Operation 90 [1/1] (0.42ns) (share mux size 2)   --->   "%muxLogicI1_to_norm = muxlogic i32 %tmp_i"   --->   Operation 90 'muxlogic' 'muxLogicI1_to_norm' <Predicate = true> <Delay = 0.42>
+
+State 32 <SV = 31> <Delay = 2.58>
+ST_32 : Operation 91 [11/11] (2.58ns) (share mux size 2)   --->   "%norm = fdiv i32 1, i32 %tmp_i" [kernel_rmsnorm.cpp:50]   --->   Operation 91 'fdiv' 'norm' <Predicate = true> <Delay = 2.58> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 33 <SV = 32> <Delay = 2.79>
+ST_33 : Operation 92 [10/11] (2.79ns) (share mux size 2)   --->   "%norm = fdiv i32 1, i32 %tmp_i" [kernel_rmsnorm.cpp:50]   --->   Operation 92 'fdiv' 'norm' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 34 <SV = 33> <Delay = 2.79>
+ST_34 : Operation 93 [9/11] (2.79ns) (share mux size 2)   --->   "%norm = fdiv i32 1, i32 %tmp_i" [kernel_rmsnorm.cpp:50]   --->   Operation 93 'fdiv' 'norm' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 35 <SV = 34> <Delay = 2.79>
+ST_35 : Operation 94 [8/11] (2.79ns) (share mux size 2)   --->   "%norm = fdiv i32 1, i32 %tmp_i" [kernel_rmsnorm.cpp:50]   --->   Operation 94 'fdiv' 'norm' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 36 <SV = 35> <Delay = 2.79>
+ST_36 : Operation 95 [7/11] (2.79ns) (share mux size 2)   --->   "%norm = fdiv i32 1, i32 %tmp_i" [kernel_rmsnorm.cpp:50]   --->   Operation 95 'fdiv' 'norm' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 37 <SV = 36> <Delay = 2.79>
+ST_37 : Operation 96 [6/11] (2.79ns) (share mux size 2)   --->   "%norm = fdiv i32 1, i32 %tmp_i" [kernel_rmsnorm.cpp:50]   --->   Operation 96 'fdiv' 'norm' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 38 <SV = 37> <Delay = 2.79>
+ST_38 : Operation 97 [5/11] (2.79ns) (share mux size 2)   --->   "%norm = fdiv i32 1, i32 %tmp_i" [kernel_rmsnorm.cpp:50]   --->   Operation 97 'fdiv' 'norm' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 39 <SV = 38> <Delay = 2.79>
+ST_39 : Operation 98 [4/11] (2.79ns) (share mux size 2)   --->   "%norm = fdiv i32 1, i32 %tmp_i" [kernel_rmsnorm.cpp:50]   --->   Operation 98 'fdiv' 'norm' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 40 <SV = 39> <Delay = 2.79>
+ST_40 : Operation 99 [3/11] (2.79ns) (share mux size 2)   --->   "%norm = fdiv i32 1, i32 %tmp_i" [kernel_rmsnorm.cpp:50]   --->   Operation 99 'fdiv' 'norm' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 41 <SV = 40> <Delay = 2.79>
+ST_41 : Operation 100 [2/11] (2.79ns) (share mux size 2)   --->   "%norm = fdiv i32 1, i32 %tmp_i" [kernel_rmsnorm.cpp:50]   --->   Operation 100 'fdiv' 'norm' <Predicate = true> <Delay = 2.79> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 42 <SV = 41> <Delay = 0.09>
+ST_42 : Operation 101 [1/11] (0.09ns) (share mux size 2)   --->   "%norm = fdiv i32 1, i32 %tmp_i" [kernel_rmsnorm.cpp:50]   --->   Operation 101 'fdiv' 'norm' <Predicate = true> <Delay = 0.09> <CoreInst = "FDiv">   --->   Core 24 'FDiv' <Latency = 10> <II = 1> <Delay = 2.79> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_42 : Operation 102 [2/2] (0.00ns)   --->   "%call_ln50 = call void @compute_rmsnorm_Pipeline_normalize, i32 %norm, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2, i32 %output_stream_3" [kernel_rmsnorm.cpp:50]   --->   Operation 102 'call' 'call_ln50' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+
+State 43 <SV = 42> <Delay = 0.00>
+ST_43 : Operation 103 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %input1_stream, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 103 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 104 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %input1_stream, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 104 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 105 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %input1_stream, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 105 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 106 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %input2_stream, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 106 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 107 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %input2_stream, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 107 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 108 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %input2_stream, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 108 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 109 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %output_stream_3, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 109 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 110 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %output_stream_3, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 110 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 111 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %output_stream_3, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 111 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 112 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %output_stream_3, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 112 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 113 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %input2_stream, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 113 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 114 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %input1_stream, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 114 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 115 [1/2] (0.00ns)   --->   "%call_ln50 = call void @compute_rmsnorm_Pipeline_normalize, i32 %norm, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2, i32 %output_stream_3" [kernel_rmsnorm.cpp:50]   --->   Operation 115 'call' 'call_ln50' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+ST_43 : Operation 116 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 116 'ret' 'ret_ln0' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 4.000ns, clock uncertainty: 1.080ns.
+
+ <State 1>: 0.000ns
+The critical path consists of the following:
+
+ <State 2>: 1.284ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln0') to 'compute_rmsnorm_Pipeline_load_input' [25]  (1.284 ns)
+
+ <State 3>: 0.000ns
+The critical path consists of the following:
+
+ <State 4>: 1.284ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln0') to 'compute_rmsnorm_Pipeline_load_weights' [28]  (1.284 ns)
+
+ <State 5>: 0.421ns
+The critical path consists of the following:
+	'load' operation 32 bit ('sum_local_loc_load') on local variable 'sum_local_loc' [32]  (0.000 ns)
+	'muxlogic' operation 32 bit ('muxLogicI0_to_div_i') [33]  (0.421 ns)
+
+ <State 6>: 2.586ns
+The critical path consists of the following:
+	'fdiv' operation 32 bit ('div_i', kernel_rmsnorm.cpp:50) [35]  (2.586 ns)
+
+ <State 7>: 2.799ns
+The critical path consists of the following:
+	'fdiv' operation 32 bit ('div_i', kernel_rmsnorm.cpp:50) [35]  (2.799 ns)
+
+ <State 8>: 2.799ns
+The critical path consists of the following:
+	'fdiv' operation 32 bit ('div_i', kernel_rmsnorm.cpp:50) [35]  (2.799 ns)
+
+ <State 9>: 2.799ns
+The critical path consists of the following:
+	'fdiv' operation 32 bit ('div_i', kernel_rmsnorm.cpp:50) [35]  (2.799 ns)
+
+ <State 10>: 2.799ns
+The critical path consists of the following:
+	'fdiv' operation 32 bit ('div_i', kernel_rmsnorm.cpp:50) [35]  (2.799 ns)
+
+ <State 11>: 2.799ns
+The critical path consists of the following:
+	'fdiv' operation 32 bit ('div_i', kernel_rmsnorm.cpp:50) [35]  (2.799 ns)
+
+ <State 12>: 2.799ns
+The critical path consists of the following:
+	'fdiv' operation 32 bit ('div_i', kernel_rmsnorm.cpp:50) [35]  (2.799 ns)
+
+ <State 13>: 2.799ns
+The critical path consists of the following:
+	'fdiv' operation 32 bit ('div_i', kernel_rmsnorm.cpp:50) [35]  (2.799 ns)
+
+ <State 14>: 2.799ns
+The critical path consists of the following:
+	'fdiv' operation 32 bit ('div_i', kernel_rmsnorm.cpp:50) [35]  (2.799 ns)
+
+ <State 15>: 2.799ns
+The critical path consists of the following:
+	'fdiv' operation 32 bit ('div_i', kernel_rmsnorm.cpp:50) [35]  (2.799 ns)
+
+ <State 16>: 2.016ns
+The critical path consists of the following:
+	'fdiv' operation 32 bit ('div_i', kernel_rmsnorm.cpp:50) [35]  (0.091 ns)
+	'muxlogic' operation 32 bit ('muxLogicI0_to_add4_i') [36]  (0.000 ns)
+	'fadd' operation 32 bit ('add4_i', kernel_rmsnorm.cpp:50) [38]  (1.925 ns)
+
+ <State 17>: 1.385ns
+The critical path consists of the following:
+	'muxlogic' operation 32 bit ('muxLogicI0_to_tmp_i') [39]  (0.000 ns)
+	'fsqrt' operation 32 bit ('tmp_i', kernel_rmsnorm.cpp:50) [40]  (1.385 ns)
+
+ <State 18>: 2.098ns
+The critical path consists of the following:
+	'fsqrt' operation 32 bit ('tmp_i', kernel_rmsnorm.cpp:50) [40]  (2.098 ns)
+
+ <State 19>: 2.098ns
+The critical path consists of the following:
+	'fsqrt' operation 32 bit ('tmp_i', kernel_rmsnorm.cpp:50) [40]  (2.098 ns)
+
+ <State 20>: 2.098ns
+The critical path consists of the following:
+	'fsqrt' operation 32 bit ('tmp_i', kernel_rmsnorm.cpp:50) [40]  (2.098 ns)
+
+ <State 21>: 2.098ns
+The critical path consists of the following:
+	'fsqrt' operation 32 bit ('tmp_i', kernel_rmsnorm.cpp:50) [40]  (2.098 ns)
+
+ <State 22>: 2.098ns
+The critical path consists of the following:
+	'fsqrt' operation 32 bit ('tmp_i', kernel_rmsnorm.cpp:50) [40]  (2.098 ns)
+
+ <State 23>: 2.098ns
+The critical path consists of the following:
+	'fsqrt' operation 32 bit ('tmp_i', kernel_rmsnorm.cpp:50) [40]  (2.098 ns)
+
+ <State 24>: 2.098ns
+The critical path consists of the following:
+	'fsqrt' operation 32 bit ('tmp_i', kernel_rmsnorm.cpp:50) [40]  (2.098 ns)
+
+ <State 25>: 2.098ns
+The critical path consists of the following:
+	'fsqrt' operation 32 bit ('tmp_i', kernel_rmsnorm.cpp:50) [40]  (2.098 ns)
+
+ <State 26>: 2.098ns
+The critical path consists of the following:
+	'fsqrt' operation 32 bit ('tmp_i', kernel_rmsnorm.cpp:50) [40]  (2.098 ns)
+
+ <State 27>: 2.098ns
+The critical path consists of the following:
+	'fsqrt' operation 32 bit ('tmp_i', kernel_rmsnorm.cpp:50) [40]  (2.098 ns)
+
+ <State 28>: 2.098ns
+The critical path consists of the following:
+	'fsqrt' operation 32 bit ('tmp_i', kernel_rmsnorm.cpp:50) [40]  (2.098 ns)
+
+ <State 29>: 2.098ns
+The critical path consists of the following:
+	'fsqrt' operation 32 bit ('tmp_i', kernel_rmsnorm.cpp:50) [40]  (2.098 ns)
+
+ <State 30>: 2.098ns
+The critical path consists of the following:
+	'fsqrt' operation 32 bit ('tmp_i', kernel_rmsnorm.cpp:50) [40]  (2.098 ns)
+
+ <State 31>: 0.513ns
+The critical path consists of the following:
+	'fsqrt' operation 32 bit ('tmp_i', kernel_rmsnorm.cpp:50) [40]  (0.092 ns)
+	'muxlogic' operation 32 bit ('muxLogicI1_to_norm') [42]  (0.421 ns)
+
+ <State 32>: 2.586ns
+The critical path consists of the following:
+	'fdiv' operation 32 bit ('norm', kernel_rmsnorm.cpp:50) [43]  (2.586 ns)
+
+ <State 33>: 2.799ns
+The critical path consists of the following:
+	'fdiv' operation 32 bit ('norm', kernel_rmsnorm.cpp:50) [43]  (2.799 ns)
+
+ <State 34>: 2.799ns
+The critical path consists of the following:
+	'fdiv' operation 32 bit ('norm', kernel_rmsnorm.cpp:50) [43]  (2.799 ns)
+
+ <State 35>: 2.799ns
+The critical path consists of the following:
+	'fdiv' operation 32 bit ('norm', kernel_rmsnorm.cpp:50) [43]  (2.799 ns)
+
+ <State 36>: 2.799ns
+The critical path consists of the following:
+	'fdiv' operation 32 bit ('norm', kernel_rmsnorm.cpp:50) [43]  (2.799 ns)
+
+ <State 37>: 2.799ns
+The critical path consists of the following:
+	'fdiv' operation 32 bit ('norm', kernel_rmsnorm.cpp:50) [43]  (2.799 ns)
+
+ <State 38>: 2.799ns
+The critical path consists of the following:
+	'fdiv' operation 32 bit ('norm', kernel_rmsnorm.cpp:50) [43]  (2.799 ns)
+
+ <State 39>: 2.799ns
+The critical path consists of the following:
+	'fdiv' operation 32 bit ('norm', kernel_rmsnorm.cpp:50) [43]  (2.799 ns)
+
+ <State 40>: 2.799ns
+The critical path consists of the following:
+	'fdiv' operation 32 bit ('norm', kernel_rmsnorm.cpp:50) [43]  (2.799 ns)
+
+ <State 41>: 2.799ns
+The critical path consists of the following:
+	'fdiv' operation 32 bit ('norm', kernel_rmsnorm.cpp:50) [43]  (2.799 ns)
+
+ <State 42>: 0.091ns
+The critical path consists of the following:
+	'fdiv' operation 32 bit ('norm', kernel_rmsnorm.cpp:50) [43]  (0.091 ns)
+
+ <State 43>: 0.000ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

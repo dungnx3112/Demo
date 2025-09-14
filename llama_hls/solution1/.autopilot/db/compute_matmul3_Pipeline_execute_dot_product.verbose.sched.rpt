@@ -1,0 +1,209 @@
+
+
+================================================================
+== Vitis HLS Report for 'compute_matmul3_Pipeline_execute_dot_product'
+================================================================
+* Date:           Mon Sep 15 01:28:00 2025
+
+* Version:        2025.1 (Build 6135595 on May 21 2025)
+* Project:        llama_hls
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: versalhbm
+* Target device:  xcv80-lsva4737-2MHP-e-S
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  4.00 ns|  3.274 ns|     1.08 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+--------+--------+------------------------------------------------+
+    |  Latency (cycles) |  Latency (absolute) |     Interval    |                    Pipeline                    |
+    |   min   |   max   |    min   |    max   |   min  |   max  |                      Type                      |
+    +---------+---------+----------+----------+--------+--------+------------------------------------------------+
+    |   589828|   589828|  2.359 ms|  2.359 ms|  589825|  589825|  loop auto-rewind stp (delay=0 clock cycles(s))|
+    +---------+---------+----------+----------+--------+--------+------------------------------------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-----------------------+---------+---------+----------+-----------+-----------+--------+----------+
+        |                       |  Latency (cycles) | Iteration|  Initiation Interval  |  Trip  |          |
+        |       Loop Name       |   min   |   max   |  Latency |  achieved |   target  |  Count | Pipelined|
+        +-----------------------+---------+---------+----------+-----------+-----------+--------+----------+
+        |- execute_dot_product  |   589826|   589826|         4|          1|          1|  589824|       yes|
+        +-----------------------+---------+---------+----------+-----------+-----------+--------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 4
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 4
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 4, States = { 1 2 3 4 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 2.69>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%sum_local = alloca i32 1" [kernel_matmul.cpp:49]   --->   Operation 7 'alloca' 'sum_local' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%j = alloca i32 1" [kernel_matmul.cpp:50]   --->   Operation 8 'alloca' 'j' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%indvar_flatten = alloca i32 1"   --->   Operation 9 'alloca' 'indvar_flatten' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %result_stream, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 10 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %matrix_stream, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 11 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.42ns)   --->   "%store_ln0 = store i20 0, i20 %indvar_flatten"   --->   Operation 12 'store' 'store_ln0' <Predicate = true> <Delay = 0.42>
+ST_1 : Operation 13 [1/1] (0.39ns)   --->   "%store_ln50 = store i10 0, i10 %j" [kernel_matmul.cpp:50]   --->   Operation 13 'store' 'store_ln50' <Predicate = true> <Delay = 0.39>
+ST_1 : Operation 14 [1/1] (0.42ns)   --->   "%store_ln49 = store i32 0, i32 %sum_local" [kernel_matmul.cpp:49]   --->   Operation 14 'store' 'store_ln49' <Predicate = true> <Delay = 0.42>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%br_ln50 = br void %for.inc13.i" [kernel_matmul.cpp:50]   --->   Operation 15 'br' 'br_ln50' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%indvar_flatten_load = load i20 %indvar_flatten" [kernel_matmul.cpp:47]   --->   Operation 16 'load' 'indvar_flatten_load' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.80ns)   --->   "%add_ln47 = add i20 %indvar_flatten_load, i20 1" [kernel_matmul.cpp:47]   --->   Operation 17 'add' 'add_ln47' <Predicate = true> <Delay = 0.80> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 18 [1/1] (0.63ns)   --->   "%icmp_ln47 = icmp_eq  i20 %indvar_flatten_load, i20 589824" [kernel_matmul.cpp:47]   --->   Operation 18 'icmp' 'icmp_ln47' <Predicate = true> <Delay = 0.63> <CoreInst = "ICmp_EQ">   --->   Core 156 'ICmp_EQ' <Latency = 0> <II = 1> <Delay = 0.63> <FuncUnit> <Opcode : 'seteq' 'setne'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%br_ln47 = br i1 %icmp_ln47, void %for.inc16.i, void %compute_matmul3.exit.exitStub" [kernel_matmul.cpp:47]   --->   Operation 19 'br' 'br_ln47' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%j_load = load i10 %j" [kernel_matmul.cpp:50]   --->   Operation 20 'load' 'j_load' <Predicate = (!icmp_ln47)> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.60ns)   --->   "%icmp_ln50 = icmp_eq  i10 %j_load, i10 768" [kernel_matmul.cpp:50]   --->   Operation 21 'icmp' 'icmp_ln50' <Predicate = (!icmp_ln47)> <Delay = 0.60> <CoreInst = "ICmp_EQ">   --->   Core 156 'ICmp_EQ' <Latency = 0> <II = 1> <Delay = 0.60> <FuncUnit> <Opcode : 'seteq' 'setne'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 22 [1/1] (0.37ns)   --->   "%select_ln47 = select i1 %icmp_ln50, i10 0, i10 %j_load" [kernel_matmul.cpp:47]   --->   Operation 22 'select' 'select_ln47' <Predicate = (!icmp_ln47)> <Delay = 0.37> <CoreInst = "Sel">   --->   Core 77 'Sel' <Latency = 0> <II = 1> <Delay = 0.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%trunc_ln50 = trunc i10 %select_ln47" [kernel_matmul.cpp:50]   --->   Operation 23 'trunc' 'trunc_ln50' <Predicate = (!icmp_ln47)> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%lshr_ln = partselect i8 @_ssdm_op_PartSelect.i8.i10.i32.i32, i10 %select_ln47, i32 2, i32 9" [kernel_matmul.cpp:49]   --->   Operation 24 'partselect' 'lshr_ln' <Predicate = (!icmp_ln47)> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%zext_ln49 = zext i8 %lshr_ln" [kernel_matmul.cpp:49]   --->   Operation 25 'zext' 'zext_ln49' <Predicate = (!icmp_ln47)> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%compute_matmul_stream_stream_stream_float_0_int_int_vec_local_addr = getelementptr i32 %compute_matmul_stream_float_0_stream_float_0_stream_float_0_int_int_vec_local, i64 0, i64 %zext_ln49" [kernel_matmul.cpp:53]   --->   Operation 26 'getelementptr' 'compute_matmul_stream_stream_stream_float_0_int_int_vec_local_addr' <Predicate = (!icmp_ln47)> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%compute_matmul_stream_stream_stream_float_0_int_int_vec_local_47_addr = getelementptr i32 %compute_matmul_stream_float_0_stream_float_0_stream_float_0_int_int_vec_local_47, i64 0, i64 %zext_ln49" [kernel_matmul.cpp:53]   --->   Operation 27 'getelementptr' 'compute_matmul_stream_stream_stream_float_0_int_int_vec_local_47_addr' <Predicate = (!icmp_ln47)> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%compute_matmul_stream_stream_stream_float_0_int_int_vec_local_48_addr = getelementptr i32 %compute_matmul_stream_float_0_stream_float_0_stream_float_0_int_int_vec_local_48, i64 0, i64 %zext_ln49" [kernel_matmul.cpp:53]   --->   Operation 28 'getelementptr' 'compute_matmul_stream_stream_stream_float_0_int_int_vec_local_48_addr' <Predicate = (!icmp_ln47)> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%compute_matmul_stream_stream_stream_float_0_int_int_vec_local_49_addr = getelementptr i32 %compute_matmul_stream_float_0_stream_float_0_stream_float_0_int_int_vec_local_49, i64 0, i64 %zext_ln49" [kernel_matmul.cpp:53]   --->   Operation 29 'getelementptr' 'compute_matmul_stream_stream_stream_float_0_int_int_vec_local_49_addr' <Predicate = (!icmp_ln47)> <Delay = 0.00>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%muxLogicRAMAddr_to_compute_matmul_stream_stream_stream_float_0_int_int_vec_local_load = muxlogic i8 %compute_matmul_stream_stream_stream_float_0_int_int_vec_local_addr"   --->   Operation 30 'muxlogic' 'muxLogicRAMAddr_to_compute_matmul_stream_stream_stream_float_0_int_int_vec_local_load' <Predicate = (!icmp_ln47)> <Delay = 0.00>
+ST_1 : Operation 31 [2/2] (0.71ns)   --->   "%compute_matmul_stream_stream_stream_float_0_int_int_vec_local_load = load i8 %compute_matmul_stream_stream_stream_float_0_int_int_vec_local_addr" [kernel_matmul.cpp:53]   --->   Operation 31 'load' 'compute_matmul_stream_stream_stream_float_0_int_int_vec_local_load' <Predicate = (!icmp_ln47)> <Delay = 0.71> <CoreInst = "RAM">   --->   Core 86 'RAM' <Latency = 1> <II = 1> <Delay = 0.89> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%muxLogicRAMAddr_to_compute_matmul_stream_stream_stream_float_0_int_int_vec_local_47_load = muxlogic i8 %compute_matmul_stream_stream_stream_float_0_int_int_vec_local_47_addr"   --->   Operation 32 'muxlogic' 'muxLogicRAMAddr_to_compute_matmul_stream_stream_stream_float_0_int_int_vec_local_47_load' <Predicate = (!icmp_ln47)> <Delay = 0.00>
+ST_1 : Operation 33 [2/2] (0.71ns)   --->   "%compute_matmul_stream_stream_stream_float_0_int_int_vec_local_47_load = load i8 %compute_matmul_stream_stream_stream_float_0_int_int_vec_local_47_addr" [kernel_matmul.cpp:53]   --->   Operation 33 'load' 'compute_matmul_stream_stream_stream_float_0_int_int_vec_local_47_load' <Predicate = (!icmp_ln47)> <Delay = 0.71> <CoreInst = "RAM">   --->   Core 86 'RAM' <Latency = 1> <II = 1> <Delay = 0.89> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%muxLogicRAMAddr_to_compute_matmul_stream_stream_stream_float_0_int_int_vec_local_48_load = muxlogic i8 %compute_matmul_stream_stream_stream_float_0_int_int_vec_local_48_addr"   --->   Operation 34 'muxlogic' 'muxLogicRAMAddr_to_compute_matmul_stream_stream_stream_float_0_int_int_vec_local_48_load' <Predicate = (!icmp_ln47)> <Delay = 0.00>
+ST_1 : Operation 35 [2/2] (0.71ns)   --->   "%compute_matmul_stream_stream_stream_float_0_int_int_vec_local_48_load = load i8 %compute_matmul_stream_stream_stream_float_0_int_int_vec_local_48_addr" [kernel_matmul.cpp:53]   --->   Operation 35 'load' 'compute_matmul_stream_stream_stream_float_0_int_int_vec_local_48_load' <Predicate = (!icmp_ln47)> <Delay = 0.71> <CoreInst = "RAM">   --->   Core 86 'RAM' <Latency = 1> <II = 1> <Delay = 0.89> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%muxLogicRAMAddr_to_compute_matmul_stream_stream_stream_float_0_int_int_vec_local_49_load = muxlogic i8 %compute_matmul_stream_stream_stream_float_0_int_int_vec_local_49_addr"   --->   Operation 36 'muxlogic' 'muxLogicRAMAddr_to_compute_matmul_stream_stream_stream_float_0_int_int_vec_local_49_load' <Predicate = (!icmp_ln47)> <Delay = 0.00>
+ST_1 : Operation 37 [2/2] (0.71ns)   --->   "%compute_matmul_stream_stream_stream_float_0_int_int_vec_local_49_load = load i8 %compute_matmul_stream_stream_stream_float_0_int_int_vec_local_49_addr" [kernel_matmul.cpp:53]   --->   Operation 37 'load' 'compute_matmul_stream_stream_stream_float_0_int_int_vec_local_49_load' <Predicate = (!icmp_ln47)> <Delay = 0.71> <CoreInst = "RAM">   --->   Core 86 'RAM' <Latency = 1> <II = 1> <Delay = 0.89> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
+ST_1 : Operation 38 [1/1] (0.71ns)   --->   "%add_ln50 = add i10 %select_ln47, i10 1" [kernel_matmul.cpp:50]   --->   Operation 38 'add' 'add_ln50' <Predicate = (!icmp_ln47)> <Delay = 0.71> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.71> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 39 [1/1] (0.60ns)   --->   "%icmp_ln50_3 = icmp_eq  i10 %add_ln50, i10 768" [kernel_matmul.cpp:50]   --->   Operation 39 'icmp' 'icmp_ln50_3' <Predicate = (!icmp_ln47)> <Delay = 0.60> <CoreInst = "ICmp_EQ">   --->   Core 156 'ICmp_EQ' <Latency = 0> <II = 1> <Delay = 0.60> <FuncUnit> <Opcode : 'seteq' 'setne'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 40 [1/1] (0.00ns)   --->   "%br_ln50 = br i1 %icmp_ln50_3, void %new.latch.for.inc13.split.i, void %last.iter.for.inc13.split.i" [kernel_matmul.cpp:50]   --->   Operation 40 'br' 'br_ln50' <Predicate = (!icmp_ln47)> <Delay = 0.00>
+ST_1 : Operation 41 [1/1] (0.42ns)   --->   "%store_ln47 = store i20 %add_ln47, i20 %indvar_flatten" [kernel_matmul.cpp:47]   --->   Operation 41 'store' 'store_ln47' <Predicate = (!icmp_ln47)> <Delay = 0.42>
+ST_1 : Operation 42 [1/1] (0.39ns)   --->   "%store_ln50 = store i10 %add_ln50, i10 %j" [kernel_matmul.cpp:50]   --->   Operation 42 'store' 'store_ln50' <Predicate = (!icmp_ln47)> <Delay = 0.39>
+
+State 2 <SV = 1> <Delay = 1.42>
+ST_2 : Operation 43 [1/2] ( I:0.89ns O:0.89ns )   --->   "%compute_matmul_stream_stream_stream_float_0_int_int_vec_local_load = load i8 %compute_matmul_stream_stream_stream_float_0_int_int_vec_local_addr" [kernel_matmul.cpp:53]   --->   Operation 43 'load' 'compute_matmul_stream_stream_stream_float_0_int_int_vec_local_load' <Predicate = true> <Delay = 0.89> <CoreInst = "RAM">   --->   Core 86 'RAM' <Latency = 1> <II = 1> <Delay = 0.89> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
+ST_2 : Operation 44 [1/2] ( I:0.89ns O:0.89ns )   --->   "%compute_matmul_stream_stream_stream_float_0_int_int_vec_local_47_load = load i8 %compute_matmul_stream_stream_stream_float_0_int_int_vec_local_47_addr" [kernel_matmul.cpp:53]   --->   Operation 44 'load' 'compute_matmul_stream_stream_stream_float_0_int_int_vec_local_47_load' <Predicate = true> <Delay = 0.89> <CoreInst = "RAM">   --->   Core 86 'RAM' <Latency = 1> <II = 1> <Delay = 0.89> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
+ST_2 : Operation 45 [1/2] ( I:0.89ns O:0.89ns )   --->   "%compute_matmul_stream_stream_stream_float_0_int_int_vec_local_48_load = load i8 %compute_matmul_stream_stream_stream_float_0_int_int_vec_local_48_addr" [kernel_matmul.cpp:53]   --->   Operation 45 'load' 'compute_matmul_stream_stream_stream_float_0_int_int_vec_local_48_load' <Predicate = true> <Delay = 0.89> <CoreInst = "RAM">   --->   Core 86 'RAM' <Latency = 1> <II = 1> <Delay = 0.89> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
+ST_2 : Operation 46 [1/2] ( I:0.89ns O:0.89ns )   --->   "%compute_matmul_stream_stream_stream_float_0_int_int_vec_local_49_load = load i8 %compute_matmul_stream_stream_stream_float_0_int_int_vec_local_49_addr" [kernel_matmul.cpp:53]   --->   Operation 46 'load' 'compute_matmul_stream_stream_stream_float_0_int_int_vec_local_49_load' <Predicate = true> <Delay = 0.89> <CoreInst = "RAM">   --->   Core 86 'RAM' <Latency = 1> <II = 1> <Delay = 0.89> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
+ST_2 : Operation 47 [1/1] (0.43ns)   --->   "%tmp_i = sparsemux i32 @_ssdm_op_SparseMux.ap_auto.4float.float.i2, i2 0, i32 %compute_matmul_stream_stream_stream_float_0_int_int_vec_local_load, i2 1, i32 %compute_matmul_stream_stream_stream_float_0_int_int_vec_local_47_load, i2 2, i32 %compute_matmul_stream_stream_stream_float_0_int_int_vec_local_48_load, i2 3, i32 %compute_matmul_stream_stream_stream_float_0_int_int_vec_local_49_load, i32 <undef>, i2 %trunc_ln50" [kernel_matmul.cpp:53]   --->   Operation 47 'sparsemux' 'tmp_i' <Predicate = true> <Delay = 0.43> <CoreInst = "BinarySparseMux_DontCare">   --->   Core 150 'BinarySparseMux_DontCare' <Latency = 0> <II = 1> <Delay = 0.43> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 0> <OutPorts = 1>
+ST_2 : Operation 48 [1/1] (0.43ns) (share mux size 3)   --->   "%muxLogicFIFOCE_to_matrix_stream_read = muxlogic"   --->   Operation 48 'muxlogic' 'muxLogicFIFOCE_to_matrix_stream_read' <Predicate = true> <Delay = 0.43>
+ST_2 : Operation 49 [1/1] ( I:0.98ns O:0.09ns ) (share mux size 3)   --->   "%matrix_stream_read = read i32 @_ssdm_op_Read.ap_fifo.volatile.i32P0A, i32 %matrix_stream" [kernel_matmul.cpp:53]   --->   Operation 49 'read' 'matrix_stream_read' <Predicate = true> <Delay = 0.98> <CoreInst = "FIFO">   --->   Core 81 'FIFO' <Latency = 0> <II = 1> <Delay = 0.98> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 64> <FIFO>
+
+State 3 <SV = 2> <Delay = 3.27>
+ST_3 : Operation 50 [1/1] (0.00ns)   --->   "%sum_local_load = load i32 %sum_local" [kernel_matmul.cpp:47]   --->   Operation 50 'load' 'sum_local_load' <Predicate = (!icmp_ln50)> <Delay = 0.00>
+ST_3 : Operation 51 [1/1] (0.41ns)   --->   "%select_ln47_3 = select i1 %icmp_ln50, i32 0, i32 %sum_local_load" [kernel_matmul.cpp:47]   --->   Operation 51 'select' 'select_ln47_3' <Predicate = true> <Delay = 0.41> <CoreInst = "Sel">   --->   Core 77 'Sel' <Latency = 0> <II = 1> <Delay = 0.41> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 52 [1/1] (0.00ns)   --->   "%bitcast_ln53 = bitcast i32 %matrix_stream_read" [kernel_matmul.cpp:53]   --->   Operation 52 'bitcast' 'bitcast_ln53' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 53 [1/1] (0.00ns)   --->   "%muxLogicI0_to_sum_local_4 = muxlogic i32 %tmp_i"   --->   Operation 53 'muxlogic' 'muxLogicI0_to_sum_local_4' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 54 [1/1] (0.00ns)   --->   "%muxLogicI1_to_sum_local_4 = muxlogic i32 %bitcast_ln53"   --->   Operation 54 'muxlogic' 'muxLogicI1_to_sum_local_4' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 55 [1/1] (0.00ns)   --->   "%muxLogicI2_to_sum_local_4 = muxlogic i32 %select_ln47_3"   --->   Operation 55 'muxlogic' 'muxLogicI2_to_sum_local_4' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 56 [2/2] (2.86ns)   --->   "%sum_local_4 = fmadd i32 @_ssdm_op_FMADD, i32 %tmp_i, i32 %bitcast_ln53, i32 %select_ln47_3" [kernel_matmul.cpp:53]   --->   Operation 56 'fmadd' 'sum_local_4' <Predicate = true> <Delay = 2.86> <CoreInst = "fma_primitivedsp">   --->   Core 135 'fma_primitivedsp' <Latency = 1> <II = 1> <Delay = 2.86> <FuncUnit> <Opcode : 'fmadd' 'fmsub'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 67 [1/1] (0.28ns)   --->   "%ret_ln0 = ret"   --->   Operation 67 'ret' 'ret_ln0' <Predicate = (icmp_ln47)> <Delay = 0.28>
+
+State 4 <SV = 3> <Delay = 1.61>
+ST_4 : Operation 57 [1/1] (0.00ns)   --->   "%specloopname_ln0 = specloopname void @_ssdm_op_SpecLoopName, void @execute_dot_product_str"   --->   Operation 57 'specloopname' 'specloopname_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 58 [1/1] (0.00ns)   --->   "%speclooptripcount_ln0 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 589824, i64 589824, i64 589824"   --->   Operation 58 'speclooptripcount' 'speclooptripcount_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 59 [1/1] (0.00ns)   --->   "%specpipeline_ln51 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_48" [kernel_matmul.cpp:51]   --->   Operation 59 'specpipeline' 'specpipeline_ln51' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 60 [1/2] (0.28ns)   --->   "%sum_local_4 = fmadd i32 @_ssdm_op_FMADD, i32 %tmp_i, i32 %bitcast_ln53, i32 %select_ln47_3" [kernel_matmul.cpp:53]   --->   Operation 60 'fmadd' 'sum_local_4' <Predicate = true> <Delay = 0.28> <CoreInst = "fma_primitivedsp">   --->   Core 135 'fma_primitivedsp' <Latency = 1> <II = 1> <Delay = 2.86> <FuncUnit> <Opcode : 'fmadd' 'fmsub'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 61 [1/1] (0.00ns)   --->   "%bitcast_ln55 = bitcast i32 %sum_local_4" [kernel_matmul.cpp:55]   --->   Operation 61 'bitcast' 'bitcast_ln55' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 62 [1/1] (0.34ns) (share mux size 3)   --->   "%muxLogicFIFOData_to_write_ln55 = muxlogic i32 %bitcast_ln55"   --->   Operation 62 'muxlogic' 'muxLogicFIFOData_to_write_ln55' <Predicate = (icmp_ln50_3)> <Delay = 0.34>
+ST_4 : Operation 63 [1/1] ( I:0.98ns O:0.98ns ) (share mux size 3)   --->   "%write_ln55 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %result_stream, i32 %bitcast_ln55" [kernel_matmul.cpp:55]   --->   Operation 63 'write' 'write_ln55' <Predicate = (icmp_ln50_3)> <Delay = 0.98> <CoreInst = "FIFO">   --->   Core 81 'FIFO' <Latency = 0> <II = 1> <Delay = 0.98> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 64> <FIFO>
+ST_4 : Operation 64 [1/1] (0.00ns)   --->   "%br_ln50 = br void %new.latch.for.inc13.split.i" [kernel_matmul.cpp:50]   --->   Operation 64 'br' 'br_ln50' <Predicate = (icmp_ln50_3)> <Delay = 0.00>
+ST_4 : Operation 65 [1/1] (0.42ns)   --->   "%store_ln49 = store i32 %sum_local_4, i32 %sum_local" [kernel_matmul.cpp:49]   --->   Operation 65 'store' 'store_ln49' <Predicate = true> <Delay = 0.42>
+ST_4 : Operation 66 [1/1] (0.00ns)   --->   "%br_ln50 = br void %for.inc13.i" [kernel_matmul.cpp:50]   --->   Operation 66 'br' 'br_ln50' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 4.000ns, clock uncertainty: 1.080ns.
+
+ <State 1>: 2.698ns
+The critical path consists of the following:
+	'store' operation 0 bit ('store_ln50', kernel_matmul.cpp:50) of constant 0 on local variable 'j', kernel_matmul.cpp:50 [13]  (0.393 ns)
+	'load' operation 10 bit ('j_load', kernel_matmul.cpp:50) on local variable 'j', kernel_matmul.cpp:50 [23]  (0.000 ns)
+	'icmp' operation 1 bit ('icmp_ln50', kernel_matmul.cpp:50) [26]  (0.607 ns)
+	'select' operation 10 bit ('select_ln47', kernel_matmul.cpp:47) [27]  (0.374 ns)
+	'add' operation 10 bit ('add_ln50', kernel_matmul.cpp:50) [53]  (0.717 ns)
+	'icmp' operation 1 bit ('icmp_ln50_3', kernel_matmul.cpp:50) [54]  (0.607 ns)
+
+ <State 2>: 1.424ns
+The critical path consists of the following:
+	'muxlogic' operation 32 bit ('muxLogicFIFOCE_to_matrix_stream_read') [46]  (0.437 ns)
+	fifo read operation ('matrix_stream_read', kernel_matmul.cpp:53) on port 'matrix_stream' (kernel_matmul.cpp:53) [47]  (0.987 ns)
+
+ <State 3>: 3.274ns
+The critical path consists of the following:
+	'load' operation 32 bit ('sum_local_load', kernel_matmul.cpp:47) on local variable 'sum_local', kernel_matmul.cpp:49 [22]  (0.000 ns)
+	'select' operation 32 bit ('select_ln47_3', kernel_matmul.cpp:47) [28]  (0.413 ns)
+	'muxlogic' operation 32 bit ('muxLogicI2_to_sum_local_4') [51]  (0.000 ns)
+	'fmadd' operation 32 bit ('sum_local', kernel_matmul.cpp:53) [52]  (2.861 ns)
+
+ <State 4>: 1.618ns
+The critical path consists of the following:
+	'fmadd' operation 32 bit ('sum_local', kernel_matmul.cpp:53) [52]  (0.284 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln55') [58]  (0.347 ns)
+	fifo write operation ('write_ln55', kernel_matmul.cpp:55) on port 'result_stream' (kernel_matmul.cpp:55) [59]  (0.987 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

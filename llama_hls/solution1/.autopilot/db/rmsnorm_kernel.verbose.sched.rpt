@@ -1,0 +1,117 @@
+
+
+================================================================
+== Vitis HLS Report for 'rmsnorm_kernel'
+================================================================
+* Date:           Mon Sep 15 01:27:53 2025
+
+* Version:        2025.1 (Build 6135595 on May 21 2025)
+* Project:        llama_hls
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: versalhbm
+* Target device:  xcv80-lsva4737-2MHP-e-S
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  4.00 ns|  2.920 ns|     1.08 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+------+------+---------+
+    |  Latency (cycles) |  Latency (absolute) |   Interval  | Pipeline|
+    |   min   |   max   |    min   |    max   |  min |  max |   Type  |
+    +---------+---------+----------+----------+------+------+---------+
+    |     2368|     2368|  9.472 us|  9.472 us|  2368|  2368|       no|
+    +---------+---------+----------+----------+------+------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 2
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.03>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%weights_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %weights" [llama_hls_top.cpp:403]   --->   Operation 3 'read' 'weights_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [2/2] (1.03ns)   --->   "%call_ln409 = call void @kernel_rmsnorm.1, i32 %gmem11, i64 %weights_read, i32 %output_0, i32 %output_1, i32 %output_2, i32 %output_3, i32 %llama_inference_hls_top_float_float_float_float_float_float_float_7, i32 %llama_inference_hls_top_float_float_float_float_float_float_float_6, i32 %llama_inference_hls_top_float_float_float_float_float_float_float_5, i32 %llama_inference_hls_top_float_float_float_float_float_float_float_4, i32 %input1_stream, i32 %input2_stream, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2, i32 %output_stream_3" [llama_hls_top.cpp:409]   --->   Operation 4 'call' 'call_ln409' <Predicate = true> <Delay = 1.03> <CoreType = "Generic">   --->   Generic Core
+
+State 2 <SV = 1> <Delay = 0.00>
+ST_2 : Operation 5 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %gmem11, void @empty_49, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_42, void @empty_14, void @empty_48, i32 16, i32 16, i32 16, i32 16, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 5 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 6 [1/2] (0.00ns)   --->   "%call_ln409 = call void @kernel_rmsnorm.1, i32 %gmem11, i64 %weights_read, i32 %output_0, i32 %output_1, i32 %output_2, i32 %output_3, i32 %llama_inference_hls_top_float_float_float_float_float_float_float_7, i32 %llama_inference_hls_top_float_float_float_float_float_float_float_6, i32 %llama_inference_hls_top_float_float_float_float_float_float_float_5, i32 %llama_inference_hls_top_float_float_float_float_float_float_float_4, i32 %input1_stream, i32 %input2_stream, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2, i32 %output_stream_3" [llama_hls_top.cpp:409]   --->   Operation 6 'call' 'call_ln409' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+ST_2 : Operation 7 [1/1] (0.00ns)   --->   "%ret_ln410 = ret" [llama_hls_top.cpp:410]   --->   Operation 7 'ret' 'ret_ln410' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 4.000ns, clock uncertainty: 1.080ns.
+
+ <State 1>: 1.033ns
+The critical path consists of the following:
+	wire read operation ('weights_read', llama_hls_top.cpp:403) on port 'weights' (llama_hls_top.cpp:403) [23]  (0.000 ns)
+	'call' operation 0 bit ('call_ln409', llama_hls_top.cpp:409) to 'kernel_rmsnorm.1' [24]  (1.033 ns)
+
+ <State 2>: 0.000ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

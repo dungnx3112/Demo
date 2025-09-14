@@ -1,0 +1,494 @@
+{
+  "0": {
+    "basicblocks": 49,
+    "calls": "28 30 3",
+    "control_depth": 1,
+    "def_use_depth": 4,
+    "file": "llama_hls_top.cpp",
+    "fileloc": 30,
+    "instructions": 207,
+    "loads": {
+      "G": 6,
+      "T": 4
+    },
+    "memory_accesses": 16,
+    "name": "llama_inference_hls_top",
+    "stores": {
+      "G": 4,
+      "L": 2,
+      "T": 1
+    },
+    "total_instructions": 3027
+  },
+  "1": {
+    "basicblocks": 1,
+    "calls": "27",
+    "control_depth": 0,
+    "def_use_depth": 0,
+    "file": "llama_hls_top.cpp",
+    "fileloc": 432,
+    "instructions": 2,
+    "memory_accesses": 0,
+    "name": "matmul_kernel",
+    "total_instructions": 184
+  },
+  "10": {
+    "basicblocks": 7,
+    "calls": "",
+    "control_depth": 1,
+    "def_use_depth": 2,
+    "file": "kernel_matmul.cpp",
+    "fileloc": 59,
+    "instructions": 14,
+    "memory_accesses": 2,
+    "name": "store_result",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 26
+  },
+  "11": {
+    "basicblocks": 7,
+    "calls": "",
+    "control_depth": 1,
+    "def_use_depth": 2,
+    "file": "kernel_matmul.cpp",
+    "fileloc": 6,
+    "instructions": 13,
+    "memory_accesses": 1,
+    "name": "load_vec",
+    "total_instructions": 19
+  },
+  "12": {
+    "basicblocks": 5,
+    "calls": "17 22 14",
+    "control_depth": 0,
+    "def_use_depth": 2,
+    "file": "kernel_silu.cpp",
+    "fileloc": 56,
+    "instructions": 18,
+    "loads": {
+      "G": 2
+    },
+    "memory_accesses": 0,
+    "name": "kernel_silu",
+    "stores": {
+      "G": 2
+    },
+    "total_instructions": 130
+  },
+  "13": {
+    "basicblocks": 13,
+    "calls": "21 21 21 21 29 24 24",
+    "control_depth": 0,
+    "def_use_depth": 2,
+    "file": "kernel_rope.cpp",
+    "fileloc": 108,
+    "instructions": 50,
+    "loads": {
+      "G": 6
+    },
+    "memory_accesses": 0,
+    "name": "kernel_rope",
+    "stores": {
+      "G": 6
+    },
+    "total_instructions": 378
+  },
+  "14": {
+    "basicblocks": 7,
+    "calls": "",
+    "control_depth": 1,
+    "def_use_depth": 2,
+    "file": "kernel_silu.cpp",
+    "fileloc": 44,
+    "instructions": 14,
+    "memory_accesses": 2,
+    "name": "store_result",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 26
+  },
+  "15": {
+    "basicblocks": 13,
+    "calls": "",
+    "control_depth": 1,
+    "def_use_depth": 2,
+    "file": "llama_hls_top.cpp",
+    "fileloc": 247,
+    "instructions": 34,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 4,
+    "name": "update_kv_cache_kernel",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 34
+  },
+  "16": {
+    "basicblocks": 19,
+    "calls": "",
+    "control_depth": 1,
+    "def_use_depth": 4,
+    "file": "kernel_matmul.cpp",
+    "fileloc": 30,
+    "instructions": 48,
+    "loads": {
+      "G": 1,
+      "L": 1
+    },
+    "memory_accesses": 6,
+    "name": "compute_matmul",
+    "stores": {
+      "G": 1,
+      "L": 2
+    },
+    "total_instructions": 78
+  },
+  "17": {
+    "basicblocks": 7,
+    "calls": "",
+    "control_depth": 1,
+    "def_use_depth": 2,
+    "file": "kernel_silu.cpp",
+    "fileloc": 6,
+    "instructions": 13,
+    "memory_accesses": 1,
+    "name": "load_vec",
+    "total_instructions": 19
+  },
+  "18": {
+    "basicblocks": 7,
+    "calls": "",
+    "control_depth": 1,
+    "def_use_depth": 2,
+    "file": "kernel_rmsnorm.cpp",
+    "fileloc": 59,
+    "instructions": 14,
+    "memory_accesses": 2,
+    "name": "store_result",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 26
+  },
+  "19": {
+    "basicblocks": 1,
+    "calls": "6",
+    "control_depth": 0,
+    "def_use_depth": 0,
+    "file": "llama_hls_top.cpp",
+    "fileloc": 458,
+    "instructions": 2,
+    "memory_accesses": 0,
+    "name": "softmax_kernel",
+    "total_instructions": 178
+  },
+  "2": {
+    "basicblocks": 7,
+    "calls": "",
+    "control_depth": 1,
+    "def_use_depth": 2,
+    "file": "kernel_softmax.cpp",
+    "fileloc": 65,
+    "instructions": 14,
+    "memory_accesses": 2,
+    "name": "store_result",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 26
+  },
+  "20": {
+    "basicblocks": 1,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 1,
+    "file": "sqrtfloat.cpp",
+    "fileloc": 11,
+    "instructions": 2,
+    "memory_accesses": 0,
+    "name": "sqrtf",
+    "total_instructions": 2
+  },
+  "21": {
+    "basicblocks": 7,
+    "calls": "",
+    "control_depth": 1,
+    "def_use_depth": 2,
+    "file": "kernel_rope.cpp",
+    "fileloc": 8,
+    "instructions": 13,
+    "memory_accesses": 1,
+    "name": "load_vec",
+    "total_instructions": 19
+  },
+  "22": {
+    "basicblocks": 19,
+    "calls": "",
+    "control_depth": 1,
+    "def_use_depth": 7,
+    "file": "kernel_silu.cpp",
+    "fileloc": 16,
+    "instructions": 47,
+    "loads": {
+      "G": 1
+    },
+    "memory_accesses": 5,
+    "name": "compute_silu",
+    "stores": {
+      "G": 2
+    },
+    "total_instructions": 65
+  },
+  "23": {
+    "basicblocks": 13,
+    "calls": "",
+    "control_depth": 1,
+    "def_use_depth": 2,
+    "file": "kernel_matmul.cpp",
+    "fileloc": 16,
+    "instructions": 24,
+    "memory_accesses": 1,
+    "name": "load_mat",
+    "total_instructions": 30
+  },
+  "24": {
+    "basicblocks": 7,
+    "calls": "",
+    "control_depth": 1,
+    "def_use_depth": 2,
+    "file": "kernel_rope.cpp",
+    "fileloc": 96,
+    "instructions": 14,
+    "memory_accesses": 2,
+    "name": "store_result",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 26
+  },
+  "25": {
+    "basicblocks": 30,
+    "calls": "",
+    "control_depth": 2,
+    "def_use_depth": 4,
+    "file": "kernel_softmax.cpp",
+    "fileloc": 18,
+    "instructions": 84,
+    "loads": {
+      "G": 6
+    },
+    "memory_accesses": 10,
+    "name": "compute_softmax",
+    "stores": {
+      "G": 2,
+      "L": 1
+    },
+    "total_instructions": 102
+  },
+  "26": {
+    "basicblocks": 1,
+    "calls": "12",
+    "control_depth": 0,
+    "def_use_depth": 0,
+    "file": "llama_hls_top.cpp",
+    "fileloc": 446,
+    "instructions": 2,
+    "memory_accesses": 0,
+    "name": "silu_activation_kernel",
+    "total_instructions": 132
+  },
+  "27": {
+    "basicblocks": 7,
+    "calls": "11 23 16 10",
+    "control_depth": 0,
+    "def_use_depth": 2,
+    "file": "kernel_matmul.cpp",
+    "fileloc": 71,
+    "instructions": 26,
+    "loads": {
+      "G": 3
+    },
+    "memory_accesses": 0,
+    "name": "kernel_matmul",
+    "stores": {
+      "G": 3
+    },
+    "total_instructions": 182
+  },
+  "28": {
+    "basicblocks": 1,
+    "calls": "3 1 1 1 9 15 31 1",
+    "control_depth": 0,
+    "def_use_depth": 1,
+    "file": "llama_hls_top.cpp",
+    "fileloc": 196,
+    "instructions": 17,
+    "memory_accesses": 0,
+    "name": "attention_layer_with_cache_kernel",
+    "total_instructions": 1704
+  },
+  "29": {
+    "basicblocks": 31,
+    "calls": "",
+    "control_depth": 1,
+    "def_use_depth": 7,
+    "file": "kernel_rope.cpp",
+    "fileloc": 18,
+    "instructions": 134,
+    "loads": {
+      "G": 8
+    },
+    "memory_accesses": 24,
+    "name": "compute_rope",
+    "stores": {
+      "G": 10
+    },
+    "total_instructions": 194
+  },
+  "3": {
+    "basicblocks": 1,
+    "calls": "5",
+    "control_depth": 0,
+    "def_use_depth": 0,
+    "file": "llama_hls_top.cpp",
+    "fileloc": 401,
+    "instructions": 2,
+    "memory_accesses": 0,
+    "name": "rmsnorm_kernel",
+    "total_instructions": 201
+  },
+  "30": {
+    "basicblocks": 7,
+    "calls": "3 1 1 26 1",
+    "control_depth": 1,
+    "def_use_depth": 3,
+    "file": "llama_hls_top.cpp",
+    "fileloc": 358,
+    "instructions": 30,
+    "loads": {
+      "G": 2
+    },
+    "memory_accesses": 3,
+    "name": "ffn_layer_kernel",
+    "stores": {
+      "G": 1
+    },
+    "total_instructions": 915
+  },
+  "31": {
+    "basicblocks": 55,
+    "calls": "20 19",
+    "control_depth": 1,
+    "def_use_depth": 6,
+    "file": "llama_hls_top.cpp",
+    "fileloc": 274,
+    "instructions": 146,
+    "loads": {
+      "G": 3,
+      "L": 3
+    },
+    "memory_accesses": 8,
+    "name": "compute_attention_with_cache_kernel",
+    "stores": {
+      "G": 3,
+      "L": 1
+    },
+    "total_instructions": 326
+  },
+  "4": {
+    "basicblocks": 7,
+    "calls": "",
+    "control_depth": 1,
+    "def_use_depth": 2,
+    "file": "kernel_softmax.cpp",
+    "fileloc": 8,
+    "instructions": 13,
+    "memory_accesses": 1,
+    "name": "load_vec",
+    "total_instructions": 19
+  },
+  "5": {
+    "basicblocks": 7,
+    "calls": "7 7 8 18",
+    "control_depth": 0,
+    "def_use_depth": 2,
+    "file": "kernel_rmsnorm.cpp",
+    "fileloc": 71,
+    "instructions": 26,
+    "loads": {
+      "G": 3
+    },
+    "memory_accesses": 0,
+    "name": "kernel_rmsnorm",
+    "stores": {
+      "G": 3
+    },
+    "total_instructions": 199
+  },
+  "6": {
+    "basicblocks": 10,
+    "calls": "4 25 2",
+    "control_depth": 0,
+    "def_use_depth": 2,
+    "file": "kernel_softmax.cpp",
+    "fileloc": 77,
+    "instructions": 27,
+    "loads": {
+      "G": 2
+    },
+    "memory_accesses": 0,
+    "name": "kernel_softmax",
+    "stores": {
+      "G": 2
+    },
+    "total_instructions": 176
+  },
+  "7": {
+    "basicblocks": 7,
+    "calls": "",
+    "control_depth": 1,
+    "def_use_depth": 2,
+    "file": "kernel_rmsnorm.cpp",
+    "fileloc": 8,
+    "instructions": 13,
+    "memory_accesses": 1,
+    "name": "load_vec",
+    "total_instructions": 19
+  },
+  "8": {
+    "basicblocks": 25,
+    "calls": "",
+    "control_depth": 1,
+    "def_use_depth": 4,
+    "file": "kernel_rmsnorm.cpp",
+    "fileloc": 18,
+    "instructions": 76,
+    "loads": {
+      "G": 4
+    },
+    "memory_accesses": 10,
+    "name": "compute_rmsnorm",
+    "stores": {
+      "G": 2,
+      "L": 1
+    },
+    "total_instructions": 106
+  },
+  "9": {
+    "basicblocks": 7,
+    "calls": "13",
+    "control_depth": 1,
+    "def_use_depth": 2,
+    "file": "llama_hls_top.cpp",
+    "fileloc": 413,
+    "instructions": 12,
+    "memory_accesses": 1,
+    "name": "rope_kernel",
+    "total_instructions": 390
+  }
+}

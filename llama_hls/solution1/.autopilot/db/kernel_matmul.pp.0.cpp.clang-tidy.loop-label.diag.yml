@@ -1,0 +1,13 @@
+---
+MainSourceFile:  'C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/.autopilot/db/kernel_matmul.pp.0.cpp'
+Diagnostics:     
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_22_1:  '
+    FileOffset:      22
+    FilePath:        kernel_matmul.cpp
+    Replacements:    
+      - FilePath:        'C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\kernel_matmul.pp.0.cpp'
+        Offset:          21350
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_22_1: '
+...

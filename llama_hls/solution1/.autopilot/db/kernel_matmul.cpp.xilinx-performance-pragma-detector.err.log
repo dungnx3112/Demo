@@ -1,0 +1,22 @@
+In file included from C:\Academic_Sem5\DA1\Demo\kernel_matmul.cpp:1:
+In file included from C:/Xilinx2025/2025.1/Vitis/common/technology/autopilot\hls_stream.h:12:
+C:/Xilinx2025/2025.1/Vitis/common/technology/autopilot/hls_stream_39.h:127:9: error: use of undeclared identifier '__fpga_fifo_push'
+        __fpga_fifo_push(&V, &din);
+        ^
+C:/Xilinx2025/2025.1/Vitis/common/technology/autopilot/hls_stream_39.h:82:9: note: in instantiation of member function 'hls::stream<float, 0>::write' requested here
+        write(wdata);
+        ^
+C:\Academic_Sem5\DA1\Demo\kernel_matmul.cpp:12:14: note: in instantiation of member function 'hls::stream<float, 0>::operator<<' requested here
+    inStream << i_vec[i];
+             ^
+In file included from C:\Academic_Sem5\DA1\Demo\kernel_matmul.cpp:1:
+In file included from C:/Xilinx2025/2025.1/Vitis/common/technology/autopilot\hls_stream.h:12:
+C:/Xilinx2025/2025.1/Vitis/common/technology/autopilot/hls_stream_39.h:98:9: error: use of undeclared identifier '__fpga_fifo_pop'
+        __fpga_fifo_pop(&V, &dout);
+        ^
+C:/Xilinx2025/2025.1/Vitis/common/technology/autopilot/hls_stream_39.h:109:9: note: in instantiation of member function 'hls::stream<float, 0>::read' requested here
+        read(tmp);
+        ^
+C:\Academic_Sem5\DA1\Demo\kernel_matmul.cpp:43:31: note: in instantiation of member function 'hls::stream<float, 0>::read' requested here
+    vec_local[i] = in1_stream.read();
+                              ^

@@ -1,0 +1,8 @@
+---
+MainSourceFile:  'C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/.autopilot/db/kernel_softmax.pp.0.cpp'
+Diagnostics:     
+  - DiagnosticName:  clang-diagnostic-warning
+    Message:         '[xlx-df-check-11] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region'
+    FileOffset:      '94:9'
+    FilePath:        kernel_softmax.cpp
+...

@@ -1,0 +1,19 @@
+<AutoPilot:solution xmlns:AutoPilot="com.autoesl.autopilot.solution">
+    <name>
+        <value string="solution1"/>
+    </name>
+    <project>
+        <value string="llama_hls"/>
+    </project>
+    <flowTarget value="vivado"/>
+    <targetInfo>
+        <TargetInfo value="xcv80:-lsva4737:-2MHP-e-S"/>
+    </targetInfo>
+    <libraryList>
+        <library value="xilinx/versal/versal" name="DefaultPlatform"/>
+    </libraryList>
+    <clockList>
+        <clock name="default" period="4.0" default="false"/>
+    </clockList>
+</AutoPilot:solution>
+

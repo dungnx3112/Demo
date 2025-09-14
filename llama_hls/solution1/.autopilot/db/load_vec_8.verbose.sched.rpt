@@ -1,0 +1,581 @@
+
+
+================================================================
+== Vitis HLS Report for 'load_vec_8'
+================================================================
+* Date:           Mon Sep 15 01:28:38 2025
+
+* Version:        2025.1 (Build 6135595 on May 21 2025)
+* Project:        llama_hls
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: versalhbm
+* Target device:  xcv80-lsva4737-2MHP-e-S
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  4.00 ns|  1.618 ns|     1.08 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |       31|       31|  0.124 us|  0.124 us|   31|   31|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 32
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 16 
+16 --> 17 
+17 --> 18 
+18 --> 19 
+19 --> 20 
+20 --> 21 
+21 --> 22 
+22 --> 23 
+23 --> 24 
+24 --> 25 
+25 --> 26 
+26 --> 27 
+27 --> 28 
+28 --> 29 
+29 --> 30 
+30 --> 31 
+31 --> 32 
+32 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.61>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%i_vec_0_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_0_val" [kernel_rope.cpp:8]   --->   Operation 33 'read' 'i_vec_0_val_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%bitcast_ln14 = bitcast i32 %i_vec_0_val_read" [kernel_rope.cpp:14]   --->   Operation 34 'bitcast' 'bitcast_ln14' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 35 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14"   --->   Operation 35 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_1 : Operation 36 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14" [kernel_rope.cpp:14]   --->   Operation 36 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 2 <SV = 1> <Delay = 1.61>
+ST_2 : Operation 37 [1/1] (0.00ns)   --->   "%i_vec_1_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_1_val" [kernel_rope.cpp:8]   --->   Operation 37 'read' 'i_vec_1_val_read' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 38 [1/1] (0.00ns)   --->   "%bitcast_ln14_32 = bitcast i32 %i_vec_1_val_read" [kernel_rope.cpp:14]   --->   Operation 38 'bitcast' 'bitcast_ln14_32' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 39 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_32"   --->   Operation 39 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_2 : Operation 40 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_32" [kernel_rope.cpp:14]   --->   Operation 40 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 3 <SV = 2> <Delay = 1.61>
+ST_3 : Operation 41 [1/1] (0.00ns)   --->   "%i_vec_2_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_2_val" [kernel_rope.cpp:8]   --->   Operation 41 'read' 'i_vec_2_val_read' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 42 [1/1] (0.00ns)   --->   "%bitcast_ln14_33 = bitcast i32 %i_vec_2_val_read" [kernel_rope.cpp:14]   --->   Operation 42 'bitcast' 'bitcast_ln14_33' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 43 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_33"   --->   Operation 43 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_3 : Operation 44 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_33" [kernel_rope.cpp:14]   --->   Operation 44 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 4 <SV = 3> <Delay = 1.61>
+ST_4 : Operation 45 [1/1] (0.00ns)   --->   "%i_vec_3_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_3_val" [kernel_rope.cpp:8]   --->   Operation 45 'read' 'i_vec_3_val_read' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 46 [1/1] (0.00ns)   --->   "%bitcast_ln14_34 = bitcast i32 %i_vec_3_val_read" [kernel_rope.cpp:14]   --->   Operation 46 'bitcast' 'bitcast_ln14_34' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 47 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_34"   --->   Operation 47 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_4 : Operation 48 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_34" [kernel_rope.cpp:14]   --->   Operation 48 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 5 <SV = 4> <Delay = 1.61>
+ST_5 : Operation 49 [1/1] (0.00ns)   --->   "%i_vec_4_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_4_val" [kernel_rope.cpp:8]   --->   Operation 49 'read' 'i_vec_4_val_read' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 50 [1/1] (0.00ns)   --->   "%bitcast_ln14_35 = bitcast i32 %i_vec_4_val_read" [kernel_rope.cpp:14]   --->   Operation 50 'bitcast' 'bitcast_ln14_35' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 51 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_35"   --->   Operation 51 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_5 : Operation 52 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_35" [kernel_rope.cpp:14]   --->   Operation 52 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 6 <SV = 5> <Delay = 1.61>
+ST_6 : Operation 53 [1/1] (0.00ns)   --->   "%i_vec_5_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_5_val" [kernel_rope.cpp:8]   --->   Operation 53 'read' 'i_vec_5_val_read' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 54 [1/1] (0.00ns)   --->   "%bitcast_ln14_36 = bitcast i32 %i_vec_5_val_read" [kernel_rope.cpp:14]   --->   Operation 54 'bitcast' 'bitcast_ln14_36' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 55 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_36"   --->   Operation 55 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_6 : Operation 56 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_36" [kernel_rope.cpp:14]   --->   Operation 56 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 7 <SV = 6> <Delay = 1.61>
+ST_7 : Operation 57 [1/1] (0.00ns)   --->   "%i_vec_6_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_6_val" [kernel_rope.cpp:8]   --->   Operation 57 'read' 'i_vec_6_val_read' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 58 [1/1] (0.00ns)   --->   "%bitcast_ln14_37 = bitcast i32 %i_vec_6_val_read" [kernel_rope.cpp:14]   --->   Operation 58 'bitcast' 'bitcast_ln14_37' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 59 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_37"   --->   Operation 59 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_7 : Operation 60 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_37" [kernel_rope.cpp:14]   --->   Operation 60 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 8 <SV = 7> <Delay = 1.61>
+ST_8 : Operation 61 [1/1] (0.00ns)   --->   "%i_vec_7_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_7_val" [kernel_rope.cpp:8]   --->   Operation 61 'read' 'i_vec_7_val_read' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 62 [1/1] (0.00ns)   --->   "%bitcast_ln14_38 = bitcast i32 %i_vec_7_val_read" [kernel_rope.cpp:14]   --->   Operation 62 'bitcast' 'bitcast_ln14_38' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 63 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_38"   --->   Operation 63 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_8 : Operation 64 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_38" [kernel_rope.cpp:14]   --->   Operation 64 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 9 <SV = 8> <Delay = 1.61>
+ST_9 : Operation 65 [1/1] (0.00ns)   --->   "%i_vec_8_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_8_val" [kernel_rope.cpp:8]   --->   Operation 65 'read' 'i_vec_8_val_read' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 66 [1/1] (0.00ns)   --->   "%bitcast_ln14_39 = bitcast i32 %i_vec_8_val_read" [kernel_rope.cpp:14]   --->   Operation 66 'bitcast' 'bitcast_ln14_39' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 67 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_39"   --->   Operation 67 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_9 : Operation 68 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_39" [kernel_rope.cpp:14]   --->   Operation 68 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 10 <SV = 9> <Delay = 1.61>
+ST_10 : Operation 69 [1/1] (0.00ns)   --->   "%i_vec_9_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_9_val" [kernel_rope.cpp:8]   --->   Operation 69 'read' 'i_vec_9_val_read' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 70 [1/1] (0.00ns)   --->   "%bitcast_ln14_40 = bitcast i32 %i_vec_9_val_read" [kernel_rope.cpp:14]   --->   Operation 70 'bitcast' 'bitcast_ln14_40' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 71 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_40"   --->   Operation 71 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_10 : Operation 72 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_40" [kernel_rope.cpp:14]   --->   Operation 72 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 11 <SV = 10> <Delay = 1.61>
+ST_11 : Operation 73 [1/1] (0.00ns)   --->   "%i_vec_10_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_10_val" [kernel_rope.cpp:8]   --->   Operation 73 'read' 'i_vec_10_val_read' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 74 [1/1] (0.00ns)   --->   "%bitcast_ln14_41 = bitcast i32 %i_vec_10_val_read" [kernel_rope.cpp:14]   --->   Operation 74 'bitcast' 'bitcast_ln14_41' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 75 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_41"   --->   Operation 75 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_11 : Operation 76 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_41" [kernel_rope.cpp:14]   --->   Operation 76 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 12 <SV = 11> <Delay = 1.61>
+ST_12 : Operation 77 [1/1] (0.00ns)   --->   "%i_vec_11_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_11_val" [kernel_rope.cpp:8]   --->   Operation 77 'read' 'i_vec_11_val_read' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 78 [1/1] (0.00ns)   --->   "%bitcast_ln14_42 = bitcast i32 %i_vec_11_val_read" [kernel_rope.cpp:14]   --->   Operation 78 'bitcast' 'bitcast_ln14_42' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 79 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_42"   --->   Operation 79 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_12 : Operation 80 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_42" [kernel_rope.cpp:14]   --->   Operation 80 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 13 <SV = 12> <Delay = 1.61>
+ST_13 : Operation 81 [1/1] (0.00ns)   --->   "%i_vec_12_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_12_val" [kernel_rope.cpp:8]   --->   Operation 81 'read' 'i_vec_12_val_read' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 82 [1/1] (0.00ns)   --->   "%bitcast_ln14_43 = bitcast i32 %i_vec_12_val_read" [kernel_rope.cpp:14]   --->   Operation 82 'bitcast' 'bitcast_ln14_43' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 83 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_43"   --->   Operation 83 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_13 : Operation 84 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_43" [kernel_rope.cpp:14]   --->   Operation 84 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 14 <SV = 13> <Delay = 1.61>
+ST_14 : Operation 85 [1/1] (0.00ns)   --->   "%i_vec_13_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_13_val" [kernel_rope.cpp:8]   --->   Operation 85 'read' 'i_vec_13_val_read' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 86 [1/1] (0.00ns)   --->   "%bitcast_ln14_44 = bitcast i32 %i_vec_13_val_read" [kernel_rope.cpp:14]   --->   Operation 86 'bitcast' 'bitcast_ln14_44' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 87 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_44"   --->   Operation 87 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_14 : Operation 88 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_44" [kernel_rope.cpp:14]   --->   Operation 88 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 15 <SV = 14> <Delay = 1.61>
+ST_15 : Operation 89 [1/1] (0.00ns)   --->   "%i_vec_14_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_14_val" [kernel_rope.cpp:8]   --->   Operation 89 'read' 'i_vec_14_val_read' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 90 [1/1] (0.00ns)   --->   "%bitcast_ln14_45 = bitcast i32 %i_vec_14_val_read" [kernel_rope.cpp:14]   --->   Operation 90 'bitcast' 'bitcast_ln14_45' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 91 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_45"   --->   Operation 91 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_15 : Operation 92 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_45" [kernel_rope.cpp:14]   --->   Operation 92 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 16 <SV = 15> <Delay = 1.61>
+ST_16 : Operation 93 [1/1] (0.00ns)   --->   "%i_vec_15_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_15_val" [kernel_rope.cpp:8]   --->   Operation 93 'read' 'i_vec_15_val_read' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 94 [1/1] (0.00ns)   --->   "%bitcast_ln14_46 = bitcast i32 %i_vec_15_val_read" [kernel_rope.cpp:14]   --->   Operation 94 'bitcast' 'bitcast_ln14_46' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 95 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_46"   --->   Operation 95 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_16 : Operation 96 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_46" [kernel_rope.cpp:14]   --->   Operation 96 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 17 <SV = 16> <Delay = 1.61>
+ST_17 : Operation 97 [1/1] (0.00ns)   --->   "%i_vec_16_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_16_val" [kernel_rope.cpp:8]   --->   Operation 97 'read' 'i_vec_16_val_read' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 98 [1/1] (0.00ns)   --->   "%bitcast_ln14_47 = bitcast i32 %i_vec_16_val_read" [kernel_rope.cpp:14]   --->   Operation 98 'bitcast' 'bitcast_ln14_47' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 99 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_47"   --->   Operation 99 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_17 : Operation 100 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_47" [kernel_rope.cpp:14]   --->   Operation 100 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 18 <SV = 17> <Delay = 1.61>
+ST_18 : Operation 101 [1/1] (0.00ns)   --->   "%i_vec_17_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_17_val" [kernel_rope.cpp:8]   --->   Operation 101 'read' 'i_vec_17_val_read' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 102 [1/1] (0.00ns)   --->   "%bitcast_ln14_48 = bitcast i32 %i_vec_17_val_read" [kernel_rope.cpp:14]   --->   Operation 102 'bitcast' 'bitcast_ln14_48' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 103 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_48"   --->   Operation 103 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_18 : Operation 104 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_48" [kernel_rope.cpp:14]   --->   Operation 104 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 19 <SV = 18> <Delay = 1.61>
+ST_19 : Operation 105 [1/1] (0.00ns)   --->   "%i_vec_18_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_18_val" [kernel_rope.cpp:8]   --->   Operation 105 'read' 'i_vec_18_val_read' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 106 [1/1] (0.00ns)   --->   "%bitcast_ln14_49 = bitcast i32 %i_vec_18_val_read" [kernel_rope.cpp:14]   --->   Operation 106 'bitcast' 'bitcast_ln14_49' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 107 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_49"   --->   Operation 107 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_19 : Operation 108 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_49" [kernel_rope.cpp:14]   --->   Operation 108 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 20 <SV = 19> <Delay = 1.61>
+ST_20 : Operation 109 [1/1] (0.00ns)   --->   "%i_vec_19_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_19_val" [kernel_rope.cpp:8]   --->   Operation 109 'read' 'i_vec_19_val_read' <Predicate = true> <Delay = 0.00>
+ST_20 : Operation 110 [1/1] (0.00ns)   --->   "%bitcast_ln14_50 = bitcast i32 %i_vec_19_val_read" [kernel_rope.cpp:14]   --->   Operation 110 'bitcast' 'bitcast_ln14_50' <Predicate = true> <Delay = 0.00>
+ST_20 : Operation 111 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_50"   --->   Operation 111 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_20 : Operation 112 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_50" [kernel_rope.cpp:14]   --->   Operation 112 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 21 <SV = 20> <Delay = 1.61>
+ST_21 : Operation 113 [1/1] (0.00ns)   --->   "%i_vec_20_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_20_val" [kernel_rope.cpp:8]   --->   Operation 113 'read' 'i_vec_20_val_read' <Predicate = true> <Delay = 0.00>
+ST_21 : Operation 114 [1/1] (0.00ns)   --->   "%bitcast_ln14_51 = bitcast i32 %i_vec_20_val_read" [kernel_rope.cpp:14]   --->   Operation 114 'bitcast' 'bitcast_ln14_51' <Predicate = true> <Delay = 0.00>
+ST_21 : Operation 115 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_51"   --->   Operation 115 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_21 : Operation 116 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_51" [kernel_rope.cpp:14]   --->   Operation 116 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 22 <SV = 21> <Delay = 1.61>
+ST_22 : Operation 117 [1/1] (0.00ns)   --->   "%i_vec_21_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_21_val" [kernel_rope.cpp:8]   --->   Operation 117 'read' 'i_vec_21_val_read' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 118 [1/1] (0.00ns)   --->   "%bitcast_ln14_52 = bitcast i32 %i_vec_21_val_read" [kernel_rope.cpp:14]   --->   Operation 118 'bitcast' 'bitcast_ln14_52' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 119 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_52"   --->   Operation 119 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_22 : Operation 120 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_52" [kernel_rope.cpp:14]   --->   Operation 120 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 23 <SV = 22> <Delay = 1.61>
+ST_23 : Operation 121 [1/1] (0.00ns)   --->   "%i_vec_22_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_22_val" [kernel_rope.cpp:8]   --->   Operation 121 'read' 'i_vec_22_val_read' <Predicate = true> <Delay = 0.00>
+ST_23 : Operation 122 [1/1] (0.00ns)   --->   "%bitcast_ln14_53 = bitcast i32 %i_vec_22_val_read" [kernel_rope.cpp:14]   --->   Operation 122 'bitcast' 'bitcast_ln14_53' <Predicate = true> <Delay = 0.00>
+ST_23 : Operation 123 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_53"   --->   Operation 123 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_23 : Operation 124 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_53" [kernel_rope.cpp:14]   --->   Operation 124 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 24 <SV = 23> <Delay = 1.61>
+ST_24 : Operation 125 [1/1] (0.00ns)   --->   "%i_vec_23_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_23_val" [kernel_rope.cpp:8]   --->   Operation 125 'read' 'i_vec_23_val_read' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 126 [1/1] (0.00ns)   --->   "%bitcast_ln14_54 = bitcast i32 %i_vec_23_val_read" [kernel_rope.cpp:14]   --->   Operation 126 'bitcast' 'bitcast_ln14_54' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 127 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_54"   --->   Operation 127 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_24 : Operation 128 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_54" [kernel_rope.cpp:14]   --->   Operation 128 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 25 <SV = 24> <Delay = 1.61>
+ST_25 : Operation 129 [1/1] (0.00ns)   --->   "%i_vec_24_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_24_val" [kernel_rope.cpp:8]   --->   Operation 129 'read' 'i_vec_24_val_read' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 130 [1/1] (0.00ns)   --->   "%bitcast_ln14_55 = bitcast i32 %i_vec_24_val_read" [kernel_rope.cpp:14]   --->   Operation 130 'bitcast' 'bitcast_ln14_55' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 131 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_55"   --->   Operation 131 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_25 : Operation 132 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_55" [kernel_rope.cpp:14]   --->   Operation 132 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 26 <SV = 25> <Delay = 1.61>
+ST_26 : Operation 133 [1/1] (0.00ns)   --->   "%i_vec_25_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_25_val" [kernel_rope.cpp:8]   --->   Operation 133 'read' 'i_vec_25_val_read' <Predicate = true> <Delay = 0.00>
+ST_26 : Operation 134 [1/1] (0.00ns)   --->   "%bitcast_ln14_56 = bitcast i32 %i_vec_25_val_read" [kernel_rope.cpp:14]   --->   Operation 134 'bitcast' 'bitcast_ln14_56' <Predicate = true> <Delay = 0.00>
+ST_26 : Operation 135 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_56"   --->   Operation 135 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_26 : Operation 136 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_56" [kernel_rope.cpp:14]   --->   Operation 136 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 27 <SV = 26> <Delay = 1.61>
+ST_27 : Operation 137 [1/1] (0.00ns)   --->   "%i_vec_26_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_26_val" [kernel_rope.cpp:8]   --->   Operation 137 'read' 'i_vec_26_val_read' <Predicate = true> <Delay = 0.00>
+ST_27 : Operation 138 [1/1] (0.00ns)   --->   "%bitcast_ln14_57 = bitcast i32 %i_vec_26_val_read" [kernel_rope.cpp:14]   --->   Operation 138 'bitcast' 'bitcast_ln14_57' <Predicate = true> <Delay = 0.00>
+ST_27 : Operation 139 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_57"   --->   Operation 139 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_27 : Operation 140 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_57" [kernel_rope.cpp:14]   --->   Operation 140 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 28 <SV = 27> <Delay = 1.61>
+ST_28 : Operation 141 [1/1] (0.00ns)   --->   "%i_vec_27_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_27_val" [kernel_rope.cpp:8]   --->   Operation 141 'read' 'i_vec_27_val_read' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 142 [1/1] (0.00ns)   --->   "%bitcast_ln14_58 = bitcast i32 %i_vec_27_val_read" [kernel_rope.cpp:14]   --->   Operation 142 'bitcast' 'bitcast_ln14_58' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 143 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_58"   --->   Operation 143 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_28 : Operation 144 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_58" [kernel_rope.cpp:14]   --->   Operation 144 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 29 <SV = 28> <Delay = 1.61>
+ST_29 : Operation 145 [1/1] (0.00ns)   --->   "%i_vec_28_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_28_val" [kernel_rope.cpp:8]   --->   Operation 145 'read' 'i_vec_28_val_read' <Predicate = true> <Delay = 0.00>
+ST_29 : Operation 146 [1/1] (0.00ns)   --->   "%bitcast_ln14_59 = bitcast i32 %i_vec_28_val_read" [kernel_rope.cpp:14]   --->   Operation 146 'bitcast' 'bitcast_ln14_59' <Predicate = true> <Delay = 0.00>
+ST_29 : Operation 147 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_59"   --->   Operation 147 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_29 : Operation 148 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_59" [kernel_rope.cpp:14]   --->   Operation 148 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 30 <SV = 29> <Delay = 1.61>
+ST_30 : Operation 149 [1/1] (0.00ns)   --->   "%i_vec_29_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_29_val" [kernel_rope.cpp:8]   --->   Operation 149 'read' 'i_vec_29_val_read' <Predicate = true> <Delay = 0.00>
+ST_30 : Operation 150 [1/1] (0.00ns)   --->   "%bitcast_ln14_60 = bitcast i32 %i_vec_29_val_read" [kernel_rope.cpp:14]   --->   Operation 150 'bitcast' 'bitcast_ln14_60' <Predicate = true> <Delay = 0.00>
+ST_30 : Operation 151 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_60"   --->   Operation 151 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_30 : Operation 152 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_60" [kernel_rope.cpp:14]   --->   Operation 152 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 31 <SV = 30> <Delay = 1.61>
+ST_31 : Operation 153 [1/1] (0.00ns)   --->   "%i_vec_30_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_30_val" [kernel_rope.cpp:8]   --->   Operation 153 'read' 'i_vec_30_val_read' <Predicate = true> <Delay = 0.00>
+ST_31 : Operation 154 [1/1] (0.00ns)   --->   "%bitcast_ln14_61 = bitcast i32 %i_vec_30_val_read" [kernel_rope.cpp:14]   --->   Operation 154 'bitcast' 'bitcast_ln14_61' <Predicate = true> <Delay = 0.00>
+ST_31 : Operation 155 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_61"   --->   Operation 155 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_31 : Operation 156 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_61" [kernel_rope.cpp:14]   --->   Operation 156 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+
+State 32 <SV = 31> <Delay = 1.61>
+ST_32 : Operation 157 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_31_val, i1 1, void @p_str"   --->   Operation 157 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 158 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_30_val, i1 1, void @p_str"   --->   Operation 158 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 159 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_29_val, i1 1, void @p_str"   --->   Operation 159 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 160 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_28_val, i1 1, void @p_str"   --->   Operation 160 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 161 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_27_val, i1 1, void @p_str"   --->   Operation 161 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 162 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_26_val, i1 1, void @p_str"   --->   Operation 162 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 163 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_25_val, i1 1, void @p_str"   --->   Operation 163 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 164 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_24_val, i1 1, void @p_str"   --->   Operation 164 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 165 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_23_val, i1 1, void @p_str"   --->   Operation 165 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 166 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_22_val, i1 1, void @p_str"   --->   Operation 166 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 167 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_21_val, i1 1, void @p_str"   --->   Operation 167 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 168 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_20_val, i1 1, void @p_str"   --->   Operation 168 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 169 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_19_val, i1 1, void @p_str"   --->   Operation 169 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 170 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_18_val, i1 1, void @p_str"   --->   Operation 170 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 171 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_17_val, i1 1, void @p_str"   --->   Operation 171 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 172 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_16_val, i1 1, void @p_str"   --->   Operation 172 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 173 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_15_val, i1 1, void @p_str"   --->   Operation 173 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 174 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_14_val, i1 1, void @p_str"   --->   Operation 174 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 175 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_13_val, i1 1, void @p_str"   --->   Operation 175 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 176 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_12_val, i1 1, void @p_str"   --->   Operation 176 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 177 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_11_val, i1 1, void @p_str"   --->   Operation 177 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 178 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_10_val, i1 1, void @p_str"   --->   Operation 178 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 179 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_9_val, i1 1, void @p_str"   --->   Operation 179 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 180 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_8_val, i1 1, void @p_str"   --->   Operation 180 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 181 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_7_val, i1 1, void @p_str"   --->   Operation 181 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 182 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_6_val, i1 1, void @p_str"   --->   Operation 182 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 183 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_5_val, i1 1, void @p_str"   --->   Operation 183 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 184 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_4_val, i1 1, void @p_str"   --->   Operation 184 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 185 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_3_val, i1 1, void @p_str"   --->   Operation 185 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 186 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_2_val, i1 1, void @p_str"   --->   Operation 186 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 187 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_1_val, i1 1, void @p_str"   --->   Operation 187 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 188 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_0_val, i1 1, void @p_str"   --->   Operation 188 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 189 [1/1] (0.00ns)   --->   "%i_vec_31_val_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %i_vec_31_val" [kernel_rope.cpp:8]   --->   Operation 189 'read' 'i_vec_31_val_read' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 190 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %cos_input_stream, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 190 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 191 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %cos_input_stream, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 191 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 192 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %cos_input_stream, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 192 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 193 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %cos_input_stream, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 193 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 194 [1/1] (0.00ns)   --->   "%bitcast_ln14_62 = bitcast i32 %i_vec_31_val_read" [kernel_rope.cpp:14]   --->   Operation 194 'bitcast' 'bitcast_ln14_62' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 195 [1/1] (0.82ns) (share mux size 32)   --->   "%muxLogicFIFOData_to_write_ln14 = muxlogic i32 %bitcast_ln14_62"   --->   Operation 195 'muxlogic' 'muxLogicFIFOData_to_write_ln14' <Predicate = true> <Delay = 0.82>
+ST_32 : Operation 196 [1/1] ( I:0.79ns O:0.79ns ) (share mux size 32)   --->   "%write_ln14 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %cos_input_stream, i32 %bitcast_ln14_62" [kernel_rope.cpp:14]   --->   Operation 196 'write' 'write_ln14' <Predicate = true> <Delay = 0.79> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 16> <FIFO>
+ST_32 : Operation 197 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 197 'ret' 'ret_ln0' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 4.000ns, clock uncertainty: 1.080ns.
+
+ <State 1>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_0_val_read', kernel_rope.cpp:8) on port 'i_vec_0_val' (kernel_rope.cpp:8) [97]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [103]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [104]  (0.793 ns)
+
+ <State 2>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_1_val_read', kernel_rope.cpp:8) on port 'i_vec_1_val' (kernel_rope.cpp:8) [96]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [106]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [107]  (0.793 ns)
+
+ <State 3>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_2_val_read', kernel_rope.cpp:8) on port 'i_vec_2_val' (kernel_rope.cpp:8) [95]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [109]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [110]  (0.793 ns)
+
+ <State 4>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_3_val_read', kernel_rope.cpp:8) on port 'i_vec_3_val' (kernel_rope.cpp:8) [94]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [112]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [113]  (0.793 ns)
+
+ <State 5>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_4_val_read', kernel_rope.cpp:8) on port 'i_vec_4_val' (kernel_rope.cpp:8) [93]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [115]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [116]  (0.793 ns)
+
+ <State 6>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_5_val_read', kernel_rope.cpp:8) on port 'i_vec_5_val' (kernel_rope.cpp:8) [92]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [118]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [119]  (0.793 ns)
+
+ <State 7>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_6_val_read', kernel_rope.cpp:8) on port 'i_vec_6_val' (kernel_rope.cpp:8) [91]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [121]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [122]  (0.793 ns)
+
+ <State 8>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_7_val_read', kernel_rope.cpp:8) on port 'i_vec_7_val' (kernel_rope.cpp:8) [90]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [124]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [125]  (0.793 ns)
+
+ <State 9>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_8_val_read', kernel_rope.cpp:8) on port 'i_vec_8_val' (kernel_rope.cpp:8) [89]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [127]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [128]  (0.793 ns)
+
+ <State 10>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_9_val_read', kernel_rope.cpp:8) on port 'i_vec_9_val' (kernel_rope.cpp:8) [88]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [130]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [131]  (0.793 ns)
+
+ <State 11>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_10_val_read', kernel_rope.cpp:8) on port 'i_vec_10_val' (kernel_rope.cpp:8) [87]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [133]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [134]  (0.793 ns)
+
+ <State 12>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_11_val_read', kernel_rope.cpp:8) on port 'i_vec_11_val' (kernel_rope.cpp:8) [86]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [136]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [137]  (0.793 ns)
+
+ <State 13>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_12_val_read', kernel_rope.cpp:8) on port 'i_vec_12_val' (kernel_rope.cpp:8) [85]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [139]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [140]  (0.793 ns)
+
+ <State 14>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_13_val_read', kernel_rope.cpp:8) on port 'i_vec_13_val' (kernel_rope.cpp:8) [84]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [142]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [143]  (0.793 ns)
+
+ <State 15>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_14_val_read', kernel_rope.cpp:8) on port 'i_vec_14_val' (kernel_rope.cpp:8) [83]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [145]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [146]  (0.793 ns)
+
+ <State 16>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_15_val_read', kernel_rope.cpp:8) on port 'i_vec_15_val' (kernel_rope.cpp:8) [82]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [148]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [149]  (0.793 ns)
+
+ <State 17>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_16_val_read', kernel_rope.cpp:8) on port 'i_vec_16_val' (kernel_rope.cpp:8) [81]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [151]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [152]  (0.793 ns)
+
+ <State 18>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_17_val_read', kernel_rope.cpp:8) on port 'i_vec_17_val' (kernel_rope.cpp:8) [80]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [154]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [155]  (0.793 ns)
+
+ <State 19>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_18_val_read', kernel_rope.cpp:8) on port 'i_vec_18_val' (kernel_rope.cpp:8) [79]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [157]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [158]  (0.793 ns)
+
+ <State 20>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_19_val_read', kernel_rope.cpp:8) on port 'i_vec_19_val' (kernel_rope.cpp:8) [78]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [160]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [161]  (0.793 ns)
+
+ <State 21>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_20_val_read', kernel_rope.cpp:8) on port 'i_vec_20_val' (kernel_rope.cpp:8) [77]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [163]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [164]  (0.793 ns)
+
+ <State 22>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_21_val_read', kernel_rope.cpp:8) on port 'i_vec_21_val' (kernel_rope.cpp:8) [76]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [166]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [167]  (0.793 ns)
+
+ <State 23>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_22_val_read', kernel_rope.cpp:8) on port 'i_vec_22_val' (kernel_rope.cpp:8) [75]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [169]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [170]  (0.793 ns)
+
+ <State 24>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_23_val_read', kernel_rope.cpp:8) on port 'i_vec_23_val' (kernel_rope.cpp:8) [74]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [172]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [173]  (0.793 ns)
+
+ <State 25>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_24_val_read', kernel_rope.cpp:8) on port 'i_vec_24_val' (kernel_rope.cpp:8) [73]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [175]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [176]  (0.793 ns)
+
+ <State 26>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_25_val_read', kernel_rope.cpp:8) on port 'i_vec_25_val' (kernel_rope.cpp:8) [72]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [178]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [179]  (0.793 ns)
+
+ <State 27>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_26_val_read', kernel_rope.cpp:8) on port 'i_vec_26_val' (kernel_rope.cpp:8) [71]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [181]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [182]  (0.793 ns)
+
+ <State 28>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_27_val_read', kernel_rope.cpp:8) on port 'i_vec_27_val' (kernel_rope.cpp:8) [70]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [184]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [185]  (0.793 ns)
+
+ <State 29>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_28_val_read', kernel_rope.cpp:8) on port 'i_vec_28_val' (kernel_rope.cpp:8) [69]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [187]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [188]  (0.793 ns)
+
+ <State 30>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_29_val_read', kernel_rope.cpp:8) on port 'i_vec_29_val' (kernel_rope.cpp:8) [68]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [190]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [191]  (0.793 ns)
+
+ <State 31>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_30_val_read', kernel_rope.cpp:8) on port 'i_vec_30_val' (kernel_rope.cpp:8) [67]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [193]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [194]  (0.793 ns)
+
+ <State 32>: 1.618ns
+The critical path consists of the following:
+	wire read operation ('i_vec_31_val_read', kernel_rope.cpp:8) on port 'i_vec_31_val' (kernel_rope.cpp:8) [66]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicFIFOData_to_write_ln14') [196]  (0.825 ns)
+	fifo write operation ('write_ln14', kernel_rope.cpp:14) on port 'cos_input_stream' (kernel_rope.cpp:14) [197]  (0.793 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

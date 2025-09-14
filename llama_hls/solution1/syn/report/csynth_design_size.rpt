@@ -1,0 +1,96 @@
+================================================================
+== Design Size Report
+================================================================
+
+* Total Instructions per Compilation Phase
++---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
+| Phase         | Step                        | Instructions | Description                                                                            |
++---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
+| Compile/Link  |                             |  3,027       | After all functions are compiled and linked into a single design                       |
+|               |                             |              |                                                                                        |
+| Unroll/Inline |                             |              | After user unroll and inline pragmas are applied                                       |
+|               | (1) unroll                  | 25,425       | user unroll pragmas are applied                                                        |
+|               | (2) simplification          | 24,159       | simplification of applied user unroll pragmas                                          |
+|               | (3) inline                  | 23,100       | user inline pragmas are applied                                                        |
+|               | (4) simplification          | 23,078       | simplification of applied user inline pragmas                                          |
+|               |                             |              |                                                                                        |
+| Array/Struct  |                             |              | After user array partition and struct aggregate/disaggregate pragmas are applied       |
+|               | (1) array partition         | 34,120       | user array partition pragmas are applied                                               |
+|               | (2) simplification          | 30,392       | simplification of applied user array partition & struct aggregate/disaggregate pragmas |
+|               | (3) aggregate/disaggregate  | 30,392       | user struct aggregate/disaggregate pragmas are applied                                 |
+|               | (4) array reshape           | 30,392       | apply array reshape pragmas                                                            |
+|               | (5) access patterns         | 29,299       | array access pattern optmizations                                                      |
+|               |                             |              |                                                                                        |
+| Performance   |                             |              | After transformations are applied to meet performance pragma targets                   |
+|               | (1) loop simplification     | 28,817       | loop and instruction simplification                                                    |
+|               | (2) parallelization         | 28,706       | loops are unrolled or pipelined to meet performance targets                            |
+|               | (3) array partition         | 28,610       | arrays are partitioned to meet performance targets                                     |
+|               | (4) simplification          | 28,610       | simplification of design after performance transformations                             |
+|               |                             |              |                                                                                        |
+| HW Transforms |                             |              | After hardware transfomations                                                          |
+|               | (1) lowering                | 35,948       | initial conversion to HW specific instructions                                         |
+|               | (2) optimizations           | 49,535       | high level synthesis optimizations                                                     |
++---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
+
+* Instructions per Function for each Compilation Phase
++-------------------------------------+-----------------------+----------------+------------------+------------------+------------------+------------------+
+| Function                            | Location              | Compile/Link   | Unroll/Inline    | Array/Struct     | Performance      | HW Transforms    |
++-------------------------------------+-----------------------+----------------+------------------+------------------+------------------+------------------+
+| + llama_inference_hls_top           | llama_hls_top.cpp:30  | 3,027          | 23,078           | 29,299           | 28,610           | 49,535           |
+|  + attention_layer_with_cache_k...  | llama_hls_top.cpp:196 | 1,704          | 22,340           | 27,337           | 27,103           | 47,617           |
+|   + rmsnorm_kernel                  | llama_hls_top.cpp:401 |  201           |    82            |   189            |   188            |   238            |
+|    + kernel_rmsnorm                 | kernel_rmsnorm.cpp:71 |  199           |    80            |   187            |   186            |   235            |
+|       load_vec                      | kernel_rmsnorm.cpp:8  |   38 (2 calls) |    18 (2 calls)  |    28 (2 calls)  |    28 (2 calls)  |    44 (2 calls)  |
+|       compute_rmsnorm               | kernel_rmsnorm.cpp:18 |  106           |    45            |   123            |   122            |   148            |
+|       store_result                  | kernel_rmsnorm.cpp:59 |   26           |     9            |    28            |    28            |    36            |
+|   + matmul_kernel                   | llama_hls_top.cpp:432 |  736 (4 calls) |   396 (4 calls)  |   560 (4 calls)  |   556 (4 calls)  |   784 (4 calls)  |
+|    + kernel_matmul                  | kernel_matmul.cpp:71  |  728 (4 calls) |   388 (4 calls)  |   552 (4 calls)  |   548 (4 calls)  |   772 (4 calls)  |
+|       load_vec                      | kernel_matmul.cpp:6   |   76 (4 calls) |    52 (4 calls)  |    72 (4 calls)  |    72 (4 calls)  |   104 (4 calls)  |
+|       load_mat                      | kernel_matmul.cpp:16  |  120 (4 calls) |   100 (4 calls)  |    80 (4 calls)  |    80 (4 calls)  |   144 (4 calls)  |
+|       compute_matmul                | kernel_matmul.cpp:30  |  312 (4 calls) |   152 (4 calls)  |   256 (4 calls)  |   252 (4 calls)  |   352 (4 calls)  |
+|       store_result                  | kernel_matmul.cpp:59  |  104 (4 calls) |    52 (4 calls)  |   112 (4 calls)  |   112 (4 calls)  |   144 (4 calls)  |
+|   + rope_kernel                     | llama_hls_top.cpp:413 |  390           | 15,120           | 18,541           | 18,444           | 37,268           |
+|    + kernel_rope                    | kernel_rope.cpp:108   |  378           | 15,112           | 18,533           | 18,436           | 37,255           |
+|       load_vec                      | kernel_rope.cpp:8     |   76 (4 calls) |    52 (4 calls)  | 3,237 (4 calls)  | 3,140 (4 calls)  | 7,944 (4 calls)  |
+|       compute_rope                  | kernel_rope.cpp:18    |  194           | 10,438           | 12,208           | 12,208           | 21,617           |
+|       store_result                  | kernel_rope.cpp:96    |   52 (2 calls) | 4,608 (2 calls)  | 3,074 (2 calls)  | 3,074 (2 calls)  | 7,684 (2 calls)  |
+|     update_kv_cache_kernel          | llama_hls_top.cpp:247 |   34           |    23            |    43            |    43            |    59            |
+|   + compute_attention_with_cache... | llama_hls_top.cpp:274 |  326           | 6,702            | 7,938            | 7,806            | 9,201            |
+|      sqrtf                          | sqrtfloat.cpp:11      |    2           |                  |                  |                  |                  |
+|    + softmax_kernel                 | llama_hls_top.cpp:458 |  178           | 1,200 (12 calls) | 2,484 (12 calls) | 2,388 (12 calls) | 2,784 (12 calls) |
+|     + kernel_softmax                | kernel_softmax.cpp:77 |  176           | 1,176 (12 calls) | 2,460 (12 calls) | 2,364 (12 calls) | 2,748 (12 calls) |
+|        load_vec                     | kernel_softmax.cpp:8  |   19           |   156 (12 calls) |   264 (12 calls) |   252 (12 calls) |                  |
+|        compute_softmax              | kernel_softmax.cpp:18 |  102           |   744 (12 calls) | 1,692 (12 calls) | 1,620 (12 calls) |                  |
+|        store_result                 | kernel_softmax.cpp:65 |   26           |   156 (12 calls) |   384 (12 calls) |   372 (12 calls) |                  |
+|  + ffn_layer_kernel                 | llama_hls_top.cpp:358 |  915           |   459            |   843            |   839            | 1,101            |
+|   + rmsnorm_kernel                  | llama_hls_top.cpp:401 |  201           |    82            |   189            |   188            |   238            |
+|    + kernel_rmsnorm                 | kernel_rmsnorm.cpp:71 |  199           |    80            |   187            |   186            |   235            |
+|       load_vec                      | kernel_rmsnorm.cpp:8  |   38 (2 calls) |    18 (2 calls)  |    28 (2 calls)  |    28 (2 calls)  |    44 (2 calls)  |
+|       compute_rmsnorm               | kernel_rmsnorm.cpp:18 |  106           |    45            |   123            |   122            |   148            |
+|       store_result                  | kernel_rmsnorm.cpp:59 |   26           |     9            |    28            |    28            |    36            |
+|   + matmul_kernel                   | llama_hls_top.cpp:432 |  552 (3 calls) |   297 (3 calls)  |   420 (3 calls)  |   417 (3 calls)  |   588 (3 calls)  |
+|    + kernel_matmul                  | kernel_matmul.cpp:71  |  546 (3 calls) |   291 (3 calls)  |   414 (3 calls)  |   411 (3 calls)  |   579 (3 calls)  |
+|       load_vec                      | kernel_matmul.cpp:6   |   57 (3 calls) |    39 (3 calls)  |    54 (3 calls)  |    54 (3 calls)  |    78 (3 calls)  |
+|       load_mat                      | kernel_matmul.cpp:16  |   90 (3 calls) |    75 (3 calls)  |    60 (3 calls)  |    60 (3 calls)  |   108 (3 calls)  |
+|       compute_matmul                | kernel_matmul.cpp:30  |  234 (3 calls) |   114 (3 calls)  |   192 (3 calls)  |   189 (3 calls)  |   264 (3 calls)  |
+|       store_result                  | kernel_matmul.cpp:59  |   78 (3 calls) |    39 (3 calls)  |    84 (3 calls)  |    84 (3 calls)  |   108 (3 calls)  |
+|   + silu_activation_kernel          | llama_hls_top.cpp:446 |  132           |    57            |   143            |   143            |   179            |
+|    + kernel_silu                    | kernel_silu.cpp:56    |  130           |    55            |   141            |   141            |   176            |
+|       load_vec                      | kernel_silu.cpp:6     |   19           |     9            |    18            |    18            |    26            |
+|       compute_silu                  | kernel_silu.cpp:16    |   65           |    31            |    89            |    89            |   108            |
+|       store_result                  | kernel_silu.cpp:44    |   26           |     9            |    28            |    28            |    36            |
+|  + rmsnorm_kernel                   | llama_hls_top.cpp:401 |  201           |    82            |   189            |   188            |   238            |
+|   + kernel_rmsnorm                  | kernel_rmsnorm.cpp:71 |  199           |    80            |   187            |   186            |   235            |
+|      load_vec                       | kernel_rmsnorm.cpp:8  |   38 (2 calls) |    18 (2 calls)  |    28 (2 calls)  |    28 (2 calls)  |    44 (2 calls)  |
+|      compute_rmsnorm                | kernel_rmsnorm.cpp:18 |  106           |    45            |   123            |   122            |   148            |
+|      store_result                   | kernel_rmsnorm.cpp:59 |   26           |     9            |    28            |    28            |    36            |
++-------------------------------------+-----------------------+----------------+------------------+------------------+------------------+------------------+
+
+* Design Size Message Settings
++---------------------------------------------+--------+------------------------------------------------------------------+
+| Message Setting                             | Value  | Description                                                      |
++---------------------------------------------+--------+------------------------------------------------------------------+
+| config_compile -design_size_maximum_warning | 100000 | Show a warning when total design instructions exceeds this value |
++---------------------------------------------+--------+------------------------------------------------------------------+
+
+

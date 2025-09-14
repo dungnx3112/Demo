@@ -1,0 +1,200 @@
+<pragmas>
+<pragma file="llama_hls_top.cpp" line="281" pragmaType="inline" parentfunction="compute_attention_with_cache_kernel" off="1" region="0" recursive="0"/>
+<pragma file="llama_hls_top.cpp" line="348" pragmaType="pipeline" parentfunction="compute_attention_with_cache_kernel" off="0" ii="1" rewind="0" style=""/>
+<pragma file="llama_hls_top.cpp" line="351" pragmaType="unroll" parentfunction="compute_attention_with_cache_kernel" factor="4" skip_exit_check="0"/>
+<pragma file="llama_hls_top.cpp" line="306" pragmaType="unroll" parentfunction="compute_attention_with_cache_kernel" factor="-1" skip_exit_check="0"/>
+<pragma file="llama_hls_top.cpp" line="310" pragmaType="pipeline" parentfunction="compute_attention_with_cache_kernel" off="0" ii="1" rewind="0" style=""/>
+<pragma file="llama_hls_top.cpp" line="311" pragmaType="loop_tripcount" parentfunction="compute_attention_with_cache_kernel" min="1" max="1024" avg="512"/>
+<pragma file="llama_hls_top.cpp" line="332" pragmaType="pipeline" parentfunction="compute_attention_with_cache_kernel" off="0" ii="1" rewind="0" style=""/>
+<pragma file="llama_hls_top.cpp" line="318" pragmaType="unroll" parentfunction="compute_attention_with_cache_kernel" factor="4" skip_exit_check="0"/>
+<pragma file="llama_hls_top.cpp" line="337" pragmaType="pipeline" parentfunction="compute_attention_with_cache_kernel" off="0" ii="1" rewind="0" style=""/>
+<pragma file="llama_hls_top.cpp" line="338" pragmaType="loop_tripcount" parentfunction="compute_attention_with_cache_kernel" min="1" max="1024" avg="512"/>
+<pragma file="llama_hls_top.cpp" line="296" pragmaType="unroll" parentfunction="compute_attention_with_cache_kernel" factor="-1" skip_exit_check="0"/>
+<pragma file="llama_hls_top.cpp" line="299" pragmaType="pipeline" parentfunction="compute_attention_with_cache_kernel" off="0" ii="1" rewind="0" style=""/>
+<pragma file="llama_hls_top.cpp" line="290" pragmaType="array_partition" parentfunction="compute_attention_with_cache_kernel" dim="1" factor="0" mode="complete" dynamic="0" variable="_ZZN4swan35compute_attention_with_cache_kernelEPfS0_S0_S0_iE7q_heads"/>
+<pragma file="llama_hls_top.cpp" line="291" pragmaType="array_partition" parentfunction="compute_attention_with_cache_kernel" dim="1" factor="0" mode="complete" dynamic="0" variable="_ZZN4swan35compute_attention_with_cache_kernelEPfS0_S0_S0_iE17attn_output_heads"/>
+<pragma file="llama_hls_top.cpp" line="292" pragmaType="array_partition" parentfunction="compute_attention_with_cache_kernel" dim="1" factor="4" mode="cyclic" dynamic="0" variable="_ZZN4swan35compute_attention_with_cache_kernelEPfS0_S0_S0_iE11attn_scores"/>
+<pragma file="llama_hls_top.cpp" line="326" pragmaType="array_partition" parentfunction="compute_attention_with_cache_kernel" dim="1" factor="4" mode="cyclic" dynamic="0" variable="_ZZN4swan35compute_attention_with_cache_kernelEPfS0_S0_S0_iE19attn_scores_softmax"/>
+<pragma file="kernel_matmul.cpp" line="61" pragmaType="inline" parentfunction="store_result" off="1" region="0" recursive="0"/>
+<pragma file="kernel_matmul.cpp" line="64" pragmaType="pipeline" parentfunction="store_result" off="0" ii="1" rewind="0" style=""/>
+<pragma file="kernel_matmul.cpp" line="65" pragmaType="loop_tripcount" parentfunction="store_result" min="768" max="2048" avg="1408"/>
+<pragma file="llama_hls_top.cpp" line="463" pragmaType="inline" parentfunction="softmax_kernel" off="1" region="0" recursive="0"/>
+<pragma file="kernel_matmul.cpp" line="18" pragmaType="inline" parentfunction="load_mat" off="1" region="0" recursive="0"/>
+<pragma file="kernel_matmul.cpp" line="21" pragmaType="loop_tripcount" parentfunction="load_mat" min="768" max="2048" avg="1408"/>
+<pragma file="kernel_matmul.cpp" line="23" pragmaType="pipeline" parentfunction="load_mat" off="0" ii="1" rewind="0" style=""/>
+<pragma file="kernel_matmul.cpp" line="24" pragmaType="loop_tripcount" parentfunction="load_mat" min="768" max="768" avg="768"/>
+<pragma file="llama_hls_top.cpp" line="421" pragmaType="inline" parentfunction="rope_kernel" off="1" region="0" recursive="0"/>
+<pragma file="llama_hls_top.cpp" line="425" pragmaType="pipeline" parentfunction="rope_kernel" off="0" ii="1" rewind="0" style=""/>
+<pragma file="llama_hls_top.cpp" line="451" pragmaType="inline" parentfunction="silu_activation_kernel" off="1" region="0" recursive="0"/>
+<pragma file="llama_hls_top.cpp" line="364" pragmaType="inline" parentfunction="ffn_layer_kernel" off="1" region="0" recursive="0"/>
+<pragma file="llama_hls_top.cpp" line="392" pragmaType="pipeline" parentfunction="ffn_layer_kernel" off="0" ii="1" rewind="0" style=""/>
+<pragma file="llama_hls_top.cpp" line="372" pragmaType="array_partition" parentfunction="ffn_layer_kernel" dim="1" factor="4" mode="cyclic" dynamic="0" variable="_ZZN4swan16ffn_layer_kernelEPfS0_S0_S0_S0_S0_E12normed_input"/>
+<pragma file="llama_hls_top.cpp" line="373" pragmaType="array_partition" parentfunction="ffn_layer_kernel" dim="1" factor="4" mode="cyclic" dynamic="0" variable="_ZZN4swan16ffn_layer_kernelEPfS0_S0_S0_S0_S0_E6w1_out"/>
+<pragma file="llama_hls_top.cpp" line="374" pragmaType="array_partition" parentfunction="ffn_layer_kernel" dim="1" factor="4" mode="cyclic" dynamic="0" variable="_ZZN4swan16ffn_layer_kernelEPfS0_S0_S0_S0_S0_E6w3_out"/>
+<pragma file="llama_hls_top.cpp" line="375" pragmaType="array_partition" parentfunction="ffn_layer_kernel" dim="1" factor="4" mode="cyclic" dynamic="0" variable="_ZZN4swan16ffn_layer_kernelEPfS0_S0_S0_S0_S0_E8silu_out"/>
+<pragma file="llama_hls_top.cpp" line="376" pragmaType="array_partition" parentfunction="ffn_layer_kernel" dim="1" factor="4" mode="cyclic" dynamic="0" variable="_ZZN4swan16ffn_layer_kernelEPfS0_S0_S0_S0_S0_E9gated_out"/>
+<pragma file="llama_hls_top.cpp" line="254" pragmaType="inline" parentfunction="update_kv_cache_kernel" off="1" region="0" recursive="0"/>
+<pragma file="llama_hls_top.cpp" line="267" pragmaType="pipeline" parentfunction="update_kv_cache_kernel" off="0" ii="1" rewind="0" style=""/>
+<pragma file="llama_hls_top.cpp" line="268" pragmaType="loop_tripcount" parentfunction="update_kv_cache_kernel" min="768" max="768" avg="768"/>
+<pragma file="llama_hls_top.cpp" line="260" pragmaType="pipeline" parentfunction="update_kv_cache_kernel" off="0" ii="1" rewind="0" style=""/>
+<pragma file="llama_hls_top.cpp" line="261" pragmaType="loop_tripcount" parentfunction="update_kv_cache_kernel" min="768" max="768" avg="768"/>
+<pragma file="llama_hls_top.cpp" line="439" pragmaType="inline" parentfunction="matmul_kernel" off="1" region="0" recursive="0"/>
+<pragma file="kernel_matmul.cpp" line="34" pragmaType="inline" parentfunction="compute_matmul" off="1" region="0" recursive="0"/>
+<pragma file="kernel_matmul.cpp" line="48" pragmaType="loop_tripcount" parentfunction="compute_matmul" min="768" max="2048" avg="1408"/>
+<pragma file="kernel_matmul.cpp" line="51" pragmaType="pipeline" parentfunction="compute_matmul" off="0" ii="1" rewind="0" style=""/>
+<pragma file="kernel_matmul.cpp" line="52" pragmaType="loop_tripcount" parentfunction="compute_matmul" min="768" max="768" avg="768"/>
+<pragma file="kernel_matmul.cpp" line="41" pragmaType="pipeline" parentfunction="compute_matmul" off="0" ii="1" rewind="0" style=""/>
+<pragma file="kernel_matmul.cpp" line="42" pragmaType="loop_tripcount" parentfunction="compute_matmul" min="768" max="768" avg="768"/>
+<pragma file="kernel_matmul.cpp" line="37" pragmaType="array_partition" parentfunction="compute_matmul" dim="1" factor="4" mode="cyclic" dynamic="0" variable="_ZZL14compute_matmulRN3hls6streamIfLi0EEES2_S2_iiE9vec_local"/>
+<pragma file="llama_hls_top.cpp" line="406" pragmaType="inline" parentfunction="rmsnorm_kernel" off="1" region="0" recursive="0"/>
+<pragma file="llama_hls_top.cpp" line="183" pragmaType="pipeline" parentfunction="llama_inference_hls_top" off="1" ii="0" rewind="0" style=""/>
+<pragma file="llama_hls_top.cpp" line="184" pragmaType="loop_tripcount" parentfunction="llama_inference_hls_top" min="32000" max="32000" avg="32000"/>
+<pragma file="llama_hls_top.cpp" line="187" pragmaType="unroll" parentfunction="llama_inference_hls_top" factor="4" skip_exit_check="0"/>
+<pragma file="llama_hls_top.cpp" line="188" pragmaType="loop_tripcount" parentfunction="llama_inference_hls_top" min="768" max="768" avg="768"/>
+<pragma file="llama_hls_top.cpp" line="176" pragmaType="pipeline" parentfunction="llama_inference_hls_top" off="0" ii="1" rewind="0" style=""/>
+<pragma file="llama_hls_top.cpp" line="177" pragmaType="loop_tripcount" parentfunction="llama_inference_hls_top" min="768" max="768" avg="768"/>
+<pragma file="llama_hls_top.cpp" line="105" pragmaType="pipeline" parentfunction="llama_inference_hls_top" off="1" ii="0" rewind="0" style=""/>
+<pragma file="llama_hls_top.cpp" line="106" pragmaType="loop_tripcount" parentfunction="llama_inference_hls_top" min="2" max="2" avg="2"/>
+<pragma file="llama_hls_top.cpp" line="122" pragmaType="pipeline" parentfunction="llama_inference_hls_top" off="0" ii="1" rewind="0" style=""/>
+<pragma file="llama_hls_top.cpp" line="123" pragmaType="loop_tripcount" parentfunction="llama_inference_hls_top" min="32" max="32" avg="32"/>
+<pragma file="llama_hls_top.cpp" line="149" pragmaType="pipeline" parentfunction="llama_inference_hls_top" off="0" ii="1" rewind="0" style=""/>
+<pragma file="llama_hls_top.cpp" line="148" pragmaType="loop_tripcount" parentfunction="llama_inference_hls_top" min="768" max="768" avg="768"/>
+<pragma file="llama_hls_top.cpp" line="165" pragmaType="pipeline" parentfunction="llama_inference_hls_top" off="0" ii="1" rewind="0" style=""/>
+<pragma file="llama_hls_top.cpp" line="166" pragmaType="loop_tripcount" parentfunction="llama_inference_hls_top" min="768" max="768" avg="768"/>
+<pragma file="llama_hls_top.cpp" line="98" pragmaType="pipeline" parentfunction="llama_inference_hls_top" off="0" ii="1" rewind="0" style=""/>
+<pragma file="llama_hls_top.cpp" line="99" pragmaType="loop_tripcount" parentfunction="llama_inference_hls_top" min="768" max="768" avg="768"/>
+<pragma file="llama_hls_top.cpp" line="61" pragmaType="interface" parentfunction="llama_inference_hls_top" mode="m_axi" port="input_embedding" bundle="gmem0" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="llama_hls_top.cpp" line="62" pragmaType="interface" parentfunction="llama_inference_hls_top" mode="m_axi" port="output_logits" bundle="gmem1" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="llama_hls_top.cpp" line="63" pragmaType="interface" parentfunction="llama_inference_hls_top" mode="m_axi" port="weight_token_embedding" bundle="gmem2" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="llama_hls_top.cpp" line="64" pragmaType="interface" parentfunction="llama_inference_hls_top" mode="m_axi" port="weight_attention_wq" bundle="gmem3" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="llama_hls_top.cpp" line="65" pragmaType="interface" parentfunction="llama_inference_hls_top" mode="m_axi" port="weight_attention_wk" bundle="gmem4" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="llama_hls_top.cpp" line="66" pragmaType="interface" parentfunction="llama_inference_hls_top" mode="m_axi" port="weight_attention_wv" bundle="gmem5" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="llama_hls_top.cpp" line="67" pragmaType="interface" parentfunction="llama_inference_hls_top" mode="m_axi" port="weight_attention_wo" bundle="gmem6" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="llama_hls_top.cpp" line="68" pragmaType="interface" parentfunction="llama_inference_hls_top" mode="m_axi" port="weight_ffn_w1" bundle="gmem7" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="llama_hls_top.cpp" line="69" pragmaType="interface" parentfunction="llama_inference_hls_top" mode="m_axi" port="weight_ffn_w2" bundle="gmem8" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="llama_hls_top.cpp" line="70" pragmaType="interface" parentfunction="llama_inference_hls_top" mode="m_axi" port="weight_ffn_w3" bundle="gmem9" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="llama_hls_top.cpp" line="71" pragmaType="interface" parentfunction="llama_inference_hls_top" mode="m_axi" port="weight_attention_norm" bundle="gmem10" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="llama_hls_top.cpp" line="72" pragmaType="interface" parentfunction="llama_inference_hls_top" mode="m_axi" port="weight_ffn_norm" bundle="gmem11" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="llama_hls_top.cpp" line="73" pragmaType="interface" parentfunction="llama_inference_hls_top" mode="m_axi" port="weight_final_norm" bundle="gmem12" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="llama_hls_top.cpp" line="74" pragmaType="interface" parentfunction="llama_inference_hls_top" mode="m_axi" port="k_cache" bundle="gmem13" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="llama_hls_top.cpp" line="75" pragmaType="interface" parentfunction="llama_inference_hls_top" mode="m_axi" port="v_cache" bundle="gmem14" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="llama_hls_top.cpp" line="76" pragmaType="interface" parentfunction="llama_inference_hls_top" mode="m_axi" port="cos_table" bundle="gmem15" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="llama_hls_top.cpp" line="77" pragmaType="interface" parentfunction="llama_inference_hls_top" mode="m_axi" port="sin_table" bundle="gmem16" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="llama_hls_top.cpp" line="79" pragmaType="interface" parentfunction="llama_inference_hls_top" mode="s_axilite" port="position" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="llama_hls_top.cpp" line="80" pragmaType="interface" parentfunction="llama_inference_hls_top" mode="s_axilite" port="max_position" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="llama_hls_top.cpp" line="81" pragmaType="interface" parentfunction="llama_inference_hls_top" mode="s_axilite" port="" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="llama_hls_top.cpp" line="91" pragmaType="array_partition" parentfunction="llama_inference_hls_top" dim="1" factor="4" mode="cyclic" dynamic="0" variable="_ZZN4swan23llama_inference_hls_topEPfS0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_iiE12hidden_state"/>
+<pragma file="llama_hls_top.cpp" line="92" pragmaType="array_partition" parentfunction="llama_inference_hls_top" dim="1" factor="4" mode="cyclic" dynamic="0" variable="_ZZN4swan23llama_inference_hls_topEPfS0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_iiE11attn_output"/>
+<pragma file="llama_hls_top.cpp" line="93" pragmaType="array_partition" parentfunction="llama_inference_hls_top" dim="1" factor="4" mode="cyclic" dynamic="0" variable="_ZZN4swan23llama_inference_hls_topEPfS0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_iiE10ffn_output"/>
+<pragma file="llama_hls_top.cpp" line="94" pragmaType="array_partition" parentfunction="llama_inference_hls_top" dim="1" factor="4" mode="cyclic" dynamic="0" variable="_ZZN4swan23llama_inference_hls_topEPfS0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_iiE11temp_buffer"/>
+<pragma file="llama_hls_top.cpp" line="118" pragmaType="array_partition" parentfunction="llama_inference_hls_top" dim="1" factor="0" mode="complete" dynamic="0" variable="cos_vals"/>
+<pragma file="llama_hls_top.cpp" line="119" pragmaType="array_partition" parentfunction="llama_inference_hls_top" dim="1" factor="0" mode="complete" dynamic="0" variable="sin_vals"/>
+<pragma file="kernel_softmax.cpp" line="67" pragmaType="inline" parentfunction="store_result" off="1" region="0" recursive="0"/>
+<pragma file="kernel_softmax.cpp" line="70" pragmaType="pipeline" parentfunction="store_result" off="0" ii="1" rewind="0" style=""/>
+<pragma file="kernel_softmax.cpp" line="71" pragmaType="loop_tripcount" parentfunction="store_result" min="32" max="1024" avg="528"/>
+<pragma file="kernel_rope.cpp" line="135" pragmaType="dataflow" parentfunction="kernel_rope" disable_start_propagation="0"/>
+<pragma file="kernel_rope.cpp" line="128" pragmaType="stream" parentfunction="kernel_rope" depth="32" type="fifo" variable="_ZZ11kernel_ropeE14q_input_stream"/>
+<pragma file="kernel_rope.cpp" line="129" pragmaType="stream" parentfunction="kernel_rope" depth="32" type="fifo" variable="_ZZ11kernel_ropeE14k_input_stream"/>
+<pragma file="kernel_rope.cpp" line="130" pragmaType="stream" parentfunction="kernel_rope" depth="16" type="fifo" variable="_ZZ11kernel_ropeE16cos_input_stream"/>
+<pragma file="kernel_rope.cpp" line="131" pragmaType="stream" parentfunction="kernel_rope" depth="16" type="fifo" variable="_ZZ11kernel_ropeE16sin_input_stream"/>
+<pragma file="kernel_rope.cpp" line="132" pragmaType="stream" parentfunction="kernel_rope" depth="32" type="fifo" variable="_ZZ11kernel_ropeE15q_output_stream"/>
+<pragma file="kernel_rope.cpp" line="133" pragmaType="stream" parentfunction="kernel_rope" depth="32" type="fifo" variable="_ZZ11kernel_ropeE15k_output_stream"/>
+<pragma file="kernel_matmul.cpp" line="7" pragmaType="inline" parentfunction="load_vec" off="1" region="0" recursive="0"/>
+<pragma file="kernel_matmul.cpp" line="10" pragmaType="pipeline" parentfunction="load_vec" off="0" ii="1" rewind="0" style=""/>
+<pragma file="kernel_matmul.cpp" line="11" pragmaType="loop_tripcount" parentfunction="load_vec" min="768" max="768" avg="768"/>
+<pragma file="kernel_rope.cpp" line="9" pragmaType="inline" parentfunction="load_vec" off="1" region="0" recursive="0"/>
+<pragma file="kernel_rope.cpp" line="12" pragmaType="pipeline" parentfunction="load_vec" off="0" ii="1" rewind="0" style=""/>
+<pragma file="kernel_rope.cpp" line="13" pragmaType="loop_tripcount" parentfunction="load_vec" min="32" max="768" avg="400"/>
+<pragma file="kernel_rope.cpp" line="98" pragmaType="inline" parentfunction="store_result" off="1" region="0" recursive="0"/>
+<pragma file="kernel_rope.cpp" line="101" pragmaType="pipeline" parentfunction="store_result" off="0" ii="1" rewind="0" style=""/>
+<pragma file="kernel_rope.cpp" line="102" pragmaType="loop_tripcount" parentfunction="store_result" min="768" max="768" avg="768"/>
+<pragma file="kernel_rmsnorm.cpp" line="87" pragmaType="dataflow" parentfunction="kernel_rmsnorm" disable_start_propagation="0"/>
+<pragma file="kernel_rmsnorm.cpp" line="83" pragmaType="stream" parentfunction="kernel_rmsnorm" depth="32" type="fifo" variable="_ZZ14kernel_rmsnormE13input1_stream"/>
+<pragma file="kernel_rmsnorm.cpp" line="84" pragmaType="stream" parentfunction="kernel_rmsnorm" depth="32" type="fifo" variable="_ZZ14kernel_rmsnormE13input2_stream"/>
+<pragma file="kernel_rmsnorm.cpp" line="85" pragmaType="stream" parentfunction="kernel_rmsnorm" depth="32" type="fifo" variable="_ZZ14kernel_rmsnormE13output_stream"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="write" off="0" region="0" recursive="0"/>
+<pragma file="kernel_rope.cpp" line="24" pragmaType="inline" parentfunction="compute_rope" off="1" region="0" recursive="0"/>
+<pragma file="kernel_rope.cpp" line="89" pragmaType="pipeline" parentfunction="compute_rope" off="0" ii="1" rewind="0" style=""/>
+<pragma file="kernel_rope.cpp" line="90" pragmaType="loop_tripcount" parentfunction="compute_rope" min="768" max="768" avg="768"/>
+<pragma file="kernel_rope.cpp" line="67" pragmaType="pipeline" parentfunction="compute_rope" off="0" ii="1" rewind="0" style=""/>
+<pragma file="kernel_rope.cpp" line="68" pragmaType="loop_tripcount" parentfunction="compute_rope" min="32" max="32" avg="32"/>
+<pragma file="kernel_rope.cpp" line="59" pragmaType="pipeline" parentfunction="compute_rope" off="0" ii="1" rewind="0" style=""/>
+<pragma file="kernel_rope.cpp" line="60" pragmaType="loop_tripcount" parentfunction="compute_rope" min="768" max="768" avg="768"/>
+<pragma file="kernel_rope.cpp" line="51" pragmaType="pipeline" parentfunction="compute_rope" off="0" ii="1" rewind="0" style=""/>
+<pragma file="kernel_rope.cpp" line="52" pragmaType="loop_tripcount" parentfunction="compute_rope" min="32" max="32" avg="32"/>
+<pragma file="kernel_rope.cpp" line="44" pragmaType="pipeline" parentfunction="compute_rope" off="0" ii="1" rewind="0" style=""/>
+<pragma file="kernel_rope.cpp" line="45" pragmaType="loop_tripcount" parentfunction="compute_rope" min="768" max="768" avg="768"/>
+<pragma file="kernel_rope.cpp" line="35" pragmaType="array_partition" parentfunction="compute_rope" dim="1" factor="4" mode="cyclic" dynamic="0" variable="_ZZL12compute_ropeRN3hls6streamIfLi0EEES2_S2_S2_S2_S2_iE7q_local"/>
+<pragma file="kernel_rope.cpp" line="36" pragmaType="array_partition" parentfunction="compute_rope" dim="1" factor="4" mode="cyclic" dynamic="0" variable="_ZZL12compute_ropeRN3hls6streamIfLi0EEES2_S2_S2_S2_S2_iE7k_local"/>
+<pragma file="kernel_rope.cpp" line="37" pragmaType="array_partition" parentfunction="compute_rope" dim="1" factor="2" mode="cyclic" dynamic="0" variable="_ZZL12compute_ropeRN3hls6streamIfLi0EEES2_S2_S2_S2_S2_iE9cos_local"/>
+<pragma file="kernel_rope.cpp" line="38" pragmaType="array_partition" parentfunction="compute_rope" dim="1" factor="2" mode="cyclic" dynamic="0" variable="_ZZL12compute_ropeRN3hls6streamIfLi0EEES2_S2_S2_S2_S2_iE9sin_local"/>
+<pragma file="kernel_rope.cpp" line="39" pragmaType="array_partition" parentfunction="compute_rope" dim="1" factor="4" mode="cyclic" dynamic="0" variable="_ZZL12compute_ropeRN3hls6streamIfLi0EEES2_S2_S2_S2_S2_iE11q_out_local"/>
+<pragma file="kernel_rope.cpp" line="40" pragmaType="array_partition" parentfunction="compute_rope" dim="1" factor="4" mode="cyclic" dynamic="0" variable="_ZZL12compute_ropeRN3hls6streamIfLi0EEES2_S2_S2_S2_S2_iE11k_out_local"/>
+<pragma file="kernel_rmsnorm.cpp" line="9" pragmaType="inline" parentfunction="load_vec" off="1" region="0" recursive="0"/>
+<pragma file="kernel_rmsnorm.cpp" line="12" pragmaType="pipeline" parentfunction="load_vec" off="0" ii="1" rewind="0" style=""/>
+<pragma file="kernel_rmsnorm.cpp" line="13" pragmaType="loop_tripcount" parentfunction="load_vec" min="768" max="768" avg="768"/>
+<pragma file="kernel_silu.cpp" line="46" pragmaType="inline" parentfunction="store_result" off="1" region="0" recursive="0"/>
+<pragma file="kernel_silu.cpp" line="49" pragmaType="pipeline" parentfunction="store_result" off="0" ii="1" rewind="0" style=""/>
+<pragma file="kernel_silu.cpp" line="50" pragmaType="loop_tripcount" parentfunction="store_result" min="2048" max="2048" avg="2048"/>
+<pragma file="kernel_rmsnorm.cpp" line="21" pragmaType="inline" parentfunction="compute_rmsnorm" off="1" region="0" recursive="0"/>
+<pragma file="kernel_rmsnorm.cpp" line="53" pragmaType="pipeline" parentfunction="compute_rmsnorm" off="0" ii="1" rewind="0" style=""/>
+<pragma file="kernel_rmsnorm.cpp" line="54" pragmaType="loop_tripcount" parentfunction="compute_rmsnorm" min="768" max="768" avg="768"/>
+<pragma file="kernel_rmsnorm.cpp" line="44" pragmaType="pipeline" parentfunction="compute_rmsnorm" off="0" ii="1" rewind="0" style=""/>
+<pragma file="kernel_rmsnorm.cpp" line="45" pragmaType="loop_tripcount" parentfunction="compute_rmsnorm" min="768" max="768" avg="768"/>
+<pragma file="kernel_rmsnorm.cpp" line="38" pragmaType="pipeline" parentfunction="compute_rmsnorm" off="0" ii="1" rewind="0" style=""/>
+<pragma file="kernel_rmsnorm.cpp" line="39" pragmaType="loop_tripcount" parentfunction="compute_rmsnorm" min="768" max="768" avg="768"/>
+<pragma file="kernel_rmsnorm.cpp" line="32" pragmaType="pipeline" parentfunction="compute_rmsnorm" off="0" ii="1" rewind="0" style=""/>
+<pragma file="kernel_rmsnorm.cpp" line="33" pragmaType="loop_tripcount" parentfunction="compute_rmsnorm" min="768" max="768" avg="768"/>
+<pragma file="kernel_rmsnorm.cpp" line="26" pragmaType="array_partition" parentfunction="compute_rmsnorm" dim="1" factor="4" mode="cyclic" dynamic="0" variable="_ZZL15compute_rmsnormRN3hls6streamIfLi0EEES2_S2_iE11vec_local_1"/>
+<pragma file="kernel_rmsnorm.cpp" line="27" pragmaType="array_partition" parentfunction="compute_rmsnorm" dim="1" factor="4" mode="cyclic" dynamic="0" variable="_ZZL15compute_rmsnormRN3hls6streamIfLi0EEES2_S2_iE11vec_local_2"/>
+<pragma file="kernel_rmsnorm.cpp" line="61" pragmaType="inline" parentfunction="store_result" off="1" region="0" recursive="0"/>
+<pragma file="kernel_rmsnorm.cpp" line="64" pragmaType="pipeline" parentfunction="store_result" off="0" ii="1" rewind="0" style=""/>
+<pragma file="kernel_rmsnorm.cpp" line="65" pragmaType="loop_tripcount" parentfunction="store_result" min="768" max="768" avg="768"/>
+<pragma file="kernel_silu.cpp" line="68" pragmaType="dataflow" parentfunction="kernel_silu" disable_start_propagation="0"/>
+<pragma file="kernel_silu.cpp" line="65" pragmaType="stream" parentfunction="kernel_silu" depth="32" type="fifo" variable="_ZZ11kernel_siluE12input_stream"/>
+<pragma file="kernel_silu.cpp" line="66" pragmaType="stream" parentfunction="kernel_silu" depth="32" type="fifo" variable="_ZZ11kernel_siluE13output_stream"/>
+<pragma file="kernel_matmul.cpp" line="89" pragmaType="dataflow" parentfunction="kernel_matmul" disable_start_propagation="0"/>
+<pragma file="kernel_matmul.cpp" line="85" pragmaType="stream" parentfunction="kernel_matmul" depth="64" type="fifo" variable="_ZZ13kernel_matmulE13vector_stream"/>
+<pragma file="kernel_matmul.cpp" line="86" pragmaType="stream" parentfunction="kernel_matmul" depth="64" type="fifo" variable="_ZZ13kernel_matmulE13matrix_stream"/>
+<pragma file="kernel_matmul.cpp" line="87" pragmaType="stream" parentfunction="kernel_matmul" depth="64" type="fifo" variable="_ZZ13kernel_matmulE13result_stream"/>
+<pragma file="kernel_silu.cpp" line="7" pragmaType="inline" parentfunction="load_vec" off="1" region="0" recursive="0"/>
+<pragma file="kernel_silu.cpp" line="10" pragmaType="pipeline" parentfunction="load_vec" off="0" ii="1" rewind="0" style=""/>
+<pragma file="kernel_silu.cpp" line="11" pragmaType="loop_tripcount" parentfunction="load_vec" min="2048" max="2048" avg="2048"/>
+<pragma file="kernel_silu.cpp" line="18" pragmaType="inline" parentfunction="compute_silu" off="1" region="0" recursive="0"/>
+<pragma file="kernel_silu.cpp" line="38" pragmaType="pipeline" parentfunction="compute_silu" off="0" ii="1" rewind="0" style=""/>
+<pragma file="kernel_silu.cpp" line="39" pragmaType="loop_tripcount" parentfunction="compute_silu" min="2048" max="2048" avg="2048"/>
+<pragma file="kernel_silu.cpp" line="30" pragmaType="pipeline" parentfunction="compute_silu" off="0" ii="1" rewind="0" style=""/>
+<pragma file="kernel_silu.cpp" line="31" pragmaType="loop_tripcount" parentfunction="compute_silu" min="2048" max="2048" avg="2048"/>
+<pragma file="kernel_silu.cpp" line="24" pragmaType="pipeline" parentfunction="compute_silu" off="0" ii="1" rewind="0" style=""/>
+<pragma file="kernel_silu.cpp" line="25" pragmaType="loop_tripcount" parentfunction="compute_silu" min="2048" max="2048" avg="2048"/>
+<pragma file="kernel_silu.cpp" line="21" pragmaType="array_partition" parentfunction="compute_silu" dim="1" factor="4" mode="cyclic" dynamic="0" variable="_ZZL12compute_siluRN3hls6streamIfLi0EEES2_iE9vec_local"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="hls::stream<float, 0>::operator<<(float const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
+<pragma file="kernel_softmax.cpp" line="94" pragmaType="dataflow" parentfunction="kernel_softmax" disable_start_propagation="0"/>
+<pragma file="kernel_softmax.cpp" line="87" pragmaType="stream" parentfunction="kernel_softmax" depth="64" type="fifo" variable="_ZZ14kernel_softmaxE12input_stream"/>
+<pragma file="kernel_softmax.cpp" line="88" pragmaType="stream" parentfunction="kernel_softmax" depth="64" type="fifo" variable="_ZZ14kernel_softmaxE13output_stream"/>
+<pragma file="kernel_softmax.cpp" line="9" pragmaType="inline" parentfunction="load_vec" off="1" region="0" recursive="0"/>
+<pragma file="kernel_softmax.cpp" line="12" pragmaType="pipeline" parentfunction="load_vec" off="0" ii="1" rewind="0" style=""/>
+<pragma file="kernel_softmax.cpp" line="13" pragmaType="loop_tripcount" parentfunction="load_vec" min="32" max="1024" avg="528"/>
+<pragma file="kernel_softmax.cpp" line="20" pragmaType="inline" parentfunction="compute_softmax" off="1" region="0" recursive="0"/>
+<pragma file="kernel_softmax.cpp" line="58" pragmaType="pipeline" parentfunction="compute_softmax" off="0" ii="1" rewind="0" style=""/>
+<pragma file="kernel_softmax.cpp" line="59" pragmaType="loop_tripcount" parentfunction="compute_softmax" min="32" max="1024" avg="528"/>
+<pragma file="kernel_softmax.cpp" line="50" pragmaType="pipeline" parentfunction="compute_softmax" off="0" ii="1" rewind="0" style=""/>
+<pragma file="kernel_softmax.cpp" line="51" pragmaType="loop_tripcount" parentfunction="compute_softmax" min="32" max="1024" avg="528"/>
+<pragma file="kernel_softmax.cpp" line="40" pragmaType="pipeline" parentfunction="compute_softmax" off="0" ii="1" rewind="0" style=""/>
+<pragma file="kernel_softmax.cpp" line="41" pragmaType="loop_tripcount" parentfunction="compute_softmax" min="31" max="1023" avg="527"/>
+<pragma file="kernel_softmax.cpp" line="32" pragmaType="pipeline" parentfunction="compute_softmax" off="0" ii="1" rewind="0" style=""/>
+<pragma file="kernel_softmax.cpp" line="33" pragmaType="loop_tripcount" parentfunction="compute_softmax" min="32" max="1024" avg="528"/>
+<pragma file="kernel_softmax.cpp" line="25" pragmaType="array_partition" parentfunction="compute_softmax" dim="1" factor="4" mode="cyclic" dynamic="0" variable="_ZZL15compute_softmaxRN3hls6streamIfLi0EEES2_iE11vec_local_1"/>
+<pragma file="kernel_softmax.cpp" line="26" pragmaType="array_partition" parentfunction="compute_softmax" dim="1" factor="4" mode="cyclic" dynamic="0" variable="_ZZL15compute_softmaxRN3hls6streamIfLi0EEES2_iE11vec_local_2"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="hls::stream<float, 0>::stream(char const*)" off="0" region="0" recursive="0"/>
+<pragma file="llama_hls_top.cpp" line="0" pragmaType="inline" parentfunction="attention_layer_with_cache_kernel" off="1" region="0" recursive="0"/>
+<pragma file="llama_hls_top.cpp" line="215" pragmaType="array_partition" parentfunction="attention_layer_with_cache_kernel" dim="1" factor="4" mode="cyclic" dynamic="0" variable="_ZZN4swan33attention_layer_with_cache_kernelEPfS0_S0_S0_S0_S0_S0_S0_S0_S0_S0_iiE12normed_input"/>
+<pragma file="llama_hls_top.cpp" line="216" pragmaType="array_partition" parentfunction="attention_layer_with_cache_kernel" dim="1" factor="4" mode="cyclic" dynamic="0" variable="_ZZN4swan33attention_layer_with_cache_kernelEPfS0_S0_S0_S0_S0_S0_S0_S0_S0_S0_iiE1q"/>
+<pragma file="llama_hls_top.cpp" line="217" pragmaType="array_partition" parentfunction="attention_layer_with_cache_kernel" dim="1" factor="4" mode="cyclic" dynamic="0" variable="_ZZN4swan33attention_layer_with_cache_kernelEPfS0_S0_S0_S0_S0_S0_S0_S0_S0_S0_iiE1k"/>
+<pragma file="llama_hls_top.cpp" line="218" pragmaType="array_partition" parentfunction="attention_layer_with_cache_kernel" dim="1" factor="4" mode="cyclic" dynamic="0" variable="_ZZN4swan33attention_layer_with_cache_kernelEPfS0_S0_S0_S0_S0_S0_S0_S0_S0_S0_iiE1v"/>
+<pragma file="llama_hls_top.cpp" line="219" pragmaType="array_partition" parentfunction="attention_layer_with_cache_kernel" dim="1" factor="4" mode="cyclic" dynamic="0" variable="_ZZN4swan33attention_layer_with_cache_kernelEPfS0_S0_S0_S0_S0_S0_S0_S0_S0_S0_iiE6q_rope"/>
+<pragma file="llama_hls_top.cpp" line="220" pragmaType="array_partition" parentfunction="attention_layer_with_cache_kernel" dim="1" factor="4" mode="cyclic" dynamic="0" variable="_ZZN4swan33attention_layer_with_cache_kernelEPfS0_S0_S0_S0_S0_S0_S0_S0_S0_S0_iiE6k_rope"/>
+<pragma file="llama_hls_top.cpp" line="238" pragmaType="array_partition" parentfunction="attention_layer_with_cache_kernel" dim="1" factor="4" mode="cyclic" dynamic="0" variable="_ZZN4swan33attention_layer_with_cache_kernelEPfS0_S0_S0_S0_S0_S0_S0_S0_S0_S0_iiE11attn_output"/>
+</pragmas>

@@ -1,0 +1,288 @@
+<stg><name>matmul_kernel</name>
+
+
+<trans_list>
+
+<trans id="8" from="1" to="2">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+</trans_list>
+
+
+
+<state_list>
+
+<state id="1" st_id="1">
+
+<operation id="3" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="19" bw="64" op_0_bw="64" op_1_bw="64">
+<![CDATA[
+entry:1 %weights_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %weights
+
+]]></Node>
+<StgValue><ssdm name="weights_read"/></StgValue>
+</operation>
+
+<operation id="4" st_id="1" stage="2" lat="2">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="20" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="32" op_4_bw="32" op_5_bw="32" op_6_bw="64" op_7_bw="32" op_8_bw="32" op_9_bw="32" op_10_bw="32" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="32" op_16_bw="32" op_17_bw="32">
+<![CDATA[
+entry:2 %call_ln442 = call void @kernel_matmul.1, i32 %input_0, i32 %input_1, i32 %input_2, i32 %input_3, i32 %gmem3, i64 %weights_read, i32 %output_0, i32 %output_1, i32 %output_2, i32 %output_3, i32 %vector_stream, i32 %matrix_stream, i32 %result_stream, i32 %compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_3, i32 %compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_2, i32 %compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_1, i32 %compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local
+
+]]></Node>
+<StgValue><ssdm name="call_ln442"/></StgValue>
+</operation>
+</state>
+
+<state id="2" st_id="2">
+
+<operation id="5" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="18" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32" op_19_bw="32">
+<![CDATA[
+entry:0 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %gmem3, void @empty_49, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_19, void @empty_14, void @empty_48, i32 16, i32 16, i32 16, i32 16, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0
+
+]]></Node>
+<StgValue><ssdm name="specinterface_ln0"/></StgValue>
+</operation>
+
+<operation id="6" st_id="2" stage="1" lat="2">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="20" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="32" op_4_bw="32" op_5_bw="32" op_6_bw="64" op_7_bw="32" op_8_bw="32" op_9_bw="32" op_10_bw="32" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="32" op_16_bw="32" op_17_bw="32">
+<![CDATA[
+entry:2 %call_ln442 = call void @kernel_matmul.1, i32 %input_0, i32 %input_1, i32 %input_2, i32 %input_3, i32 %gmem3, i64 %weights_read, i32 %output_0, i32 %output_1, i32 %output_2, i32 %output_3, i32 %vector_stream, i32 %matrix_stream, i32 %result_stream, i32 %compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_3, i32 %compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_2, i32 %compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_1, i32 %compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local
+
+]]></Node>
+<StgValue><ssdm name="call_ln442"/></StgValue>
+</operation>
+
+<operation id="7" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="21" bw="0">
+<![CDATA[
+entry:3 %ret_ln443 = ret
+
+]]></Node>
+<StgValue><ssdm name="ret_ln443"/></StgValue>
+</operation>
+</state>
+</state_list>
+
+
+<ports>
+<port id="9" name="input_0" dir="0" iftype="1">
+<core>RAM</core><StgValue><ssdm name="input_0"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="10" name="input_1" dir="0" iftype="1">
+<core>RAM</core><StgValue><ssdm name="input_1"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="11" name="input_2" dir="0" iftype="1">
+<core>RAM</core><StgValue><ssdm name="input_2"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="12" name="input_3" dir="0" iftype="1">
+<core>RAM</core><StgValue><ssdm name="input_3"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="13" name="gmem3" dir="0" iftype="4">
+<core>NULL</core><StgValue><ssdm name="gmem3"/><MemPortTyVec>0 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="14" name="weights" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="weights"/></StgValue>
+</port>
+<port id="15" name="output_0" dir="1" iftype="1">
+<core>RAM</core><StgValue><ssdm name="output_0"/><MemPortTyVec>0 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="16" name="output_1" dir="1" iftype="1">
+<core>RAM</core><StgValue><ssdm name="output_1"/><MemPortTyVec>0 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="17" name="output_2" dir="1" iftype="1">
+<core>RAM</core><StgValue><ssdm name="output_2"/><MemPortTyVec>0 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="18" name="output_3" dir="1" iftype="1">
+<core>RAM</core><StgValue><ssdm name="output_3"/><MemPortTyVec>0 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="19" name="vector_stream" dir="2" iftype="3">
+<core>NULL</core><StgValue><ssdm name="vector_stream"/></StgValue>
+</port>
+<port id="20" name="matrix_stream" dir="2" iftype="3">
+<core>NULL</core><StgValue><ssdm name="matrix_stream"/></StgValue>
+</port>
+<port id="21" name="result_stream" dir="2" iftype="3">
+<core>NULL</core><StgValue><ssdm name="result_stream"/></StgValue>
+</port>
+<port id="22" name="compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_3" dir="2" iftype="1">
+<core>RAM</core><StgValue><ssdm name="compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_3"/><MemPortTyVec>2 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="23" name="compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_2" dir="2" iftype="1">
+<core>RAM</core><StgValue><ssdm name="compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_2"/><MemPortTyVec>2 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="24" name="compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_1" dir="2" iftype="1">
+<core>RAM</core><StgValue><ssdm name="compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_1"/><MemPortTyVec>2 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="25" name="compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local" dir="2" iftype="1">
+<core>RAM</core><StgValue><ssdm name="compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local"/><MemPortTyVec>2 3 </MemPortTyVec>
+</StgValue>
+</port>
+</ports>
+
+
+<dataflows>
+<dataflow id="27" from="_ssdm_op_Read.ap_auto.i64" to="weights_read" fromId="26" toId="3">
+</dataflow>
+<dataflow id="28" from="weights" to="weights_read" fromId="14" toId="3">
+</dataflow>
+<dataflow id="30" from="kernel_matmul.1" to="call_ln442" fromId="29" toId="4">
+</dataflow>
+<dataflow id="31" from="input_0" to="call_ln442" fromId="9" toId="4">
+</dataflow>
+<dataflow id="32" from="input_1" to="call_ln442" fromId="10" toId="4">
+</dataflow>
+<dataflow id="33" from="input_2" to="call_ln442" fromId="11" toId="4">
+</dataflow>
+<dataflow id="34" from="input_3" to="call_ln442" fromId="12" toId="4">
+</dataflow>
+<dataflow id="35" from="gmem3" to="call_ln442" fromId="13" toId="4">
+</dataflow>
+<dataflow id="36" from="weights_read" to="call_ln442" fromId="3" toId="4">
+</dataflow>
+<dataflow id="37" from="output_0" to="call_ln442" fromId="15" toId="4">
+</dataflow>
+<dataflow id="38" from="output_1" to="call_ln442" fromId="16" toId="4">
+</dataflow>
+<dataflow id="39" from="output_2" to="call_ln442" fromId="17" toId="4">
+</dataflow>
+<dataflow id="40" from="output_3" to="call_ln442" fromId="18" toId="4">
+</dataflow>
+<dataflow id="41" from="vector_stream" to="call_ln442" fromId="19" toId="4">
+</dataflow>
+<dataflow id="42" from="matrix_stream" to="call_ln442" fromId="20" toId="4">
+</dataflow>
+<dataflow id="43" from="result_stream" to="call_ln442" fromId="21" toId="4">
+</dataflow>
+<dataflow id="44" from="compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_3" to="call_ln442" fromId="22" toId="4">
+</dataflow>
+<dataflow id="45" from="compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_2" to="call_ln442" fromId="23" toId="4">
+</dataflow>
+<dataflow id="46" from="compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_1" to="call_ln442" fromId="24" toId="4">
+</dataflow>
+<dataflow id="47" from="compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local" to="call_ln442" fromId="25" toId="4">
+</dataflow>
+<dataflow id="49" from="_ssdm_op_SpecInterface" to="specinterface_ln0" fromId="48" toId="5">
+</dataflow>
+<dataflow id="50" from="gmem3" to="specinterface_ln0" fromId="13" toId="5">
+</dataflow>
+<dataflow id="52" from="empty_49" to="specinterface_ln0" fromId="51" toId="5">
+</dataflow>
+<dataflow id="54" from="StgValue_53" to="specinterface_ln0" fromId="53" toId="5">
+</dataflow>
+<dataflow id="55" from="StgValue_53" to="specinterface_ln0" fromId="53" toId="5">
+</dataflow>
+<dataflow id="57" from="empty_48" to="specinterface_ln0" fromId="56" toId="5">
+</dataflow>
+<dataflow id="58" from="StgValue_53" to="specinterface_ln0" fromId="53" toId="5">
+</dataflow>
+<dataflow id="59" from="StgValue_53" to="specinterface_ln0" fromId="53" toId="5">
+</dataflow>
+<dataflow id="61" from="empty_19" to="specinterface_ln0" fromId="60" toId="5">
+</dataflow>
+<dataflow id="63" from="empty_14" to="specinterface_ln0" fromId="62" toId="5">
+</dataflow>
+<dataflow id="64" from="empty_48" to="specinterface_ln0" fromId="56" toId="5">
+</dataflow>
+<dataflow id="66" from="StgValue_65" to="specinterface_ln0" fromId="65" toId="5">
+</dataflow>
+<dataflow id="67" from="StgValue_65" to="specinterface_ln0" fromId="65" toId="5">
+</dataflow>
+<dataflow id="68" from="StgValue_65" to="specinterface_ln0" fromId="65" toId="5">
+</dataflow>
+<dataflow id="69" from="StgValue_65" to="specinterface_ln0" fromId="65" toId="5">
+</dataflow>
+<dataflow id="70" from="empty_48" to="specinterface_ln0" fromId="56" toId="5">
+</dataflow>
+<dataflow id="71" from="empty_48" to="specinterface_ln0" fromId="56" toId="5">
+</dataflow>
+<dataflow id="73" from="StgValue_72" to="specinterface_ln0" fromId="72" toId="5">
+</dataflow>
+<dataflow id="74" from="StgValue_53" to="specinterface_ln0" fromId="53" toId="5">
+</dataflow>
+<dataflow id="75" from="StgValue_53" to="specinterface_ln0" fromId="53" toId="5">
+</dataflow>
+<dataflow id="76" from="kernel_matmul.1" to="call_ln442" fromId="29" toId="6">
+</dataflow>
+<dataflow id="77" from="input_0" to="call_ln442" fromId="9" toId="6">
+</dataflow>
+<dataflow id="78" from="input_1" to="call_ln442" fromId="10" toId="6">
+</dataflow>
+<dataflow id="79" from="input_2" to="call_ln442" fromId="11" toId="6">
+</dataflow>
+<dataflow id="80" from="input_3" to="call_ln442" fromId="12" toId="6">
+</dataflow>
+<dataflow id="81" from="gmem3" to="call_ln442" fromId="13" toId="6">
+</dataflow>
+<dataflow id="82" from="weights_read" to="call_ln442" fromId="3" toId="6">
+</dataflow>
+<dataflow id="83" from="output_0" to="call_ln442" fromId="15" toId="6">
+</dataflow>
+<dataflow id="84" from="output_1" to="call_ln442" fromId="16" toId="6">
+</dataflow>
+<dataflow id="85" from="output_2" to="call_ln442" fromId="17" toId="6">
+</dataflow>
+<dataflow id="86" from="output_3" to="call_ln442" fromId="18" toId="6">
+</dataflow>
+<dataflow id="87" from="vector_stream" to="call_ln442" fromId="19" toId="6">
+</dataflow>
+<dataflow id="88" from="matrix_stream" to="call_ln442" fromId="20" toId="6">
+</dataflow>
+<dataflow id="89" from="result_stream" to="call_ln442" fromId="21" toId="6">
+</dataflow>
+<dataflow id="90" from="compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_3" to="call_ln442" fromId="22" toId="6">
+</dataflow>
+<dataflow id="91" from="compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_2" to="call_ln442" fromId="23" toId="6">
+</dataflow>
+<dataflow id="92" from="compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_1" to="call_ln442" fromId="24" toId="6">
+</dataflow>
+<dataflow id="93" from="compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local" to="call_ln442" fromId="25" toId="6">
+</dataflow>
+</dataflows>
+
+
+</stg>

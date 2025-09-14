@@ -1,0 +1,1707 @@
+
+
+================================================================
+== Vitis HLS Report for 'compute_rmsnorm_Pipeline_normalize'
+================================================================
+* Date:           Mon Sep 15 01:27:51 2025
+
+* Version:        2025.1 (Build 6135595 on May 21 2025)
+* Project:        llama_hls
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: versalhbm
+* Target device:  xcv80-lsva4737-2MHP-e-S
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  4.00 ns|  2.907 ns|     1.08 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+------------------------------------------------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval |                    Pipeline                    |
+    |   min   |   max   |    min   |    max   | min | max |                      Type                      |
+    +---------+---------+----------+----------+-----+-----+------------------------------------------------+
+    |      773|      773|  3.092 us|  3.092 us|  769|  769|  loop auto-rewind stp (delay=0 clock cycles(s))|
+    +---------+---------+----------+----------+-----+-----+------------------------------------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+---------+---------+----------+-----------+-----------+------+----------+
+        |             |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- normalize  |      771|      771|         5|          1|          1|   768|       yes|
+        +-------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 5
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 5
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 5, States = { 1 2 3 4 5 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 2.13>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%i_13 = alloca i32 1" [kernel_rmsnorm.cpp:52]   --->   Operation 8 'alloca' 'i_13' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %output_stream_3, void @empty_39, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_48, void @empty_48, void @empty_48, i32 0, i32 0, i32 0, i32 0, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 9 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%norm_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %norm" [kernel_rmsnorm.cpp:26]   --->   Operation 10 'read' 'norm_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.39ns)   --->   "%store_ln52 = store i10 0, i10 %i_13" [kernel_rmsnorm.cpp:52]   --->   Operation 11 'store' 'store_ln52' <Predicate = true> <Delay = 0.39>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.inc37.i"   --->   Operation 12 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%i = load i10 %i_13" [kernel_rmsnorm.cpp:52]   --->   Operation 13 'load' 'i' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.71ns)   --->   "%add_ln52 = add i10 %i, i10 1" [kernel_rmsnorm.cpp:52]   --->   Operation 14 'add' 'add_ln52' <Predicate = true> <Delay = 0.71> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.71> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 15 [1/1] (0.60ns)   --->   "%icmp_ln52 = icmp_eq  i10 %i, i10 768" [kernel_rmsnorm.cpp:52]   --->   Operation 15 'icmp' 'icmp_ln52' <Predicate = true> <Delay = 0.60> <CoreInst = "ICmp_EQ">   --->   Core 156 'ICmp_EQ' <Latency = 0> <II = 1> <Delay = 0.60> <FuncUnit> <Opcode : 'seteq' 'setne'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%br_ln52 = br i1 %icmp_ln52, void %for.inc37.split.i, void %compute_rmsnorm.exit.exitStub" [kernel_rmsnorm.cpp:52]   --->   Operation 16 'br' 'br_ln52' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%trunc_ln52 = trunc i10 %i" [kernel_rmsnorm.cpp:52]   --->   Operation 17 'trunc' 'trunc_ln52' <Predicate = (!icmp_ln52)> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%lshr_ln = partselect i8 @_ssdm_op_PartSelect.i8.i10.i32.i32, i10 %i, i32 2, i32 9" [kernel_rmsnorm.cpp:52]   --->   Operation 18 'partselect' 'lshr_ln' <Predicate = (!icmp_ln52)> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%zext_ln52 = zext i8 %lshr_ln" [kernel_rmsnorm.cpp:52]   --->   Operation 19 'zext' 'zext_ln52' <Predicate = (!icmp_ln52)> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3_addr = getelementptr i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3, i64 0, i64 %zext_ln52" [kernel_rmsnorm.cpp:55]   --->   Operation 20 'getelementptr' 'compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3_addr' <Predicate = (!icmp_ln52)> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2_addr = getelementptr i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2, i64 0, i64 %zext_ln52" [kernel_rmsnorm.cpp:55]   --->   Operation 21 'getelementptr' 'compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2_addr' <Predicate = (!icmp_ln52)> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1_addr = getelementptr i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1, i64 0, i64 %zext_ln52" [kernel_rmsnorm.cpp:55]   --->   Operation 22 'getelementptr' 'compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1_addr' <Predicate = (!icmp_ln52)> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_addr = getelementptr i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1, i64 0, i64 %zext_ln52" [kernel_rmsnorm.cpp:55]   --->   Operation 23 'getelementptr' 'compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_addr' <Predicate = (!icmp_ln52)> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.42ns) (share mux size 2)   --->   "%muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3_load = muxlogic i8 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3_addr"   --->   Operation 24 'muxlogic' 'muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3_load' <Predicate = (!icmp_ln52)> <Delay = 0.42>
+ST_1 : Operation 25 [2/2] (0.71ns) (share mux size 3)   --->   "%compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3_load = load i8 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3_addr" [kernel_rmsnorm.cpp:55]   --->   Operation 25 'load' 'compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3_load' <Predicate = (!icmp_ln52)> <Delay = 0.71> <CoreInst = "RAM">   --->   Core 86 'RAM' <Latency = 1> <II = 1> <Delay = 0.89> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 192> <RAM>
+ST_1 : Operation 26 [1/1] (0.42ns) (share mux size 2)   --->   "%muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2_load = muxlogic i8 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2_addr"   --->   Operation 26 'muxlogic' 'muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2_load' <Predicate = (!icmp_ln52)> <Delay = 0.42>
+ST_1 : Operation 27 [2/2] (0.71ns) (share mux size 3)   --->   "%compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2_load = load i8 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2_addr" [kernel_rmsnorm.cpp:55]   --->   Operation 27 'load' 'compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2_load' <Predicate = (!icmp_ln52)> <Delay = 0.71> <CoreInst = "RAM">   --->   Core 86 'RAM' <Latency = 1> <II = 1> <Delay = 0.89> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 192> <RAM>
+ST_1 : Operation 28 [1/1] (0.42ns) (share mux size 2)   --->   "%muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1_load = muxlogic i8 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1_addr"   --->   Operation 28 'muxlogic' 'muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1_load' <Predicate = (!icmp_ln52)> <Delay = 0.42>
+ST_1 : Operation 29 [2/2] (0.71ns) (share mux size 3)   --->   "%compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1_load = load i8 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1_addr" [kernel_rmsnorm.cpp:55]   --->   Operation 29 'load' 'compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1_load' <Predicate = (!icmp_ln52)> <Delay = 0.71> <CoreInst = "RAM">   --->   Core 86 'RAM' <Latency = 1> <II = 1> <Delay = 0.89> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 192> <RAM>
+ST_1 : Operation 30 [1/1] (0.42ns) (share mux size 2)   --->   "%muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_load = muxlogic i8 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_addr"   --->   Operation 30 'muxlogic' 'muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_load' <Predicate = (!icmp_ln52)> <Delay = 0.42>
+ST_1 : Operation 31 [2/2] (0.71ns) (share mux size 3)   --->   "%compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_load = load i8 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_addr" [kernel_rmsnorm.cpp:55]   --->   Operation 31 'load' 'compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_load' <Predicate = (!icmp_ln52)> <Delay = 0.71> <CoreInst = "RAM">   --->   Core 86 'RAM' <Latency = 1> <II = 1> <Delay = 0.89> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 192> <RAM>
+ST_1 : Operation 32 [1/1] (0.39ns)   --->   "%store_ln52 = store i10 %add_ln52, i10 %i_13" [kernel_rmsnorm.cpp:52]   --->   Operation 32 'store' 'store_ln52' <Predicate = (!icmp_ln52)> <Delay = 0.39>
+
+State 2 <SV = 1> <Delay = 1.33>
+ST_2 : Operation 33 [1/2] ( I:0.89ns O:0.89ns ) (share mux size 3)   --->   "%compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3_load = load i8 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3_addr" [kernel_rmsnorm.cpp:55]   --->   Operation 33 'load' 'compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3_load' <Predicate = true> <Delay = 0.89> <CoreInst = "RAM">   --->   Core 86 'RAM' <Latency = 1> <II = 1> <Delay = 0.89> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 192> <RAM>
+ST_2 : Operation 34 [1/2] ( I:0.89ns O:0.89ns ) (share mux size 3)   --->   "%compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2_load = load i8 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2_addr" [kernel_rmsnorm.cpp:55]   --->   Operation 34 'load' 'compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2_load' <Predicate = true> <Delay = 0.89> <CoreInst = "RAM">   --->   Core 86 'RAM' <Latency = 1> <II = 1> <Delay = 0.89> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 192> <RAM>
+ST_2 : Operation 35 [1/2] ( I:0.89ns O:0.89ns ) (share mux size 3)   --->   "%compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1_load = load i8 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1_addr" [kernel_rmsnorm.cpp:55]   --->   Operation 35 'load' 'compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1_load' <Predicate = true> <Delay = 0.89> <CoreInst = "RAM">   --->   Core 86 'RAM' <Latency = 1> <II = 1> <Delay = 0.89> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 192> <RAM>
+ST_2 : Operation 36 [1/2] ( I:0.89ns O:0.89ns ) (share mux size 3)   --->   "%compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_load = load i8 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_addr" [kernel_rmsnorm.cpp:55]   --->   Operation 36 'load' 'compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_load' <Predicate = true> <Delay = 0.89> <CoreInst = "RAM">   --->   Core 86 'RAM' <Latency = 1> <II = 1> <Delay = 0.89> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 192> <RAM>
+ST_2 : Operation 37 [1/1] (0.43ns)   --->   "%tmp_88_i = sparsemux i32 @_ssdm_op_SparseMux.ap_auto.4float.float.i2, i2 0, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3_load, i2 1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2_load, i2 2, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1_load, i2 3, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_load, i32 <undef>, i2 %trunc_ln52" [kernel_rmsnorm.cpp:55]   --->   Operation 37 'sparsemux' 'tmp_88_i' <Predicate = true> <Delay = 0.43> <CoreInst = "BinarySparseMux_DontCare">   --->   Core 150 'BinarySparseMux_DontCare' <Latency = 0> <II = 1> <Delay = 0.43> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 0> <OutPorts = 1>
+ST_2 : Operation 38 [1/1] (0.00ns)   --->   "%compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3_addr = getelementptr i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3, i64 0, i64 %zext_ln52" [kernel_rmsnorm.cpp:55]   --->   Operation 38 'getelementptr' 'compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3_addr' <Predicate = (trunc_ln52 == 0)> <Delay = 0.00>
+ST_2 : Operation 39 [1/1] (0.00ns)   --->   "%compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2_addr = getelementptr i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2, i64 0, i64 %zext_ln52" [kernel_rmsnorm.cpp:55]   --->   Operation 39 'getelementptr' 'compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2_addr' <Predicate = (trunc_ln52 == 1)> <Delay = 0.00>
+ST_2 : Operation 40 [1/1] (0.00ns)   --->   "%compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1_addr = getelementptr i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1, i64 0, i64 %zext_ln52" [kernel_rmsnorm.cpp:55]   --->   Operation 40 'getelementptr' 'compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1_addr' <Predicate = (trunc_ln52 == 2)> <Delay = 0.00>
+ST_2 : Operation 41 [1/1] (0.00ns)   --->   "%compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_addr = getelementptr i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2, i64 0, i64 %zext_ln52" [kernel_rmsnorm.cpp:55]   --->   Operation 41 'getelementptr' 'compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_addr' <Predicate = (trunc_ln52 == 3)> <Delay = 0.00>
+ST_2 : Operation 42 [1/1] (0.00ns)   --->   "%muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3_load = muxlogic i8 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3_addr"   --->   Operation 42 'muxlogic' 'muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3_load' <Predicate = (trunc_ln52 == 0)> <Delay = 0.00>
+ST_2 : Operation 43 [2/2] (0.71ns) (share mux size 2)   --->   "%compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3_load = load i8 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3_addr" [kernel_rmsnorm.cpp:55]   --->   Operation 43 'load' 'compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3_load' <Predicate = (trunc_ln52 == 0)> <Delay = 0.71> <CoreInst = "RAM">   --->   Core 86 'RAM' <Latency = 1> <II = 1> <Delay = 0.89> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 192> <RAM>
+ST_2 : Operation 44 [1/1] (0.00ns)   --->   "%muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2_load = muxlogic i8 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2_addr"   --->   Operation 44 'muxlogic' 'muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2_load' <Predicate = (trunc_ln52 == 1)> <Delay = 0.00>
+ST_2 : Operation 45 [2/2] (0.71ns) (share mux size 2)   --->   "%compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2_load = load i8 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2_addr" [kernel_rmsnorm.cpp:55]   --->   Operation 45 'load' 'compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2_load' <Predicate = (trunc_ln52 == 1)> <Delay = 0.71> <CoreInst = "RAM">   --->   Core 86 'RAM' <Latency = 1> <II = 1> <Delay = 0.89> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 192> <RAM>
+ST_2 : Operation 46 [1/1] (0.00ns)   --->   "%muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1_load = muxlogic i8 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1_addr"   --->   Operation 46 'muxlogic' 'muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1_load' <Predicate = (trunc_ln52 == 2)> <Delay = 0.00>
+ST_2 : Operation 47 [2/2] (0.71ns) (share mux size 2)   --->   "%compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1_load = load i8 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1_addr" [kernel_rmsnorm.cpp:55]   --->   Operation 47 'load' 'compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1_load' <Predicate = (trunc_ln52 == 2)> <Delay = 0.71> <CoreInst = "RAM">   --->   Core 86 'RAM' <Latency = 1> <II = 1> <Delay = 0.89> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 192> <RAM>
+ST_2 : Operation 48 [1/1] (0.00ns)   --->   "%muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_load = muxlogic i8 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_addr"   --->   Operation 48 'muxlogic' 'muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_load' <Predicate = (trunc_ln52 == 3)> <Delay = 0.00>
+ST_2 : Operation 49 [2/2] (0.71ns) (share mux size 2)   --->   "%compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_load = load i8 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_addr" [kernel_rmsnorm.cpp:55]   --->   Operation 49 'load' 'compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_load' <Predicate = (trunc_ln52 == 3)> <Delay = 0.71> <CoreInst = "RAM">   --->   Core 86 'RAM' <Latency = 1> <II = 1> <Delay = 0.89> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 192> <RAM>
+
+State 3 <SV = 2> <Delay = 2.90>
+ST_3 : Operation 50 [1/1] (0.42ns) (share mux size 2)   --->   "%muxLogicI0_to_mul1_i = muxlogic i32 %tmp_88_i"   --->   Operation 50 'muxlogic' 'muxLogicI0_to_mul1_i' <Predicate = true> <Delay = 0.42>
+ST_3 : Operation 51 [1/1] (0.42ns) (share mux size 2)   --->   "%muxLogicI1_to_mul1_i = muxlogic i32 %norm_read"   --->   Operation 51 'muxlogic' 'muxLogicI1_to_mul1_i' <Predicate = true> <Delay = 0.42>
+ST_3 : Operation 52 [1/1] (2.48ns) (share mux size 2)   --->   "%mul1_i = fmul i32 %tmp_88_i, i32 %norm_read" [kernel_rmsnorm.cpp:55]   --->   Operation 52 'fmul' 'mul1_i' <Predicate = true> <Delay = 2.48> <CoreInst = "FMul_primitivedsp">   --->   Core 14 'FMul_primitivedsp' <Latency = 0> <II = 1> <Delay = 2.48> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 53 [1/2] ( I:0.89ns O:0.89ns ) (share mux size 2)   --->   "%compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3_load = load i8 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3_addr" [kernel_rmsnorm.cpp:55]   --->   Operation 53 'load' 'compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3_load' <Predicate = (trunc_ln52 == 0)> <Delay = 0.89> <CoreInst = "RAM">   --->   Core 86 'RAM' <Latency = 1> <II = 1> <Delay = 0.89> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 192> <RAM>
+ST_3 : Operation 54 [1/2] ( I:0.89ns O:0.89ns ) (share mux size 2)   --->   "%compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2_load = load i8 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2_addr" [kernel_rmsnorm.cpp:55]   --->   Operation 54 'load' 'compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2_load' <Predicate = (trunc_ln52 == 1)> <Delay = 0.89> <CoreInst = "RAM">   --->   Core 86 'RAM' <Latency = 1> <II = 1> <Delay = 0.89> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 192> <RAM>
+ST_3 : Operation 55 [1/2] ( I:0.89ns O:0.89ns ) (share mux size 2)   --->   "%compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1_load = load i8 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1_addr" [kernel_rmsnorm.cpp:55]   --->   Operation 55 'load' 'compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1_load' <Predicate = (trunc_ln52 == 2)> <Delay = 0.89> <CoreInst = "RAM">   --->   Core 86 'RAM' <Latency = 1> <II = 1> <Delay = 0.89> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 192> <RAM>
+ST_3 : Operation 56 [1/2] ( I:0.89ns O:0.89ns ) (share mux size 2)   --->   "%compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_load = load i8 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_addr" [kernel_rmsnorm.cpp:55]   --->   Operation 56 'load' 'compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_load' <Predicate = (trunc_ln52 == 3)> <Delay = 0.89> <CoreInst = "RAM">   --->   Core 86 'RAM' <Latency = 1> <II = 1> <Delay = 0.89> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 192> <RAM>
+ST_3 : Operation 57 [1/1] (0.43ns)   --->   "%tmp_89_i = sparsemux i32 @_ssdm_op_SparseMux.ap_auto.4float.float.i2, i2 0, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3_load, i2 1, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2_load, i2 2, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1_load, i2 3, i32 %compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_load, i32 <undef>, i2 %trunc_ln52" [kernel_rmsnorm.cpp:55]   --->   Operation 57 'sparsemux' 'tmp_89_i' <Predicate = true> <Delay = 0.43> <CoreInst = "BinarySparseMux_DontCare">   --->   Core 150 'BinarySparseMux_DontCare' <Latency = 0> <II = 1> <Delay = 0.43> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 0> <OutPorts = 1>
+
+State 4 <SV = 3> <Delay = 2.90>
+ST_4 : Operation 58 [1/1] (0.42ns) (share mux size 2)   --->   "%muxLogicI0_to_mul2_i = muxlogic i32 %mul1_i"   --->   Operation 58 'muxlogic' 'muxLogicI0_to_mul2_i' <Predicate = true> <Delay = 0.42>
+ST_4 : Operation 59 [1/1] (0.42ns) (share mux size 2)   --->   "%muxLogicI1_to_mul2_i = muxlogic i32 %tmp_89_i"   --->   Operation 59 'muxlogic' 'muxLogicI1_to_mul2_i' <Predicate = true> <Delay = 0.42>
+ST_4 : Operation 60 [1/1] (2.48ns) (share mux size 2)   --->   "%mul2_i = fmul i32 %mul1_i, i32 %tmp_89_i" [kernel_rmsnorm.cpp:55]   --->   Operation 60 'fmul' 'mul2_i' <Predicate = true> <Delay = 2.48> <CoreInst = "FMul_primitivedsp">   --->   Core 14 'FMul_primitivedsp' <Latency = 0> <II = 1> <Delay = 2.48> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 68 [1/1] (0.28ns)   --->   "%ret_ln0 = ret"   --->   Operation 68 'ret' 'ret_ln0' <Predicate = (icmp_ln52)> <Delay = 0.28>
+
+State 5 <SV = 4> <Delay = 0.86>
+ST_5 : Operation 61 [1/1] (0.00ns)   --->   "%specpipeline_ln53 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_48" [kernel_rmsnorm.cpp:53]   --->   Operation 61 'specpipeline' 'specpipeline_ln53' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 62 [1/1] (0.00ns)   --->   "%speclooptripcount_ln54 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 768, i64 768, i64 768" [kernel_rmsnorm.cpp:54]   --->   Operation 62 'speclooptripcount' 'speclooptripcount_ln54' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 63 [1/1] (0.00ns)   --->   "%specloopname_ln52 = specloopname void @_ssdm_op_SpecLoopName, void @empty_64" [kernel_rmsnorm.cpp:52]   --->   Operation 63 'specloopname' 'specloopname_ln52' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 64 [1/1] (0.00ns)   --->   "%bitcast_ln55 = bitcast i32 %mul2_i" [kernel_rmsnorm.cpp:55]   --->   Operation 64 'bitcast' 'bitcast_ln55' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 65 [1/1] (0.00ns)   --->   "%muxLogicFIFOData_to_write_ln55 = muxlogic i32 %bitcast_ln55"   --->   Operation 65 'muxlogic' 'muxLogicFIFOData_to_write_ln55' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 66 [1/1] ( I:0.86ns O:0.86ns )   --->   "%write_ln55 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %output_stream_3, i32 %bitcast_ln55" [kernel_rmsnorm.cpp:55]   --->   Operation 66 'write' 'write_ln55' <Predicate = true> <Delay = 0.86> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.86> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 32> <FIFO>
+ST_5 : Operation 67 [1/1] (0.00ns)   --->   "%br_ln52 = br void %for.inc37.i" [kernel_rmsnorm.cpp:52]   --->   Operation 67 'br' 'br_ln52' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+STG Binding: 
+---------------- STG Properties BEGIN ----------------
+- Is combinational: 0
+- Is one-state seq: 0
+- Is datapath-only: 0
+- Is pipelined: 0
+- Is top level: 0
+Port [ Return ] is wired: 1; IO mode=ap_ctrl_hs:ce=0
+Port [ norm]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3]:  wired=1; compound=1; hidden=0; nouse=0; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[13]; IO mode=ap_memory:ce=0
+Port [ compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2]:  wired=1; compound=1; hidden=0; nouse=0; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[13]; IO mode=ap_memory:ce=0
+Port [ compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1]:  wired=1; compound=1; hidden=0; nouse=0; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[13]; IO mode=ap_memory:ce=0
+Port [ compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1]:  wired=1; compound=1; hidden=0; nouse=0; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[13]; IO mode=ap_memory:ce=0
+Port [ compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3]:  wired=1; compound=1; hidden=0; nouse=0; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[13]; IO mode=ap_memory:ce=0
+Port [ compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2]:  wired=1; compound=1; hidden=0; nouse=0; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[13]; IO mode=ap_memory:ce=0
+Port [ compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1]:  wired=1; compound=1; hidden=0; nouse=0; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[13]; IO mode=ap_memory:ce=0
+Port [ compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2]:  wired=1; compound=1; hidden=0; nouse=0; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[13]; IO mode=ap_memory:ce=0
+Port [ output_stream_3]:  wired=1; compound=1; hidden=0; nouse=0; global=1; static=1; extern=0; dir=1; type=3; pingpong=0; private_global=0; IO mode=ap_fifo:ce=0
+---------------- STG Properties END ------------------
+
+---------------- Datapath Model BEGIN ----------------
+
+<LifeTime>
+<method=bitvector/>
+i_13                                                                                           (alloca           ) [ 010000]
+specinterface_ln0                                                                              (specinterface    ) [ 000000]
+norm_read                                                                                      (read             ) [ 011100]
+store_ln52                                                                                     (store            ) [ 000000]
+br_ln0                                                                                         (br               ) [ 000000]
+i                                                                                              (load             ) [ 000000]
+add_ln52                                                                                       (add              ) [ 000000]
+icmp_ln52                                                                                      (icmp             ) [ 011110]
+br_ln52                                                                                        (br               ) [ 000000]
+trunc_ln52                                                                                     (trunc            ) [ 011100]
+lshr_ln                                                                                        (partselect       ) [ 000000]
+zext_ln52                                                                                      (zext             ) [ 011000]
+compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3_addr                    (getelementptr    ) [ 011000]
+compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2_addr                    (getelementptr    ) [ 011000]
+compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1_addr                    (getelementptr    ) [ 011000]
+compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_addr                      (getelementptr    ) [ 011000]
+muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3_load (muxlogic         ) [ 000000]
+muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2_load (muxlogic         ) [ 000000]
+muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1_load (muxlogic         ) [ 000000]
+muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_load   (muxlogic         ) [ 000000]
+store_ln52                                                                                     (store            ) [ 000000]
+compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3_load                    (load             ) [ 000000]
+compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2_load                    (load             ) [ 000000]
+compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1_load                    (load             ) [ 000000]
+compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_load                      (load             ) [ 000000]
+tmp_88_i                                                                                       (sparsemux        ) [ 010100]
+compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3_addr                    (getelementptr    ) [ 010100]
+compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2_addr                    (getelementptr    ) [ 010100]
+compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1_addr                    (getelementptr    ) [ 010100]
+compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_addr                      (getelementptr    ) [ 010100]
+muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3_load (muxlogic         ) [ 000000]
+muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2_load (muxlogic         ) [ 000000]
+muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1_load (muxlogic         ) [ 000000]
+muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_load   (muxlogic         ) [ 000000]
+muxLogicI0_to_mul1_i                                                                           (muxlogic         ) [ 000000]
+muxLogicI1_to_mul1_i                                                                           (muxlogic         ) [ 000000]
+mul1_i                                                                                         (fmul             ) [ 010010]
+compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3_load                    (load             ) [ 000000]
+compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2_load                    (load             ) [ 000000]
+compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1_load                    (load             ) [ 000000]
+compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_load                      (load             ) [ 000000]
+tmp_89_i                                                                                       (sparsemux        ) [ 010010]
+muxLogicI0_to_mul2_i                                                                           (muxlogic         ) [ 000000]
+muxLogicI1_to_mul2_i                                                                           (muxlogic         ) [ 000000]
+mul2_i                                                                                         (fmul             ) [ 010001]
+specpipeline_ln53                                                                              (specpipeline     ) [ 000000]
+speclooptripcount_ln54                                                                         (speclooptripcount) [ 000000]
+specloopname_ln52                                                                              (specloopname     ) [ 000000]
+bitcast_ln55                                                                                   (bitcast          ) [ 000000]
+muxLogicFIFOData_to_write_ln55                                                                 (muxlogic         ) [ 000000]
+write_ln55                                                                                     (write            ) [ 000000]
+br_ln52                                                                                        (br               ) [ 000000]
+ret_ln0                                                                                        (ret              ) [ 000000]
+</LifeTime>
+
+<model>
+
+<comp_list>
+<comp id="0" class="1000" name="norm">
+<pin_list>
+<pin id="1" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="norm"/></StgValue>
+</bind>
+</comp>
+
+<comp id="2" class="1000" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3">
+<pin_list>
+<pin id="3" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="4" class="1000" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2">
+<pin_list>
+<pin id="5" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="6" class="1000" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1">
+<pin_list>
+<pin id="7" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="8" class="1000" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1">
+<pin_list>
+<pin id="9" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="10" class="1000" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3">
+<pin_list>
+<pin id="11" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="12" class="1000" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2">
+<pin_list>
+<pin id="13" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="14" class="1000" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1">
+<pin_list>
+<pin id="15" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="16" class="1000" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2">
+<pin_list>
+<pin id="17" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="18" class="1000" name="output_stream_3">
+<pin_list>
+<pin id="19" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="output_stream_3"/></StgValue>
+</bind>
+</comp>
+
+<comp id="20" class="1001" name="const_20">
+<pin_list>
+<pin id="21" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="22" class="1001" name="const_22">
+<pin_list>
+<pin id="23" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecInterface"/></StgValue>
+</bind>
+</comp>
+
+<comp id="24" class="1001" name="const_24">
+<pin_list>
+<pin id="25" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_39"/></StgValue>
+</bind>
+</comp>
+
+<comp id="26" class="1001" name="const_26">
+<pin_list>
+<pin id="27" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="28" class="1001" name="const_28">
+<pin_list>
+<pin id="29" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_48"/></StgValue>
+</bind>
+</comp>
+
+<comp id="30" class="1001" name="const_30">
+<pin_list>
+<pin id="31" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="32" class="1001" name="const_32">
+<pin_list>
+<pin id="33" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.ap_auto.float"/></StgValue>
+</bind>
+</comp>
+
+<comp id="34" class="1001" name="const_34">
+<pin_list>
+<pin id="35" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="36" class="1001" name="const_36">
+<pin_list>
+<pin id="37" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="38" class="1001" name="const_38">
+<pin_list>
+<pin id="39" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="40" class="1001" name="const_40">
+<pin_list>
+<pin id="41" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_PartSelect.i8.i10.i32.i32"/></StgValue>
+</bind>
+</comp>
+
+<comp id="42" class="1001" name="const_42">
+<pin_list>
+<pin id="43" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="44" class="1001" name="const_44">
+<pin_list>
+<pin id="45" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="46" class="1001" name="const_46">
+<pin_list>
+<pin id="47" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="48" class="1001" name="const_48">
+<pin_list>
+<pin id="49" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SparseMux.ap_auto.4float.float.i2"/></StgValue>
+</bind>
+</comp>
+
+<comp id="50" class="1001" name="const_50">
+<pin_list>
+<pin id="51" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="52" class="1001" name="const_52">
+<pin_list>
+<pin id="53" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="54" class="1001" name="const_54">
+<pin_list>
+<pin id="55" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="56" class="1001" name="const_56">
+<pin_list>
+<pin id="57" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="58" class="1001" name="const_58">
+<pin_list>
+<pin id="59" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="60" class="1001" name="const_60">
+<pin_list>
+<pin id="61" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecPipeline"/></StgValue>
+</bind>
+</comp>
+
+<comp id="62" class="1001" name="const_62">
+<pin_list>
+<pin id="63" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecLoopTripCount"/></StgValue>
+</bind>
+</comp>
+
+<comp id="64" class="1001" name="const_64">
+<pin_list>
+<pin id="65" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="66" class="1001" name="const_66">
+<pin_list>
+<pin id="67" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecLoopName"/></StgValue>
+</bind>
+</comp>
+
+<comp id="68" class="1001" name="const_68">
+<pin_list>
+<pin id="69" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_64"/></StgValue>
+</bind>
+</comp>
+
+<comp id="70" class="1001" name="const_70">
+<pin_list>
+<pin id="71" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Write.ap_fifo.volatile.i32P0A"/></StgValue>
+</bind>
+</comp>
+
+<comp id="72" class="1004" name="i_13_fu_72">
+<pin_list>
+<pin id="73" dir="0" index="0" bw="1" slack="0"/>
+<pin id="74" dir="1" index="1" bw="10" slack="0"/>
+</pin_list>
+<bind>
+<opcode="alloca(26) " fcode="alloca"/>
+<opset="i_13/1 "/>
+</bind>
+</comp>
+
+<comp id="76" class="1004" name="norm_read_read_fu_76">
+<pin_list>
+<pin id="77" dir="0" index="0" bw="32" slack="0"/>
+<pin id="78" dir="0" index="1" bw="32" slack="0"/>
+<pin id="79" dir="1" index="2" bw="32" slack="2"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="norm_read/1 "/>
+</bind>
+</comp>
+
+<comp id="82" class="1004" name="write_ln55_write_fu_82">
+<pin_list>
+<pin id="83" dir="0" index="0" bw="0" slack="0"/>
+<pin id="84" dir="0" index="1" bw="32" slack="0"/>
+<pin id="85" dir="0" index="2" bw="32" slack="0"/>
+<pin id="86" dir="1" index="3" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="write(1151) " fcode="write"/>
+<opset="write_ln55/5 "/>
+</bind>
+</comp>
+
+<comp id="89" class="1004" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3_addr_gep_fu_89">
+<pin_list>
+<pin id="90" dir="0" index="0" bw="32" slack="0"/>
+<pin id="91" dir="0" index="1" bw="1" slack="0"/>
+<pin id="92" dir="0" index="2" bw="8" slack="0"/>
+<pin id="93" dir="1" index="3" bw="8" slack="0"/>
+</pin_list>
+<bind>
+<opcode="getelementptr(29) " fcode="getelementptr"/>
+<opset="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3_addr/1 "/>
+</bind>
+</comp>
+
+<comp id="96" class="1004" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2_addr_gep_fu_96">
+<pin_list>
+<pin id="97" dir="0" index="0" bw="32" slack="0"/>
+<pin id="98" dir="0" index="1" bw="1" slack="0"/>
+<pin id="99" dir="0" index="2" bw="8" slack="0"/>
+<pin id="100" dir="1" index="3" bw="8" slack="0"/>
+</pin_list>
+<bind>
+<opcode="getelementptr(29) " fcode="getelementptr"/>
+<opset="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2_addr/1 "/>
+</bind>
+</comp>
+
+<comp id="103" class="1004" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1_addr_gep_fu_103">
+<pin_list>
+<pin id="104" dir="0" index="0" bw="32" slack="0"/>
+<pin id="105" dir="0" index="1" bw="1" slack="0"/>
+<pin id="106" dir="0" index="2" bw="8" slack="0"/>
+<pin id="107" dir="1" index="3" bw="8" slack="0"/>
+</pin_list>
+<bind>
+<opcode="getelementptr(29) " fcode="getelementptr"/>
+<opset="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1_addr/1 "/>
+</bind>
+</comp>
+
+<comp id="110" class="1004" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_addr_gep_fu_110">
+<pin_list>
+<pin id="111" dir="0" index="0" bw="32" slack="0"/>
+<pin id="112" dir="0" index="1" bw="1" slack="0"/>
+<pin id="113" dir="0" index="2" bw="8" slack="0"/>
+<pin id="114" dir="1" index="3" bw="8" slack="0"/>
+</pin_list>
+<bind>
+<opcode="getelementptr(29) " fcode="getelementptr"/>
+<opset="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_addr/1 "/>
+</bind>
+</comp>
+
+<comp id="117" class="1004" name="grp_access_fu_117">
+<pin_list>
+<pin id="118" dir="0" index="0" bw="8" slack="0"/>
+<pin id="119" dir="0" index="1" bw="32" slack="2147483647"/>
+<pin id="120" dir="0" index="2" bw="0" slack="2147483647"/>
+<pin id="121" dir="1" index="3" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="load(27) " fcode="load"/>
+<opset="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3_load/1 "/>
+</bind>
+</comp>
+
+<comp id="123" class="1004" name="grp_access_fu_123">
+<pin_list>
+<pin id="124" dir="0" index="0" bw="8" slack="0"/>
+<pin id="125" dir="0" index="1" bw="32" slack="2147483647"/>
+<pin id="126" dir="0" index="2" bw="0" slack="2147483647"/>
+<pin id="127" dir="1" index="3" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="load(27) " fcode="load"/>
+<opset="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2_load/1 "/>
+</bind>
+</comp>
+
+<comp id="129" class="1004" name="grp_access_fu_129">
+<pin_list>
+<pin id="130" dir="0" index="0" bw="8" slack="0"/>
+<pin id="131" dir="0" index="1" bw="32" slack="2147483647"/>
+<pin id="132" dir="0" index="2" bw="0" slack="2147483647"/>
+<pin id="133" dir="1" index="3" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="load(27) " fcode="load"/>
+<opset="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1_load/1 "/>
+</bind>
+</comp>
+
+<comp id="135" class="1004" name="grp_access_fu_135">
+<pin_list>
+<pin id="136" dir="0" index="0" bw="8" slack="0"/>
+<pin id="137" dir="0" index="1" bw="32" slack="2147483647"/>
+<pin id="138" dir="0" index="2" bw="0" slack="2147483647"/>
+<pin id="139" dir="1" index="3" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="load(27) " fcode="load"/>
+<opset="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_load/1 "/>
+</bind>
+</comp>
+
+<comp id="141" class="1004" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3_addr_gep_fu_141">
+<pin_list>
+<pin id="142" dir="0" index="0" bw="32" slack="0"/>
+<pin id="143" dir="0" index="1" bw="1" slack="0"/>
+<pin id="144" dir="0" index="2" bw="8" slack="1"/>
+<pin id="145" dir="1" index="3" bw="8" slack="0"/>
+</pin_list>
+<bind>
+<opcode="getelementptr(29) " fcode="getelementptr"/>
+<opset="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3_addr/2 "/>
+</bind>
+</comp>
+
+<comp id="148" class="1004" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2_addr_gep_fu_148">
+<pin_list>
+<pin id="149" dir="0" index="0" bw="32" slack="0"/>
+<pin id="150" dir="0" index="1" bw="1" slack="0"/>
+<pin id="151" dir="0" index="2" bw="8" slack="1"/>
+<pin id="152" dir="1" index="3" bw="8" slack="0"/>
+</pin_list>
+<bind>
+<opcode="getelementptr(29) " fcode="getelementptr"/>
+<opset="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2_addr/2 "/>
+</bind>
+</comp>
+
+<comp id="155" class="1004" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1_addr_gep_fu_155">
+<pin_list>
+<pin id="156" dir="0" index="0" bw="32" slack="0"/>
+<pin id="157" dir="0" index="1" bw="1" slack="0"/>
+<pin id="158" dir="0" index="2" bw="8" slack="1"/>
+<pin id="159" dir="1" index="3" bw="8" slack="0"/>
+</pin_list>
+<bind>
+<opcode="getelementptr(29) " fcode="getelementptr"/>
+<opset="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1_addr/2 "/>
+</bind>
+</comp>
+
+<comp id="162" class="1004" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_addr_gep_fu_162">
+<pin_list>
+<pin id="163" dir="0" index="0" bw="32" slack="0"/>
+<pin id="164" dir="0" index="1" bw="1" slack="0"/>
+<pin id="165" dir="0" index="2" bw="8" slack="1"/>
+<pin id="166" dir="1" index="3" bw="8" slack="0"/>
+</pin_list>
+<bind>
+<opcode="getelementptr(29) " fcode="getelementptr"/>
+<opset="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_addr/2 "/>
+</bind>
+</comp>
+
+<comp id="169" class="1004" name="grp_access_fu_169">
+<pin_list>
+<pin id="170" dir="0" index="0" bw="8" slack="0"/>
+<pin id="171" dir="0" index="1" bw="32" slack="2147483647"/>
+<pin id="172" dir="0" index="2" bw="0" slack="2147483647"/>
+<pin id="173" dir="1" index="3" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="load(27) " fcode="load"/>
+<opset="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3_load/2 "/>
+</bind>
+</comp>
+
+<comp id="175" class="1004" name="grp_access_fu_175">
+<pin_list>
+<pin id="176" dir="0" index="0" bw="8" slack="0"/>
+<pin id="177" dir="0" index="1" bw="32" slack="2147483647"/>
+<pin id="178" dir="0" index="2" bw="0" slack="2147483647"/>
+<pin id="179" dir="1" index="3" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="load(27) " fcode="load"/>
+<opset="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2_load/2 "/>
+</bind>
+</comp>
+
+<comp id="181" class="1004" name="grp_access_fu_181">
+<pin_list>
+<pin id="182" dir="0" index="0" bw="8" slack="0"/>
+<pin id="183" dir="0" index="1" bw="32" slack="2147483647"/>
+<pin id="184" dir="0" index="2" bw="0" slack="2147483647"/>
+<pin id="185" dir="1" index="3" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="load(27) " fcode="load"/>
+<opset="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1_load/2 "/>
+</bind>
+</comp>
+
+<comp id="187" class="1004" name="grp_access_fu_187">
+<pin_list>
+<pin id="188" dir="0" index="0" bw="8" slack="0"/>
+<pin id="189" dir="0" index="1" bw="32" slack="2147483647"/>
+<pin id="190" dir="0" index="2" bw="0" slack="2147483647"/>
+<pin id="191" dir="1" index="3" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="load(27) " fcode="load"/>
+<opset="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_load/2 "/>
+</bind>
+</comp>
+
+<comp id="193" class="1004" name="mul1_i_fu_193">
+<pin_list>
+<pin id="194" dir="0" index="0" bw="32" slack="1"/>
+<pin id="195" dir="0" index="1" bw="32" slack="2"/>
+<pin id="196" dir="1" index="2" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opcode="fmul(13) " fcode="fmul"/>
+<opset="mul1_i/3 "/>
+</bind>
+</comp>
+
+<comp id="197" class="1004" name="mul2_i_fu_197">
+<pin_list>
+<pin id="198" dir="0" index="0" bw="32" slack="1"/>
+<pin id="199" dir="0" index="1" bw="32" slack="1"/>
+<pin id="200" dir="1" index="2" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opcode="fmul(13) " fcode="fmul"/>
+<opset="mul2_i/4 "/>
+</bind>
+</comp>
+
+<comp id="201" class="1004" name="store_ln52_store_fu_201">
+<pin_list>
+<pin id="202" dir="0" index="0" bw="1" slack="0"/>
+<pin id="203" dir="0" index="1" bw="10" slack="0"/>
+<pin id="204" dir="1" index="2" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="store(28) " fcode="store"/>
+<opset="store_ln52/1 "/>
+</bind>
+</comp>
+
+<comp id="206" class="1004" name="i_load_fu_206">
+<pin_list>
+<pin id="207" dir="0" index="0" bw="10" slack="0"/>
+<pin id="208" dir="1" index="1" bw="10" slack="0"/>
+</pin_list>
+<bind>
+<opcode="load(27) " fcode="load"/>
+<opset="i/1 "/>
+</bind>
+</comp>
+
+<comp id="209" class="1004" name="add_ln52_fu_209">
+<pin_list>
+<pin id="210" dir="0" index="0" bw="10" slack="0"/>
+<pin id="211" dir="0" index="1" bw="1" slack="0"/>
+<pin id="212" dir="1" index="2" bw="10" slack="0"/>
+</pin_list>
+<bind>
+<opcode="add(8) " fcode="add"/>
+<opset="add_ln52/1 "/>
+</bind>
+</comp>
+
+<comp id="215" class="1004" name="icmp_ln52_fu_215">
+<pin_list>
+<pin id="216" dir="0" index="0" bw="10" slack="0"/>
+<pin id="217" dir="0" index="1" bw="9" slack="0"/>
+<pin id="218" dir="1" index="2" bw="1" slack="3"/>
+</pin_list>
+<bind>
+<opcode="icmp(45) " fcode="icmp"/>
+<opset="icmp_ln52/1 "/>
+</bind>
+</comp>
+
+<comp id="221" class="1004" name="trunc_ln52_fu_221">
+<pin_list>
+<pin id="222" dir="0" index="0" bw="10" slack="0"/>
+<pin id="223" dir="1" index="1" bw="2" slack="1"/>
+</pin_list>
+<bind>
+<opcode="trunc(33) " fcode="trunc"/>
+<opset="trunc_ln52/1 "/>
+</bind>
+</comp>
+
+<comp id="225" class="1004" name="lshr_ln_fu_225">
+<pin_list>
+<pin id="226" dir="0" index="0" bw="8" slack="0"/>
+<pin id="227" dir="0" index="1" bw="10" slack="0"/>
+<pin id="228" dir="0" index="2" bw="3" slack="0"/>
+<pin id="229" dir="0" index="3" bw="5" slack="0"/>
+<pin id="230" dir="1" index="4" bw="8" slack="0"/>
+</pin_list>
+<bind>
+<opcode="partselect(1002) " fcode="partselect"/>
+<opset="lshr_ln/1 "/>
+</bind>
+</comp>
+
+<comp id="235" class="1004" name="zext_ln52_fu_235">
+<pin_list>
+<pin id="236" dir="0" index="0" bw="8" slack="0"/>
+<pin id="237" dir="1" index="1" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="zext(34) " fcode="zext"/>
+<opset="zext_ln52/1 "/>
+</bind>
+</comp>
+
+<comp id="243" class="1004" name="muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3_load_fu_243">
+<pin_list>
+<pin id="244" dir="0" index="0" bw="8" slack="0"/>
+<pin id="245" dir="1" index="1" bw="32" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="muxlogic(592) " fcode="muxlogic"/>
+<opset="muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3_load/1 "/>
+</bind>
+</comp>
+
+<comp id="247" class="1004" name="muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2_load_fu_247">
+<pin_list>
+<pin id="248" dir="0" index="0" bw="8" slack="0"/>
+<pin id="249" dir="1" index="1" bw="32" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="muxlogic(592) " fcode="muxlogic"/>
+<opset="muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2_load/1 "/>
+</bind>
+</comp>
+
+<comp id="251" class="1004" name="muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1_load_fu_251">
+<pin_list>
+<pin id="252" dir="0" index="0" bw="8" slack="0"/>
+<pin id="253" dir="1" index="1" bw="32" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="muxlogic(592) " fcode="muxlogic"/>
+<opset="muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1_load/1 "/>
+</bind>
+</comp>
+
+<comp id="255" class="1004" name="muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_load_fu_255">
+<pin_list>
+<pin id="256" dir="0" index="0" bw="8" slack="0"/>
+<pin id="257" dir="1" index="1" bw="32" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="muxlogic(592) " fcode="muxlogic"/>
+<opset="muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_load/1 "/>
+</bind>
+</comp>
+
+<comp id="259" class="1004" name="store_ln52_store_fu_259">
+<pin_list>
+<pin id="260" dir="0" index="0" bw="10" slack="0"/>
+<pin id="261" dir="0" index="1" bw="10" slack="0"/>
+<pin id="262" dir="1" index="2" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="store(28) " fcode="store"/>
+<opset="store_ln52/1 "/>
+</bind>
+</comp>
+
+<comp id="264" class="1004" name="tmp_88_i_fu_264">
+<pin_list>
+<pin id="265" dir="0" index="0" bw="32" slack="0"/>
+<pin id="266" dir="0" index="1" bw="2" slack="0"/>
+<pin id="267" dir="0" index="2" bw="32" slack="0"/>
+<pin id="268" dir="0" index="3" bw="2" slack="0"/>
+<pin id="269" dir="0" index="4" bw="32" slack="0"/>
+<pin id="270" dir="0" index="5" bw="2" slack="0"/>
+<pin id="271" dir="0" index="6" bw="32" slack="0"/>
+<pin id="272" dir="0" index="7" bw="2" slack="0"/>
+<pin id="273" dir="0" index="8" bw="32" slack="0"/>
+<pin id="274" dir="0" index="9" bw="32" slack="0"/>
+<pin id="275" dir="0" index="10" bw="2" slack="1"/>
+<pin id="276" dir="1" index="11" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opcode="sparsemux(1197) " fcode="sparsemux"/>
+<opset="tmp_88_i/2 "/>
+</bind>
+</comp>
+
+<comp id="287" class="1004" name="muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3_load_fu_287">
+<pin_list>
+<pin id="288" dir="0" index="0" bw="8" slack="0"/>
+<pin id="289" dir="1" index="1" bw="32" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="muxlogic(592) " fcode="muxlogic"/>
+<opset="muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3_load/2 "/>
+</bind>
+</comp>
+
+<comp id="291" class="1004" name="muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2_load_fu_291">
+<pin_list>
+<pin id="292" dir="0" index="0" bw="8" slack="0"/>
+<pin id="293" dir="1" index="1" bw="32" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="muxlogic(592) " fcode="muxlogic"/>
+<opset="muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2_load/2 "/>
+</bind>
+</comp>
+
+<comp id="295" class="1004" name="muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1_load_fu_295">
+<pin_list>
+<pin id="296" dir="0" index="0" bw="8" slack="0"/>
+<pin id="297" dir="1" index="1" bw="32" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="muxlogic(592) " fcode="muxlogic"/>
+<opset="muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1_load/2 "/>
+</bind>
+</comp>
+
+<comp id="299" class="1004" name="muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_load_fu_299">
+<pin_list>
+<pin id="300" dir="0" index="0" bw="8" slack="0"/>
+<pin id="301" dir="1" index="1" bw="32" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="muxlogic(592) " fcode="muxlogic"/>
+<opset="muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_load/2 "/>
+</bind>
+</comp>
+
+<comp id="303" class="1004" name="muxLogicI0_to_mul1_i_fu_303">
+<pin_list>
+<pin id="304" dir="0" index="0" bw="32" slack="1"/>
+<pin id="305" dir="1" index="1" bw="32" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="muxlogic(592) " fcode="muxlogic"/>
+<opset="muxLogicI0_to_mul1_i/3 "/>
+</bind>
+</comp>
+
+<comp id="306" class="1004" name="muxLogicI1_to_mul1_i_fu_306">
+<pin_list>
+<pin id="307" dir="0" index="0" bw="32" slack="2"/>
+<pin id="308" dir="1" index="1" bw="32" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="muxlogic(592) " fcode="muxlogic"/>
+<opset="muxLogicI1_to_mul1_i/3 "/>
+</bind>
+</comp>
+
+<comp id="309" class="1004" name="tmp_89_i_fu_309">
+<pin_list>
+<pin id="310" dir="0" index="0" bw="32" slack="0"/>
+<pin id="311" dir="0" index="1" bw="2" slack="0"/>
+<pin id="312" dir="0" index="2" bw="32" slack="0"/>
+<pin id="313" dir="0" index="3" bw="2" slack="0"/>
+<pin id="314" dir="0" index="4" bw="32" slack="0"/>
+<pin id="315" dir="0" index="5" bw="2" slack="0"/>
+<pin id="316" dir="0" index="6" bw="32" slack="0"/>
+<pin id="317" dir="0" index="7" bw="2" slack="0"/>
+<pin id="318" dir="0" index="8" bw="32" slack="0"/>
+<pin id="319" dir="0" index="9" bw="32" slack="0"/>
+<pin id="320" dir="0" index="10" bw="2" slack="2"/>
+<pin id="321" dir="1" index="11" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opcode="sparsemux(1197) " fcode="sparsemux"/>
+<opset="tmp_89_i/3 "/>
+</bind>
+</comp>
+
+<comp id="332" class="1004" name="muxLogicI0_to_mul2_i_fu_332">
+<pin_list>
+<pin id="333" dir="0" index="0" bw="32" slack="1"/>
+<pin id="334" dir="1" index="1" bw="32" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="muxlogic(592) " fcode="muxlogic"/>
+<opset="muxLogicI0_to_mul2_i/4 "/>
+</bind>
+</comp>
+
+<comp id="335" class="1004" name="muxLogicI1_to_mul2_i_fu_335">
+<pin_list>
+<pin id="336" dir="0" index="0" bw="32" slack="1"/>
+<pin id="337" dir="1" index="1" bw="32" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="muxlogic(592) " fcode="muxlogic"/>
+<opset="muxLogicI1_to_mul2_i/4 "/>
+</bind>
+</comp>
+
+<comp id="338" class="1004" name="bitcast_ln55_fu_338">
+<pin_list>
+<pin id="339" dir="0" index="0" bw="32" slack="1"/>
+<pin id="340" dir="1" index="1" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="bitcast(44) " fcode="bitcast"/>
+<opset="bitcast_ln55/5 "/>
+</bind>
+</comp>
+
+<comp id="342" class="1004" name="muxLogicFIFOData_to_write_ln55_fu_342">
+<pin_list>
+<pin id="343" dir="0" index="0" bw="32" slack="0"/>
+<pin id="344" dir="1" index="1" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="muxlogic(592) " fcode="muxlogic"/>
+<opset="muxLogicFIFOData_to_write_ln55/5 "/>
+</bind>
+</comp>
+
+<comp id="346" class="1005" name="i_13_reg_346">
+<pin_list>
+<pin id="347" dir="0" index="0" bw="10" slack="0"/>
+<pin id="348" dir="1" index="1" bw="10" slack="0"/>
+</pin_list>
+<bind>
+<opset="i_13 "/>
+</bind>
+</comp>
+
+<comp id="353" class="1005" name="norm_read_reg_353">
+<pin_list>
+<pin id="354" dir="0" index="0" bw="32" slack="2"/>
+<pin id="355" dir="1" index="1" bw="32" slack="2"/>
+</pin_list>
+<bind>
+<opset="norm_read "/>
+</bind>
+</comp>
+
+<comp id="359" class="1005" name="icmp_ln52_reg_359">
+<pin_list>
+<pin id="360" dir="0" index="0" bw="1" slack="3"/>
+<pin id="361" dir="1" index="1" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<opset="icmp_ln52 "/>
+</bind>
+</comp>
+
+<comp id="363" class="1005" name="trunc_ln52_reg_363">
+<pin_list>
+<pin id="364" dir="0" index="0" bw="2" slack="1"/>
+<pin id="365" dir="1" index="1" bw="2" slack="1"/>
+</pin_list>
+<bind>
+<opset="trunc_ln52 "/>
+</bind>
+</comp>
+
+<comp id="369" class="1005" name="zext_ln52_reg_369">
+<pin_list>
+<pin id="370" dir="0" index="0" bw="64" slack="1"/>
+<pin id="371" dir="1" index="1" bw="64" slack="1"/>
+</pin_list>
+<bind>
+<opset="zext_ln52 "/>
+</bind>
+</comp>
+
+<comp id="377" class="1005" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3_addr_reg_377">
+<pin_list>
+<pin id="378" dir="0" index="0" bw="8" slack="1"/>
+<pin id="379" dir="1" index="1" bw="8" slack="1"/>
+</pin_list>
+<bind>
+<opset="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3_addr "/>
+</bind>
+</comp>
+
+<comp id="382" class="1005" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2_addr_reg_382">
+<pin_list>
+<pin id="383" dir="0" index="0" bw="8" slack="1"/>
+<pin id="384" dir="1" index="1" bw="8" slack="1"/>
+</pin_list>
+<bind>
+<opset="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2_addr "/>
+</bind>
+</comp>
+
+<comp id="387" class="1005" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1_addr_reg_387">
+<pin_list>
+<pin id="388" dir="0" index="0" bw="8" slack="1"/>
+<pin id="389" dir="1" index="1" bw="8" slack="1"/>
+</pin_list>
+<bind>
+<opset="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1_addr "/>
+</bind>
+</comp>
+
+<comp id="392" class="1005" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_addr_reg_392">
+<pin_list>
+<pin id="393" dir="0" index="0" bw="8" slack="1"/>
+<pin id="394" dir="1" index="1" bw="8" slack="1"/>
+</pin_list>
+<bind>
+<opset="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_addr "/>
+</bind>
+</comp>
+
+<comp id="397" class="1005" name="tmp_88_i_reg_397">
+<pin_list>
+<pin id="398" dir="0" index="0" bw="32" slack="1"/>
+<pin id="399" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opset="tmp_88_i "/>
+</bind>
+</comp>
+
+<comp id="403" class="1005" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3_addr_reg_403">
+<pin_list>
+<pin id="404" dir="0" index="0" bw="8" slack="1"/>
+<pin id="405" dir="1" index="1" bw="8" slack="1"/>
+</pin_list>
+<bind>
+<opset="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3_addr "/>
+</bind>
+</comp>
+
+<comp id="408" class="1005" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2_addr_reg_408">
+<pin_list>
+<pin id="409" dir="0" index="0" bw="8" slack="1"/>
+<pin id="410" dir="1" index="1" bw="8" slack="1"/>
+</pin_list>
+<bind>
+<opset="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2_addr "/>
+</bind>
+</comp>
+
+<comp id="413" class="1005" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1_addr_reg_413">
+<pin_list>
+<pin id="414" dir="0" index="0" bw="8" slack="1"/>
+<pin id="415" dir="1" index="1" bw="8" slack="1"/>
+</pin_list>
+<bind>
+<opset="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1_addr "/>
+</bind>
+</comp>
+
+<comp id="418" class="1005" name="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_addr_reg_418">
+<pin_list>
+<pin id="419" dir="0" index="0" bw="8" slack="1"/>
+<pin id="420" dir="1" index="1" bw="8" slack="1"/>
+</pin_list>
+<bind>
+<opset="compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_addr "/>
+</bind>
+</comp>
+
+<comp id="423" class="1005" name="mul1_i_reg_423">
+<pin_list>
+<pin id="424" dir="0" index="0" bw="32" slack="1"/>
+<pin id="425" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opset="mul1_i "/>
+</bind>
+</comp>
+
+<comp id="429" class="1005" name="tmp_89_i_reg_429">
+<pin_list>
+<pin id="430" dir="0" index="0" bw="32" slack="1"/>
+<pin id="431" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opset="tmp_89_i "/>
+</bind>
+</comp>
+
+<comp id="435" class="1005" name="mul2_i_reg_435">
+<pin_list>
+<pin id="436" dir="0" index="0" bw="32" slack="1"/>
+<pin id="437" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opset="mul2_i "/>
+</bind>
+</comp>
+
+</comp_list>
+
+<net_list>
+<net id="75"><net_src comp="20" pin="0"/><net_sink comp="72" pin=0"/></net>
+
+<net id="80"><net_src comp="32" pin="0"/><net_sink comp="76" pin=0"/></net>
+
+<net id="81"><net_src comp="0" pin="0"/><net_sink comp="76" pin=1"/></net>
+
+<net id="87"><net_src comp="70" pin="0"/><net_sink comp="82" pin=0"/></net>
+
+<net id="88"><net_src comp="18" pin="0"/><net_sink comp="82" pin=1"/></net>
+
+<net id="94"><net_src comp="2" pin="0"/><net_sink comp="89" pin=0"/></net>
+
+<net id="95"><net_src comp="46" pin="0"/><net_sink comp="89" pin=1"/></net>
+
+<net id="101"><net_src comp="4" pin="0"/><net_sink comp="96" pin=0"/></net>
+
+<net id="102"><net_src comp="46" pin="0"/><net_sink comp="96" pin=1"/></net>
+
+<net id="108"><net_src comp="6" pin="0"/><net_sink comp="103" pin=0"/></net>
+
+<net id="109"><net_src comp="46" pin="0"/><net_sink comp="103" pin=1"/></net>
+
+<net id="115"><net_src comp="8" pin="0"/><net_sink comp="110" pin=0"/></net>
+
+<net id="116"><net_src comp="46" pin="0"/><net_sink comp="110" pin=1"/></net>
+
+<net id="122"><net_src comp="89" pin="3"/><net_sink comp="117" pin=0"/></net>
+
+<net id="128"><net_src comp="96" pin="3"/><net_sink comp="123" pin=0"/></net>
+
+<net id="134"><net_src comp="103" pin="3"/><net_sink comp="129" pin=0"/></net>
+
+<net id="140"><net_src comp="110" pin="3"/><net_sink comp="135" pin=0"/></net>
+
+<net id="146"><net_src comp="10" pin="0"/><net_sink comp="141" pin=0"/></net>
+
+<net id="147"><net_src comp="46" pin="0"/><net_sink comp="141" pin=1"/></net>
+
+<net id="153"><net_src comp="12" pin="0"/><net_sink comp="148" pin=0"/></net>
+
+<net id="154"><net_src comp="46" pin="0"/><net_sink comp="148" pin=1"/></net>
+
+<net id="160"><net_src comp="14" pin="0"/><net_sink comp="155" pin=0"/></net>
+
+<net id="161"><net_src comp="46" pin="0"/><net_sink comp="155" pin=1"/></net>
+
+<net id="167"><net_src comp="16" pin="0"/><net_sink comp="162" pin=0"/></net>
+
+<net id="168"><net_src comp="46" pin="0"/><net_sink comp="162" pin=1"/></net>
+
+<net id="174"><net_src comp="141" pin="3"/><net_sink comp="169" pin=0"/></net>
+
+<net id="180"><net_src comp="148" pin="3"/><net_sink comp="175" pin=0"/></net>
+
+<net id="186"><net_src comp="155" pin="3"/><net_sink comp="181" pin=0"/></net>
+
+<net id="192"><net_src comp="162" pin="3"/><net_sink comp="187" pin=0"/></net>
+
+<net id="205"><net_src comp="34" pin="0"/><net_sink comp="201" pin=0"/></net>
+
+<net id="213"><net_src comp="206" pin="1"/><net_sink comp="209" pin=0"/></net>
+
+<net id="214"><net_src comp="36" pin="0"/><net_sink comp="209" pin=1"/></net>
+
+<net id="219"><net_src comp="206" pin="1"/><net_sink comp="215" pin=0"/></net>
+
+<net id="220"><net_src comp="38" pin="0"/><net_sink comp="215" pin=1"/></net>
+
+<net id="224"><net_src comp="206" pin="1"/><net_sink comp="221" pin=0"/></net>
+
+<net id="231"><net_src comp="40" pin="0"/><net_sink comp="225" pin=0"/></net>
+
+<net id="232"><net_src comp="206" pin="1"/><net_sink comp="225" pin=1"/></net>
+
+<net id="233"><net_src comp="42" pin="0"/><net_sink comp="225" pin=2"/></net>
+
+<net id="234"><net_src comp="44" pin="0"/><net_sink comp="225" pin=3"/></net>
+
+<net id="238"><net_src comp="225" pin="4"/><net_sink comp="235" pin=0"/></net>
+
+<net id="239"><net_src comp="235" pin="1"/><net_sink comp="89" pin=2"/></net>
+
+<net id="240"><net_src comp="235" pin="1"/><net_sink comp="96" pin=2"/></net>
+
+<net id="241"><net_src comp="235" pin="1"/><net_sink comp="103" pin=2"/></net>
+
+<net id="242"><net_src comp="235" pin="1"/><net_sink comp="110" pin=2"/></net>
+
+<net id="246"><net_src comp="89" pin="3"/><net_sink comp="243" pin=0"/></net>
+
+<net id="250"><net_src comp="96" pin="3"/><net_sink comp="247" pin=0"/></net>
+
+<net id="254"><net_src comp="103" pin="3"/><net_sink comp="251" pin=0"/></net>
+
+<net id="258"><net_src comp="110" pin="3"/><net_sink comp="255" pin=0"/></net>
+
+<net id="263"><net_src comp="209" pin="2"/><net_sink comp="259" pin=0"/></net>
+
+<net id="277"><net_src comp="48" pin="0"/><net_sink comp="264" pin=0"/></net>
+
+<net id="278"><net_src comp="50" pin="0"/><net_sink comp="264" pin=1"/></net>
+
+<net id="279"><net_src comp="117" pin="3"/><net_sink comp="264" pin=2"/></net>
+
+<net id="280"><net_src comp="52" pin="0"/><net_sink comp="264" pin=3"/></net>
+
+<net id="281"><net_src comp="123" pin="3"/><net_sink comp="264" pin=4"/></net>
+
+<net id="282"><net_src comp="54" pin="0"/><net_sink comp="264" pin=5"/></net>
+
+<net id="283"><net_src comp="129" pin="3"/><net_sink comp="264" pin=6"/></net>
+
+<net id="284"><net_src comp="56" pin="0"/><net_sink comp="264" pin=7"/></net>
+
+<net id="285"><net_src comp="135" pin="3"/><net_sink comp="264" pin=8"/></net>
+
+<net id="286"><net_src comp="58" pin="0"/><net_sink comp="264" pin=9"/></net>
+
+<net id="290"><net_src comp="141" pin="3"/><net_sink comp="287" pin=0"/></net>
+
+<net id="294"><net_src comp="148" pin="3"/><net_sink comp="291" pin=0"/></net>
+
+<net id="298"><net_src comp="155" pin="3"/><net_sink comp="295" pin=0"/></net>
+
+<net id="302"><net_src comp="162" pin="3"/><net_sink comp="299" pin=0"/></net>
+
+<net id="322"><net_src comp="48" pin="0"/><net_sink comp="309" pin=0"/></net>
+
+<net id="323"><net_src comp="50" pin="0"/><net_sink comp="309" pin=1"/></net>
+
+<net id="324"><net_src comp="169" pin="3"/><net_sink comp="309" pin=2"/></net>
+
+<net id="325"><net_src comp="52" pin="0"/><net_sink comp="309" pin=3"/></net>
+
+<net id="326"><net_src comp="175" pin="3"/><net_sink comp="309" pin=4"/></net>
+
+<net id="327"><net_src comp="54" pin="0"/><net_sink comp="309" pin=5"/></net>
+
+<net id="328"><net_src comp="181" pin="3"/><net_sink comp="309" pin=6"/></net>
+
+<net id="329"><net_src comp="56" pin="0"/><net_sink comp="309" pin=7"/></net>
+
+<net id="330"><net_src comp="187" pin="3"/><net_sink comp="309" pin=8"/></net>
+
+<net id="331"><net_src comp="58" pin="0"/><net_sink comp="309" pin=9"/></net>
+
+<net id="341"><net_src comp="338" pin="1"/><net_sink comp="82" pin=2"/></net>
+
+<net id="345"><net_src comp="338" pin="1"/><net_sink comp="342" pin=0"/></net>
+
+<net id="349"><net_src comp="72" pin="1"/><net_sink comp="346" pin=0"/></net>
+
+<net id="350"><net_src comp="346" pin="1"/><net_sink comp="201" pin=1"/></net>
+
+<net id="351"><net_src comp="346" pin="1"/><net_sink comp="206" pin=0"/></net>
+
+<net id="352"><net_src comp="346" pin="1"/><net_sink comp="259" pin=1"/></net>
+
+<net id="356"><net_src comp="76" pin="2"/><net_sink comp="353" pin=0"/></net>
+
+<net id="357"><net_src comp="353" pin="1"/><net_sink comp="306" pin=0"/></net>
+
+<net id="358"><net_src comp="353" pin="1"/><net_sink comp="193" pin=1"/></net>
+
+<net id="362"><net_src comp="215" pin="2"/><net_sink comp="359" pin=0"/></net>
+
+<net id="366"><net_src comp="221" pin="1"/><net_sink comp="363" pin=0"/></net>
+
+<net id="367"><net_src comp="363" pin="1"/><net_sink comp="264" pin=10"/></net>
+
+<net id="368"><net_src comp="363" pin="1"/><net_sink comp="309" pin=10"/></net>
+
+<net id="372"><net_src comp="235" pin="1"/><net_sink comp="369" pin=0"/></net>
+
+<net id="373"><net_src comp="369" pin="1"/><net_sink comp="141" pin=2"/></net>
+
+<net id="374"><net_src comp="369" pin="1"/><net_sink comp="148" pin=2"/></net>
+
+<net id="375"><net_src comp="369" pin="1"/><net_sink comp="155" pin=2"/></net>
+
+<net id="376"><net_src comp="369" pin="1"/><net_sink comp="162" pin=2"/></net>
+
+<net id="380"><net_src comp="89" pin="3"/><net_sink comp="377" pin=0"/></net>
+
+<net id="381"><net_src comp="377" pin="1"/><net_sink comp="117" pin=0"/></net>
+
+<net id="385"><net_src comp="96" pin="3"/><net_sink comp="382" pin=0"/></net>
+
+<net id="386"><net_src comp="382" pin="1"/><net_sink comp="123" pin=0"/></net>
+
+<net id="390"><net_src comp="103" pin="3"/><net_sink comp="387" pin=0"/></net>
+
+<net id="391"><net_src comp="387" pin="1"/><net_sink comp="129" pin=0"/></net>
+
+<net id="395"><net_src comp="110" pin="3"/><net_sink comp="392" pin=0"/></net>
+
+<net id="396"><net_src comp="392" pin="1"/><net_sink comp="135" pin=0"/></net>
+
+<net id="400"><net_src comp="264" pin="11"/><net_sink comp="397" pin=0"/></net>
+
+<net id="401"><net_src comp="397" pin="1"/><net_sink comp="303" pin=0"/></net>
+
+<net id="402"><net_src comp="397" pin="1"/><net_sink comp="193" pin=0"/></net>
+
+<net id="406"><net_src comp="141" pin="3"/><net_sink comp="403" pin=0"/></net>
+
+<net id="407"><net_src comp="403" pin="1"/><net_sink comp="169" pin=0"/></net>
+
+<net id="411"><net_src comp="148" pin="3"/><net_sink comp="408" pin=0"/></net>
+
+<net id="412"><net_src comp="408" pin="1"/><net_sink comp="175" pin=0"/></net>
+
+<net id="416"><net_src comp="155" pin="3"/><net_sink comp="413" pin=0"/></net>
+
+<net id="417"><net_src comp="413" pin="1"/><net_sink comp="181" pin=0"/></net>
+
+<net id="421"><net_src comp="162" pin="3"/><net_sink comp="418" pin=0"/></net>
+
+<net id="422"><net_src comp="418" pin="1"/><net_sink comp="187" pin=0"/></net>
+
+<net id="426"><net_src comp="193" pin="2"/><net_sink comp="423" pin=0"/></net>
+
+<net id="427"><net_src comp="423" pin="1"/><net_sink comp="332" pin=0"/></net>
+
+<net id="428"><net_src comp="423" pin="1"/><net_sink comp="197" pin=0"/></net>
+
+<net id="432"><net_src comp="309" pin="11"/><net_sink comp="429" pin=0"/></net>
+
+<net id="433"><net_src comp="429" pin="1"/><net_sink comp="335" pin=0"/></net>
+
+<net id="434"><net_src comp="429" pin="1"/><net_sink comp="197" pin=1"/></net>
+
+<net id="438"><net_src comp="197" pin="2"/><net_sink comp="435" pin=0"/></net>
+
+<net id="439"><net_src comp="435" pin="1"/><net_sink comp="338" pin=0"/></net>
+
+</net_list>
+
+</model> 
+---------------- Datapath Model END ------------------
+
+* FSMD analyzer results:
+  - Output states:
+	Port: output_stream_3 | {5 }
+ - Input state : 
+	Port: compute_rmsnorm_Pipeline_normalize : norm | {1 }
+	Port: compute_rmsnorm_Pipeline_normalize : compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3 | {1 2 }
+	Port: compute_rmsnorm_Pipeline_normalize : compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2 | {1 2 }
+	Port: compute_rmsnorm_Pipeline_normalize : compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1 | {1 2 }
+	Port: compute_rmsnorm_Pipeline_normalize : compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1 | {1 2 }
+	Port: compute_rmsnorm_Pipeline_normalize : compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3 | {2 3 }
+	Port: compute_rmsnorm_Pipeline_normalize : compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2 | {2 3 }
+	Port: compute_rmsnorm_Pipeline_normalize : compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1 | {2 3 }
+	Port: compute_rmsnorm_Pipeline_normalize : compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2 | {2 3 }
+  - Chain level:
+	State 1
+		store_ln52 : 1
+		i : 1
+		add_ln52 : 2
+		icmp_ln52 : 2
+		br_ln52 : 3
+		trunc_ln52 : 2
+		lshr_ln : 2
+		zext_ln52 : 3
+		compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3_addr : 4
+		compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2_addr : 4
+		compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1_addr : 4
+		compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_addr : 4
+		muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3_load : 5
+		compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3_load : 5
+		muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2_load : 5
+		compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2_load : 5
+		muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1_load : 5
+		compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1_load : 5
+		muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_load : 5
+		compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_load : 5
+		store_ln52 : 3
+	State 2
+		tmp_88_i : 1
+		muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3_load : 1
+		compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3_load : 1
+		muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2_load : 1
+		compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2_load : 1
+		muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1_load : 1
+		compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1_load : 1
+		muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_load : 1
+		compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_load : 1
+	State 3
+		tmp_89_i : 1
+	State 4
+	State 5
+		muxLogicFIFOData_to_write_ln55 : 1
+		write_ln55 : 1
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+
+* Functional unit list:
+|----------|-------------------------------------------------------------------------------------------------------|---------|---------|---------|
+| Operation|                                            Functional Unit                                            |   DSP   |    FF   |   LUT   |
+|----------|-------------------------------------------------------------------------------------------------------|---------|---------|---------|
+| sparsemux|                                            tmp_88_i_fu_264                                            |    0    |    0    |    32   |
+|          |                                            tmp_89_i_fu_309                                            |    0    |    0    |    32   |
+|----------|-------------------------------------------------------------------------------------------------------|---------|---------|---------|
+|    add   |                                            add_ln52_fu_209                                            |    0    |    0    |    10   |
+|----------|-------------------------------------------------------------------------------------------------------|---------|---------|---------|
+|   icmp   |                                            icmp_ln52_fu_215                                           |    0    |    0    |    4    |
+|----------|-------------------------------------------------------------------------------------------------------|---------|---------|---------|
+|   fmul   |                                             mul1_i_fu_193                                             |    1    |    0    |    0    |
+|          |                                             mul2_i_fu_197                                             |    1    |    0    |    0    |
+|----------|-------------------------------------------------------------------------------------------------------|---------|---------|---------|
+|   read   |                                          norm_read_read_fu_76                                         |    0    |    0    |    0    |
+|----------|-------------------------------------------------------------------------------------------------------|---------|---------|---------|
+|   write  |                                         write_ln55_write_fu_82                                        |    0    |    0    |    0    |
+|----------|-------------------------------------------------------------------------------------------------------|---------|---------|---------|
+|   trunc  |                                           trunc_ln52_fu_221                                           |    0    |    0    |    0    |
+|----------|-------------------------------------------------------------------------------------------------------|---------|---------|---------|
+|partselect|                                             lshr_ln_fu_225                                            |    0    |    0    |    0    |
+|----------|-------------------------------------------------------------------------------------------------------|---------|---------|---------|
+|   zext   |                                            zext_ln52_fu_235                                           |    0    |    0    |    0    |
+|----------|-------------------------------------------------------------------------------------------------------|---------|---------|---------|
+|          | muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3_load_fu_243 |    0    |    0    |    0    |
+|          | muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2_load_fu_247 |    0    |    0    |    0    |
+|          | muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1_load_fu_251 |    0    |    0    |    0    |
+|          |  muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_load_fu_255  |    0    |    0    |    0    |
+|          | muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3_load_fu_287 |    0    |    0    |    0    |
+|          | muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2_load_fu_291 |    0    |    0    |    0    |
+| muxlogic | muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1_load_fu_295 |    0    |    0    |    0    |
+|          |  muxLogicRAMAddr_to_compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_load_fu_299  |    0    |    0    |    0    |
+|          |                                      muxLogicI0_to_mul1_i_fu_303                                      |    0    |    0    |    0    |
+|          |                                      muxLogicI1_to_mul1_i_fu_306                                      |    0    |    0    |    0    |
+|          |                                      muxLogicI0_to_mul2_i_fu_332                                      |    0    |    0    |    0    |
+|          |                                      muxLogicI1_to_mul2_i_fu_335                                      |    0    |    0    |    0    |
+|          |                                 muxLogicFIFOData_to_write_ln55_fu_342                                 |    0    |    0    |    0    |
+|----------|-------------------------------------------------------------------------------------------------------|---------|---------|---------|
+|   Total  |                                                                                                       |    2    |    0    |    78   |
+|----------|-------------------------------------------------------------------------------------------------------|---------|---------|---------|
+
+Memories:
+N/A
+
+* Register list:
++-----------------------------------------------------------------------------------+--------+
+|                                                                                   |   FF   |
++-----------------------------------------------------------------------------------+--------+
+|compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_1_addr_reg_387|    8   |
+|compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_2_addr_reg_382|    8   |
+|compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_3_addr_reg_377|    8   |
+| compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_1_addr_reg_392 |    8   |
+|compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_1_addr_reg_413|    8   |
+|compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_2_addr_reg_408|    8   |
+|compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_3_addr_reg_403|    8   |
+| compute_rmsnorm_stream_stream_float_0_stream_float_0_int_vec_local_2_addr_reg_418 |    8   |
+|                                    i_13_reg_346                                   |   10   |
+|                                 icmp_ln52_reg_359                                 |    1   |
+|                                   mul1_i_reg_423                                  |   32   |
+|                                   mul2_i_reg_435                                  |   32   |
+|                                 norm_read_reg_353                                 |   32   |
+|                                  tmp_88_i_reg_397                                 |   32   |
+|                                  tmp_89_i_reg_429                                 |   32   |
+|                                 trunc_ln52_reg_363                                |    2   |
+|                                 zext_ln52_reg_369                                 |   64   |
++-----------------------------------------------------------------------------------+--------+
+|                                       Total                                       |   301  |
++-----------------------------------------------------------------------------------+--------+
+
+* Multiplexer (MUX) list: 
+|-------------------|------|------|------|--------||---------||---------||---------|
+|        Comp       |  Pin | Size |  BW  | S x BW ||  Delay  ||    FF   ||   LUT   |
+|-------------------|------|------|------|--------||---------||---------||---------|
+| grp_access_fu_117 |  p0  |   2  |   8  |   16   ||    0    ||    8    |
+| grp_access_fu_123 |  p0  |   2  |   8  |   16   ||    0    ||    8    |
+| grp_access_fu_129 |  p0  |   2  |   8  |   16   ||    0    ||    8    |
+| grp_access_fu_135 |  p0  |   2  |   8  |   16   ||    0    ||    8    |
+| grp_access_fu_169 |  p0  |   2  |   8  |   16   ||    0    ||    8    |
+| grp_access_fu_175 |  p0  |   2  |   8  |   16   ||    0    ||    8    |
+| grp_access_fu_181 |  p0  |   2  |   8  |   16   ||    0    ||    8    |
+| grp_access_fu_187 |  p0  |   2  |   8  |   16   ||    0    ||    8    |
+|-------------------|------|------|------|--------||---------||---------||---------|
+|       Total       |      |      |      |   128  ||   2.88  ||    0    ||    64   |
+|-------------------|------|------|------|--------||---------||---------||---------|
+
+
+
+* Summary:
++-----------+--------+--------+--------+--------+
+|           |   DSP  |  Delay |   FF   |   LUT  |
++-----------+--------+--------+--------+--------+
+|  Function |    2   |    -   |    0   |   78   |
+|   Memory  |    -   |    -   |    -   |    -   |
+|Multiplexer|    -   |    2   |    0   |   64   |
+|  Register |    -   |    -   |   301  |    -   |
++-----------+--------+--------+--------+--------+
+|   Total   |    2   |    2   |   301  |   142  |
++-----------+--------+--------+--------+--------+

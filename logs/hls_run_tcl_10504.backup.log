@@ -1,0 +1,73 @@
+  **** HLS Build v2025.1 6135595
+Sourcing Tcl script 'C:/Academic_Sem5/DA1/Demo/./llama_synthesis.tcl'
+INFO: [HLS 200-1510] Running: open_project llama_hls -reset 
+WARNING: [HLS 200-2182] The 'llama_hls' project will not automatically appear within Vitis IDE workspaces and is meant only for TCL batch use.  Please use open_component instead of open_project/open_solution to generate Vitis IDE compatible component files and directory structure.
+Resolution: For help on HLS 200-2182 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-2182.html
+INFO: [HLS 200-10] Opening and resetting solution 'C:/Academic_Sem5/DA1/Demo/llama_hls'.
+INFO: [HLS 200-1510] Running: set_top llama_inference_hls_top 
+INFO: [HLS 200-1510] Running: add_files llama_hls_top.cpp 
+INFO: [HLS 200-10] Adding design file 'llama_hls_top.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files llama_hls_top.hpp 
+INFO: [HLS 200-10] Adding design file 'llama_hls_top.hpp' to the project
+INFO: [HLS 200-1510] Running: add_files tensor.hpp 
+INFO: [HLS 200-10] Adding design file 'tensor.hpp' to the project
+INFO: [HLS 200-1510] Running: add_files tensor_fpga.cpp 
+INFO: [HLS 200-10] Adding design file 'tensor_fpga.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files tensor_fpga.hpp 
+INFO: [HLS 200-10] Adding design file 'tensor_fpga.hpp' to the project
+INFO: [HLS 200-1510] Running: add_files kernel_matmul.cpp 
+INFO: [HLS 200-10] Adding design file 'kernel_matmul.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files kernel_rmsnorm.cpp 
+INFO: [HLS 200-10] Adding design file 'kernel_rmsnorm.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files kernel_rope.cpp 
+INFO: [HLS 200-10] Adding design file 'kernel_rope.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files kernel_softmax.cpp 
+INFO: [HLS 200-10] Adding design file 'kernel_softmax.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files kernel_silu.cpp 
+INFO: [HLS 200-10] Adding design file 'kernel_silu.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -reset -flow_target vivado 
+INFO: [HLS 200-10] Creating and opening solution 'C:/Academic_Sem5/DA1/Demo/llama_hls/solution1'.
+INFO: [HLS 200-10] Cleaning up the solution database.
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xcv80-lsva4737-2MHP-e-S 
+WARNING: [HLS 200-655] The device family 'versalhbm-2MHP' is new to HLS - using 'versalaicore-2HP' characterization library
+INFO: [HLS 200-1611] Setting target device to 'xcv80-lsva4737-2MHP-e-S'
+INFO: [HLS 200-1510] Running: create_clock -period 4.0 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 4ns.
+Starting C synthesis for LLaMA inference...
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 2.033 seconds; current allocated memory: 522.539 MB.
+INFO: [HLS 200-10] Analyzing design file 'kernel_silu.cpp' ... 
+WARNING: [HLS 207-1016] unknown warning group '-Wmisleading-indentation', ignored (C:/Xilinx2025/2025.1/Vitis/common/technology/autopilot/etc/hls_sqrt_apfixed.h:16:34)
+INFO: [HLS 200-10] Analyzing design file 'kernel_softmax.cpp' ... 
+WARNING: [HLS 207-1016] unknown warning group '-Wmisleading-indentation', ignored (C:/Xilinx2025/2025.1/Vitis/common/technology/autopilot/etc/hls_sqrt_apfixed.h:16:34)
+INFO: [HLS 200-10] Analyzing design file 'kernel_rope.cpp' ... 
+WARNING: [HLS 207-1016] unknown warning group '-Wmisleading-indentation', ignored (C:/Xilinx2025/2025.1/Vitis/common/technology/autopilot/etc/hls_sqrt_apfixed.h:16:34)
+INFO: [HLS 200-10] Analyzing design file 'kernel_rmsnorm.cpp' ... 
+WARNING: [HLS 207-1016] unknown warning group '-Wmisleading-indentation', ignored (C:/Xilinx2025/2025.1/Vitis/common/technology/autopilot/etc/hls_sqrt_apfixed.h:16:34)
+INFO: [HLS 200-10] Analyzing design file 'kernel_matmul.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file 'tensor_fpga.cpp' ... 
+WARNING: [HLS 207-1016] unknown warning group '-Wmisleading-indentation', ignored (C:/Xilinx2025/2025.1/Vitis/common/technology/autopilot/etc/hls_sqrt_apfixed.h:16:34)
+INFO: [HLS 200-10] Analyzing design file 'llama_hls_top.cpp' ... 
+WARNING: [HLS 207-1016] unknown warning group '-Wmisleading-indentation', ignored (C:/Xilinx2025/2025.1/Vitis/common/technology/autopilot/etc/hls_sqrt_apfixed.h:16:34)
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body (llama_hls_top.cpp:241:77)
+Resolution: For help on HLS 214-113 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=214-113.html
+WARNING: [HLS 200-471] Dataflow form checks found 1 issue(s) in file llama_hls_top.cpp
+Resolution: For help on HLS 200-471 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-471.html
+WARNING: [HLS 207-5292] unused parameter 'max_position' (llama_hls_top.cpp:205:9)
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 3 seconds. CPU system time: 0 seconds. Elapsed time: 108.035 seconds; current allocated memory: 552.035 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 200-1995] There were 3,134 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details (C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 25,396 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details (C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 23,790 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details (C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 23,021 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details (C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 22,999 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details (C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 56,009 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details (C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 32,852 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details (C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 32,852 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details (C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 32,852 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details (C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 31,755 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details (C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 31,273 instructions in the design after the 'Performance' phase of compilation. See the Design Size Report for more details (C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 31,162 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details (C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/syn/report/csynth_design_size.rpt:2)
+WARNING: [HLS 200-1995] There were 301,908 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details (C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/syn/report/csynth_design_size.rpt:2)

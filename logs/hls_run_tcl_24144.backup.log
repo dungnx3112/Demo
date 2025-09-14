@@ -1,0 +1,449 @@
+  **** HLS Build v2025.1 6135595
+Sourcing Tcl script 'C:/Academic_Sem5/DA1/Demo/llama_synthesis.tcl'
+INFO: [HLS 200-1510] Running: open_project llama_hls -reset 
+WARNING: [HLS 200-2182] The 'llama_hls' project will not automatically appear within Vitis IDE workspaces and is meant only for TCL batch use.  Please use open_component instead of open_project/open_solution to generate Vitis IDE compatible component files and directory structure.
+Resolution: For help on HLS 200-2182 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-2182.html
+INFO: [HLS 200-10] Opening and resetting solution 'C:/Academic_Sem5/DA1/Demo/llama_hls'.
+INFO: [HLS 200-1510] Running: set_top llama_inference_hls_top 
+INFO: [HLS 200-1510] Running: add_files llama_hls_top.cpp 
+INFO: [HLS 200-10] Adding design file 'llama_hls_top.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files llama_hls_top.hpp 
+INFO: [HLS 200-10] Adding design file 'llama_hls_top.hpp' to the project
+INFO: [HLS 200-1510] Running: add_files tensor.hpp 
+INFO: [HLS 200-10] Adding design file 'tensor.hpp' to the project
+INFO: [HLS 200-1510] Running: add_files tensor_fpga.cpp 
+INFO: [HLS 200-10] Adding design file 'tensor_fpga.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files tensor_fpga.hpp 
+INFO: [HLS 200-10] Adding design file 'tensor_fpga.hpp' to the project
+INFO: [HLS 200-1510] Running: add_files kernel_matmul.cpp 
+INFO: [HLS 200-10] Adding design file 'kernel_matmul.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files kernel_rmsnorm.cpp 
+INFO: [HLS 200-10] Adding design file 'kernel_rmsnorm.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files kernel_rope.cpp 
+INFO: [HLS 200-10] Adding design file 'kernel_rope.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files kernel_softmax.cpp 
+INFO: [HLS 200-10] Adding design file 'kernel_softmax.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files kernel_silu.cpp 
+INFO: [HLS 200-10] Adding design file 'kernel_silu.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -reset -flow_target vivado 
+INFO: [HLS 200-10] Creating and opening solution 'C:/Academic_Sem5/DA1/Demo/llama_hls/solution1'.
+INFO: [HLS 200-10] Cleaning up the solution database.
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xcv80-lsva4737-2MHP-e-S 
+WARNING: [HLS 200-655] The device family 'versalhbm-2MHP' is new to HLS - using 'versalaicore-2HP' characterization library
+INFO: [HLS 200-1611] Setting target device to 'xcv80-lsva4737-2MHP-e-S'
+INFO: [HLS 200-1510] Running: create_clock -period 4.0 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 4ns.
+Starting C synthesis for LLaMA inference...
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 1.525 seconds; current allocated memory: 522.238 MB.
+INFO: [HLS 200-10] Analyzing design file 'kernel_silu.cpp' ... 
+WARNING: [HLS 207-1016] unknown warning group '-Wmisleading-indentation', ignored (C:/Xilinx2025/2025.1/Vitis/common/technology/autopilot/etc/hls_sqrt_apfixed.h:16:34)
+INFO: [HLS 200-10] Analyzing design file 'kernel_softmax.cpp' ... 
+WARNING: [HLS 207-1016] unknown warning group '-Wmisleading-indentation', ignored (C:/Xilinx2025/2025.1/Vitis/common/technology/autopilot/etc/hls_sqrt_apfixed.h:16:34)
+INFO: [HLS 200-10] Analyzing design file 'kernel_rope.cpp' ... 
+WARNING: [HLS 207-1016] unknown warning group '-Wmisleading-indentation', ignored (C:/Xilinx2025/2025.1/Vitis/common/technology/autopilot/etc/hls_sqrt_apfixed.h:16:34)
+INFO: [HLS 200-10] Analyzing design file 'kernel_rmsnorm.cpp' ... 
+WARNING: [HLS 207-1016] unknown warning group '-Wmisleading-indentation', ignored (C:/Xilinx2025/2025.1/Vitis/common/technology/autopilot/etc/hls_sqrt_apfixed.h:16:34)
+INFO: [HLS 200-10] Analyzing design file 'kernel_matmul.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file 'tensor_fpga.cpp' ... 
+WARNING: [HLS 207-1016] unknown warning group '-Wmisleading-indentation', ignored (C:/Xilinx2025/2025.1/Vitis/common/technology/autopilot/etc/hls_sqrt_apfixed.h:16:34)
+INFO: [HLS 200-10] Analyzing design file 'llama_hls_top.cpp' ... 
+WARNING: [HLS 207-1016] unknown warning group '-Wmisleading-indentation', ignored (C:/Xilinx2025/2025.1/Vitis/common/technology/autopilot/etc/hls_sqrt_apfixed.h:16:34)
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body (llama_hls_top.cpp:241:77)
+Resolution: For help on HLS 214-113 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=214-113.html
+WARNING: [HLS 200-471] Dataflow form checks found 1 issue(s) in file llama_hls_top.cpp
+Resolution: For help on HLS 200-471 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-471.html
+WARNING: [HLS 207-5292] unused parameter 'max_position' (llama_hls_top.cpp:205:9)
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 4 seconds. CPU system time: 0 seconds. Elapsed time: 108.139 seconds; current allocated memory: 553.477 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 200-1995] There were 3,116 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details (C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 25,394 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details (C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 24,130 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details (C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 23,118 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details (C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 23,096 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details (C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 61,659 instructions in the design after the 'Array/Struct' phase of compilation. See the Design Size Report for more details (C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 36,112 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details (C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 36,112 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details (C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 36,112 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details (C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 35,015 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details (C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 34,533 instructions in the design after the 'Performance' phase of compilation. See the Design Size Report for more details (C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 34,422 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details (C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 34,326 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details (C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 34,326 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details (C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 41,668 instructions in the design after the 'HW Transforms' phase of compilation. See the Design Size Report for more details (C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 55,265 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details (C:/Academic_Sem5/DA1/Demo/llama_hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_348_2' is marked as complete unroll implied by the pipeline pragma (llama_hls_top.cpp:348:27)
+INFO: [HLS 214-291] Loop 'dot_product' is marked as complete unroll implied by the pipeline pragma (llama_hls_top.cpp:318:26)
+INFO: [HLS 214-291] Loop 'weighted_sum_loop' is marked as complete unroll implied by the pipeline pragma (llama_hls_top.cpp:334:32)
+INFO: [HLS 214-291] Loop 'mem_wr' is marked as complete unroll implied by the pipeline pragma (kernel_rope.cpp:100:3)
+INFO: [HLS 214-291] Loop 'store_output' is marked as complete unroll implied by the pipeline pragma (kernel_rope.cpp:88:17)
+INFO: [HLS 214-291] Loop 'rope_transform' is marked as complete unroll implied by the pipeline pragma (kernel_rope.cpp:66:19)
+INFO: [HLS 214-291] Loop 'init_output' is marked as complete unroll implied by the pipeline pragma (kernel_rope.cpp:58:16)
+INFO: [HLS 214-291] Loop 'load_cossin' is marked as complete unroll implied by the pipeline pragma (kernel_rope.cpp:50:16)
+INFO: [HLS 214-291] Loop 'load_qk' is marked as complete unroll implied by the pipeline pragma (kernel_rope.cpp:43:11)
+INFO: [HLS 214-291] Loop 'mem_rd' is marked as complete unroll implied by the pipeline pragma (kernel_rope.cpp:11:3)
+INFO: [HLS 214-188] Unrolling loop 'dot_product' (llama_hls_top.cpp:186:22) in function 'swan::llama_inference_hls_top' partially with a factor of 8 (llama_hls_top.cpp:59:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_348_2' (llama_hls_top.cpp:348:27) in function 'swan::compute_attention_with_cache_kernel' completely with a factor of 64 (llama_hls_top.cpp:281:0)
+INFO: [HLS 214-186] Unrolling loop 'parallel_heads' (llama_hls_top.cpp:306:21) in function 'swan::compute_attention_with_cache_kernel' completely with a factor of 12 (llama_hls_top.cpp:281:0)
+INFO: [HLS 214-186] Unrolling loop 'dot_product' (llama_hls_top.cpp:318:26) in function 'swan::compute_attention_with_cache_kernel' completely with a factor of 64 (llama_hls_top.cpp:281:0)
+INFO: [HLS 214-186] Unrolling loop 'split_q_heads' (llama_hls_top.cpp:296:17) in function 'swan::compute_attention_with_cache_kernel' completely with a factor of 12 (llama_hls_top.cpp:281:0)
+INFO: [HLS 214-186] Unrolling loop 'mem_wr' (kernel_rope.cpp:100:3) in function 'store_result' completely with a factor of 768 (kernel_rope.cpp:97:0)
+WARNING: [HLS 214-189] Pipeline directive for loop 'mem_wr' (kernel_rope.cpp:100:3) in function 'store_result' has been removed because the loop is unrolled completely (kernel_rope.cpp:97:0)
+INFO: [HLS 214-186] Unrolling loop 'store_output' (kernel_rope.cpp:88:17) in function 'compute_rope' completely with a factor of 768 (kernel_rope.cpp:23:0)
+WARNING: [HLS 214-189] Pipeline directive for loop 'store_output' (kernel_rope.cpp:88:17) in function 'compute_rope' has been removed because the loop is unrolled completely (kernel_rope.cpp:23:0)
+INFO: [HLS 214-186] Unrolling loop 'rope_transform' (kernel_rope.cpp:66:19) in function 'compute_rope' completely with a factor of 32 (kernel_rope.cpp:23:0)
+WARNING: [HLS 214-189] Pipeline directive for loop 'rope_transform' (kernel_rope.cpp:66:19) in function 'compute_rope' has been removed because the loop is unrolled completely (kernel_rope.cpp:23:0)
+INFO: [HLS 214-186] Unrolling loop 'init_output' (kernel_rope.cpp:58:16) in function 'compute_rope' completely with a factor of 768 (kernel_rope.cpp:23:0)
+WARNING: [HLS 214-189] Pipeline directive for loop 'init_output' (kernel_rope.cpp:58:16) in function 'compute_rope' has been removed because the loop is unrolled completely (kernel_rope.cpp:23:0)
+INFO: [HLS 214-186] Unrolling loop 'load_cossin' (kernel_rope.cpp:50:16) in function 'compute_rope' completely with a factor of 32 (kernel_rope.cpp:23:0)
+WARNING: [HLS 214-189] Pipeline directive for loop 'load_cossin' (kernel_rope.cpp:50:16) in function 'compute_rope' has been removed because the loop is unrolled completely (kernel_rope.cpp:23:0)
+INFO: [HLS 214-186] Unrolling loop 'load_qk' (kernel_rope.cpp:43:11) in function 'compute_rope' completely with a factor of 768 (kernel_rope.cpp:23:0)
+WARNING: [HLS 214-189] Pipeline directive for loop 'load_qk' (kernel_rope.cpp:43:11) in function 'compute_rope' has been removed because the loop is unrolled completely (kernel_rope.cpp:23:0)
+WARNING: [HLS 214-366] Duplicating function 'load_vec(float*, hls::stream<float, 0>&, int) (.14)' as different function signatures were detected between this call site and other call site(s). This may impact the resources used in the design. (kernel_rmsnorm.cpp:62:3)
+INFO: [HLS 214-186] Unrolling loop 'mem_rd' (kernel_rope.cpp:11:3) in function 'load_vec' completely with a factor of 32 (kernel_rope.cpp:8:0)
+WARNING: [HLS 214-189] Pipeline directive for loop 'mem_rd' (kernel_rope.cpp:11:3) in function 'load_vec' has been removed because the loop is unrolled completely (kernel_rope.cpp:8:0)
+INFO: [HLS 214-186] Unrolling loop 'mem_rd' (kernel_rope.cpp:11:3) in function 'load_vec' completely with a factor of 768 (kernel_rope.cpp:8:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'weight_final_norm'. (llama_hls_top.cpp:59:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'weights'. (llama_hls_top.cpp:403:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'i_vec_2'. (kernel_rmsnorm.cpp:51:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'norm_weights'. (llama_hls_top.cpp:361:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'w1'. (llama_hls_top.cpp:361:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'w3'. (llama_hls_top.cpp:361:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'w2'. (llama_hls_top.cpp:361:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'weights'. (llama_hls_top.cpp:436:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'i_mat'. (kernel_matmul.cpp:72:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'norm_weights'. (llama_hls_top.cpp:206:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'wq'. (llama_hls_top.cpp:206:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'wk'. (llama_hls_top.cpp:206:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'wv'. (llama_hls_top.cpp:206:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'k_cache'. (llama_hls_top.cpp:206:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'v_cache'. (llama_hls_top.cpp:206:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'wo'. (llama_hls_top.cpp:206:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'input'. (llama_hls_top.cpp:436:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'output'. (llama_hls_top.cpp:436:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'input'. (llama_hls_top.cpp:403:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'output'. (llama_hls_top.cpp:403:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'q_input'. (llama_hls_top.cpp:418:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'k_input'. (llama_hls_top.cpp:418:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'cos_vals'. (llama_hls_top.cpp:418:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'sin_vals'. (llama_hls_top.cpp:418:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'q_output'. (llama_hls_top.cpp:418:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'k_output'. (llama_hls_top.cpp:418:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'q_in'. (kernel_rope.cpp:109:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'k_in'. (kernel_rope.cpp:109:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'cos_vec'. (kernel_rope.cpp:109:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'sin_vec'. (kernel_rope.cpp:109:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'q_out'. (kernel_rope.cpp:109:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'k_out'. (kernel_rope.cpp:109:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'i_vec'. (kernel_matmul.cpp:72:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'o_vec'. (kernel_matmul.cpp:72:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'i_vec_1'. (kernel_rmsnorm.cpp:51:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'o_vec'. (kernel_rmsnorm.cpp:51:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZN4swan35compute_attention_with_cache_kernelEPfS0_S0_S0_iE11attn_scores': Cyclic partitioning with factor 16 on dimension 1. (llama_hls_top.cpp:289:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZN4swan35compute_attention_with_cache_kernelEPfS0_S0_S0_iE17attn_output_heads': Complete partitioning on dimension 1. (llama_hls_top.cpp:288:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZN4swan35compute_attention_with_cache_kernelEPfS0_S0_S0_iE7q_heads': Complete partitioning on dimension 1. (llama_hls_top.cpp:287:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZN4swan16ffn_layer_kernelEPfS0_S0_S0_S0_S0_E9gated_out': Cyclic partitioning with factor 16 on dimension 1. (llama_hls_top.cpp:368:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZN4swan16ffn_layer_kernelEPfS0_S0_S0_S0_S0_E8silu_out': Cyclic partitioning with factor 16 on dimension 1. (llama_hls_top.cpp:367:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZN4swan16ffn_layer_kernelEPfS0_S0_S0_S0_S0_E6w3_out': Cyclic partitioning with factor 16 on dimension 1. (llama_hls_top.cpp:366:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZN4swan16ffn_layer_kernelEPfS0_S0_S0_S0_S0_E6w1_out': Cyclic partitioning with factor 16 on dimension 1. (llama_hls_top.cpp:365:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZN4swan16ffn_layer_kernelEPfS0_S0_S0_S0_S0_E12normed_input': Cyclic partitioning with factor 8 on dimension 1. (llama_hls_top.cpp:364:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZL14compute_matmulRN3hls6streamIfLi0EEES2_S2_iiE9vec_local': Cyclic partitioning with factor 8 on dimension 1. (kernel_matmul.cpp:36:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZL12compute_ropeRN3hls6streamIfLi0EEES2_S2_S2_S2_S2_iE11k_out_local': Cyclic partitioning with factor 4 on dimension 1. (kernel_rope.cpp:32:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZL12compute_ropeRN3hls6streamIfLi0EEES2_S2_S2_S2_S2_iE11q_out_local': Cyclic partitioning with factor 4 on dimension 1. (kernel_rope.cpp:31:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZL12compute_ropeRN3hls6streamIfLi0EEES2_S2_S2_S2_S2_iE9sin_local': Cyclic partitioning with factor 2 on dimension 1. (kernel_rope.cpp:30:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZL12compute_ropeRN3hls6streamIfLi0EEES2_S2_S2_S2_S2_iE9cos_local': Cyclic partitioning with factor 2 on dimension 1. (kernel_rope.cpp:29:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZL12compute_ropeRN3hls6streamIfLi0EEES2_S2_S2_S2_S2_iE7k_local': Cyclic partitioning with factor 4 on dimension 1. (kernel_rope.cpp:28:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZL12compute_ropeRN3hls6streamIfLi0EEES2_S2_S2_S2_S2_iE7q_local': Cyclic partitioning with factor 4 on dimension 1. (kernel_rope.cpp:27:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZL15compute_softmaxRN3hls6streamIfLi0EEES2_iE11vec_local_2': Cyclic partitioning with factor 4 on dimension 1. (kernel_softmax.cpp:23:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZL15compute_softmaxRN3hls6streamIfLi0EEES2_iE11vec_local_1': Cyclic partitioning with factor 4 on dimension 1. (kernel_softmax.cpp:22:0)
+INFO: [HLS 214-248] Applying array_partition to 'normed_input': Cyclic partitioning with factor 8 on dimension 1. (llama_hls_top.cpp:211:8)
+INFO: [HLS 214-248] Applying array_partition to 'q': Cyclic partitioning with factor 8 on dimension 1. (llama_hls_top.cpp:212:11)
+INFO: [HLS 214-248] Applying array_partition to 'k': Cyclic partitioning with factor 8 on dimension 1. (llama_hls_top.cpp:212:20)
+INFO: [HLS 214-248] Applying array_partition to 'v': Cyclic partitioning with factor 8 on dimension 1. (llama_hls_top.cpp:212:29)
+INFO: [HLS 214-248] Applying array_partition to 'q_rope': Cyclic partitioning with factor 8 on dimension 1. (llama_hls_top.cpp:213:11)
+INFO: [HLS 214-248] Applying array_partition to 'k_rope': Cyclic partitioning with factor 8 on dimension 1. (llama_hls_top.cpp:213:25)
+INFO: [HLS 214-248] Applying array_partition to 'attn_output': Cyclic partitioning with factor 8 on dimension 1. (llama_hls_top.cpp:238:11)
+INFO: [HLS 214-248] Applying array_partition to 'hidden_state': Cyclic partitioning with factor 8 on dimension 1. (llama_hls_top.cpp:85:8)
+INFO: [HLS 214-248] Applying array_partition to 'attn_output': Cyclic partitioning with factor 8 on dimension 1. (llama_hls_top.cpp:86:11)
+INFO: [HLS 214-248] Applying array_partition to 'ffn_output': Cyclic partitioning with factor 8 on dimension 1. (llama_hls_top.cpp:87:11)
+INFO: [HLS 214-248] Applying array_partition to 'temp_buffer': Cyclic partitioning with factor 8 on dimension 1. (llama_hls_top.cpp:88:11)
+INFO: [HLS 214-248] Applying array_partition to 'cos_vals': Complete partitioning on dimension 1. (llama_hls_top.cpp:116:15)
+INFO: [HLS 214-248] Applying array_partition to 'sin_vals': Complete partitioning on dimension 1. (llama_hls_top.cpp:117:15)
+INFO: [HLS 214-376] automatically set the pipeline for Loop< mem_wr> at kernel_silu.cpp:36:3 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< VITIS_LOOP_18_1> at kernel_silu.cpp:18:20 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< VITIS_LOOP_22_2> at kernel_silu.cpp:22:20 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< VITIS_LOOP_28_3> at kernel_silu.cpp:28:20 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< mem_rd> at kernel_silu.cpp:8:3 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< mem_wr> at kernel_rmsnorm.cpp:44:3 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< VITIS_LOOP_22_1> at kernel_rmsnorm.cpp:22:20 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< VITIS_LOOP_25_2> at kernel_rmsnorm.cpp:25:20 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< VITIS_LOOP_29_3> at kernel_rmsnorm.cpp:29:20 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< VITIS_LOOP_36_4> at kernel_rmsnorm.cpp:36:20 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< mem_rd> at kernel_rmsnorm.cpp:10:3 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< dot_product> at llama_hls_top.cpp:186:22 
+INFO: [HLS 214-115] Multiple burst reads of length 768 and bit width 32 in loop 'mem_rd'(kernel_rmsnorm.cpp:10:3) has been inferred on bundle 'gmem12'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (kernel_rmsnorm.cpp:10:3)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 32 in loop 'VITIS_LOOP_22_1'(kernel_matmul.cpp:22:19) has been inferred on bundle 'gmem8'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (kernel_matmul.cpp:22:19)
+INFO: [HLS 214-115] Multiple burst writes of length 768 and bit width 32 in loop 'update_k'(llama_hls_top.cpp:260:15) has been inferred on bundle 'gmem13'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (llama_hls_top.cpp:260:15)
+INFO: [HLS 214-115] Multiple burst writes of length 768 and bit width 32 in loop 'update_v'(llama_hls_top.cpp:267:15) has been inferred on bundle 'gmem14'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (llama_hls_top.cpp:267:15)
+INFO: [HLS 214-115] Multiple burst reads of length 64 and bit width 32 has been inferred on bundle 'gmem13'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (llama_hls_top.cpp:320:30)
+INFO: [HLS 214-115] Multiple burst reads of length 768 and bit width 32 in loop 'load_input_loop'(llama_hls_top.cpp:97:19) has been inferred on bundle 'gmem0'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (llama_hls_top.cpp:97:19)
+INFO: [HLS 214-115] Multiple burst reads of length 32 and bit width 32 in loop 'rope_load'(llama_hls_top.cpp:121:13) has been inferred on bundle 'gmem15'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (llama_hls_top.cpp:121:13)
+INFO: [HLS 214-115] Multiple burst reads of length 32 and bit width 32 in loop 'rope_load'(llama_hls_top.cpp:121:13) has been inferred on bundle 'gmem16'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (llama_hls_top.cpp:121:13)
+INFO: [HLS 214-115] Multiple burst reads of length 24576000 and bit width 32 in loop 'compute_logits'(llama_hls_top.cpp:182:21) has been inferred on bundle 'gmem2'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (llama_hls_top.cpp:182:21)
+INFO: [HLS 214-115] Multiple burst writes of length 32000 and bit width 32 in loop 'compute_logits'(llama_hls_top.cpp:182:21) has been inferred on bundle 'gmem1'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (llama_hls_top.cpp:182:21)
+WARNING: [HLS 214-475] Merging processes 'swan::matmul_kernel', 'swan::matmul_kernel' and 'swan::matmul_kernel' in function 'swan::attention_layer_with_cache_kernel' due to reads on 'normed_input_0' (llama_hls_top.cpp:206:0)
+WARNING: [HLS 214-475] Merging processes 'swan::rope_kernel', 'swan::matmul_kernel', 'swan::compute_attention_with_cache_kernel', 'swan::update_kv_cache_kernel', 'swan::matmul_kernel', 'swan::matmul_kernel' and 'swan::matmul_kernel' in function 'swan::attention_layer_with_cache_kernel' due to writes on 'kernel_matmul::vec_stream' (llama_hls_top.cpp:206:0)
+WARNING: [HLS 214-475] Merging processes 'compute_softmax', 'load_vec' and 'store_result' in function 'kernel_softmax.1' due to feedback on 'swan::compute_attention_with_cache_kernel(float*, float*, float*, float*, int)::attn_scores' (kernel_softmax.cpp:77:0)
+WARNING: [HLS 214-187] Cannot unroll loop 'weighted_sum_loop' (llama_hls_top.cpp:334:32) in function 'swan::compute_attention_with_cache_kernel' as it has a variable trip count (llama_hls_top.cpp:334:32)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 5 seconds. CPU system time: 1 seconds. Elapsed time: 137.864 seconds; current allocated memory: 568.105 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 568.105 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 9 seconds. CPU system time: 0 seconds. Elapsed time: 9.547 seconds; current allocated memory: 600.262 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 41 seconds. CPU system time: 0 seconds. Elapsed time: 41.313 seconds; current allocated memory: 658.176 MB.
+WARNING: [XFORM 203-561] Updating loop upper bound from 2048 to 768 for loop 'mem_wr' (kernel_matmul.cpp:65:9) in function 'store_result.9'.
+WARNING: [XFORM 203-561] Updating loop upper bound from 2048 to 3072 for loop 'mem_wr' (kernel_matmul.cpp:65:9) in function 'store_result.16'.
+WARNING: [XFORM 203-561] Updating loop lower bound from 768 to 3072 for loop 'mem_wr' (kernel_matmul.cpp:65:9) in function 'store_result.16'.
+WARNING: [XFORM 203-561] Updating loop upper bound from 768 to 3072 for loop 'mem_rd' (kernel_matmul.cpp:11:9) in function 'load_vec.19'.
+WARNING: [XFORM 203-561] Updating loop lower bound from 768 to 3072 for loop 'mem_rd' (kernel_matmul.cpp:11:9) in function 'load_vec.19'.
+WARNING: [XFORM 203-561] Updating loop upper bound from 768 to 3072 for loop 'VITIS_LOOP_22_1' (kernel_matmul.cpp:24:9) in function 'load_mat7'.
+WARNING: [XFORM 203-561] Updating loop lower bound from 768 to 3072 for loop 'VITIS_LOOP_22_1' (kernel_matmul.cpp:24:9) in function 'load_mat7'.
+WARNING: [XFORM 203-561] Updating loop upper bound from 2048 to 768 for loop 'mem_rd' (kernel_matmul.cpp:21:9) in function 'load_mat7'.
+WARNING: [XFORM 203-561] Updating loop upper bound from 2048 to 3072 for loop 'mem_rd' (kernel_matmul.cpp:21:9) in function 'load_mat5'.
+WARNING: [XFORM 203-561] Updating loop lower bound from 768 to 3072 for loop 'mem_rd' (kernel_matmul.cpp:21:9) in function 'load_mat5'.
+WARNING: [XFORM 203-561] Updating loop upper bound from 2048 to 768 for loop 'mem_rd' (kernel_matmul.cpp:21:9) in function 'load_mat2'.
+WARNING: [XFORM 203-561] Updating loop upper bound from 768 to 3072 for loop 'load_vector' (kernel_matmul.cpp:42:9) in function 'compute_matmul8'.
+WARNING: [XFORM 203-561] Updating loop lower bound from 768 to 3072 for loop 'load_vector' (kernel_matmul.cpp:42:9) in function 'compute_matmul8'.
+WARNING: [XFORM 203-561] Updating loop upper bound from 768 to 3072 for loop 'dot_product' (kernel_matmul.cpp:52:9) in function 'compute_matmul8'.
+WARNING: [XFORM 203-561] Updating loop lower bound from 768 to 3072 for loop 'dot_product' (kernel_matmul.cpp:52:9) in function 'compute_matmul8'.
+WARNING: [XFORM 203-561] Updating loop upper bound from 2048 to 768 for loop 'execute' (kernel_matmul.cpp:48:9) in function 'compute_matmul8'.
+WARNING: [XFORM 203-561] Updating loop upper bound from 2048 to 3072 for loop 'execute' (kernel_matmul.cpp:48:9) in function 'compute_matmul6'.
+WARNING: [XFORM 203-561] Updating loop lower bound from 768 to 3072 for loop 'execute' (kernel_matmul.cpp:48:9) in function 'compute_matmul6'.
+WARNING: [XFORM 203-561] Updating loop upper bound from 2048 to 768 for loop 'execute' (kernel_matmul.cpp:48:9) in function 'compute_matmul3'.
+WARNING: [HLS 200-805] An internal stream 'vec_stream_2' with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
+WARNING: [HLS 200-805] An internal stream 'vec_stream_1' with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
+WARNING: [HLS 200-805] An internal stream 'vec_stream.2' with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
+WARNING: [HLS 200-805] An internal stream 'out_stream.3' with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
+WARNING: [HLS 200-805] An internal stream 'out_stream.2' with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'input_0' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'input_1' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'input_2' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'input_3' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'input_4' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'input_5' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'input_6' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'input_7' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'gmem3' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'wq' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'gmem4' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'wk' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'gmem5' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'wv' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'gmem6' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'wo' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'gmem10' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'norm_weights' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'k_cache' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'v_cache' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_0.val1' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_1.val2' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_2.val3' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_3.val4' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_4.val5' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_5.val6' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_6.val7' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_7.val8' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_8.val9' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_9.val10' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_10.val11' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_11.val12' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_12.val13' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_13.val14' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_14.val15' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_15.val16' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_16.val17' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_17.val18' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_18.val19' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_19.val20' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_20.val21' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_21.val22' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_22.val23' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_23.val24' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_24.val25' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_25.val26' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_26.val27' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_27.val28' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_28.val29' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_29.val30' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_30.val31' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vals_31.val32' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_0.val33' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_1.val34' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_2.val35' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_3.val36' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_4.val37' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_5.val38' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_6.val39' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_7.val40' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_8.val41' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_9.val42' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_10.val43' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_11.val44' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_12.val45' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_13.val46' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_14.val47' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_15.val48' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_16.val49' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_17.val50' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_18.val51' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_19.val52' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_20.val53' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_21.val54' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_22.val55' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_23.val56' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_24.val57' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_25.val58' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_26.val59' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_27.val60' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_28.val61' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_29.val62' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_30.val63' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vals_31.val64' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'position' of dataflow function 'swan::attention_layer_with_cache_kernel' (llama_hls_top.cpp:211:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'i_vec_1_0' of dataflow function 'kernel_rmsnorm.147.150.1' (kernel_rmsnorm.cpp:50:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'i_vec_1_1' of dataflow function 'kernel_rmsnorm.147.150.1' (kernel_rmsnorm.cpp:50:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'i_vec_1_2' of dataflow function 'kernel_rmsnorm.147.150.1' (kernel_rmsnorm.cpp:50:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'i_vec_1_3' of dataflow function 'kernel_rmsnorm.147.150.1' (kernel_rmsnorm.cpp:50:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'i_vec_1_4' of dataflow function 'kernel_rmsnorm.147.150.1' (kernel_rmsnorm.cpp:50:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'i_vec_1_5' of dataflow function 'kernel_rmsnorm.147.150.1' (kernel_rmsnorm.cpp:50:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'i_vec_1_6' of dataflow function 'kernel_rmsnorm.147.150.1' (kernel_rmsnorm.cpp:50:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'i_vec_1_7' of dataflow function 'kernel_rmsnorm.147.150.1' (kernel_rmsnorm.cpp:50:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'gmem10' of dataflow function 'kernel_rmsnorm.147.150.1' (kernel_rmsnorm.cpp:50:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'i_vec_2' of dataflow function 'kernel_rmsnorm.147.150.1' (kernel_rmsnorm.cpp:50:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'i_vec_0' of dataflow function 'kernel_matmul.clone.clone.100.105.1' (kernel_matmul.cpp:71:27).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'i_vec_1' of dataflow function 'kernel_matmul.clone.clone.100.105.1' (kernel_matmul.cpp:71:27).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'i_vec_2' of dataflow function 'kernel_matmul.clone.clone.100.105.1' (kernel_matmul.cpp:71:27).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'i_vec_3' of dataflow function 'kernel_matmul.clone.clone.100.105.1' (kernel_matmul.cpp:71:27).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'i_vec_4' of dataflow function 'kernel_matmul.clone.clone.100.105.1' (kernel_matmul.cpp:71:27).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'i_vec_5' of dataflow function 'kernel_matmul.clone.clone.100.105.1' (kernel_matmul.cpp:71:27).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'i_vec_6' of dataflow function 'kernel_matmul.clone.clone.100.105.1' (kernel_matmul.cpp:71:27).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'i_vec_7' of dataflow function 'kernel_matmul.clone.clone.100.105.1' (kernel_matmul.cpp:71:27).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'gmem6' of dataflow function 'kernel_matmul.clone.clone.100.105.1' (kernel_matmul.cpp:71:27).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'i_mat' of dataflow function 'kernel_matmul.clone.clone.100.105.1' (kernel_matmul.cpp:71:27).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'q_in_0' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'q_in_1' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'q_in_2' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'q_in_3' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'q_in_4' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'q_in_5' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'q_in_6' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'q_in_7' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'k_in_0' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'k_in_1' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'k_in_2' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'k_in_3' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'k_in_4' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'k_in_5' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'k_in_6' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'k_in_7' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_0.val1' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_1.val2' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_2.val3' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_3.val4' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_4.val5' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_5.val6' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_6.val7' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_7.val8' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_8.val9' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_9.val10' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_10.val11' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_11.val12' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_12.val13' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_13.val14' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_14.val15' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_15.val16' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_16.val17' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_17.val18' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_18.val19' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_19.val20' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_20.val21' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_21.val22' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_22.val23' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_23.val24' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_24.val25' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_25.val26' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_26.val27' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_27.val28' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_28.val29' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_29.val30' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_30.val31' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'cos_vec_31.val32' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_0.val33' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_1.val34' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_2.val35' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_3.val36' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_4.val37' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_5.val38' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_6.val39' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_7.val40' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_8.val41' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_9.val42' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_10.val43' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_11.val44' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_12.val45' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_13.val46' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_14.val47' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_15.val48' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_16.val49' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_17.val50' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_18.val51' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_19.val52' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_20.val53' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_21.val54' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_22.val55' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_23.val56' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_24.val57' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_25.val58' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_26.val59' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_27.val60' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_28.val61' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_29.val62' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_30.val63' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'sin_vec_31.val64' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'head_begin' of dataflow function 'kernel_rope.153.158.1' (kernel_rope.cpp:108:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'vec_size' of dataflow function 'kernel_softmax.1' (kernel_softmax.cpp:89:2).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'gmem7' of dataflow function 'kernel_matmul.clone.140.143.1' (kernel_matmul.cpp:71:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'i_mat' of dataflow function 'kernel_matmul.clone.140.143.1' (kernel_matmul.cpp:71:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'gmem8' of dataflow function 'kernel_matmul.167.168.1' (kernel_matmul.cpp:71:1).
+INFO: [HLS 200-1947] Automatically inferred stable function argument 'i_mat' of dataflow function 'kernel_matmul.167.168.1' (kernel_matmul.cpp:71:1).
+ERROR: [HLS 200-977] Argument 'vec_stream.3' failed dataflow checking: it can only be used in one process.
+INFO: [HLS 200-992] Argument 'vec_stream.3' has write operations in process function 'load_vec.81' (kernel_matmul.cpp:6:3) (around kernel_matmul.cpp:89).
+Resolution: For help on HLS 200-992 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-992.html
+INFO: [HLS 200-992] Argument 'vec_stream.3' has read operations in process function 'compute_matmul3' (kernel_matmul.cpp:32:18) (around kernel_matmul.cpp:91).
+Resolution: For help on HLS 200-992 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-992.html
+ERROR: [HLS 200-977] Argument 'mat_stream' failed dataflow checking: it can only be used in one process.
+INFO: [HLS 200-992] Argument 'mat_stream' has write operations in process function 'load_mat2' (kernel_matmul.cpp:16:19) (around kernel_matmul.cpp:90).
+Resolution: For help on HLS 200-992 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-992.html
+INFO: [HLS 200-992] Argument 'mat_stream' has read operations in process function 'compute_matmul3' (kernel_matmul.cpp:32:18) (around kernel_matmul.cpp:91).
+Resolution: For help on HLS 200-992 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-992.html
+ERROR: [HLS 200-977] Argument 'out_stream.4' failed dataflow checking: it can only be used in one process.
+INFO: [HLS 200-992] Argument 'out_stream.4' has write operations in process function 'compute_matmul3' (kernel_matmul.cpp:32:18) (around kernel_matmul.cpp:91).
+Resolution: For help on HLS 200-992 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-992.html
+INFO: [HLS 200-992] Argument 'out_stream.4' has read operations in process function 'store_result.94' (kernel_matmul.cpp:59:3) (around kernel_matmul.cpp:92).
+Resolution: For help on HLS 200-992 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-992.html
+ERROR: [HLS 200-975] Stream 'out_stream' failed dataflow checking: it cannot be read and written in the same function:  'kernel_softmax.1_Block_entry_attn_scores_fb_proc' (kernel_softmax.cpp:92:3).
+ERROR: [HLS 200-975] Stream 'vec_stream' failed dataflow checking: it cannot be read and written in the same function:  'kernel_softmax.1_Block_entry_attn_scores_fb_proc' (kernel_softmax.cpp:92:3).
+ERROR: [HLS 200-1715] Encountered problem during source synthesis
+ERROR: [HLS 200-70] Pre-synthesis failed.
+INFO: [HLS 200-2161] Finished Command csynth_design Elapsed time: 00:05:55; Allocated memory: 146.730 MB.
+command 'ap_source' returned error code
+    while executing
+"source C:/Academic_Sem5/DA1/Demo/llama_synthesis.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel \#0 [list source $tclfile] "
+
+INFO: [HLS 200-112] Total CPU user time: 106 seconds. Total CPU system time: 3 seconds. Total elapsed time: 359.42 seconds; peak allocated memory: 668.539 MB.
+INFO: [vitis-run 60-1662] Stopping dispatch session having empty uuid.

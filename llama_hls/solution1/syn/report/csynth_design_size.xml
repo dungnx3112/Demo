@@ -1,0 +1,114 @@
+<design_size title="Design Size Report">
+    <item name="Total Instructions per Compilation Phase">
+        <table>
+            <keys size="4">Phase, Step, Instructions, Description</keys>
+            <column name="Compile/Link">,  3027, After all functions are compiled and linked into a single design</column>
+            <column name="">, , </column>
+            <column name="Unroll/Inline">, , After user unroll and inline pragmas are applied</column>
+            <column name="">(1) unroll, 25425, user unroll pragmas are applied</column>
+            <column name="">(2) simplification, 24159, simplification of applied user unroll pragmas</column>
+            <column name="">(3) inline, 23100, user inline pragmas are applied</column>
+            <column name="">(4) simplification, 23078, simplification of applied user inline pragmas</column>
+            <column name="">, , </column>
+            <column name="Array/Struct">, , After user array partition and struct aggregate/disaggregate pragmas are applied</column>
+            <column name="">(1) array partition, 34120, user array partition pragmas are applied</column>
+            <column name="">(2) simplification, 30392, simplification of applied user array partition &amp; struct aggregate/disaggregate pragmas</column>
+            <column name="">(3) aggregate/disaggregate , 30392, user struct aggregate/disaggregate pragmas are applied</column>
+            <column name="">(4) array reshape, 30392, apply array reshape pragmas</column>
+            <column name="">(5) access patterns, 29299, array access pattern optmizations</column>
+            <column name="">, , </column>
+            <column name="Performance">, , After transformations are applied to meet performance pragma targets</column>
+            <column name="">(1) loop simplification, 28817, loop and instruction simplification</column>
+            <column name="">(2) parallelization, 28706, loops are unrolled or pipelined to meet performance targets</column>
+            <column name="">(3) array partition, 28610, arrays are partitioned to meet performance targets</column>
+            <column name="">(4) simplification, 28610, simplification of design after performance transformations</column>
+            <column name="">, , </column>
+            <column name="HW Transforms">, , After hardware transfomations</column>
+            <column name="">(1) lowering, 35948, initial conversion to HW specific instructions</column>
+            <column name="">(2) optimizations, 49535, high level synthesis optimizations</column>
+        </table>
+    </item>
+    <item name="Instructions per Function for each Compilation Phase">
+        <hiertable>
+            <header size="7" col0="Function" col1="Location" col2="Compile/Link" col3="Unroll/Inline" col4="Array/Struct" col5="Performance" col6="HW Transforms"/>
+            <rows>
+                <row id="0" col0="llama_inference_hls_top" col1="llama_hls_top.cpp:30" col2="3027" col3="23078" col4="29299" col5="28610" col6="49535">
+                    <row id="21" col0="attention_layer_with_cache_kernel" col1="llama_hls_top.cpp:196" col2="1704" col3="22340" col4="27337" col5="27103" col6="47617">
+                        <row id="23" col0="rmsnorm_kernel" col1="llama_hls_top.cpp:401" col2="201" col3="82" col4="189" col5="188" col6="238">
+                            <row id="27" col0="kernel_rmsnorm" col1="kernel_rmsnorm.cpp:71" col2="199" col3="80" col4="187" col5="186" col6="235">
+                                <row id="29" col0="load_vec" col1="kernel_rmsnorm.cpp:8" col2="38" col2_disp="  38 (2 calls)" col3="18" col3_disp="   18 (2 calls)" col4="28" col4_disp="   28 (2 calls)" col5="28" col5_disp="   28 (2 calls)" col6="44" col6_disp="   44 (2 calls)"/>
+                                <row id="30" col0="compute_rmsnorm" col1="kernel_rmsnorm.cpp:18" col2="106" col3="45" col4="123" col5="122" col6="148"/>
+                                <row id="10" col0="store_result" col1="kernel_rmsnorm.cpp:59" col2="26" col3="9" col4="28" col5="28" col6="36"/>
+                            </row>
+                        </row>
+                        <row id="1" col0="matmul_kernel" col1="llama_hls_top.cpp:432" col2="736" col2_disp=" 736 (4 calls)" col3="396" col3_disp="  396 (4 calls)" col4="560" col4_disp="  560 (4 calls)" col5="556" col5_disp="  556 (4 calls)" col6="784" col6_disp="  784 (4 calls)">
+                            <row id="20" col0="kernel_matmul" col1="kernel_matmul.cpp:71" col2="728" col2_disp=" 728 (4 calls)" col3="388" col3_disp="  388 (4 calls)" col4="552" col4_disp="  552 (4 calls)" col5="548" col5_disp="  548 (4 calls)" col6="772" col6_disp="  772 (4 calls)">
+                                <row id="3" col0="load_vec" col1="kernel_matmul.cpp:6" col2="76" col2_disp="  76 (4 calls)" col3="52" col3_disp="   52 (4 calls)" col4="72" col4_disp="   72 (4 calls)" col5="72" col5_disp="   72 (4 calls)" col6="104" col6_disp="  104 (4 calls)"/>
+                                <row id="16" col0="load_mat" col1="kernel_matmul.cpp:16" col2="120" col2_disp=" 120 (4 calls)" col3="100" col3_disp="  100 (4 calls)" col4="80" col4_disp="   80 (4 calls)" col5="80" col5_disp="   80 (4 calls)" col6="144" col6_disp="  144 (4 calls)"/>
+                                <row id="8" col0="compute_matmul" col1="kernel_matmul.cpp:30" col2="312" col2_disp=" 312 (4 calls)" col3="152" col3_disp="  152 (4 calls)" col4="256" col4_disp="  256 (4 calls)" col5="252" col5_disp="  252 (4 calls)" col6="352" col6_disp="  352 (4 calls)"/>
+                                <row id="2" col0="store_result" col1="kernel_matmul.cpp:59" col2="104" col2_disp=" 104 (4 calls)" col3="52" col3_disp="   52 (4 calls)" col4="112" col4_disp="  112 (4 calls)" col5="112" col5_disp="  112 (4 calls)" col6="144" col6_disp="  144 (4 calls)"/>
+                            </row>
+                        </row>
+                        <row id="31" col0="rope_kernel" col1="llama_hls_top.cpp:413" col2="390" col3="15120" col4="18541" col5="18444" col6="37268">
+                            <row id="5" col0="kernel_rope" col1="kernel_rope.cpp:108" col2="378" col3="15112" col4="18533" col5="18436" col6="37255">
+                                <row id="14" col0="load_vec" col1="kernel_rope.cpp:8" col2="76" col2_disp="  76 (4 calls)" col3="52" col3_disp="   52 (4 calls)" col4="3237" col4_disp="3,237 (4 calls)" col5="3140" col5_disp="3,140 (4 calls)" col6="7944" col6_disp="7,944 (4 calls)"/>
+                                <row id="22" col0="compute_rope" col1="kernel_rope.cpp:18" col2="194" col3="10438" col4="12208" col5="12208" col6="21617"/>
+                                <row id="17" col0="store_result" col1="kernel_rope.cpp:96" col2="52" col2_disp="  52 (2 calls)" col3="4608" col3_disp="4,608 (2 calls)" col4="3074" col4_disp="3,074 (2 calls)" col5="3074" col5_disp="3,074 (2 calls)" col6="7684" col6_disp="7,684 (2 calls)"/>
+                            </row>
+                        </row>
+                        <row id="7" col0="update_kv_cache_kernel" col1="llama_hls_top.cpp:247" col2="34" col3="23" col4="43" col5="43" col6="59"/>
+                        <row id="25" col0="compute_attention_with_cache_kernel" col1="llama_hls_top.cpp:274" col2="326" col3="6702" col4="7938" col5="7806" col6="9201">
+                            <row id="13" col0="sqrtf" col1="sqrtfloat.cpp:11" col2="2" col3="" col4="" col5="" col6=""/>
+                            <row id="11" col0="softmax_kernel" col1="llama_hls_top.cpp:458" col2="178" col3="1200" col3_disp="1,200 (12 calls)" col4="2484" col4_disp="2,484 (12 calls)" col5="2388" col5_disp="2,388 (12 calls)" col6="2784" col6_disp="2,784 (12 calls)">
+                                <row id="28" col0="kernel_softmax" col1="kernel_softmax.cpp:77" col2="176" col3="1176" col3_disp="1,176 (12 calls)" col4="2460" col4_disp="2,460 (12 calls)" col5="2364" col5_disp="2,364 (12 calls)" col6="2748" col6_disp="2,748 (12 calls)">
+                                    <row id="26" col0="load_vec" col1="kernel_softmax.cpp:8" col2="19" col3="156" col3_disp="  156 (12 calls)" col4="264" col4_disp="  264 (12 calls)" col5="252" col5_disp="  252 (12 calls)" col6=""/>
+                                    <row id="18" col0="compute_softmax" col1="kernel_softmax.cpp:18" col2="102" col3="744" col3_disp="  744 (12 calls)" col4="1692" col4_disp="1,692 (12 calls)" col5="1620" col5_disp="1,620 (12 calls)" col6=""/>
+                                    <row id="12" col0="store_result" col1="kernel_softmax.cpp:65" col2="26" col3="156" col3_disp="  156 (12 calls)" col4="384" col4_disp="  384 (12 calls)" col5="372" col5_disp="  372 (12 calls)" col6=""/>
+                                </row>
+                            </row>
+                        </row>
+                    </row>
+                    <row id="24" col0="ffn_layer_kernel" col1="llama_hls_top.cpp:358" col2="915" col3="459" col4="843" col5="839" col6="1101">
+                        <row id="23" col0="rmsnorm_kernel" col1="llama_hls_top.cpp:401" col2="201" col3="82" col4="189" col5="188" col6="238">
+                            <row id="27" col0="kernel_rmsnorm" col1="kernel_rmsnorm.cpp:71" col2="199" col3="80" col4="187" col5="186" col6="235">
+                                <row id="29" col0="load_vec" col1="kernel_rmsnorm.cpp:8" col2="38" col2_disp="  38 (2 calls)" col3="18" col3_disp="   18 (2 calls)" col4="28" col4_disp="   28 (2 calls)" col5="28" col5_disp="   28 (2 calls)" col6="44" col6_disp="   44 (2 calls)"/>
+                                <row id="30" col0="compute_rmsnorm" col1="kernel_rmsnorm.cpp:18" col2="106" col3="45" col4="123" col5="122" col6="148"/>
+                                <row id="10" col0="store_result" col1="kernel_rmsnorm.cpp:59" col2="26" col3="9" col4="28" col5="28" col6="36"/>
+                            </row>
+                        </row>
+                        <row id="1" col0="matmul_kernel" col1="llama_hls_top.cpp:432" col2="552" col2_disp=" 552 (3 calls)" col3="297" col3_disp="  297 (3 calls)" col4="420" col4_disp="  420 (3 calls)" col5="417" col5_disp="  417 (3 calls)" col6="588" col6_disp="  588 (3 calls)">
+                            <row id="20" col0="kernel_matmul" col1="kernel_matmul.cpp:71" col2="546" col2_disp=" 546 (3 calls)" col3="291" col3_disp="  291 (3 calls)" col4="414" col4_disp="  414 (3 calls)" col5="411" col5_disp="  411 (3 calls)" col6="579" col6_disp="  579 (3 calls)">
+                                <row id="3" col0="load_vec" col1="kernel_matmul.cpp:6" col2="57" col2_disp="  57 (3 calls)" col3="39" col3_disp="   39 (3 calls)" col4="54" col4_disp="   54 (3 calls)" col5="54" col5_disp="   54 (3 calls)" col6="78" col6_disp="   78 (3 calls)"/>
+                                <row id="16" col0="load_mat" col1="kernel_matmul.cpp:16" col2="90" col2_disp="  90 (3 calls)" col3="75" col3_disp="   75 (3 calls)" col4="60" col4_disp="   60 (3 calls)" col5="60" col5_disp="   60 (3 calls)" col6="108" col6_disp="  108 (3 calls)"/>
+                                <row id="8" col0="compute_matmul" col1="kernel_matmul.cpp:30" col2="234" col2_disp=" 234 (3 calls)" col3="114" col3_disp="  114 (3 calls)" col4="192" col4_disp="  192 (3 calls)" col5="189" col5_disp="  189 (3 calls)" col6="264" col6_disp="  264 (3 calls)"/>
+                                <row id="2" col0="store_result" col1="kernel_matmul.cpp:59" col2="78" col2_disp="  78 (3 calls)" col3="39" col3_disp="   39 (3 calls)" col4="84" col4_disp="   84 (3 calls)" col5="84" col5_disp="   84 (3 calls)" col6="108" col6_disp="  108 (3 calls)"/>
+                            </row>
+                        </row>
+                        <row id="19" col0="silu_activation_kernel" col1="llama_hls_top.cpp:446" col2="132" col3="57" col4="143" col5="143" col6="179">
+                            <row id="4" col0="kernel_silu" col1="kernel_silu.cpp:56" col2="130" col3="55" col4="141" col5="141" col6="176">
+                                <row id="9" col0="load_vec" col1="kernel_silu.cpp:6" col2="19" col3="9" col4="18" col5="18" col6="26"/>
+                                <row id="15" col0="compute_silu" col1="kernel_silu.cpp:16" col2="65" col3="31" col4="89" col5="89" col6="108"/>
+                                <row id="6" col0="store_result" col1="kernel_silu.cpp:44" col2="26" col3="9" col4="28" col5="28" col6="36"/>
+                            </row>
+                        </row>
+                    </row>
+                    <row id="23" col0="rmsnorm_kernel" col1="llama_hls_top.cpp:401" col2="201" col3="82" col4="189" col5="188" col6="238">
+                        <row id="27" col0="kernel_rmsnorm" col1="kernel_rmsnorm.cpp:71" col2="199" col3="80" col4="187" col5="186" col6="235">
+                            <row id="29" col0="load_vec" col1="kernel_rmsnorm.cpp:8" col2="38" col2_disp="  38 (2 calls)" col3="18" col3_disp="   18 (2 calls)" col4="28" col4_disp="   28 (2 calls)" col5="28" col5_disp="   28 (2 calls)" col6="44" col6_disp="   44 (2 calls)"/>
+                            <row id="30" col0="compute_rmsnorm" col1="kernel_rmsnorm.cpp:18" col2="106" col3="45" col4="123" col5="122" col6="148"/>
+                            <row id="10" col0="store_result" col1="kernel_rmsnorm.cpp:59" col2="26" col3="9" col4="28" col5="28" col6="36"/>
+                        </row>
+                    </row>
+                </row>
+            </rows>
+            <notes/>
+        </hiertable>
+    </item>
+    <item name="Design Size Message Settings">
+        <table>
+            <keys size="3">Message Setting, Value, Description</keys>
+            <column name="config_compile -design_size_maximum_warning">100000, Show a warning when total design instructions exceeds this value</column>
+        </table>
+    </item>
+</design_size>
+

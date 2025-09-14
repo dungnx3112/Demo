@@ -1,0 +1,115 @@
+
+
+================================================================
+== Vitis HLS Report for 'matmul_kernel'
+================================================================
+* Date:           Mon Sep 15 01:28:03 2025
+
+* Version:        2025.1 (Build 6135595 on May 21 2025)
+* Project:        llama_hls
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: versalhbm
+* Target device:  xcv80-lsva4737-2MHP-e-S
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  4.00 ns|  3.274 ns|     1.08 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+--------+--------+---------+
+    |  Latency (cycles) |  Latency (absolute) |     Interval    | Pipeline|
+    |   min   |   max   |    min   |    max   |   min  |   max  |   Type  |
+    +---------+---------+----------+----------+--------+--------+---------+
+    |   590612|   590612|  2.362 ms|  2.362 ms|  590612|  590612|       no|
+    +---------+---------+----------+----------+--------+--------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 2
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.00>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%weights_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %weights" [llama_hls_top.cpp:433]   --->   Operation 3 'read' 'weights_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [2/2] (0.00ns)   --->   "%call_ln442 = call void @kernel_matmul.1, i32 %input_0, i32 %input_1, i32 %input_2, i32 %input_3, i32 %gmem3, i64 %weights_read, i32 %output_0, i32 %output_1, i32 %output_2, i32 %output_3, i32 %vector_stream, i32 %matrix_stream, i32 %result_stream, i32 %compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_3, i32 %compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_2, i32 %compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_1, i32 %compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local" [llama_hls_top.cpp:442]   --->   Operation 4 'call' 'call_ln442' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+
+State 2 <SV = 1> <Delay = 0.00>
+ST_2 : Operation 5 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %gmem3, void @empty_49, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_19, void @empty_14, void @empty_48, i32 16, i32 16, i32 16, i32 16, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 5 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 6 [1/2] (0.00ns)   --->   "%call_ln442 = call void @kernel_matmul.1, i32 %input_0, i32 %input_1, i32 %input_2, i32 %input_3, i32 %gmem3, i64 %weights_read, i32 %output_0, i32 %output_1, i32 %output_2, i32 %output_3, i32 %vector_stream, i32 %matrix_stream, i32 %result_stream, i32 %compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_3, i32 %compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_2, i32 %compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_1, i32 %compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local" [llama_hls_top.cpp:442]   --->   Operation 6 'call' 'call_ln442' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+ST_2 : Operation 7 [1/1] (0.00ns)   --->   "%ret_ln443 = ret" [llama_hls_top.cpp:443]   --->   Operation 7 'ret' 'ret_ln443' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 4.000ns, clock uncertainty: 1.080ns.
+
+ <State 1>: 0.000ns
+The critical path consists of the following:
+
+ <State 2>: 0.000ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

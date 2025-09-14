@@ -1,0 +1,23 @@
+[
+  {
+    "functionLabel": "",
+    "functionName": "llama_inference_hls_top",
+    "id": 0,
+    "ifcond": "",
+    "insert_position": "",
+    "label": "",
+    "pragma": {
+      "name": "TOP",
+      "option": [
+        {
+          "name": "name",
+          "value": "llama_inference_hls_top"
+        }
+      ]
+    },
+    "slx": false,
+    "sourceFile": "C:/Academic_Sem5/DA1/Demo/llama_synthesis.tcl",
+    "sourceLine": 25,
+    "success": true
+  }
+]

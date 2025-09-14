@@ -1,0 +1,5 @@
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\kernel_matmul.pp.0.cpp:536:2: warning: Added loop label VITIS_LOOP_22_1:   [xilinx-label-all-loops]
+ for (int j = 0; j < vec_size; j++) {
+ ^~~
+ VITIS_LOOP_22_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\kernel_matmul.pp.0.cpp:536:2: note: FIX-IT applied suggested code changes

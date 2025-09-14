@@ -1,0 +1,738 @@
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:2260:5: warning: Added loop label VITIS_LOOP_676_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high+1; ++i) {
+    ^~~
+    VITIS_LOOP_676_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:2260:5: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:2274:5: warning: Added loop label VITIS_LOOP_690_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high+1; ++i) {
+    ^~~
+    VITIS_LOOP_690_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:2274:5: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:2288:5: warning: Added loop label VITIS_LOOP_704_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high+1; ++i) {
+    ^~~
+    VITIS_LOOP_704_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:2288:5: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:4256:7: warning: Added loop label VITIS_LOOP_1248_1:   [xilinx-label-all-loops]
+      for (i = 0; i < __N - 1; ++i) {
+      ^~~
+      VITIS_LOOP_1248_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:4256:7: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13308:72: error: Invalid Directive: for current device, ROM_1P + LUTRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=fourth_order_double::sin_cos_K0 type=ROM_1P impl=LUTRAM
+                                                                       ^
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13309:72: error: Invalid Directive: for current device, ROM_1P + LUTRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=fourth_order_double::sin_cos_K1 type=ROM_1P impl=LUTRAM
+                                                                       ^
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13310:72: error: Invalid Directive: for current device, ROM_1P + LUTRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=fourth_order_double::sin_cos_K2 type=ROM_1P impl=LUTRAM
+                                                                       ^
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13311:72: error: Invalid Directive: for current device, ROM_1P + LUTRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=fourth_order_double::sin_cos_K3 type=ROM_1P impl=LUTRAM
+                                                                       ^
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13312:72: error: Invalid Directive: for current device, ROM_1P + LUTRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=fourth_order_double::sin_cos_K4 type=ROM_1P impl=LUTRAM
+                                                                       ^
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13342:68: error: Invalid Directive: for current device, ROM_1P + LUTRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=fourth_order_double::cos_K0 type=ROM_1P impl=LUTRAM
+                                                                   ^
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13343:68: error: Invalid Directive: for current device, ROM_1P + LUTRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=fourth_order_double::cos_K1 type=ROM_1P impl=LUTRAM
+                                                                   ^
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13344:68: error: Invalid Directive: for current device, ROM_1P + LUTRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=fourth_order_double::cos_K2 type=ROM_1P impl=LUTRAM
+                                                                   ^
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13345:68: error: Invalid Directive: for current device, ROM_1P + LUTRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=fourth_order_double::cos_K3 type=ROM_1P impl=LUTRAM
+                                                                   ^
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13346:68: error: Invalid Directive: for current device, ROM_1P + LUTRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=fourth_order_double::cos_K4 type=ROM_1P impl=LUTRAM
+                                                                   ^
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13347:68: error: Invalid Directive: for current device, ROM_1P + LUTRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=fourth_order_double::sin_K0 type=ROM_1P impl=LUTRAM
+                                                                   ^
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13348:68: error: Invalid Directive: for current device, ROM_1P + LUTRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=fourth_order_double::sin_K1 type=ROM_1P impl=LUTRAM
+                                                                   ^
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13349:68: error: Invalid Directive: for current device, ROM_1P + LUTRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=fourth_order_double::sin_K2 type=ROM_1P impl=LUTRAM
+                                                                   ^
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13350:68: error: Invalid Directive: for current device, ROM_1P + LUTRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=fourth_order_double::sin_K3 type=ROM_1P impl=LUTRAM
+                                                                   ^
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13351:68: error: Invalid Directive: for current device, ROM_1P + LUTRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=fourth_order_double::sin_K4 type=ROM_1P impl=LUTRAM
+                                                                   ^
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13401:71: error: Invalid Directive: for current device, ROM_1P + LUTRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=second_order_float::sin_cos_K0 type=ROM_1P impl=LUTRAM
+                                                                      ^
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13402:71: error: Invalid Directive: for current device, ROM_1P + LUTRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=second_order_float::sin_cos_K1 type=ROM_1P impl=LUTRAM
+                                                                      ^
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13403:71: error: Invalid Directive: for current device, ROM_1P + LUTRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=second_order_float::sin_cos_K2 type=ROM_1P impl=LUTRAM
+                                                                      ^
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13430:67: error: Invalid Directive: for current device, ROM_1P + LUTRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=second_order_float::cos_K0 type=ROM_1P impl=LUTRAM
+                                                                  ^
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13431:67: error: Invalid Directive: for current device, ROM_1P + LUTRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=second_order_float::cos_K1 type=ROM_1P impl=LUTRAM
+                                                                  ^
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13432:67: error: Invalid Directive: for current device, ROM_1P + LUTRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=second_order_float::cos_K2 type=ROM_1P impl=LUTRAM
+                                                                  ^
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13433:67: error: Invalid Directive: for current device, ROM_1P + LUTRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=second_order_float::sin_K0 type=ROM_1P impl=LUTRAM
+                                                                  ^
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13434:67: error: Invalid Directive: for current device, ROM_1P + LUTRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=second_order_float::sin_K1 type=ROM_1P impl=LUTRAM
+                                                                  ^
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13435:67: error: Invalid Directive: for current device, ROM_1P + LUTRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=second_order_float::sin_K2 type=ROM_1P impl=LUTRAM
+                                                                  ^
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13471:73: error: Invalid Directive: for current device, ROM_1P + LUTRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=first_order_fixed_16::sin_cos_K0 type=ROM_1P impl=LUTRAM
+                                                                        ^
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13472:73: error: Invalid Directive: for current device, ROM_1P + LUTRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=first_order_fixed_16::sin_cos_K1 type=ROM_1P impl=LUTRAM
+                                                                        ^
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13746:5: warning: Added loop label VITIS_LOOP_61_1:   [xilinx-label-all-loops]
+    for (int n=0; n<Nmax; n++){
+    ^~~
+    VITIS_LOOP_61_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13746:5: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13792:5: warning: Added loop label VITIS_LOOP_117_1:   [xilinx-label-all-loops]
+    for (int n=0; n<Nmax; n++){
+    ^~~
+    VITIS_LOOP_117_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13792:5: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13955:9: warning: Added loop label VITIS_LOOP_289_1:   [xilinx-label-all-loops]
+        for(int i=0;i<W-1;i++){
+        ^~~
+        VITIS_LOOP_289_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:13955:9: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:14107:9: warning: Added loop label VITIS_LOOP_449_1:   [xilinx-label-all-loops]
+        for(int i=0;i<W-1;i++){
+        ^~~
+        VITIS_LOOP_449_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:14107:9: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:14287:5: warning: Added loop label VITIS_LOOP_629_1:   [xilinx-label-all-loops]
+    for(int i=0;i<W+1;i++){
+    ^~~
+    VITIS_LOOP_629_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:14287:5: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:14291:5: warning: Added loop label VITIS_LOOP_633_2:   [xilinx-label-all-loops]
+    for(int i=0;i<W+1;i++){
+    ^~~
+    VITIS_LOOP_633_2: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:14291:5: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:14401:5: warning: Added loop label VITIS_LOOP_743_1:   [xilinx-label-all-loops]
+    for (int n=0; n<Nmax; n++){
+    ^~~
+    VITIS_LOOP_743_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:14401:5: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:14491:7: warning: Added loop label VITIS_LOOP_840_1:   [xilinx-label-all-loops]
+      for(int i=0;i<W-1;i++){
+      ^~~
+      VITIS_LOOP_840_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:14491:7: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:14510:7: warning: Added loop label VITIS_LOOP_859_2:   [xilinx-label-all-loops]
+      for(int i=0;i<W-1;i++){
+      ^~~
+      VITIS_LOOP_859_2: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:14510:7: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:14800:5: warning: Added loop label VITIS_LOOP_1173_1:   [xilinx-label-all-loops]
+    for(int i=0; i<Nmax; i++) {
+    ^~~
+    VITIS_LOOP_1173_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:14800:5: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:14883:5: warning: Added loop label VITIS_LOOP_1256_1:   [xilinx-label-all-loops]
+    for(int i=0; i<Nmax; i++) {
+    ^~~
+    VITIS_LOOP_1256_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:14883:5: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15289:13: warning: Added loop label VITIS_LOOP_68_1:   [xilinx-label-all-loops]
+            for (int j = 3; j >= I_+1; j--) {
+            ^~~
+            VITIS_LOOP_68_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15289:13: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15295:17: warning: Added loop label VITIS_LOOP_74_2:   [xilinx-label-all-loops]
+                for (int j = 3; j >= I_+1; j--){
+                ^~~
+                VITIS_LOOP_74_2: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15295:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15299:17: warning: Added loop label VITIS_LOOP_78_3:   [xilinx-label-all-loops]
+                for (int j = I_; j >= 0; j--){
+                ^~~
+                VITIS_LOOP_78_3: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15299:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15346:13: warning: Added loop label VITIS_LOOP_145_4:   [xilinx-label-all-loops]
+            for (int j = 9; j >= I_+4; j--) {
+            ^~~
+            VITIS_LOOP_145_4: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15346:13: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15352:17: warning: Added loop label VITIS_LOOP_151_5:   [xilinx-label-all-loops]
+                for (int j = 9; j >= I_+4; j--){
+                ^~~
+                VITIS_LOOP_151_5: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15352:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15356:17: warning: Added loop label VITIS_LOOP_155_6:   [xilinx-label-all-loops]
+                for (int j = I_+3; j >= 0; j--){
+                ^~~
+                VITIS_LOOP_155_6: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15356:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15371:9: warning: Added loop label VITIS_LOOP_170_7:   [xilinx-label-all-loops]
+        for (int j = 14; j < 22; j++){
+        ^~~
+        VITIS_LOOP_170_7: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15371:9: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15379:17: warning: Added loop label VITIS_LOOP_178_8:   [xilinx-label-all-loops]
+                for (int j = 0; j < 22; j++){
+                ^~~
+                VITIS_LOOP_178_8: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15379:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15444:13: warning: Added loop label VITIS_LOOP_243_9:   [xilinx-label-all-loops]
+            for (int j = 21; j >= I_+10; j--) {
+            ^~~
+            VITIS_LOOP_243_9: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15444:13: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15450:17: warning: Added loop label VITIS_LOOP_249_10:   [xilinx-label-all-loops]
+                for (int j = 21; j >= I_+10; j--) {
+                ^~~
+                VITIS_LOOP_249_10: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15450:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15454:17: warning: Added loop label VITIS_LOOP_253_11:   [xilinx-label-all-loops]
+                for (int j = I_+9; j >= 0; j--) {
+                ^~~
+                VITIS_LOOP_253_11: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15454:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15469:9: warning: Added loop label VITIS_LOOP_268_12:   [xilinx-label-all-loops]
+        for (int j = 27; j < 46; j++){
+        ^~~
+        VITIS_LOOP_268_12: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15469:9: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15477:17: warning: Added loop label VITIS_LOOP_276_13:   [xilinx-label-all-loops]
+                for (int j = 0; j < 46; j++) {
+                ^~~
+                VITIS_LOOP_276_13: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15477:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15706:13: warning: Added loop label VITIS_LOOP_505_14:   [xilinx-label-all-loops]
+            for (int j = 45; j >= I_+22; j--) {
+            ^~~
+            VITIS_LOOP_505_14: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15706:13: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15712:17: warning: Added loop label VITIS_LOOP_511_15:   [xilinx-label-all-loops]
+                for (int j = 45; j >= I_+22; j--){
+                ^~~
+                VITIS_LOOP_511_15: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15712:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15716:17: warning: Added loop label VITIS_LOOP_515_16:   [xilinx-label-all-loops]
+                for (int j = I_+21; j >= 0; j--) {
+                ^~~
+                VITIS_LOOP_515_16: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15716:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15726:9: warning: Added loop label VITIS_LOOP_525_17:   [xilinx-label-all-loops]
+        for (int j = 32-F_; j < 32+I_; j++){
+        ^~~
+        VITIS_LOOP_525_17: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15726:9: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15730:9: warning: Added loop label VITIS_LOOP_529_18:   [xilinx-label-all-loops]
+        for (int j = 32+I_; j <= 64; j++){
+        ^~~
+        VITIS_LOOP_529_18: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15730:9: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15740:9: warning: Added loop label VITIS_LOOP_539_19:   [xilinx-label-all-loops]
+        for (int j = 37; j < 64; j++) {
+        ^~~
+        VITIS_LOOP_539_19: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15740:9: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15748:17: warning: Added loop label VITIS_LOOP_547_20:   [xilinx-label-all-loops]
+                for (int j = 0; j < 64; j++){
+                ^~~
+                VITIS_LOOP_547_20: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:15748:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16109:13: warning: Added loop label VITIS_LOOP_908_21:   [xilinx-label-all-loops]
+            for (int j = 63; j >= I_+31; j--) {
+            ^~~
+            VITIS_LOOP_908_21: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16109:13: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16115:17: warning: Added loop label VITIS_LOOP_914_22:   [xilinx-label-all-loops]
+                for (int j = 63; j >= I_+31; j--) {
+                ^~~
+                VITIS_LOOP_914_22: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16115:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16119:17: warning: Added loop label VITIS_LOOP_918_23:   [xilinx-label-all-loops]
+                for (int j = I_+30; j >= 0; j--) {
+                ^~~
+                VITIS_LOOP_918_23: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16119:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16235:13: warning: Added loop label VITIS_LOOP_1034_1:   [xilinx-label-all-loops]
+            for (int j = 4; j >= I_+1; j--) {
+            ^~~
+            VITIS_LOOP_1034_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16235:13: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16241:17: warning: Added loop label VITIS_LOOP_1040_2:   [xilinx-label-all-loops]
+                for (int j = 4; j >= I_+1; j--) {
+                ^~~
+                VITIS_LOOP_1040_2: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16241:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16245:17: warning: Added loop label VITIS_LOOP_1044_3:   [xilinx-label-all-loops]
+                for (int j = I_; j >= 0; j--) {
+                ^~~
+                VITIS_LOOP_1044_3: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16245:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16332:13: warning: Added loop label VITIS_LOOP_1131_4:   [xilinx-label-all-loops]
+            for (int j = 10; j >= I_+4; j--) {
+            ^~~
+            VITIS_LOOP_1131_4: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16332:13: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16338:17: warning: Added loop label VITIS_LOOP_1137_5:   [xilinx-label-all-loops]
+                for (int j = 10; j >= I_+4; j--) {
+                ^~~
+                VITIS_LOOP_1137_5: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16338:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16342:17: warning: Added loop label VITIS_LOOP_1141_6:   [xilinx-label-all-loops]
+                for (int j = I_+3; j >= 0; j--) {
+                ^~~
+                VITIS_LOOP_1141_6: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16342:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16361:9: warning: Added loop label VITIS_LOOP_1160_7:   [xilinx-label-all-loops]
+        for (int j = wf+3; j < w-1; j++) {
+        ^~~
+        VITIS_LOOP_1160_7: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16361:9: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16368:17: warning: Added loop label VITIS_LOOP_1167_8:   [xilinx-label-all-loops]
+                for (int j = 0; j < 22; j++) {
+                ^~~
+                VITIS_LOOP_1167_8: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16368:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16484:13: warning: Added loop label VITIS_LOOP_1283_9:   [xilinx-label-all-loops]
+            for (int j = 22; j >= I_+10; j--) {
+            ^~~
+            VITIS_LOOP_1283_9: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16484:13: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16490:17: warning: Added loop label VITIS_LOOP_1289_10:   [xilinx-label-all-loops]
+                for (int j = 22; j >= I_+10; j--){
+                ^~~
+                VITIS_LOOP_1289_10: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16490:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16494:17: warning: Added loop label VITIS_LOOP_1293_11:   [xilinx-label-all-loops]
+                for (int j = I_+9; j >= 0; j--) {
+                ^~~
+                VITIS_LOOP_1293_11: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16494:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16514:9: warning: Added loop label VITIS_LOOP_1313_12:   [xilinx-label-all-loops]
+        for (int j = wf+4; j < w-1; j++){
+        ^~~
+        VITIS_LOOP_1313_12: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16514:9: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16521:17: warning: Added loop label VITIS_LOOP_1320_13:   [xilinx-label-all-loops]
+                for (int j = 0; j < 46; j++) {
+                ^~~
+                VITIS_LOOP_1320_13: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16521:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16783:13: warning: Added loop label VITIS_LOOP_1582_14:   [xilinx-label-all-loops]
+            for (int j = 46; j >= I_+22; j--) {
+            ^~~
+            VITIS_LOOP_1582_14: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16783:13: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16789:17: warning: Added loop label VITIS_LOOP_1588_15:   [xilinx-label-all-loops]
+                for (int j = 46; j >= I_+22; j--) {
+                ^~~
+                VITIS_LOOP_1588_15: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16789:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16793:17: warning: Added loop label VITIS_LOOP_1592_16:   [xilinx-label-all-loops]
+                for (int j = I_+21; j >= 0; j--) {
+                ^~~
+                VITIS_LOOP_1592_16: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16793:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16817:9: warning: Added loop label VITIS_LOOP_1616_17:   [xilinx-label-all-loops]
+        for (int j = wf+5; j < w-1; j++){
+        ^~~
+        VITIS_LOOP_1616_17: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16817:9: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16824:17: warning: Added loop label VITIS_LOOP_1623_18:   [xilinx-label-all-loops]
+                for (int j = 0; j < 64; j++) {
+                ^~~
+                VITIS_LOOP_1623_18: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:16824:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17254:13: warning: Added loop label VITIS_LOOP_2053_19:   [xilinx-label-all-loops]
+            for (int j = 64; j >= I_+31; j--) {
+            ^~~
+            VITIS_LOOP_2053_19: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17254:13: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17260:17: warning: Added loop label VITIS_LOOP_2059_20:   [xilinx-label-all-loops]
+                for (int j = 64; j >= I_+31; j--) {
+                ^~~
+                VITIS_LOOP_2059_20: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17260:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17264:17: warning: Added loop label VITIS_LOOP_2063_21:   [xilinx-label-all-loops]
+                for (int j = I_+30; j >= 0; j--) {
+                ^~~
+                VITIS_LOOP_2063_21: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17264:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17393:13: warning: Added loop label VITIS_LOOP_2192_1:   [xilinx-label-all-loops]
+            for(int j=3; j>=I+1; j--) {
+            ^~~
+            VITIS_LOOP_2192_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17393:13: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17400:17: warning: Added loop label VITIS_LOOP_2199_2:   [xilinx-label-all-loops]
+                for(int j=3; j>=I+1; j--) {
+                ^~~
+                VITIS_LOOP_2199_2: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17400:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17404:17: warning: Added loop label VITIS_LOOP_2203_3:   [xilinx-label-all-loops]
+                for(int j=I; j>=0; j--) {
+                ^~~
+                VITIS_LOOP_2203_3: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17404:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17451:13: warning: Added loop label VITIS_LOOP_2250_4:   [xilinx-label-all-loops]
+            for(int j=7; j>=3+I; j--) {
+            ^~~
+            VITIS_LOOP_2250_4: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17451:13: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17458:17: warning: Added loop label VITIS_LOOP_2257_5:   [xilinx-label-all-loops]
+                for(int j=7; j>=3+I; j--) {
+                ^~~
+                VITIS_LOOP_2257_5: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17458:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17462:17: warning: Added loop label VITIS_LOOP_2261_6:   [xilinx-label-all-loops]
+                for(int j=I+2; j>=0; j--) {
+                ^~~
+                VITIS_LOOP_2261_6: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17462:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17480:9: warning: Added loop label VITIS_LOOP_2279_7:   [xilinx-label-all-loops]
+        for(int j=11; j<16; j++) {
+        ^~~
+        VITIS_LOOP_2279_7: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17480:9: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17535:13: warning: Added loop label VITIS_LOOP_2334_8:   [xilinx-label-all-loops]
+            for(int j=15; j>=7+I; j--) {
+            ^~~
+            VITIS_LOOP_2334_8: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17535:13: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17542:17: warning: Added loop label VITIS_LOOP_2341_9:   [xilinx-label-all-loops]
+                for(int j=15; j>=7+I; j--) {
+                ^~~
+                VITIS_LOOP_2341_9: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17542:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17546:17: warning: Added loop label VITIS_LOOP_2345_10:   [xilinx-label-all-loops]
+                for(int j=6+I; j>=0; j--) {
+                ^~~
+                VITIS_LOOP_2345_10: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17546:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17564:9: warning: Added loop label VITIS_LOOP_2363_11:   [xilinx-label-all-loops]
+        for(int j=20; j<32; j++) {
+        ^~~
+        VITIS_LOOP_2363_11: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17564:9: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17653:13: warning: Added loop label VITIS_LOOP_2452_12:   [xilinx-label-all-loops]
+            for(int j=31; j>=I+15; j--) {
+            ^~~
+            VITIS_LOOP_2452_12: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17653:13: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17660:17: warning: Added loop label VITIS_LOOP_2459_13:   [xilinx-label-all-loops]
+                for(int j=31; j>=I+15; j--) {
+                ^~~
+                VITIS_LOOP_2459_13: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17660:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17664:17: warning: Added loop label VITIS_LOOP_2463_14:   [xilinx-label-all-loops]
+                for(int j=I+14; j>=0; j--) {
+                ^~~
+                VITIS_LOOP_2463_14: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17664:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17674:9: warning: Added loop label VITIS_LOOP_2473_15:   [xilinx-label-all-loops]
+        for(int j=32-F; j<32+I; j++) {
+        ^~~
+        VITIS_LOOP_2473_15: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17674:9: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17678:9: warning: Added loop label VITIS_LOOP_2477_16:   [xilinx-label-all-loops]
+        for(int j=32+I; j<=64; j++) {
+        ^~~
+        VITIS_LOOP_2477_16: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17678:9: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17689:9: warning: Added loop label VITIS_LOOP_2488_17:   [xilinx-label-all-loops]
+        for(int j=37; j<64; j++) {
+        ^~~
+        VITIS_LOOP_2488_17: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17689:9: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17697:17: warning: Added loop label VITIS_LOOP_2496_18:   [xilinx-label-all-loops]
+                for(int j=0; j<64; j++) {
+                ^~~
+                VITIS_LOOP_2496_18: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:17697:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18022:13: warning: Added loop label VITIS_LOOP_2821_19:   [xilinx-label-all-loops]
+            for(int j=63; j>=I+31; j--) {
+            ^~~
+            VITIS_LOOP_2821_19: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18022:13: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18029:17: warning: Added loop label VITIS_LOOP_2828_20:   [xilinx-label-all-loops]
+                for(int j=63; j>=I+31; j--) {
+                ^~~
+                VITIS_LOOP_2828_20: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18029:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18033:17: warning: Added loop label VITIS_LOOP_2832_21:   [xilinx-label-all-loops]
+                for(int j=I+30; j>=0; j--) {
+                ^~~
+                VITIS_LOOP_2832_21: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18033:17: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18121:4: warning: Added loop label VITIS_LOOP_2920_1:   [xilinx-label-all-loops]
+   for(int j = 5; j>=I_+2; j--) {
+   ^~~
+   VITIS_LOOP_2920_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18121:4: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18128:5: warning: Added loop label VITIS_LOOP_2927_2:   [xilinx-label-all-loops]
+    for(int j = 5; j>=I_+2; j--) {
+    ^~~
+    VITIS_LOOP_2927_2: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18128:5: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18132:5: warning: Added loop label VITIS_LOOP_2931_3:   [xilinx-label-all-loops]
+    for(int j = I_+1; j>=0; j--) {
+    ^~~
+    VITIS_LOOP_2931_3: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18132:5: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18147:3: warning: Added loop label VITIS_LOOP_2946_4:   [xilinx-label-all-loops]
+  for(int j = 11; j >=7; j--) {
+  ^~~
+  VITIS_LOOP_2946_4: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18147:3: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18179:4: warning: Added loop label VITIS_LOOP_2978_5:   [xilinx-label-all-loops]
+   for(int j = 11; j >= I_+5; j--) {
+   ^~~
+   VITIS_LOOP_2978_5: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18179:4: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18186:5: warning: Added loop label VITIS_LOOP_2985_6:   [xilinx-label-all-loops]
+    for(int j = 11; j>= I_+5; j--) {
+    ^~~
+    VITIS_LOOP_2985_6: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18186:5: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18190:5: warning: Added loop label VITIS_LOOP_2989_7:   [xilinx-label-all-loops]
+    for(int j = I_+4; j>=0; j--) {
+    ^~~
+    VITIS_LOOP_2989_7: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18190:5: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18205:3: warning: Added loop label VITIS_LOOP_3004_8:   [xilinx-label-all-loops]
+  for(int j = 25; j>=15; j--) {
+  ^~~
+  VITIS_LOOP_3004_8: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18205:3: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18255:4: warning: Added loop label VITIS_LOOP_3054_9:   [xilinx-label-all-loops]
+   for(int j = 25; j>= I_+12; j--) {
+   ^~~
+   VITIS_LOOP_3054_9: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18255:4: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18262:5: warning: Added loop label VITIS_LOOP_3061_10:   [xilinx-label-all-loops]
+    for(int j = 25; j>=I_+12; j--) {
+    ^~~
+    VITIS_LOOP_3061_10: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18262:5: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18266:5: warning: Added loop label VITIS_LOOP_3065_11:   [xilinx-label-all-loops]
+    for(int j = I_+11; j>=0; j--) {
+    ^~~
+    VITIS_LOOP_3065_11: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18266:5: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18281:3: warning: Added loop label VITIS_LOOP_3080_12:   [xilinx-label-all-loops]
+  for(int j = 51; j >= 29; j--) {
+  ^~~
+  VITIS_LOOP_3080_12: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18281:3: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18418:4: warning: Added loop label VITIS_LOOP_3217_13:   [xilinx-label-all-loops]
+   for(int j = 51; j >= 25 + I_; j--) {
+   ^~~
+   VITIS_LOOP_3217_13: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18418:4: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18425:5: warning: Added loop label VITIS_LOOP_3224_14:   [xilinx-label-all-loops]
+    for(int j = 51; j>=25 + I_; j--) {
+    ^~~
+    VITIS_LOOP_3224_14: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18425:5: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18429:5: warning: Added loop label VITIS_LOOP_3228_15:   [xilinx-label-all-loops]
+    for(int j = 24 + I_; j >= 0; j--) {
+    ^~~
+    VITIS_LOOP_3228_15: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18429:5: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18444:3: warning: Added loop label VITIS_LOOP_3243_16:   [xilinx-label-all-loops]
+  for(int j = 63; j >= 36; j--) {
+  ^~~
+  VITIS_LOOP_3243_16: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18444:3: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18604:4: warning: Added loop label VITIS_LOOP_3403_17:   [xilinx-label-all-loops]
+   for(int j = 63; j >= 31 + I_; j--) {
+   ^~~
+   VITIS_LOOP_3403_17: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18604:4: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18611:5: warning: Added loop label VITIS_LOOP_3410_18:   [xilinx-label-all-loops]
+    for(int j = 63; j >= 31 + I_; j--) {
+    ^~~
+    VITIS_LOOP_3410_18: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18611:5: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18615:5: warning: Added loop label VITIS_LOOP_3414_19:   [xilinx-label-all-loops]
+    for(int j = 30 + I_; j >= 0; j--) {
+    ^~~
+    VITIS_LOOP_3414_19: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:18615:5: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:19330:13: warning: Added loop label VITIS_LOOP_703_1:   [xilinx-label-all-loops]
+            for (b_exp = I_-1; b_exp >= -F_; b_exp--) {
+            ^~~
+            VITIS_LOOP_703_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:19330:13: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:19548:13: warning: Added loop label VITIS_LOOP_921_1:   [xilinx-label-all-loops]
+            for (b_exp = I_-1; b_exp >= -F_; b_exp--) {
+            ^~~
+            VITIS_LOOP_921_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:19548:13: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:19965:13: warning: Added loop label VITIS_LOOP_1345_1:   [xilinx-label-all-loops]
+            for (b_exp = I_-1; b_exp >= -F_; b_exp--) {
+            ^~~
+            VITIS_LOOP_1345_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:19965:13: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:20288:9: warning: Added loop label VITIS_LOOP_243_1:   [xilinx-label-all-loops]
+        for ( int pos = msbr-1; pos >= 0; pos-- ) {
+        ^~~
+        VITIS_LOOP_243_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:20288:9: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:20316:9: warning: Added loop label VITIS_LOOP_271_2:   [xilinx-label-all-loops]
+        for ( int pos = -1; pos >= -F_-1; pos-- ) {
+        ^~~
+        VITIS_LOOP_271_2: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:20316:9: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:21020:13: warning: Added loop label VITIS_LOOP_48_1:   [xilinx-label-all-loops]
+            for (int j = 0; j < W_-1; j++){
+            ^~~
+            VITIS_LOOP_48_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:21020:13: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:21073:5: warning: Added loop label VITIS_LOOP_109_2:   [xilinx-label-all-loops]
+    for (int j = F_l+F_+I_m-1; j < F_l+W_+5; j++){
+    ^~~
+    VITIS_LOOP_109_2: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:21073:5: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:21087:13: warning: Added loop label VITIS_LOOP_123_3:   [xilinx-label-all-loops]
+            for (int j = WO_m-1; j >= W_-1; j--) {
+            ^~~
+            VITIS_LOOP_123_3: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:21087:13: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:21117:13: warning: Added loop label VITIS_LOOP_153_4:   [xilinx-label-all-loops]
+            for (int j = W_-2; j >= 0; j--){
+            ^~~
+            VITIS_LOOP_153_4: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:21117:13: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:21202:12: warning: Added loop label VITIS_LOOP_281_1:   [xilinx-label-all-loops]
+           for(int i = wf_log+we_log-2; i > WI_e - 2; --i) {
+           ^~~
+           VITIS_LOOP_281_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:21202:12: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:21222:16: warning: Added loop label VITIS_LOOP_301_2:   [xilinx-label-all-loops]
+               for (int j = WO_e-1; j >= W_-1; j--) {
+               ^~~
+               VITIS_LOOP_301_2: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:21222:16: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:21236:20: warning: Added loop label VITIS_LOOP_315_3:   [xilinx-label-all-loops]
+                   for(int i = 0; i < W_-1; ++i) {
+                   ^~~
+                   VITIS_LOOP_315_3: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:21236:20: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:21329:12: warning: Added loop label VITIS_LOOP_433_1:   [xilinx-label-all-loops]
+           for (int j =WO_d-1; j >= W_-1; j--) {
+           ^~~
+           VITIS_LOOP_433_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:21329:12: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:21343:15: warning: Added loop label VITIS_LOOP_447_2:   [xilinx-label-all-loops]
+              for(int i = 0; i < W_-1; ++i) {
+              ^~~
+              VITIS_LOOP_447_2: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:21343:15: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:21463:13: warning: Added loop label VITIS_LOOP_33_1:   [xilinx-label-all-loops]
+            for (int i = 0; i < W_-1; i++){
+            ^~~
+            VITIS_LOOP_33_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:21463:13: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:21587:13: warning: Added loop label VITIS_LOOP_183_1:   [xilinx-label-all-loops]
+            for (int i = 0; i < W_-1; i++){
+            ^~~
+            VITIS_LOOP_183_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:21587:13: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:21642:13: warning: Added loop label VITIS_LOOP_248_1:   [xilinx-label-all-loops]
+            for (int i = 0; i < W_-1; i++){
+            ^~~
+            VITIS_LOOP_248_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:21642:13: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:21909:5: warning: Added loop label VITIS_LOOP_44_1:   [xilinx-label-all-loops]
+    for(int l = loop_nm; l > 0; --l){
+    ^~~
+    VITIS_LOOP_44_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:21909:5: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:22160:2: warning: Added loop label VITIS_LOOP_16_1:   [xilinx-label-all-loops]
+ for (int i=0; i<W_;i++)
+ ^~~
+ VITIS_LOOP_16_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:22160:2: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:22171:2: warning: Added loop label VITIS_LOOP_27_1:   [xilinx-label-all-loops]
+ for (int i=0; i<W_;i++)
+ ^~~
+ VITIS_LOOP_27_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:22171:2: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:22182:2: warning: Added loop label VITIS_LOOP_38_1:   [xilinx-label-all-loops]
+ for (int i=0; i<I_;i++)
+ ^~~
+ VITIS_LOOP_38_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:22182:2: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:22193:2: warning: Added loop label VITIS_LOOP_49_1:   [xilinx-label-all-loops]
+ for (int i=0; i<I_;i++)
+ ^~~
+ VITIS_LOOP_49_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:22193:2: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:22204:2: warning: Added loop label VITIS_LOOP_60_1:   [xilinx-label-all-loops]
+ for (int i=0; i<W_;i++)
+ ^~~
+ VITIS_LOOP_60_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:22204:2: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:22215:2: warning: Added loop label VITIS_LOOP_71_1:   [xilinx-label-all-loops]
+ for (int i=0; i<W_;i++)
+ ^~~
+ VITIS_LOOP_71_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:22215:2: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:22226:2: warning: Added loop label VITIS_LOOP_82_1:   [xilinx-label-all-loops]
+ for (int i=0; i<I_;i++)
+ ^~~
+ VITIS_LOOP_82_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:22226:2: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:22237:2: warning: Added loop label VITIS_LOOP_93_1:   [xilinx-label-all-loops]
+ for (int i=0; i<I_;i++)
+ ^~~
+ VITIS_LOOP_93_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:22237:2: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:24596:12: warning: Added loop label VITIS_LOOP_26_1:   [xilinx-label-all-loops]
+           for(int i = 0; i < W_-1; ++i) {
+           ^~~
+           VITIS_LOOP_26_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:24596:12: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:24660:7: warning: Added loop label VITIS_LOOP_40_1:   [xilinx-label-all-loops]
+      for(int pos = msbr - 1 ; pos >= -F-1; pos--) {
+      ^~~
+      VITIS_LOOP_40_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:24660:7: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:24777:9: warning: Added loop label VITIS_LOOP_49_1:   [xilinx-label-all-loops]
+        for(int pos = msbr - 1; pos >= 0; pos--) {
+        ^~~
+        VITIS_LOOP_49_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:24777:9: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:24802:5: warning: Added loop label VITIS_LOOP_81_2:   [xilinx-label-all-loops]
+    for(int pos = -1; pos >= -F-1; pos--) {
+    ^~~
+    VITIS_LOOP_81_2: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:24802:5: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:24872:8: warning: Added loop label VITIS_LOOP_169_3:   [xilinx-label-all-loops]
+       for(int i = 0; i < W - 1; ++i) {
+       ^~~
+       VITIS_LOOP_169_3: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:24872:8: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:27604:9: warning: Added loop label VITIS_LOOP_298_1:   [xilinx-label-all-loops]
+        for (int i = 0; i < kHeadDim; i++) {
+        ^~~
+        VITIS_LOOP_298_1: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:27604:9: note: FIX-IT applied suggested code changes
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:27656:9: warning: Added loop label VITIS_LOOP_350_2:   [xilinx-label-all-loops]
+        for (int i = 0; i < kHeadDim; i++) {
+        ^~~
+        VITIS_LOOP_350_2: 
+C:\Academic_Sem5\DA1\Demo\llama_hls\solution1\.autopilot\db\llama_hls_top.pp.0.cpp:27656:9: note: FIX-IT applied suggested code changes

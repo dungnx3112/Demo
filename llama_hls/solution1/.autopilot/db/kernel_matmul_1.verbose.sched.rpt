@@ -1,0 +1,163 @@
+
+
+================================================================
+== Vitis HLS Report for 'kernel_matmul_1'
+================================================================
+* Date:           Mon Sep 15 01:28:03 2025
+
+* Version:        2025.1 (Build 6135595 on May 21 2025)
+* Project:        llama_hls
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: versalhbm
+* Target device:  xcv80-lsva4737-2MHP-e-S
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  4.00 ns|  3.274 ns|     1.08 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+--------+--------+----------+
+    |  Latency (cycles) |  Latency (absolute) |     Interval    | Pipeline |
+    |   min   |   max   |    min   |    max   |   min  |   max  |   Type   |
+    +---------+---------+----------+----------+--------+--------+----------+
+    |   590611|   590611|  2.362 ms|  2.362 ms|  590602|  590602|  dataflow|
+    +---------+---------+----------+----------+--------+--------+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 6
+* Pipeline : 0
+* Dataflow Pipeline: 1
+  DF-Pipeline-0: Size = 6, States = { 1 2 3 4 5 6 }
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%i_mat_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %i_mat" [kernel_matmul.cpp:71]   --->   Operation 7 'read' 'i_mat_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [2/2] (0.00ns)   --->   "%call_ln90 = call void @load_vec.41, i32 %i_vec_0, i32 %i_vec_1, i32 %i_vec_2, i32 %i_vec_3, i32 %vector_stream" [kernel_matmul.cpp:90]   --->   Operation 8 'call' 'call_ln90' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+ST_1 : Operation 9 [2/2] (0.00ns)   --->   "%call_ln91 = call void @load_mat2, i32 %gmem3, i64 %i_mat_read, i32 %matrix_stream" [kernel_matmul.cpp:91]   --->   Operation 9 'call' 'call_ln91' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+
+State 2 <SV = 1> <Delay = 1.28>
+ST_2 : Operation 10 [1/2] (1.28ns)   --->   "%call_ln90 = call void @load_vec.41, i32 %i_vec_0, i32 %i_vec_1, i32 %i_vec_2, i32 %i_vec_3, i32 %vector_stream" [kernel_matmul.cpp:90]   --->   Operation 10 'call' 'call_ln90' <Predicate = true> <Delay = 1.28> <CoreType = "Generic">   --->   Generic Core
+ST_2 : Operation 11 [1/2] (0.00ns)   --->   "%call_ln91 = call void @load_mat2, i32 %gmem3, i64 %i_mat_read, i32 %matrix_stream" [kernel_matmul.cpp:91]   --->   Operation 11 'call' 'call_ln91' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+
+State 3 <SV = 2> <Delay = 0.00>
+ST_3 : Operation 12 [2/2] (0.00ns)   --->   "%call_ln92 = call void @compute_matmul3, i32 %compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_3, i32 %compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_2, i32 %compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_1, i32 %compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local, i32 %vector_stream, i32 %result_stream, i32 %matrix_stream" [kernel_matmul.cpp:92]   --->   Operation 12 'call' 'call_ln92' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+
+State 4 <SV = 3> <Delay = 0.00>
+ST_4 : Operation 13 [1/2] (0.00ns)   --->   "%call_ln92 = call void @compute_matmul3, i32 %compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_3, i32 %compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_2, i32 %compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_1, i32 %compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local, i32 %vector_stream, i32 %result_stream, i32 %matrix_stream" [kernel_matmul.cpp:92]   --->   Operation 13 'call' 'call_ln92' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+
+State 5 <SV = 4> <Delay = 0.00>
+ST_5 : Operation 14 [2/2] (0.00ns)   --->   "%call_ln93 = call void @store_result.54, i32 %o_vec_0, i32 %o_vec_1, i32 %o_vec_2, i32 %o_vec_3, i32 %result_stream" [kernel_matmul.cpp:93]   --->   Operation 14 'call' 'call_ln93' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+
+State 6 <SV = 5> <Delay = 1.28>
+ST_6 : Operation 15 [1/1] (0.00ns)   --->   "%specpipodepth_ln0 = specpipodepth void @_ssdm_op_SpecPipoDepth, i32 %compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local, i32 1, void @p_str"   --->   Operation 15 'specpipodepth' 'specpipodepth_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 16 [1/1] (0.00ns)   --->   "%specpipodepth_ln0 = specpipodepth void @_ssdm_op_SpecPipoDepth, i32 %compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_1, i32 1, void @p_str"   --->   Operation 16 'specpipodepth' 'specpipodepth_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 17 [1/1] (0.00ns)   --->   "%specpipodepth_ln0 = specpipodepth void @_ssdm_op_SpecPipoDepth, i32 %compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_2, i32 1, void @p_str"   --->   Operation 17 'specpipodepth' 'specpipodepth_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 18 [1/1] (0.00ns)   --->   "%specpipodepth_ln0 = specpipodepth void @_ssdm_op_SpecPipoDepth, i32 %compute_matmul_stream_stream_float_0_stream_float_0_int_int_vec_local_3, i32 1, void @p_str"   --->   Operation 18 'specpipodepth' 'specpipodepth_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 19 [1/1] (0.00ns)   --->   "%specstablecontent_ln71 = specstablecontent void @_ssdm_op_SpecStableContent, i64 %i_mat, i1 1, void @p_str" [kernel_matmul.cpp:71]   --->   Operation 19 'specstablecontent' 'specstablecontent_ln71' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 20 [1/1] (0.00ns)   --->   "%specstablecontent_ln71 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %gmem3, i1 1, void @p_str" [kernel_matmul.cpp:71]   --->   Operation 20 'specstablecontent' 'specstablecontent_ln71' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 21 [1/1] (0.00ns)   --->   "%specstablecontent_ln71 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_3, i1 1, void @p_str" [kernel_matmul.cpp:71]   --->   Operation 21 'specstablecontent' 'specstablecontent_ln71' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 22 [1/1] (0.00ns)   --->   "%specstablecontent_ln71 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_2, i1 1, void @p_str" [kernel_matmul.cpp:71]   --->   Operation 22 'specstablecontent' 'specstablecontent_ln71' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 23 [1/1] (0.00ns)   --->   "%specstablecontent_ln71 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_1, i1 1, void @p_str" [kernel_matmul.cpp:71]   --->   Operation 23 'specstablecontent' 'specstablecontent_ln71' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 24 [1/1] (0.00ns)   --->   "%specstablecontent_ln71 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %i_vec_0, i1 1, void @p_str" [kernel_matmul.cpp:71]   --->   Operation 24 'specstablecontent' 'specstablecontent_ln71' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 25 [1/1] (0.00ns)   --->   "%specdataflowpipeline_ln71 = specdataflowpipeline void @_ssdm_op_SpecDataflowPipeline, i32 4294967295, i32 0, void @empty_48" [kernel_matmul.cpp:71]   --->   Operation 25 'specdataflowpipeline' 'specdataflowpipeline_ln71' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 26 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %gmem3, void @empty_49, i32 0, i32 0, void @empty_48, i32 0, i32 0, void @empty_19, void @empty_14, void @empty_48, i32 16, i32 16, i32 16, i32 16, void @empty_48, void @empty_48, i32 4294967295, i32 0, i32 0"   --->   Operation 26 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 27 [1/2] (1.28ns)   --->   "%call_ln93 = call void @store_result.54, i32 %o_vec_0, i32 %o_vec_1, i32 %o_vec_2, i32 %o_vec_3, i32 %result_stream" [kernel_matmul.cpp:93]   --->   Operation 27 'call' 'call_ln93' <Predicate = true> <Delay = 1.28> <CoreType = "Generic">   --->   Generic Core
+ST_6 : Operation 28 [1/1] (0.00ns)   --->   "%ret_ln94 = ret" [kernel_matmul.cpp:94]   --->   Operation 28 'ret' 'ret_ln94' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 4.000ns, clock uncertainty: 1.080ns.
+
+ <State 1>: 0.000ns
+The critical path consists of the following:
+
+ <State 2>: 1.284ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln90', kernel_matmul.cpp:90) to 'load_vec.41' [31]  (1.284 ns)
+
+ <State 3>: 0.000ns
+The critical path consists of the following:
+
+ <State 4>: 0.000ns
+The critical path consists of the following:
+
+ <State 5>: 0.000ns
+The critical path consists of the following:
+
+ <State 6>: 1.284ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln93', kernel_matmul.cpp:93) to 'store_result.54' [34]  (1.284 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

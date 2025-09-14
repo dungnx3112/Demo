@@ -1,0 +1,4 @@
+  **** HLS Build v2025.1 6135595
+ERROR: HLS Tcl script does not exist: C:/Academic_Sem5/DA1/Demo/llama2_synthesis.tcl
+INFO: [HLS 200-112] Total CPU user time: 1 seconds. Total CPU system time: 1 seconds. Total elapsed time: 0.644 seconds; peak allocated memory: 32.211 MB.
+INFO: [vitis-run 60-1662] Stopping dispatch session having empty uuid.

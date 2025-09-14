@@ -1,0 +1,57 @@
+  **** HLS Build v2025.1 6135595
+Sourcing Tcl script 'C:/Academic_Sem5/DA1/Demo/./llama_synthesis.tcl'
+INFO: [HLS 200-1510] Running: open_project llama_hls -reset 
+WARNING: [HLS 200-2182] The 'llama_hls' project will not automatically appear within Vitis IDE workspaces and is meant only for TCL batch use.  Please use open_component instead of open_project/open_solution to generate Vitis IDE compatible component files and directory structure.
+Resolution: For help on HLS 200-2182 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-2182.html
+INFO: [HLS 200-10] Creating and opening solution 'C:/Academic_Sem5/DA1/Demo/llama_hls'.
+INFO: [HLS 200-1510] Running: set_top llama_inference_hls_top 
+INFO: [HLS 200-1510] Running: add_files llama_hls_top.cpp 
+INFO: [HLS 200-10] Adding design file 'llama_hls_top.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files llama_hls_top.hpp 
+INFO: [HLS 200-10] Adding design file 'llama_hls_top.hpp' to the project
+INFO: [HLS 200-1510] Running: add_files tensor.hpp 
+INFO: [HLS 200-10] Adding design file 'tensor.hpp' to the project
+INFO: [HLS 200-1510] Running: add_files tensor_fpga.cpp 
+INFO: [HLS 200-10] Adding design file 'tensor_fpga.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files tensor_fpga.hpp 
+INFO: [HLS 200-10] Adding design file 'tensor_fpga.hpp' to the project
+INFO: [HLS 200-1510] Running: add_files kernel_matmul.cpp 
+INFO: [HLS 200-10] Adding design file 'kernel_matmul.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files kernel_rmsnorm.cpp 
+INFO: [HLS 200-10] Adding design file 'kernel_rmsnorm.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files kernel_rope.cpp 
+INFO: [HLS 200-10] Adding design file 'kernel_rope.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files kernel_softmax.cpp 
+INFO: [HLS 200-10] Adding design file 'kernel_softmax.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files kernel_silu.cpp 
+INFO: [HLS 200-10] Adding design file 'kernel_silu.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb testbench_hls.cpp 
+INFO: [HLS 200-10] Adding test bench file 'testbench_hls.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -reset -flow_target vivado 
+INFO: [HLS 200-10] Creating and opening solution 'C:/Academic_Sem5/DA1/Demo/llama_hls/solution1'.
+INFO: [HLS 200-10] Cleaning up the solution database.
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xcv80-lsva4737-2MHP-e-S 
+WARNING: [HLS 200-655] The device family 'versalhbm-2MHP' is new to HLS - using 'versalaicore-2HP' characterization library
+INFO: [HLS 200-1611] Setting target device to 'xcv80-lsva4737-2MHP-e-S'
+INFO: [HLS 200-1510] Running: create_clock -period 4.0 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 4ns.
+INFO: [HLS 200-1510] Running: config_compile -name_max_length 80 
+INFO: [XFORM 203-1161] The maximum of name length is set to 80.
+INFO: [HLS 200-1510] Running: config_schedule -effort medium 
+WARNING: [HLS 200-484] The 'config_schedule -effort' command is deprecated and will be removed in a future release.
+ERROR: [HLS 200-101] config_bind: Unknown option '-effort'.
+ERROR: [HLS 200-101] config_bind: Unknown option 'medium'.
+
+    invoked from within
+"config_bind -effort medium"
+    (file "C:/Academic_Sem5/DA1/Demo/./llama_synthesis.tcl" line 28)
+    invoked from within
+"source C:/Academic_Sem5/DA1/Demo/./llama_synthesis.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel \#0 [list source $tclfile] "
+
+INFO: [HLS 200-112] Total CPU user time: 3 seconds. Total CPU system time: 2 seconds. Total elapsed time: 8.147 seconds; peak allocated memory: 522.871 MB.
+INFO: [vitis-run 60-1662] Stopping dispatch session having empty uuid.
